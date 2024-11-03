@@ -6,20 +6,22 @@
 
 #IncludeRegexTransform: 
 
-/home/lrs-ubuntu/LRS_workspace/src/template_drone_control/src/template_drone_control_node.cpp
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp
 rclcpp/rclcpp.hpp
-/home/lrs-ubuntu/LRS_workspace/src/template_drone_control/src/rclcpp/rclcpp.hpp
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/rclcpp/rclcpp.hpp
 mavros_msgs/msg/state.hpp
-/home/lrs-ubuntu/LRS_workspace/src/template_drone_control/src/mavros_msgs/msg/state.hpp
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/mavros_msgs/msg/state.hpp
 mavros_msgs/srv/set_mode.hpp
-/home/lrs-ubuntu/LRS_workspace/src/template_drone_control/src/mavros_msgs/srv/set_mode.hpp
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/mavros_msgs/srv/set_mode.hpp
 mavros_msgs/srv/command_bool.hpp
-/home/lrs-ubuntu/LRS_workspace/src/template_drone_control/src/mavros_msgs/srv/command_bool.hpp
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/mavros_msgs/srv/command_bool.hpp
 mavros_msgs/srv/command_tol.hpp
-/home/lrs-ubuntu/LRS_workspace/src/template_drone_control/src/mavros_msgs/srv/command_tol.hpp
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/mavros_msgs/srv/command_tol.hpp
 geometry_msgs/msg/pose_stamped.hpp
-/home/lrs-ubuntu/LRS_workspace/src/template_drone_control/src/geometry_msgs/msg/pose_stamped.hpp
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/geometry_msgs/msg/pose_stamped.hpp
 chrono
+-
+cmath
 -
 
 /opt/ros/foxy/include/builtin_interfaces/msg/detail/duration__builder.hpp

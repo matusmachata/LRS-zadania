@@ -1,1 +1,1 @@
-prepend-non-duplicate-if-exists;PATH;bin
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/ament_cmake_environment_hooks/path.dsv

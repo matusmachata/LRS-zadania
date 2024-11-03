@@ -5,6 +5,7 @@
 #include "mavros_msgs/srv/command_tol.hpp"
 #include "geometry_msgs/msg/pose_stamped.hpp"
 #include <chrono>
+#include <cmath>
 
 using namespace std::chrono_literals;
 
@@ -45,8 +46,48 @@ public:
         // Takeoff
         takeoff(2.0, 90.0);
 
+        std::this_thread::sleep_for(9000ms);
+
         RCLCPP_INFO(this->get_logger(), "Sending position command");
         // TODO: Implement position controller and mission commands here
+        move(-5,0,2,"soft");
+    }
+
+    void move(double x, double y, double z, const std::string& finish_type)
+    {
+        // Desired position
+        geometry_msgs::msg::PoseStamped target_pose;
+        target_pose.pose.position.x = x;
+        target_pose.pose.position.y = y;
+        target_pose.pose.position.z = z;
+
+        double tolerance = (finish_type == "hard") ? 0.2 : 0.5;
+
+        rclcpp::Rate rate(10); // Publish at 10 Hz
+        while (rclcpp::ok())
+        {
+            // Publish the target position
+            local_pos_pub_->publish(target_pose);
+
+            // Get the current position
+            auto current_pos = current_position_; // Assume current_position_ is updated in local_pos_cb
+
+            // Calculate distance to target
+            double dx = current_pos.pose.position.x - x;
+            double dy = current_pos.pose.position.y - y;
+            double dz = current_pos.pose.position.z - z;
+            double distance = std::sqrt(dx * dx + dy * dy + dz * dz);
+
+            // Check if the drone is within tolerance of the target
+            if (distance <= tolerance)
+            {
+                RCLCPP_INFO(this->get_logger(), "Reached target position with %s finish", finish_type.c_str());
+                break;
+            }
+
+            rclcpp::spin_some(this->get_node_base_interface());
+            rate.sleep();
+        }
     }
 
 private:
@@ -140,9 +181,9 @@ private:
     }
 
     // Callback for local position updates
-    void local_pos_cb(const geometry_msgs::msg::PoseStamped::SharedPtr /*msg*/)
+    void local_pos_cb(const geometry_msgs::msg::PoseStamped::SharedPtr msg)
     {
-        // Placeholder for processing position updates if needed
+        current_position_ = *msg;
     }
 
     // ROS2 subscribers, publishers, and clients
@@ -152,7 +193,9 @@ private:
     rclcpp::Client<mavros_msgs::srv::CommandBool>::SharedPtr arming_client_;
     rclcpp::Client<mavros_msgs::srv::SetMode>::SharedPtr set_mode_client_;
     rclcpp::Client<mavros_msgs::srv::CommandTOL>::SharedPtr takeoff_client_;
+    
     mavros_msgs::msg::State current_state_;
+    geometry_msgs::msg::PoseStamped current_position_;
 };
 
 // Main function
@@ -164,4 +207,3 @@ int main(int argc, char **argv)
     rclcpp::shutdown();
     return 0;
 }
-

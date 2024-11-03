@@ -1,0 +1,6 @@
+[0.008s] Invoking command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16
+[0.012s] CMake Error: The current CMakeCache.txt directory /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeCache.txt is different than the directory /home/lrs-ubuntu/LRS_workspace/build/template_drone_control where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt
+[0.022s] CMake Error: The source directory "/home/lrs-ubuntu/LRS_workspace/src/template_drone_control" does not exist.
+[0.022s] Specify --help for usage, or press the help button on the CMake GUI.
+[0.022s] make: *** [Makefile:266: cmake_check_build_system] Error 1
+[0.024s] Invoked command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16

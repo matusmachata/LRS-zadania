@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lrs-ubuntu/LRS_workspace/src/template_drone_control
+CMAKE_SOURCE_DIR = /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lrs-ubuntu/LRS_workspace/build/template_drone_control
+CMAKE_BINARY_DIR = /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control
 
 # Include any dependencies generated for this target.
 include CMakeFiles/template_drone_control_node.dir/depend.make
@@ -58,17 +58,17 @@ include CMakeFiles/template_drone_control_node.dir/progress.make
 include CMakeFiles/template_drone_control_node.dir/flags.make
 
 CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o: CMakeFiles/template_drone_control_node.dir/flags.make
-CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o: /home/lrs-ubuntu/LRS_workspace/src/template_drone_control/src/template_drone_control_node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lrs-ubuntu/LRS_workspace/build/template_drone_control/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o"
-	/usr/lib/ccache/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o -c /home/lrs-ubuntu/LRS_workspace/src/template_drone_control/src/template_drone_control_node.cpp
+CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o: /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o"
+	/usr/lib/ccache/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o -c /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp
 
 CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.i"
-	/usr/lib/ccache/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lrs-ubuntu/LRS_workspace/src/template_drone_control/src/template_drone_control_node.cpp > CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.i
+	/usr/lib/ccache/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp > CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.i
 
 CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.s"
-	/usr/lib/ccache/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lrs-ubuntu/LRS_workspace/src/template_drone_control/src/template_drone_control_node.cpp -o CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.s
+	/usr/lib/ccache/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp -o CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.s
 
 # Object files for target template_drone_control_node
 template_drone_control_node_OBJECTS = \
@@ -152,7 +152,7 @@ template_drone_control_node: /opt/ros/foxy/lib/librcpputils.so
 template_drone_control_node: /opt/ros/foxy/lib/librosidl_runtime_c.so
 template_drone_control_node: /opt/ros/foxy/lib/librcutils.so
 template_drone_control_node: CMakeFiles/template_drone_control_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lrs-ubuntu/LRS_workspace/build/template_drone_control/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable template_drone_control_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable template_drone_control_node"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/template_drone_control_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -165,6 +165,6 @@ CMakeFiles/template_drone_control_node.dir/clean:
 .PHONY : CMakeFiles/template_drone_control_node.dir/clean
 
 CMakeFiles/template_drone_control_node.dir/depend:
-	cd /home/lrs-ubuntu/LRS_workspace/build/template_drone_control && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lrs-ubuntu/LRS_workspace/src/template_drone_control /home/lrs-ubuntu/LRS_workspace/src/template_drone_control /home/lrs-ubuntu/LRS_workspace/build/template_drone_control /home/lrs-ubuntu/LRS_workspace/build/template_drone_control /home/lrs-ubuntu/LRS_workspace/build/template_drone_control/CMakeFiles/template_drone_control_node.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeFiles/template_drone_control_node.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/template_drone_control_node.dir/depend
 

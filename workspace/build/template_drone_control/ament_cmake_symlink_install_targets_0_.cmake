@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/template_drone_control_node" "TARGETS" "template_drone_control_node" "DESTINATION" "lib/template_drone_control")

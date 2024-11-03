@@ -1,0 +1,4 @@
+CMake Error: The current CMakeCache.txt directory /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeCache.txt is different than the directory /home/lrs-ubuntu/LRS_workspace/build/template_drone_control where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt
+CMake Error: The source directory "/home/lrs-ubuntu/LRS_workspace/src/template_drone_control" does not exist.
+Specify --help for usage, or press the help button on the CMake GUI.
+make: *** [Makefile:266: cmake_check_build_system] Error 1

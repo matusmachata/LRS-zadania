@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lrs-ubuntu/LRS_workspace/src/template_drone_control
+CMAKE_SOURCE_DIR = /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lrs-ubuntu/LRS_workspace/build/template_drone_control
+CMAKE_BINARY_DIR = /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control
 
 # Utility rule file for template_drone_control_uninstall.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/lrs-ubuntu/LRS_workspace/build/template_drone_control
 include CMakeFiles/template_drone_control_uninstall.dir/progress.make
 
 CMakeFiles/template_drone_control_uninstall:
-	/usr/bin/cmake -P /home/lrs-ubuntu/LRS_workspace/build/template_drone_control/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
+	/usr/bin/cmake -P /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
 
 template_drone_control_uninstall: CMakeFiles/template_drone_control_uninstall
 template_drone_control_uninstall: CMakeFiles/template_drone_control_uninstall.dir/build.make
@@ -71,6 +71,6 @@ CMakeFiles/template_drone_control_uninstall.dir/clean:
 .PHONY : CMakeFiles/template_drone_control_uninstall.dir/clean
 
 CMakeFiles/template_drone_control_uninstall.dir/depend:
-	cd /home/lrs-ubuntu/LRS_workspace/build/template_drone_control && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lrs-ubuntu/LRS_workspace/src/template_drone_control /home/lrs-ubuntu/LRS_workspace/src/template_drone_control /home/lrs-ubuntu/LRS_workspace/build/template_drone_control /home/lrs-ubuntu/LRS_workspace/build/template_drone_control /home/lrs-ubuntu/LRS_workspace/build/template_drone_control/CMakeFiles/template_drone_control_uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeFiles/template_drone_control_uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/template_drone_control_uninstall.dir/depend
 
