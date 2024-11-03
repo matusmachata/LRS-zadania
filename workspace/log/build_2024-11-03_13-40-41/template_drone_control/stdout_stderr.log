@@ -1,0 +1,38 @@
+[35m[1mScanning dependencies of target template_drone_control_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o[0m
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In constructor ‘TemplateDroneControl::TemplateDroneControl()’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:55:9: error: ‘string’ was not declared in this scope; did you mean ‘std::string’?
+   55 |         string x_str = std::to_string(target_transformed.x);
+      |         ^~~~~~
+      |         std::string
+In file included from /usr/include/c++/9/iosfwd:39,
+                 from /usr/include/c++/9/memory:72,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+/usr/include/c++/9/bits/stringfwd.h:79:33: note: ‘std::string’ declared here
+   79 |   typedef basic_string<char>    string;
+      |                                 ^~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:56:15: error: expected ‘;’ before ‘y_str’
+   56 |         string y_str = std::to_string(target_transformed.y);
+      |               ^~~~~~
+      |               ;
+In file included from /opt/ros/foxy/include/rclcpp/client.hpp:40,
+                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:57:41: error: ‘x_str’ was not declared in this scope
+   57 |         RCLCPP_INFO(this->get_logger(), x_str);
+      |                                         ^~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:58:41: error: ‘y_str’ was not declared in this scope
+   58 |         RCLCPP_INFO(this->get_logger(), y_str);
+      |                                         ^~~~~
+make[2]: *** [CMakeFiles/template_drone_control_node.dir/build.make:63: CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:105: CMakeFiles/template_drone_control_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

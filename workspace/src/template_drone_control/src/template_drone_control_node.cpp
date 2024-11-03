@@ -48,9 +48,40 @@ public:
 
         std::this_thread::sleep_for(9000ms);
 
+        Point2D target = {3.0,0};
+        Point2D target_transformed = transformPoint(target);
         RCLCPP_INFO(this->get_logger(), "Sending position command");
         // TODO: Implement position controller and mission commands here
-        move(-5,0,2,"soft");
+        std::string x_str = std::to_string(target_transformed.x);
+        std::string y_str = std::to_string(target_transformed.y);
+        RCLCPP_INFO(this->get_logger(), x_str);
+        RCLCPP_INFO(this->get_logger(), y_str);
+
+        move(-2,-2,2,"soft");
+    }
+
+    struct Point2D {
+    double x;
+    double y;
+    };
+
+    Point2D transformPoint(const Point2D& point) {
+
+    double newX = -point.y;
+    double newY = -point.x;
+
+    // double rotatedX = point.y;
+    // double rotatedY = -point.x;
+
+    // double flippedX = rotatedX;
+    // double flippedY = -rotatedY;
+
+
+    Point2D transformedPoint;
+    transformedPoint.x = newX + 13;
+    transformedPoint.y = newY + 1;
+
+    return transformedPoint;
     }
 
     void move(double x, double y, double z, const std::string& finish_type)
