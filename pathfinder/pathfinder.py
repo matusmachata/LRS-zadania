@@ -104,6 +104,22 @@ def reconstruct_path(came_from, current):
         total_path.append(current)
     return total_path[::-1]  # Reverse the path
 
+def save_map_as_pgm(file_path, pgm_map, path):
+    """Saves the PGM map with the path marked as PGM."""
+    output_map = pgm_map.copy()
+
+    # Mark the path on the map with black (0)
+    for (y, x) in path:
+        output_map[y, x] = 0  # Mark path as black
+
+    # Save as PGM
+    height, width = output_map.shape
+    with open(file_path, 'wb') as f:
+        f.write(b'P5\n')
+        f.write(f"{width} {height}\n".encode())
+        f.write(b'255\n')
+        f.write(output_map.tobytes())
+
 def parse_waypoints(file_path):
     """Loads waypoints from a file and converts meters to pixels."""
     waypoints = []
