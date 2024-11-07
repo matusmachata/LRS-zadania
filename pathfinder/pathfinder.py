@@ -136,18 +136,20 @@ def convert_path_to_meters(path):
     meter_path = [(x / 20.0, y / 20.0) for y, x in path]  # Convert to (x, y) in meters
     return meter_path
 
-def save_path_as_txt(file_path, meter_path):
-    """Saves the path in meter coordinates to a .txt file."""
+def save_path_as_txt(file_path, meter_paths):
+    """Saves each path in meter coordinates to a .txt file with an empty line after each path."""
     with open(file_path, 'w') as f:
-        for x, y in meter_path:
-            f.write(f"{x:.2f},{y:.2f}\n")
-
+        for path in meter_paths:
+            for x, y in path:
+                f.write(f"{x:.2f},{y:.2f}\n")
+            f.write("\n")  # Add an empty line after each path
 
 def main(pgm_file, waypoints_file, output_file):
     pgm_map, offset = load_pgm_map(pgm_file)
     waypoints = parse_waypoints(waypoints_file)
     adjusted_waypoints = adjust_waypoints(waypoints, offset)
 
+    all_meter_paths = []
     full_path = []
     for i in range(len(adjusted_waypoints) - 1):
         start = adjusted_waypoints[i]
@@ -157,14 +159,16 @@ def main(pgm_file, waypoints_file, output_file):
         if path:
             full_path.extend(path)
             print(f"Path found between points {waypoints[i]} and {waypoints[i + 1]}: {path}")
+            meter_path = convert_path_to_meters(path)
+            all_meter_paths.append(meter_path)  # Save each path separately
         else:
             print(f"No path exists between points {waypoints[i]} and {waypoints[i + 1]}!")
 
     # Save the path to the output PGM file
     save_map_as_pgm(output_file, pgm_map, full_path)
     
-    meter_path = convert_path_to_meters(full_path)
-    save_path_as_txt(path_txt_file, meter_path)
+    # Save all paths with empty lines between them
+    save_path_as_txt(path_txt_file, all_meter_paths)
 
 if __name__ == "__main__":
     pgm_file = 'map.pgm'  # Input PGM file path
@@ -172,4 +176,5 @@ if __name__ == "__main__":
     output_file = 'output.pgm'  # Output PGM file path
     path_txt_file = 'path.txt'
     main(pgm_file, waypoints_file, output_file)
+
 

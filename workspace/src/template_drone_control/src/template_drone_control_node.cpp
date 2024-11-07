@@ -6,6 +6,10 @@
 #include "geometry_msgs/msg/pose_stamped.hpp"
 #include <chrono>
 #include <cmath>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <string>
 
 using namespace std::chrono_literals;
 
@@ -48,77 +52,81 @@ public:
 
         std::this_thread::sleep_for(9000ms);
 
-        Point2D target = {3.0,0};
-        Point2D target_transformed = transformPoint(target);
-        RCLCPP_INFO(this->get_logger(), "Sending position command");
-        // TODO: Implement position controller and mission commands here
-        std::string x_str = std::to_string(target_transformed.x);
-        std::string y_str = std::to_string(target_transformed.y);
-        RCLCPP_INFO(this->get_logger(), x_str);
-        RCLCPP_INFO(this->get_logger(), y_str);
-
-        move(-2,-2,2,"soft");
+        // Example waypoints file
+        std::string waypoints_file = "waypoints.txt";
+        move(waypoints_file, 2.0, "soft");
     }
 
     struct Point2D {
-    double x;
-    double y;
+        double x;
+        double y;
     };
 
-    Point2D transformPoint(const Point2D& point) {
+    // Method to read waypoints from file
+    std::vector<std::vector<Point2D>> readWaypoints(const std::string& filename) {
+        std::ifstream file(filename);
+        std::vector<std::vector<Point2D>> waypoints;
+        std::vector<Point2D> current_path;
+        std::string line;
 
-    double newX = -point.y;
-    double newY = -point.x;
-
-    // double rotatedX = point.y;
-    // double rotatedY = -point.x;
-
-    // double flippedX = rotatedX;
-    // double flippedY = -rotatedY;
-
-
-    Point2D transformedPoint;
-    transformedPoint.x = newX + 13;
-    transformedPoint.y = newY + 1;
-
-    return transformedPoint;
+        while (std::getline(file, line)) {
+            if (line.empty()) {
+                if (!current_path.empty()) {
+                    waypoints.push_back(current_path);
+                    current_path.clear();
+                }
+            } else {
+                std::istringstream ss(line);
+                Point2D point;
+                char comma;
+                ss >> point.x >> comma >> point.y;
+                current_path.push_back(point);
+            }
+        }
+        if (!current_path.empty()) {
+            waypoints.push_back(current_path);
+        }
+        return waypoints;
     }
 
-    void move(double x, double y, double z, const std::string& finish_type)
-    {
-        // Desired position
-        geometry_msgs::msg::PoseStamped target_pose;
-        target_pose.pose.position.x = x;
-        target_pose.pose.position.y = y;
-        target_pose.pose.position.z = z;
-
+    // Move function to process waypoints
+    void move(const std::string& filename, double z, const std::string& finish_type) {
+        auto waypoints = readWaypoints(filename);
         double tolerance = (finish_type == "hard") ? 0.2 : 0.5;
 
-        rclcpp::Rate rate(10); // Publish at 10 Hz
-        while (rclcpp::ok())
-        {
-            // Publish the target position
-            local_pos_pub_->publish(target_pose);
+        for (const auto& path : waypoints) {
+            for (const auto& waypoint : path) {
+                geometry_msgs::msg::PoseStamped target_pose;
+                target_pose.pose.position.x = waypoint.x;
+                target_pose.pose.position.y = waypoint.y;
+                target_pose.pose.position.z = z;
 
-            // Get the current position
-            auto current_pos = current_position_; // Assume current_position_ is updated in local_pos_cb
+                rclcpp::Rate rate(10); // Publish at 10 Hz
+                while (rclcpp::ok()) {
+                    local_pos_pub_->publish(target_pose);
 
-            // Calculate distance to target
-            double dx = current_pos.pose.position.x - x;
-            double dy = current_pos.pose.position.y - y;
-            double dz = current_pos.pose.position.z - z;
-            double distance = std::sqrt(dx * dx + dy * dy + dz * dz);
+                    // Get the current position
+                    auto current_pos = current_position_; // Assume current_position_ is updated in local_pos_cb
 
-            // Check if the drone is within tolerance of the target
-            if (distance <= tolerance)
-            {
-                RCLCPP_INFO(this->get_logger(), "Reached target position with %s finish", finish_type.c_str());
-                break;
+                    // Calculate distance to target
+                    double dx = current_pos.pose.position.x - waypoint.x;
+                    double dy = current_pos.pose.position.y - waypoint.y;
+                    double dz = current_pos.pose.position.z - z;
+                    double distance = std::sqrt(dx * dx + dy * dy + dz * dz);
+
+                    // Check if the drone is within tolerance of the target
+                    if (distance <= tolerance) {
+                        RCLCPP_INFO(this->get_logger(), "Reached waypoint (%.2f, %.2f) with %s finish", waypoint.x, waypoint.y, finish_type.c_str());
+                        break;
+                    }
+
+                    rclcpp::spin_some(this->get_node_base_interface());
+                    rate.sleep();
+                }
             }
-
-            rclcpp::spin_some(this->get_node_base_interface());
-            rate.sleep();
+            RCLCPP_INFO(this->get_logger(), "Reached end of current path segment.");
         }
+        RCLCPP_INFO(this->get_logger(), "All waypoints reached.");
     }
 
 private:
@@ -224,17 +232,14 @@ private:
     rclcpp::Client<mavros_msgs::srv::CommandBool>::SharedPtr arming_client_;
     rclcpp::Client<mavros_msgs::srv::SetMode>::SharedPtr set_mode_client_;
     rclcpp::Client<mavros_msgs::srv::CommandTOL>::SharedPtr takeoff_client_;
-    
     mavros_msgs::msg::State current_state_;
     geometry_msgs::msg::PoseStamped current_position_;
 };
 
-// Main function
 int main(int argc, char **argv)
 {
     rclcpp::init(argc, argv);
-    auto node = std::make_shared<TemplateDroneControl>();
-    rclcpp::spin(node);
+    rclcpp::spin(std::make_shared<TemplateDroneControl>());
     rclcpp::shutdown();
     return 0;
 }
