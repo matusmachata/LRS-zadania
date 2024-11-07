@@ -104,6 +104,16 @@ def reconstruct_path(came_from, current):
         total_path.append(current)
     return total_path[::-1]  # Reverse the path
 
+def parse_waypoints(file_path):
+    """Loads waypoints from a file and converts meters to pixels."""
+    waypoints = []
+    with open(file_path, 'r') as f:
+        for line in f:
+            parts = line.strip().split(',')
+            x, y = int(float(parts[0]) * 20), int(float(parts[1]) * 20)  # Convert to pixels (1 m = 20 px)
+            waypoints.append((y, x))  # Switch x and y
+    return waypoints
+
 def save_map_as_pgm(file_path, pgm_map, path):
     """Saves the PGM map with the path marked as PGM."""
     output_map = pgm_map.copy()
@@ -120,15 +130,18 @@ def save_map_as_pgm(file_path, pgm_map, path):
         f.write(b'255\n')
         f.write(output_map.tobytes())
 
-def parse_waypoints(file_path):
-    """Loads waypoints from a file and converts meters to pixels."""
-    waypoints = []
-    with open(file_path, 'r') as f:
-        for line in f:
-            parts = line.strip().split(',')
-            x, y = int(float(parts[0]) * 20), int(float(parts[1]) * 20)  # Convert to pixels (1 m = 20 px)
-            waypoints.append((y, x))  # Switch x and y
-    return waypoints
+
+def convert_path_to_meters(path):
+    """Converts the path coordinates from pixels back to meters."""
+    meter_path = [(x / 20.0, y / 20.0) for y, x in path]  # Convert to (x, y) in meters
+    return meter_path
+
+def save_path_as_txt(file_path, meter_path):
+    """Saves the path in meter coordinates to a .txt file."""
+    with open(file_path, 'w') as f:
+        for x, y in meter_path:
+            f.write(f"{x:.2f},{y:.2f}\n")
+
 
 def main(pgm_file, waypoints_file, output_file):
     pgm_map, offset = load_pgm_map(pgm_file)
@@ -149,10 +162,14 @@ def main(pgm_file, waypoints_file, output_file):
 
     # Save the path to the output PGM file
     save_map_as_pgm(output_file, pgm_map, full_path)
+    
+    meter_path = convert_path_to_meters(full_path)
+    save_path_as_txt(path_txt_file, meter_path)
 
 if __name__ == "__main__":
     pgm_file = 'map.pgm'  # Input PGM file path
     waypoints_file = 'waypoints.csv'  # CSV file with waypoints
     output_file = 'output.pgm'  # Output PGM file path
+    path_txt_file = 'path.txt'
     main(pgm_file, waypoints_file, output_file)
 
