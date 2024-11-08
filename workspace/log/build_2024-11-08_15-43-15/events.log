@@ -1,0 +1,60 @@
+[0.000000] (-) TimerEvent: {}
+[0.000159] (template_drone_control) JobQueued: {'identifier': 'template_drone_control', 'dependencies': OrderedDict()}
+[0.000302] (template_drone_control) JobStarted: {'identifier': 'template_drone_control'}
+[0.004940] (template_drone_control) JobProgress: {'identifier': 'template_drone_control', 'progress': 'cmake'}
+[0.005357] (template_drone_control) JobProgress: {'identifier': 'template_drone_control', 'progress': 'build'}
+[0.005811] (template_drone_control) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control', '--', '-j16', '-l16'], 'cwd': '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'lrs-ubuntu'), ('LC_TIME', 'sk_SK.UTF-8'), ('SSH_AGENT_PID', '1896'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/lrs-ubuntu'), ('OLDPWD', '/home/lrs-ubuntu'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'sk_SK.UTF-8'), ('MANAGERPID', '1711'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '4389'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'lrs-ubuntu'), ('JOURNAL_STREAM', '8:47701'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'lrs-ubuntu'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', '/home/lrs-ubuntu/fei_lrs_gazebo/models:'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/lib/ccache:/home/lrs-ubuntu/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/lrs-ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/lrs:@/tmp/.ICE-unix/1933,unix/lrs:/tmp/.ICE-unix/1933'), ('INVOCATION_ID', 'a37dd44c94904784ae117e87e675c761'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'sk_SK.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'sk_SK.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'sk_SK.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:d2242561-49b7-42f5-a0e8-06aad2802233'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'sk_SK.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'sk_SK.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'sk_SK.UTF-8'), ('LC_PAPER', 'sk_SK.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[0.038165] (template_drone_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target template_drone_control_node\x1b[0m\n'}
+[0.064301] (template_drone_control) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o\x1b[0m\n'}
+[0.099896] (-) TimerEvent: {}
+[0.200081] (-) TimerEvent: {}
+[0.300274] (-) TimerEvent: {}
+[0.400466] (-) TimerEvent: {}
+[0.500656] (-) TimerEvent: {}
+[0.600884] (-) TimerEvent: {}
+[0.701215] (-) TimerEvent: {}
+[0.801403] (-) TimerEvent: {}
+[0.901598] (-) TimerEvent: {}
+[1.001807] (-) TimerEvent: {}
+[1.101995] (-) TimerEvent: {}
+[1.202183] (-) TimerEvent: {}
+[1.302371] (-) TimerEvent: {}
+[1.402558] (-) TimerEvent: {}
+[1.502749] (-) TimerEvent: {}
+[1.602942] (-) TimerEvent: {}
+[1.703130] (-) TimerEvent: {}
+[1.803322] (-) TimerEvent: {}
+[1.903511] (-) TimerEvent: {}
+[2.003699] (-) TimerEvent: {}
+[2.103900] (-) TimerEvent: {}
+[2.204088] (-) TimerEvent: {}
+[2.304255] (-) TimerEvent: {}
+[2.404415] (-) TimerEvent: {}
+[2.504573] (-) TimerEvent: {}
+[2.604728] (-) TimerEvent: {}
+[2.704890] (-) TimerEvent: {}
+[2.805081] (-) TimerEvent: {}
+[2.905269] (-) TimerEvent: {}
+[2.939333] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function \xe2\x80\x98void TemplateDroneControl::move(const string&, double, const string&)\xe2\x80\x99:\n'}
+[2.939463] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:115:62: error: cannot convert \xe2\x80\x98const double\xe2\x80\x99 to \xe2\x80\x98const TemplateDroneControl::Point2D&\xe2\x80\x99\n'}
+[2.939519] (template_drone_control) StderrLine: {'line': b'  115 |                 transformedPoint.x = transformPoint(waypoint.x);\n'}
+[2.939566] (template_drone_control) StderrLine: {'line': b'      |                                                     ~~~~~~~~~^\n'}
+[2.939611] (template_drone_control) StderrLine: {'line': b'      |                                                              |\n'}
+[2.939655] (template_drone_control) StderrLine: {'line': b'      |                                                              const double\n'}
+[2.939698] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:92:43: note:   initializing argument 1 of \xe2\x80\x98TemplateDroneControl::Point2D TemplateDroneControl::transformPoint(const TemplateDroneControl::Point2D&)\xe2\x80\x99\n'}
+[2.939743] (template_drone_control) StderrLine: {'line': b'   92 |     Point2D transformPoint(const Point2D& point) {\n'}
+[2.939787] (template_drone_control) StderrLine: {'line': b'      |                            ~~~~~~~~~~~~~~~^~~~~\n'}
+[2.939844] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:116:62: error: cannot convert \xe2\x80\x98const double\xe2\x80\x99 to \xe2\x80\x98const TemplateDroneControl::Point2D&\xe2\x80\x99\n'}
+[2.939893] (template_drone_control) StderrLine: {'line': b'  116 |                 transformedPoint.y = transformPoint(waypoint.y);\n'}
+[2.939936] (template_drone_control) StderrLine: {'line': b'      |                                                     ~~~~~~~~~^\n'}
+[2.939979] (template_drone_control) StderrLine: {'line': b'      |                                                              |\n'}
+[2.940022] (template_drone_control) StderrLine: {'line': b'      |                                                              const double\n'}
+[2.940065] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:92:43: note:   initializing argument 1 of \xe2\x80\x98TemplateDroneControl::Point2D TemplateDroneControl::transformPoint(const TemplateDroneControl::Point2D&)\xe2\x80\x99\n'}
+[2.940108] (template_drone_control) StderrLine: {'line': b'   92 |     Point2D transformPoint(const Point2D& point) {\n'}
+[2.940151] (template_drone_control) StderrLine: {'line': b'      |                            ~~~~~~~~~~~~~~~^~~~~\n'}
+[2.940696] (template_drone_control) StderrLine: {'line': b'make[2]: *** [CMakeFiles/template_drone_control_node.dir/build.make:63: CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o] Error 1\n'}
+[2.940876] (template_drone_control) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:105: CMakeFiles/template_drone_control_node.dir/all] Error 2\n'}
+[2.941017] (template_drone_control) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[2.942264] (template_drone_control) CommandEnded: {'returncode': 2}
+[2.968917] (template_drone_control) JobEnded: {'identifier': 'template_drone_control', 'rc': 2}
+[2.979725] (-) EventReactorShutdown: {}

@@ -1,0 +1,22 @@
+[0.008s] Invoking command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16
+[0.037s] [35m[1mScanning dependencies of target template_drone_control_node[0m
+[0.059s] [ 50%] [32mBuilding CXX object CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o[0m
+[2.887s] In file included from /opt/ros/foxy/include/rclcpp/client.hpp:40,
+[2.887s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+[2.887s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[2.887s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[2.887s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[2.887s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[2.887s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[2.887s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[2.887s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[2.887s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[2.887s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.887s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘void TemplateDroneControl::move(const string&, double, const string&)’:
+[2.887s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:131:133: error: ‘const struct TemplateDroneControl::Point2D’ has no member named ‘pose’
+[2.887s]   131 |                     RCLCPP_INFO(this->get_logger(), "Print no 3 curr positions (%.2f, %.2f)", current_pos.pose.position.x, waypoint.pose.position.y);
+[2.887s]       |                                                                                                                                     ^~~~
+[2.887s] make[2]: *** [CMakeFiles/template_drone_control_node.dir/build.make:63: CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o] Error 1
+[2.888s] make[1]: *** [CMakeFiles/Makefile2:105: CMakeFiles/template_drone_control_node.dir/all] Error 2
+[2.888s] make: *** [Makefile:141: all] Error 2
+[2.889s] Invoked command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16

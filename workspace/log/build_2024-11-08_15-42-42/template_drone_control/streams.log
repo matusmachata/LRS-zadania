@@ -1,0 +1,34 @@
+[0.014s] Invoking command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16
+[0.114s] [35m[1mScanning dependencies of target template_drone_control_node[0m
+[0.147s] [ 50%] [32mBuilding CXX object CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o[0m
+[3.095s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘void TemplateDroneControl::move(const string&, double, const string&)’:
+[3.095s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:115:62: error: cannot convert ‘const double’ to ‘const TemplateDroneControl::Point2D&’
+[3.095s]   115 |                 transformedPoint.x = transformPoint(waypoint.x);
+[3.095s]       |                                                     ~~~~~~~~~^
+[3.095s]       |                                                              |
+[3.095s]       |                                                              const double
+[3.095s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:92:43: note:   initializing argument 1 of ‘TemplateDroneControl::Point2D TemplateDroneControl::transformPoint(const TemplateDroneControl::Point2D&)’
+[3.095s]    92 |     Point2D transformPoint(const Point2D& point) {
+[3.095s]       |                            ~~~~~~~~~~~~~~~^~~~~
+[3.095s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:116:62: error: cannot convert ‘const double’ to ‘const TemplateDroneControl::Point2D&’
+[3.095s]   116 |                 transformedPoint.y = transformPoint(waypoint.y);
+[3.095s]       |                                                     ~~~~~~~~~^
+[3.095s]       |                                                              |
+[3.096s]       |                                                              const double
+[3.096s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:92:43: note:   initializing argument 1 of ‘TemplateDroneControl::Point2D TemplateDroneControl::transformPoint(const TemplateDroneControl::Point2D&)’
+[3.096s]    92 |     Point2D transformPoint(const Point2D& point) {
+[3.096s]       |                            ~~~~~~~~~~~~~~~^~~~~
+[3.096s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:125:17: error: ‘str_x’ was not declared in this scope
+[3.096s]   125 |                 str_x = std::to_string( target_pose.pose.position.x);
+[3.096s]       |                 ^~~~~
+[3.096s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:126:17: error: ‘str_y’ was not declared in this scope; did you mean ‘strfry’?
+[3.096s]   126 |                 str_y = std::to_string( target_pose.pose.position.y);
+[3.096s]       |                 ^~~~~
+[3.096s]       |                 strfry
+[3.096s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:127:17: error: ‘str_z’ was not declared in this scope
+[3.096s]   127 |                 str_z = std::to_string( target_pose.pose.position.z);
+[3.096s]       |                 ^~~~~
+[3.096s] make[2]: *** [CMakeFiles/template_drone_control_node.dir/build.make:63: CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o] Error 1
+[3.096s] make[1]: *** [CMakeFiles/Makefile2:105: CMakeFiles/template_drone_control_node.dir/all] Error 2
+[3.096s] make: *** [Makefile:141: all] Error 2
+[3.097s] Invoked command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control' returned '2': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16
