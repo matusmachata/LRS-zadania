@@ -10,6 +10,16 @@
 #include <sstream>
 #include <vector>
 #include <string>
+#include <cstdlib>
+
+
+// TODO
+// flip map before generating path
+// add path from drone [13,1] to first waypoint
+// figure out wheere the fuck the drone going
+
+// when going to given waypoint, go with given accuracy (soft/hard pp)
+// when on given point check altitude and go up/down accordingly
 
 using namespace std::chrono_literals;
 
@@ -48,12 +58,15 @@ public:
         arm_drone();
 
         // Takeoff
-        takeoff(2.0, 90.0);
+        takeoff(2.0, 0);
 
         std::this_thread::sleep_for(9000ms);
 
         // Example waypoints file
-        std::string waypoints_file = "~/Documents/GitHub/LRS-zadania/pathfinder/path.txt";
+        std::string homeDir = std::getenv("HOME");
+        // std::string filePath = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/path.txt";
+
+        std::string waypoints_file = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/path.txt";
         move(waypoints_file, 2.0, "soft");
     }
 
@@ -66,6 +79,21 @@ public:
     std::vector<std::vector<Point2D>> readWaypoints(const std::string& filename) {
         std::ifstream file(filename);
         std::vector<std::vector<Point2D>> waypoints;
+
+        // Check if the file opened successfully
+        if (!file.is_open()) {
+            std::cerr << "Error: Could not open file " << filename << std::endl;
+            return waypoints;
+        }
+
+        // Check if the file is empty
+        file.seekg(0, std::ios::end);
+        if (file.tellg() == 0) {
+            std::cerr << "Error: File " << filename << " is empty" << std::endl;
+            return waypoints;
+        }
+        file.seekg(0, std::ios::beg);
+
         std::vector<Point2D> current_path;
         std::string line;
 
