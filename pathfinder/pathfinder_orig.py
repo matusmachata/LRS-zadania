@@ -2,7 +2,7 @@ import numpy as np
 import heapq
 
 def load_pgm_map(file_path):
-    """Loads, rotates left, and preprocesses a PGM map (P2 or P5) file, trimming empty space from the left and top edges."""
+    """Loads and preprocesses a PGM map (P2 or P5) file, trimming empty space from the left and top edges."""
     with open(file_path, 'rb') as f:
         header = f.readline().strip()
         if header not in [b'P2', b'P5']:
@@ -24,41 +24,30 @@ def load_pgm_map(file_path):
                 pixel_data.extend(map(int, line.split()))
             pgm_map = np.array(pixel_data, dtype=np.uint8).reshape((height, width))
         
-        # Rotate the map 180 degrees
-        rotated_map = np.rot90(pgm_map, 2)
+        #rotated_map = np.rot90(pgm_map, 2)
+        #trimmed_map, offset = trim_empty_edges(rotated_map)
         
-        trimmed_map, offset = trim_empty_edges(rotated_map)
+        trimmed_map, offset = trim_empty_edges(pgm_map)
         return trimmed_map, offset
 
 def trim_empty_edges(pgm_map):
-    """Trims empty space from all edges of the map and returns the offset of the new origin."""
-    # Find the first and last non-empty column
+    """Trims empty space from the left and top edges of the map and returns the offset of the new origin."""
+    # Find the first non-empty column from the left
     non_empty_columns = np.any(pgm_map < 128, axis=0)
     left_trim_index = np.argmax(non_empty_columns)
-    right_trim_index = len(non_empty_columns) - np.argmax(non_empty_columns[::-1]) - 1
     
-    # Find the first and last non-empty row
+    # Find the first non-empty row from the top
     non_empty_rows = np.any(pgm_map < 128, axis=1)
     top_trim_index = np.argmax(non_empty_rows)
-    bottom_trim_index = len(non_empty_rows) - np.argmax(non_empty_rows[::-1]) - 1
 
-    # Crop the map to remove empty space on all edges
-    trimmed_map = pgm_map[top_trim_index:bottom_trim_index + 1, left_trim_index:right_trim_index + 1]
+    # Crop the map to remove empty space on the left and top edges
+    trimmed_map = pgm_map[top_trim_index:, left_trim_index:]
     offset = (top_trim_index, left_trim_index)
     return trimmed_map, offset
 
-def adjust_waypoints(waypoints, offset, map_shape):
-    """Adjust waypoints based on the trimming offset and 180-degree rotation."""
-    rotated_waypoints = []
-    height, width = map_shape
-
-    for y, x in waypoints:
-        # Adjust for 180-degree rotation by mirroring coordinates
-        rotated_y = height - 1 - (y - offset[0])
-        rotated_x = width - 1 - (x - offset[1])
-        rotated_waypoints.append((rotated_y, rotated_x))
-    
-    return rotated_waypoints
+def adjust_waypoints(waypoints, offset):
+    """Adjust waypoints based on the trimming offset."""
+    return [(y - offset[0], x - offset[1]) for y, x in waypoints]
 
 def a_star(start, goal, pgm_map):
     """A* algorithm for finding the shortest path."""
@@ -125,7 +114,8 @@ def parse_waypoints(file_path):
         for line in f:
             parts = line.strip().split(',')
             x, y = int(float(parts[0]) * 20), int(float(parts[1]) * 20)  # Convert to pixels (1 m = 20 px)
-            waypoints.append((x, y))  # Switch x and y
+            #waypoints.append((y, x))  # Switch x and y
+            waypoints.append((x, y))  
     return waypoints
 
 def save_map_as_pgm(file_path, pgm_map, path):
@@ -144,6 +134,7 @@ def save_map_as_pgm(file_path, pgm_map, path):
         f.write(b'255\n')
         f.write(output_map.tobytes())
 
+
 def convert_path_to_meters(path):
     """Converts the path coordinates from pixels back to meters."""
     meter_path = [(x / 20.0, y / 20.0) for y, x in path]  # Convert to (x, y) in meters
@@ -160,7 +151,7 @@ def save_path_as_txt(file_path, meter_paths):
 def main(pgm_file, waypoints_file, output_file):
     pgm_map, offset = load_pgm_map(pgm_file)
     waypoints = parse_waypoints(waypoints_file)
-    adjusted_waypoints = adjust_waypoints(waypoints, offset, pgm_map.shape)
+    adjusted_waypoints = adjust_waypoints(waypoints, offset)
 
     all_meter_paths = []
     full_path = []
@@ -171,8 +162,8 @@ def main(pgm_file, waypoints_file, output_file):
 
         if path:
             full_path.extend(path)
-            meter_path = convert_path_to_meters(path)
             print(f"Path found between points {waypoints[i]} and {waypoints[i + 1]}: {path}")
+            meter_path = convert_path_to_meters(path)
             all_meter_paths.append(meter_path)  # Save each path separately
         else:
             print(f"No path exists between points {waypoints[i]} and {waypoints[i + 1]}!")
@@ -183,10 +174,8 @@ def main(pgm_file, waypoints_file, output_file):
     # Save all paths with empty lines between them
     save_path_as_txt(path_txt_file, all_meter_paths)
 
-
-
 if __name__ == "__main__":
-    pgm_file = 'map.pgm'  # Input PGM file path
+    pgm_file = 'map_1.pgm'  # Input PGM file path
     waypoints_file = 'waypoints.csv'  # CSV file with waypoints
     output_file = 'output.pgm'  # Output PGM file path
     path_txt_file = 'path.txt'
