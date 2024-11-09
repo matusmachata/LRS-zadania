@@ -1,6 +1,6 @@
 import numpy as np
 import heapq
-from collections import deque
+import csv
 
 def load_pgm_map(file_path):
     """Loads and preprocesses a PGM map (P2 or P5) file, trimming empty space from the left and top edges."""
@@ -25,23 +25,17 @@ def load_pgm_map(file_path):
                 pixel_data.extend(map(int, line.split()))
             pgm_map = np.array(pixel_data, dtype=np.uint8).reshape((height, width))
         
-        #rotated_map = np.rot90(pgm_map, 2)
-        #trimmed_map, offset = trim_empty_edges(rotated_map)
-        
         trimmed_map, offset = trim_empty_edges(pgm_map)
         return trimmed_map, offset
 
 def trim_empty_edges(pgm_map):
     """Trims empty space from the left and top edges of the map and returns the offset of the new origin."""
-    # Find the first non-empty column from the left
     non_empty_columns = np.any(pgm_map < 128, axis=0)
     left_trim_index = np.argmax(non_empty_columns)
     
-    # Find the first non-empty row from the top
     non_empty_rows = np.any(pgm_map < 128, axis=1)
     top_trim_index = np.argmax(non_empty_rows)
 
-    # Crop the map to remove empty space on the left and top edges
     trimmed_map = pgm_map[top_trim_index:, left_trim_index:]
     offset = (top_trim_index, left_trim_index)
     return trimmed_map, offset
@@ -49,49 +43,19 @@ def trim_empty_edges(pgm_map):
 def adjust_waypoints(waypoints, offset):
     """Adjust waypoints based on the trimming offset."""
     return [(y - offset[0], x - offset[1]) for y, x in waypoints]
-    
 
-def flood_fill(start, goal, pgm_map):
-    """Flood Fill algorithm to find the shortest path from start to goal."""
-    rows, cols = pgm_map.shape
-    visited = np.zeros_like(pgm_map, dtype=bool)
-    parent = {}
-
-    # Directions for 4 neighboring cells (up, down, left, right)
-    directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-    
-    # Queue for BFS
-    queue = deque([start])
-    visited[start] = True
-    parent[start] = None
-    
-    while queue:
-        current = queue.popleft()
-
-        if current == goal:
-            return reconstruct_path_from_parent(parent, goal)
-        
-        for dx, dy in directions:
-            neighbor = (current[0] + dx, current[1] + dy)
-            
-            # Check if neighbor is within bounds and not visited or an obstacle
-            if 0 <= neighbor[0] < rows and 0 <= neighbor[1] < cols:
-                if not visited[neighbor] and not is_obstacle(neighbor, pgm_map):
-                    visited[neighbor] = True
-                    parent[neighbor] = current
-                    queue.append(neighbor)
-
-    return []  # Return empty list if no path is found
-
-def reconstruct_path_from_parent(parent, goal):
-    """Reconstructs the path from the goal to the start using the parent dictionary."""
-    path = []
-    current = goal
-    while current is not None:
-        path.append(current)
-        current = parent[current]
-    return path[::-1]  # Reverse the path to get from start to goal
-
+def inflate_obstacles(pgm_map, inflation_radius):
+    """Inflates obstacles in the map by the given radius."""
+    inflated_map = pgm_map.copy()
+    for i in range(pgm_map.shape[0]):
+        for j in range(pgm_map.shape[1]):
+            if pgm_map[i, j] < 128:  # Obstacle
+                for dx in range(-inflation_radius, inflation_radius + 1):
+                    for dy in range(-inflation_radius, inflation_radius + 1):
+                        ni, nj = i + dx, j + dy
+                        if 0 <= ni < pgm_map.shape[0] and 0 <= nj < pgm_map.shape[1]:
+                            inflated_map[ni, nj] = 0  # Mark inflated obstacle
+    return inflated_map
 
 def a_star(start, goal, pgm_map):
     """A* algorithm for finding the shortest path."""
@@ -107,16 +71,14 @@ def a_star(start, goal, pgm_map):
         if current == goal:
             return reconstruct_path(came_from, current)
 
-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:  # 4 neighboring points
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             neighbor = (current[0] + dx, current[1] + dy)
 
-            # Check map boundaries and avoid obstacles
-            if (0 <= neighbor[0] < pgm_map.shape[0]) and (0 <= neighbor[1] < pgm_map.shape[1]):
+            if 0 <= neighbor[0] < pgm_map.shape[0] and 0 <= neighbor[1] < pgm_map.shape[1]:
                 if is_obstacle(neighbor, pgm_map):
                     continue
 
-                tentative_g_score = g_score[current] + 1  # Path cost is 1
-
+                tentative_g_score = g_score[current] + 1
                 if neighbor not in g_score or tentative_g_score < g_score[neighbor]:
                     came_from[neighbor] = current
                     g_score[neighbor] = tentative_g_score
@@ -128,15 +90,10 @@ def a_star(start, goal, pgm_map):
     return []  # Return empty list if no path is found
 
 def is_obstacle(position, pgm_map):
-    """Checks if the given position is an obstacle considering inflated dimensions."""
-    inflate_radius = 4  # Inflate obstacles by 4 pixels
+    """Checks if the given position is an obstacle."""
     x, y = position
-    for dx in range(-inflate_radius, inflate_radius + 1):
-        for dy in range(-inflate_radius, inflate_radius + 1):
-            neighbor = (x + dx, y + dy)
-            if (0 <= neighbor[0] < pgm_map.shape[0]) and (0 <= neighbor[1] < pgm_map.shape[1]):
-                if pgm_map[neighbor] < 128:  # Assume values < 128 are obstacles
-                    return True
+    if pgm_map[x, y] < 128:  # Check if obstacle (assuming obstacle value is less than 128)
+        return True
     return False
 
 def heuristic(a, b):
@@ -149,28 +106,44 @@ def reconstruct_path(came_from, current):
     while current in came_from:
         current = came_from[current]
         total_path.append(current)
-    return total_path[::-1]  # Reverse the path
+    return total_path[::-1]
 
 def parse_waypoints(file_path):
     """Loads waypoints from a file and converts meters to pixels."""
     waypoints = []
     with open(file_path, 'r') as f:
-        for line in f:
-            parts = line.strip().split(',')
-            x, y = int(float(parts[0]) * 20), int(float(parts[1]) * 20)  # Convert to pixels (1 m = 20 px)
-            #waypoints.append((y, x))  # Switch x and y
-            waypoints.append((x, y))  
+        reader = csv.reader(f)
+        for row in reader:
+            x, y = int(float(row[0]) * 20), int(float(row[1]) * 20)  # Convert to pixels
+            waypoints.append((y, x))  # y = height, x = width (order corrected)
     return waypoints
 
-def save_map_as_pgm(file_path, pgm_map, path):
-    """Saves the PGM map with the path marked as PGM."""
-    output_map = pgm_map.copy()
+def inflate_waypoint(waypoint, inflation_radius, pgm_map):
+    """Inflates the waypoint by marking a square area around it."""
+    inflated_waypoints = []
+    x, y = waypoint  # Correct order: x is width, y is height
+    for dy in range(-inflation_radius, inflation_radius + 1):
+        for dx in range(-inflation_radius, inflation_radius + 1):
+            ni, nj = y + dy, x + dx  # Correct application of x (width) and y (height)
+            if 0 <= ni < pgm_map.shape[0] and 0 <= nj < pgm_map.shape[1]:
+                inflated_waypoints.append((ni, nj))
+    return inflated_waypoints
 
-    # Mark the path on the map with black (0)
+def save_map_as_pgm(file_path, pgm_map, path, waypoints, inflation_radius=2):
+    """Saves the PGM map with the path and inflated waypoints marked."""
+    output_map = pgm_map.copy()
+    
+    # Mark the path
     for (y, x) in path:
         output_map[y, x] = 0  # Mark path as black
 
-    # Save as PGM
+    # Mark the inflated waypoints
+    for waypoint in waypoints:
+        inflated_points = inflate_waypoint(waypoint, inflation_radius, pgm_map)
+        for (y, x) in inflated_points:
+            if 0 <= y < pgm_map.shape[0] and 0 <= x < pgm_map.shape[1]:
+                output_map[y, x] = 128  # Mark waypoints as a different color (e.g., gray)
+
     height, width = output_map.shape
     with open(file_path, 'wb') as f:
         f.write(b'P5\n')
@@ -178,57 +151,51 @@ def save_map_as_pgm(file_path, pgm_map, path):
         f.write(b'255\n')
         f.write(output_map.tobytes())
 
-
-def convert_path_to_meters(path):
-    """Converts the path coordinates from pixels back to meters."""
-    meter_path = [(x / 20.0, y / 20.0) for y, x in path]  # Convert to (x, y) in meters
-    return meter_path
-
 def save_path_as_txt(file_path, meter_paths):
     """Saves each path in meter coordinates to a .txt file with an empty line after each path."""
     with open(file_path, 'w') as f:
         for path in meter_paths:
             for x, y in path:
                 f.write(f"{x:.2f},{y:.2f}\n")
-            f.write("\n")  # Add an empty line after each path
+            f.write("\n")
+
+def convert_path_to_meters(path):
+    """Converts the path coordinates from pixels back to meters."""
+    return [(x / 20.0, y / 20.0) for y, x in path]  # Reversed order to meters
 
 def main(pgm_file, waypoints_file, output_file):
     pgm_map, offset = load_pgm_map(pgm_file)
     waypoints = parse_waypoints(waypoints_file)
     adjusted_waypoints = adjust_waypoints(waypoints, offset)
 
+    inflated_map = inflate_obstacles(pgm_map, inflation_radius=4)
+
     all_meter_paths = []
     full_path = []
     for i in range(len(adjusted_waypoints) - 1):
         start = adjusted_waypoints[i]
         goal = adjusted_waypoints[i + 1]
-        #path = a_star(start, goal, pgm_map)
-        path = flood_fill(start, goal, pgm_map)
-        
-        full_path.extend(path)
-        print(f"Path found between points {waypoints[i]} and {waypoints[i + 1]}: {path}")
-        meter_path = convert_path_to_meters(path)
-        all_meter_paths.append(meter_path)  # Save each path separately
+        path = a_star(start, goal, inflated_map)
 
-        #if path:
-            #full_path.extend(path)
-            #print(f"Path found between points {waypoints[i]} and {waypoints[i + 1]}: {path}")
-            #meter_path = convert_path_to_meters(path)
-            #all_meter_paths.append(meter_path)  # Save each path separately
-        #else:
-            #print(f"No path exists between points {waypoints[i]} and {waypoints[i + 1]}!")
+        if path:
+            full_path.extend(path)
+            print(f"Path found between points {waypoints[i]} and {waypoints[i + 1]}: {path}")
+            meter_path = convert_path_to_meters(path)
+            all_meter_paths.append(meter_path)
+        else:
+            print(f"No path exists between points {waypoints[i]} and {waypoints[i + 1]}!")
 
-    # Save the path to the output PGM file
-    save_map_as_pgm(output_file, pgm_map, full_path)
+    # Save the map with the path and waypoints
+    save_map_as_pgm(output_file, inflated_map, full_path, adjusted_waypoints)
     
-    # Save all paths with empty lines between them
-    save_path_as_txt(path_txt_file, all_meter_paths)
+    # Save the paths as a .txt file
+    save_path_as_txt(output_file.replace('.pgm', '.txt'), all_meter_paths)
+
+    print("Process completed.")
 
 if __name__ == "__main__":
     pgm_file = 'map_1.pgm'  # Input PGM file path
     waypoints_file = 'waypoints.csv'  # CSV file with waypoints
     output_file = 'output.pgm'  # Output PGM file path
-    path_txt_file = 'path.txt'
     main(pgm_file, waypoints_file, output_file)
-
 

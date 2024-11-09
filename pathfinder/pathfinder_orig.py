@@ -114,8 +114,8 @@ def parse_waypoints(file_path):
         for line in f:
             parts = line.strip().split(',')
             x, y = int(float(parts[0]) * 20), int(float(parts[1]) * 20)  # Convert to pixels (1 m = 20 px)
-            #waypoints.append((y, x))  # Switch x and y
-            waypoints.append((x, y))  
+            waypoints.append((y, x))  # Switch x and y
+            #waypoints.append((x, y))  
     return waypoints
 
 def save_map_as_pgm(file_path, pgm_map, path):
