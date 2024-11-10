@@ -129,17 +129,20 @@ def inflate_waypoint(waypoint, inflation_radius, pgm_map):
                 inflated_waypoints.append((ni, nj))
     return inflated_waypoints
 
-def save_map_as_pgm(file_path, pgm_map, path, waypoints, inflation_radius=2):
-    """Saves the PGM map with the path and inflated waypoints marked."""
+def save_map_as_pgm(file_path, pgm_map, path, waypoints, offset, inflation_radius=2):
+    """Saves the PGM map with the path and inflated waypoints marked, applying the offset for consistency."""
     output_map = pgm_map.copy()
     
     # Mark the path
     for (y, x) in path:
-        output_map[y, x] = 0  # Mark path as black
+        adjusted_y, adjusted_x = y + offset[0], x + offset[1]  # Apply offset to the path coordinates
+        if 0 <= adjusted_y < pgm_map.shape[0] and 0 <= adjusted_x < pgm_map.shape[1]:
+            output_map[adjusted_y, adjusted_x] = 0  # Mark path as black
 
     # Mark the inflated waypoints
     for waypoint in waypoints:
-        inflated_points = inflate_waypoint(waypoint, inflation_radius, pgm_map)
+        adjusted_waypoint = (waypoint[0] + offset[0], waypoint[1] + offset[1])  # Apply offset to waypoints
+        inflated_points = inflate_waypoint(adjusted_waypoint, inflation_radius, pgm_map)
         for (y, x) in inflated_points:
             if 0 <= y < pgm_map.shape[0] and 0 <= x < pgm_map.shape[1]:
                 output_map[y, x] = 128  # Mark waypoints as a different color (e.g., gray)
@@ -186,7 +189,9 @@ def main(pgm_file, waypoints_file, output_file):
             print(f"No path exists between points {waypoints[i]} and {waypoints[i + 1]}!")
 
     # Save the map with the path and waypoints
-    save_map_as_pgm(output_file, inflated_map, full_path, adjusted_waypoints)
+    # Save the map with the path and waypoints
+    save_map_as_pgm(output_file, inflated_map, full_path, adjusted_waypoints, offset)
+
     
     # Save the paths as a .txt file
     save_path_as_txt(output_file.replace('.pgm', '.txt'), all_meter_paths)

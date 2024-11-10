@@ -1,6 +1,8 @@
 import numpy as np
 import heapq
-from collections import deque
+
+from numpy.ma import equal
+
 
 def load_pgm_map(file_path):
     """Loads and preprocesses a PGM map (P2 or P5) file, trimming empty space from the left and top edges."""
@@ -25,9 +27,6 @@ def load_pgm_map(file_path):
                 pixel_data.extend(map(int, line.split()))
             pgm_map = np.array(pixel_data, dtype=np.uint8).reshape((height, width))
         
-        #rotated_map = np.rot90(pgm_map, 2)
-        #trimmed_map, offset = trim_empty_edges(rotated_map)
-        
         trimmed_map, offset = trim_empty_edges(pgm_map)
         return trimmed_map, offset
 
@@ -43,55 +42,12 @@ def trim_empty_edges(pgm_map):
 
     # Crop the map to remove empty space on the left and top edges
     trimmed_map = pgm_map[top_trim_index:, left_trim_index:]
-    offset = (top_trim_index, left_trim_index)
+    offset = (left_trim_index, top_trim_index)  # Offset matches (x, y) structure
     return trimmed_map, offset
 
 def adjust_waypoints(waypoints, offset):
     """Adjust waypoints based on the trimming offset."""
-    return [(y - offset[0], x - offset[1]) for y, x in waypoints]
-    
-
-def flood_fill(start, goal, pgm_map):
-    """Flood Fill algorithm to find the shortest path from start to goal."""
-    rows, cols = pgm_map.shape
-    visited = np.zeros_like(pgm_map, dtype=bool)
-    parent = {}
-
-    # Directions for 4 neighboring cells (up, down, left, right)
-    directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-    
-    # Queue for BFS
-    queue = deque([start])
-    visited[start] = True
-    parent[start] = None
-    
-    while queue:
-        current = queue.popleft()
-
-        if current == goal:
-            return reconstruct_path_from_parent(parent, goal)
-        
-        for dx, dy in directions:
-            neighbor = (current[0] + dx, current[1] + dy)
-            
-            # Check if neighbor is within bounds and not visited or an obstacle
-            if 0 <= neighbor[0] < rows and 0 <= neighbor[1] < cols:
-                if not visited[neighbor] and not is_obstacle(neighbor, pgm_map):
-                    visited[neighbor] = True
-                    parent[neighbor] = current
-                    queue.append(neighbor)
-
-    return []  # Return empty list if no path is found
-
-def reconstruct_path_from_parent(parent, goal):
-    """Reconstructs the path from the goal to the start using the parent dictionary."""
-    path = []
-    current = goal
-    while current is not None:
-        path.append(current)
-        current = parent[current]
-    return path[::-1]  # Reverse the path to get from start to goal
-
+    return [(x - offset[0], y - offset[1]) for x, y in waypoints]
 
 def a_star(start, goal, pgm_map):
     """A* algorithm for finding the shortest path."""
@@ -111,7 +67,7 @@ def a_star(start, goal, pgm_map):
             neighbor = (current[0] + dx, current[1] + dy)
 
             # Check map boundaries and avoid obstacles
-            if (0 <= neighbor[0] < pgm_map.shape[0]) and (0 <= neighbor[1] < pgm_map.shape[1]):
+            if (0 <= neighbor[0] < pgm_map.shape[1]) and (0 <= neighbor[1] < pgm_map.shape[0]):
                 if is_obstacle(neighbor, pgm_map):
                     continue
 
@@ -134,8 +90,8 @@ def is_obstacle(position, pgm_map):
     for dx in range(-inflate_radius, inflate_radius + 1):
         for dy in range(-inflate_radius, inflate_radius + 1):
             neighbor = (x + dx, y + dy)
-            if (0 <= neighbor[0] < pgm_map.shape[0]) and (0 <= neighbor[1] < pgm_map.shape[1]):
-                if pgm_map[neighbor] < 128:  # Assume values < 128 are obstacles
+            if (0 <= neighbor[0] < pgm_map.shape[1]) and (0 <= neighbor[1] < pgm_map.shape[0]):
+                if pgm_map[neighbor[1], neighbor[0]] < 128:  # Adjusted for (x, y)
                     return True
     return False
 
@@ -158,16 +114,24 @@ def parse_waypoints(file_path):
         for line in f:
             parts = line.strip().split(',')
             x, y = int(float(parts[0]) * 20), int(float(parts[1]) * 20)  # Convert to pixels (1 m = 20 px)
-            #waypoints.append((y, x))  # Switch x and y
-            waypoints.append((x, y))  
+            waypoints.append((x, y))  # Maintain (x, y) format
     return waypoints
+
+def mark_waypoints_on_map(pgm_map, waypoints):
+    """Marks waypoints on the map with grey pixels (value 128)."""
+    pgm_map = pgm_map.copy()  # Ensure the map is writable
+    for (x, y) in waypoints:
+        if 0 <= x < pgm_map.shape[1] and 0 <= y < pgm_map.shape[0]:
+            pgm_map[y, x] = 128  # Grey color for waypoints
+    return pgm_map
+
 
 def save_map_as_pgm(file_path, pgm_map, path):
     """Saves the PGM map with the path marked as PGM."""
     output_map = pgm_map.copy()
 
     # Mark the path on the map with black (0)
-    for (y, x) in path:
+    for (x, y) in path:
         output_map[y, x] = 0  # Mark path as black
 
     # Save as PGM
@@ -178,10 +142,9 @@ def save_map_as_pgm(file_path, pgm_map, path):
         f.write(b'255\n')
         f.write(output_map.tobytes())
 
-
 def convert_path_to_meters(path):
     """Converts the path coordinates from pixels back to meters."""
-    meter_path = [(x / 20.0, y / 20.0) for y, x in path]  # Convert to (x, y) in meters
+    meter_path = [(x / 20.0, y / 20.0) for x, y in path]  # Maintain (x, y) format in meters
     return meter_path
 
 def save_path_as_txt(file_path, meter_paths):
@@ -197,26 +160,27 @@ def main(pgm_file, waypoints_file, output_file):
     waypoints = parse_waypoints(waypoints_file)
     adjusted_waypoints = adjust_waypoints(waypoints, offset)
 
+    # Mark waypoints on the map
+    pgm_map = mark_waypoints_on_map(pgm_map, adjusted_waypoints)
+
     all_meter_paths = []
     full_path = []
     for i in range(len(adjusted_waypoints) - 1):
         start = adjusted_waypoints[i]
         goal = adjusted_waypoints[i + 1]
-        #path = a_star(start, goal, pgm_map)
-        path = flood_fill(start, goal, pgm_map)
+        path = a_star(start, goal, pgm_map)
         
-        full_path.extend(path)
-        print(f"Path found between points {waypoints[i]} and {waypoints[i + 1]}: {path}")
-        meter_path = convert_path_to_meters(path)
-        all_meter_paths.append(meter_path)  # Save each path separately
+        if (i == 0):
+            print(start)
+            print(goal)
 
-        #if path:
-            #full_path.extend(path)
-            #print(f"Path found between points {waypoints[i]} and {waypoints[i + 1]}: {path}")
-            #meter_path = convert_path_to_meters(path)
-            #all_meter_paths.append(meter_path)  # Save each path separately
-        #else:
-            #print(f"No path exists between points {waypoints[i]} and {waypoints[i + 1]}!")
+        if path:
+            full_path.extend(path)
+            print(f"Path found between points {waypoints[i]} and {waypoints[i + 1]}: {path}")
+            meter_path = convert_path_to_meters(path)
+            all_meter_paths.append(meter_path)  # Save each path separately
+        else:
+            print(f"No path exists between points {waypoints[i]} and {waypoints[i + 1]}!")
 
     # Save the path to the output PGM file
     save_map_as_pgm(output_file, pgm_map, full_path)
@@ -230,5 +194,4 @@ if __name__ == "__main__":
     output_file = 'output.pgm'  # Output PGM file path
     path_txt_file = 'path.txt'
     main(pgm_file, waypoints_file, output_file)
-
 
