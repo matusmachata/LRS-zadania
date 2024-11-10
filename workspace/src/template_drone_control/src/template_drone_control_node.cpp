@@ -66,7 +66,7 @@ public:
         std::string homeDir = std::getenv("HOME");
         // std::string filePath = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/path.txt";
 
-        std::string waypoints_file = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/path.txt";
+        std::string waypoints_file = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/path_work.txt";
         move(waypoints_file, 2.0, "soft");
     }
 
@@ -119,12 +119,19 @@ public:
 
     Point2D transformPoint(const Point2D& point) {
 
-    double newX = -point.y;
-    double newY = -point.x;
+    
+    double newX = point.x - 13;
+    double newY = point.y - 1;
+    // double newX = point.x;
+    // double newY = point.y;
+
+    // Point2D transformedPoint;
+    // transformedPoint.x = newX - 13;
+    // transformedPoint.y = newY - 1;
 
     Point2D transformedPoint;
-    transformedPoint.x = newX + 13;
-    transformedPoint.y = newY + 1;
+    transformedPoint.x = -newY;
+    transformedPoint.y = -newX;
 
     return transformedPoint;
     }
@@ -142,6 +149,7 @@ public:
                 geometry_msgs::msg::PoseStamped target_pose;
                 Point2D transformedPoint;
                 transformedPoint = transformPoint(waypoint);
+                // transformedPoint = waypoint;
 
                 target_pose.pose.position.x = transformedPoint.x;
                 target_pose.pose.position.y = transformedPoint.y;

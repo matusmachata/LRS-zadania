@@ -161,18 +161,26 @@ def main(pgm_file, waypoints_file, output_file):
     adjusted_waypoints = adjust_waypoints(waypoints, offset)
 
     # Mark waypoints on the map
-    pgm_map = mark_waypoints_on_map(pgm_map, adjusted_waypoints)
+    pgm_map = mark_waypoints_on_map(pgm_map, waypoints)
 
     all_meter_paths = []
     full_path = []
-    for i in range(len(adjusted_waypoints) - 1):
-        start = adjusted_waypoints[i]
-        goal = adjusted_waypoints[i + 1]
-        path = a_star(start, goal, pgm_map)
-        
+    # print(len(waypoints))
+    for i in range(len(waypoints) - 1):
+        # print(i)
+        start = waypoints[i]
+        goal = waypoints[i + 1]
         if (i == 0):
+            start = (int(start[0]) - 200, start[1])
             print(start)
             print(goal)
+        if (i == 5):
+            goal = (int(goal[0] - 200), int(goal[1]))
+            print(start)
+            print(goal)
+        path = a_star(start, goal, pgm_map)
+
+
 
         if path:
             full_path.extend(path)
