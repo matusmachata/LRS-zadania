@@ -67,7 +67,17 @@ public:
         // std::string filePath = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/path.txt";
 
         std::string waypoints_file = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/path_work.txt";
-        move(waypoints_file, 2.0, "soft");
+        // move(waypoints_file, 2.0, "soft");
+        geometry_msgs::msg::PoseStamped target_pose;
+
+        Point2D point;
+        point.x = 13.55;
+        point.y = 8.30;
+        point = transformPoint(point);
+        target_pose.pose.position.x = point.x;
+        target_pose.pose.position.y = point.y;
+        target_pose.pose.position.z = 2;
+        local_pos_pub_->publish(target_pose);
     }
 
     struct Point2D {
@@ -192,6 +202,7 @@ public:
         }
         RCLCPP_INFO(this->get_logger(), "All waypoints reached.");
     }
+
 
 private:
     // Function to set mode
