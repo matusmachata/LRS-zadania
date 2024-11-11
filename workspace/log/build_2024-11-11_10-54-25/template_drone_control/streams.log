@@ -1,0 +1,26 @@
+[0.005s] Invoking command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j20 -l20
+[0.023s] [35m[1mScanning dependencies of target template_drone_control_node[0m
+[0.040s] [ 50%] [32mBuilding CXX object CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o[0m
+[1.875s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘void TemplateDroneControl::move(const string&, double, const string&)’:
+[1.875s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:218:17: error: ‘ros’ has not been declared
+[1.875s]   218 |                 ros::Rate rate(2.0);
+[1.875s]       |                 ^~~
+[1.875s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:234:23: error: ‘ros’ has not been declared
+[1.875s]   234 |                 while(ros::ok())
+[1.875s]       |                       ^~~
+[1.875s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:236:21: error: ‘ros’ has not been declared
+[1.875s]   236 |                     ros::spinOnce();
+[1.875s]       |                     ^~~
+[1.875s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:237:21: error: ‘rate’ was not declared in this scope
+[1.875s]   237 |                     rate.sleep();
+[1.875s]       |                     ^~~~
+[1.875s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:219:18: warning: unused variable ‘counter’ [-Wunused-variable]
+[1.875s]   219 |              int counter = 0;
+[1.876s]       |                  ^~~~~~~
+[1.876s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:211:16: warning: unused variable ‘tolerance’ [-Wunused-variable]
+[1.876s]   211 |         double tolerance = (finish_type == "hard") ? 0.2 : 0.5;
+[1.876s]       |                ^~~~~~~~~
+[1.876s] make[2]: *** [CMakeFiles/template_drone_control_node.dir/build.make:63: CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o] Error 1
+[1.876s] make[1]: *** [CMakeFiles/Makefile2:105: CMakeFiles/template_drone_control_node.dir/all] Error 2
+[1.876s] make: *** [Makefile:141: all] Error 2
+[1.877s] Invoked command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j20 -l20

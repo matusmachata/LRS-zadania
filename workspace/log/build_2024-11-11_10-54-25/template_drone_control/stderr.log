@@ -1,0 +1,22 @@
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘void TemplateDroneControl::move(const string&, double, const string&)’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:218:17: error: ‘ros’ has not been declared
+  218 |                 ros::Rate rate(2.0);
+      |                 ^~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:234:23: error: ‘ros’ has not been declared
+  234 |                 while(ros::ok())
+      |                       ^~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:236:21: error: ‘ros’ has not been declared
+  236 |                     ros::spinOnce();
+      |                     ^~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:237:21: error: ‘rate’ was not declared in this scope
+  237 |                     rate.sleep();
+      |                     ^~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:219:18: warning: unused variable ‘counter’ [-Wunused-variable]
+  219 |              int counter = 0;
+      |                  ^~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:211:16: warning: unused variable ‘tolerance’ [-Wunused-variable]
+  211 |         double tolerance = (finish_type == "hard") ? 0.2 : 0.5;
+      |                ^~~~~~~~~
+make[2]: *** [CMakeFiles/template_drone_control_node.dir/build.make:63: CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:105: CMakeFiles/template_drone_control_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

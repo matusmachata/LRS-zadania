@@ -1,0 +1,14 @@
+[0.005s] Invoking command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j20 -l20
+[0.024s] [35m[1mScanning dependencies of target template_drone_control_node[0m
+[0.038s] [ 50%] [32mBuilding CXX object CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o[0m
+[1.886s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘void TemplateDroneControl::move(const string&, double, const string&)’:
+[1.886s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:242:13: error: ‘isOnTarget’ was not declared in this scope
+[1.887s]   242 |             isOnTarget = false;
+[1.887s]       |             ^~~~~~~~~~
+[1.887s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:209:73: warning: unused parameter ‘finish_type’ [-Wunused-parameter]
+[1.887s]   209 |     void move(const std::string& filename, double z, const std::string& finish_type) {
+[1.887s]       |                                                      ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+[1.887s] make[2]: *** [CMakeFiles/template_drone_control_node.dir/build.make:63: CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o] Error 1
+[1.887s] make[1]: *** [CMakeFiles/Makefile2:105: CMakeFiles/template_drone_control_node.dir/all] Error 2
+[1.887s] make: *** [Makefile:141: all] Error 2
+[1.888s] Invoked command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j20 -l20
