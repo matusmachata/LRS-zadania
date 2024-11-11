@@ -66,7 +66,7 @@ public:
         std::string homeDir = std::getenv("HOME");
         // std::string filePath = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/path.txt";
 
-        std::string waypoints_file = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/path_work.txt";
+        std::string waypoints_file = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/path_test.txt";
         move(waypoints_file, 2.0, "soft");
         // geometry_msgs::msg::PoseStamped target_pose;
 
@@ -229,12 +229,12 @@ public:
                 RCLCPP_INFO(this->get_logger(), "map orientation target (%.2f, %.2f)", waypoint.x, waypoint.y);
                 RCLCPP_INFO(this->get_logger(), "drone orientation target (%.2f, %.2f)", transformedPoint.x, transformedPoint.y);
 
-                // local_pos_pub_->publish(target_pose);
+                local_pos_pub_->publish(target_pose);
                 while(rclcpp::ok())
                 {
                     rclcpp::spin_some(this->get_node_base_interface());
                     rate.sleep();
-                    local_pos_pub_->publish(target_pose);
+                    // local_pos_pub_->publish(target_pose);
 
                     auto current_pos = current_position_; 
                     
