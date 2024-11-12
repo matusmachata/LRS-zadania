@@ -190,7 +190,7 @@ public:
 
     struct DecodedCommand {
         std::string command;
-        std::optional<double> value; 
+        double value; 
     };
 
 
@@ -199,13 +199,13 @@ public:
 
         // Check for the "-" case, which should return null for both command and value
         if (input == "-") {
-            result.command = std::nullopt;
-            result.value = std::nullopt;
+            result.command = "-";
+            result.value = 0;
         }
         // Type 1 commands
         else if (input == "takeoff" || input == "land" || input == "landtakeoff") {
             result.command = input;
-            result.value = std::nullopt; // Null equivalent for value
+            result.value = 0;
         } 
         // Type 2 commands
         else {
@@ -221,7 +221,7 @@ public:
             } else {
                 // If no numeric part found, treat as an invalid command
                 result.command = "Invalid";
-                result.value = std::nullopt;
+                result.value = 0;
             }
         }
 
@@ -294,7 +294,7 @@ public:
                     double dxFinal = current_pos.pose.position.x - curWaypointTransformed.x;
                     double dyFinal = current_pos.pose.position.y - curWaypointTransformed.y;
                     double distanceFinal = std::sqrt(dxFinal * dxFinal + dyFinal * dyFinal);
-                    // RCLCPP_INFO(this->get_logger(), "distance to waypoint (%.2f)", distanceFinal);
+                    RCLCPP_INFO(this->get_logger(), "distance to waypoint (%.2f)", distanceFinal);
                     if (distanceFinal <= tolerance){
                         // RCLCPP_INFO(this->get_logger(), "isOnTarget je true =============");
                         isOnTarget = true;
@@ -339,17 +339,21 @@ public:
                     }
                     DecodedCommand command = decodeCommand(curWaypoint.additionalCommand);
                     if (command.command == "-"){
-
+                        break;
                     }
                     else if (command.command == "land"){
                         land_drone();
+                        break;
                     }
                     else if (command.command == "landtakeoff"){
                         land_drone();
+                        set_mode("GUIDED");
+                        arm_drone();
                         takeoff(2,0);
+                        break;
                     }
                     else{
-
+                        break;
                     }
 
 
@@ -426,6 +430,9 @@ private:
         request->min_pitch = 0;
         request->yaw = yaw;
         request->altitude = altitude;
+        double tolerance = 0.15;
+        auto current_pos = current_position_; 
+        rclcpp::Rate rate(15.0);
 
         while (!takeoff_client_->wait_for_service(1s))
         {
@@ -441,6 +448,16 @@ private:
         if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), result) == rclcpp::FutureReturnCode::SUCCESS)
         {
             RCLCPP_INFO(this->get_logger(), "Takeoff command sent");
+            while(rclcpp::ok()){
+                rclcpp::spin_some(this->get_node_base_interface());
+                rate.sleep();
+
+                current_pos = current_position_;
+                double dz = current_pos.pose.position.z - altitude;
+                double distacneZ = std::sqrt(dz * dz);
+                RCLCPP_INFO(this->get_logger(), "distance to waypoint (%.2f)", distacneZ);
+                if (distacneZ <=tolerance) break; 
+            }
         }
         else
         {

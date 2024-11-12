@@ -1,0 +1,72 @@
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:162:14: error: ‘optional’ in namespace ‘std’ does not name a template type
+  162 |         std::optional<double> value;
+      |              ^~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:162:9: note: ‘std::optional’ is only available from C++17 onwards
+  162 |         std::optional<double> value;
+      |         ^~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In constructor ‘TemplateDroneControl::TemplateDroneControl()’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:26:66: error: ‘state_cb’ is not a member of ‘TemplateDroneControl’
+   26 |             "mavros/state", 10, std::bind(&TemplateDroneControl::state_cb, this, std::placeholders::_1));
+      |                                                                  ^~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:36:82: error: ‘local_pos_cb’ is not a member of ‘TemplateDroneControl’
+   36 |             "/mavros/local_position/pose", qos, std::bind(&TemplateDroneControl::local_pos_cb, this, std::placeholders::_1));
+      |                                                                                  ^~~~~~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:46:9: error: ‘set_mode’ was not declared in this scope
+   46 |         set_mode("GUIDED");
+      |         ^~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:49:9: error: ‘arm_drone’ was not declared in this scope
+   49 |         arm_drone();
+      |         ^~~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:52:9: error: ‘takeoff’ was not declared in this scope
+   52 |         takeoff(2.0, 0);
+      |         ^~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:59:39: error: no matching function for call to ‘move(std::string&, std::string&)’
+   59 |         move(path_file, waypoints_file);
+      |                                       ^
+In file included from /usr/include/c++/9/bits/stl_pair.h:59,
+                 from /usr/include/c++/9/bits/stl_algobase.h:64,
+                 from /usr/include/c++/9/memory:62,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+/usr/include/c++/9/bits/move.h:99:5: note: candidate: ‘template<class _Tp> constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&)’
+   99 |     move(_Tp&& __t) noexcept
+      |     ^~~~
+/usr/include/c++/9/bits/move.h:99:5: note:   template argument deduction/substitution failed:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:59:39: note:   candidate expects 1 argument, 2 provided
+   59 |         move(path_file, waypoints_file);
+      |                                       ^
+In file included from /usr/include/c++/9/memory:62,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+/usr/include/c++/9/bits/stl_algobase.h:497:5: note: candidate: ‘template<class _II, class _OI> _OI std::move(_II, _II, _OI)’
+  497 |     move(_II __first, _II __last, _OI __result)
+      |     ^~~~
+/usr/include/c++/9/bits/stl_algobase.h:497:5: note:   template argument deduction/substitution failed:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:59:39: note:   candidate expects 3 arguments, 2 provided
+   59 |         move(path_file, waypoints_file);
+      |                                       ^
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘TemplateDroneControl::DecodedCommand TemplateDroneControl::decodeCommand(const string&)’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:170:20: error: ‘struct TemplateDroneControl::DecodedCommand’ has no member named ‘value’
+  170 |             result.value = std::nullopt;
+      |                    ^~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:170:33: error: ‘nullopt’ is not a member of ‘std’
+  170 |             result.value = std::nullopt;
+      |                                 ^~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:174:20: error: ‘struct TemplateDroneControl::DecodedCommand’ has no member named ‘value’
+  174 |             result.value = std::nullopt;
+      |                    ^~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:174:33: error: ‘nullopt’ is not a member of ‘std’
+  174 |             result.value = std::nullopt;
+      |                                 ^~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:184:24: error: ‘struct TemplateDroneControl::DecodedCommand’ has no member named ‘value’
+  184 |                 result.value = std::stod(input.substr(numStart));
+      |                        ^~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:187:24: error: ‘struct TemplateDroneControl::DecodedCommand’ has no member named ‘value’
+  187 |                 result.value = std::nullopt;
+      |                        ^~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:187:37: error: ‘nullopt’ is not a member of ‘std’
+  187 |                 result.value = std::nullopt;
+      |                                     ^~~~~~~
+make[2]: *** [CMakeFiles/template_drone_control_node.dir/build.make:63: CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:105: CMakeFiles/template_drone_control_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
