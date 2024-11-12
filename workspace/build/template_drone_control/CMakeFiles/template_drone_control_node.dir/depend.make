@@ -327,6 +327,13 @@ CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o
 CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o: /opt/ros/foxy/include/statistics_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
 CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o: /opt/ros/foxy/include/std_msgs/msg/detail/header__struct.hpp
 CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o: /opt/ros/foxy/include/std_msgs/msg/detail/header__traits.hpp
+CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o: /opt/ros/foxy/include/tf2/LinearMath/Matrix3x3.h
+CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o: /opt/ros/foxy/include/tf2/LinearMath/MinMax.h
+CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o: /opt/ros/foxy/include/tf2/LinearMath/QuadWord.h
+CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o: /opt/ros/foxy/include/tf2/LinearMath/Quaternion.h
+CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o: /opt/ros/foxy/include/tf2/LinearMath/Scalar.h
+CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o: /opt/ros/foxy/include/tf2/LinearMath/Vector3.h
+CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o: /opt/ros/foxy/include/tf2/visibility_control.h
 CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o: /opt/ros/foxy/include/tracetools/config.h
 CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o: /opt/ros/foxy/include/tracetools/tracetools.h
 CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o: /opt/ros/foxy/include/tracetools/utils.hpp

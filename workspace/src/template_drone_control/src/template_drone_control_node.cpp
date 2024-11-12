@@ -13,6 +13,8 @@
 #include <cstdlib>
 #include <optional>
 #include <cctype>
+#include <tf2/LinearMath/Quaternion.h>
+#include <tf2/LinearMath/Matrix3x3.h>
 
 
 
@@ -353,6 +355,7 @@ public:
                         break;
                     }
                     else{
+                        turn(command.command,command.value);
                         break;
                     }
 
@@ -365,6 +368,106 @@ public:
             waypointsIndex++;
         }
         RCLCPP_INFO(this->get_logger(), "All waypoints reached.");
+    }
+
+    void turn(std::string turnType, double angle) {
+        geometry_msgs::msg::PoseStamped target_pose;
+        auto current_pos = current_position_;
+        rclcpp::Rate rate(15.0);
+        double angle_tolerance = 0.1;
+        
+        // Convert angle to radians
+        angle = angle * M_PI / 180.0;
+        double initial_angle = angle;
+
+        // Set initial target position to hold current position
+        target_pose.pose.position.x = current_pos.pose.position.x;
+        target_pose.pose.position.y = current_pos.pose.position.y;
+        target_pose.pose.position.z = current_pos.pose.position.z; 
+
+        // Create a quaternion for orientation based on the specified axis and angle
+        tf2::Quaternion q;
+        if (turnType == "roll") {
+            q.setRPY(angle, 0, 0);
+        } else if (turnType == "pitch") {
+            q.setRPY(0, angle, 0);
+        } else if (turnType == "yaw") {
+            q.setRPY(0, 0, angle);
+        } else {
+            q.setRPY(0, 0, 0);
+        }
+
+        target_pose.pose.orientation.x = q.x();
+        target_pose.pose.orientation.y = q.y();
+        target_pose.pose.orientation.z = q.z();
+        target_pose.pose.orientation.w = q.w();
+
+        // Publish the target orientation
+        local_pos_pub_->publish(target_pose);
+
+        // Wait until the drone has achieved the target orientation
+        while(rclcpp::ok()) {
+            rclcpp::spin_some(this->get_node_base_interface());
+            rate.sleep();
+
+            current_pos = current_position_;
+
+            // Get current orientation quaternion and convert to roll, pitch, yaw
+            tf2::Quaternion q_current(
+                current_pos.pose.orientation.x,
+                current_pos.pose.orientation.y,
+                current_pos.pose.orientation.z,
+                current_pos.pose.orientation.w
+            );
+
+            double roll, pitch, yaw;
+            tf2::Matrix3x3(q_current).getRPY(roll, pitch, yaw);
+
+            // Calculate the difference between the current and target angle for the specified axis
+            double angle_diff;
+            if (turnType == "roll") {
+                angle_diff = std::fabs(roll - angle);
+            } else if (turnType == "pitch") {
+                angle_diff = std::fabs(pitch - angle);
+            } else if (turnType == "yaw") {
+                angle_diff = std::fabs(yaw - angle);
+            }
+
+            // Check if the difference is within an acceptable tolerance
+            const double angle_tolerance = 0.01; // radians
+            if (angle_diff <= angle_tolerance) break;
+        }
+
+        // Return to the initial orientation
+        tf2::Quaternion q_return;
+        q_return.setRPY(0, 0, 0);  // Reset to initial orientation (assuming it was 0)
+
+        target_pose.pose.orientation.x = q_return.x();
+        target_pose.pose.orientation.y = q_return.y();
+        target_pose.pose.orientation.z = q_return.z();
+        target_pose.pose.orientation.w = q_return.w();
+        local_pos_pub_->publish(target_pose);
+
+        // Wait until the drone has returned to the original orientation
+        while(rclcpp::ok()) {
+            rclcpp::spin_some(this->get_node_base_interface());
+            rate.sleep();
+
+            current_pos = current_position_;
+            tf2::Quaternion q_current(
+                current_pos.pose.orientation.x,
+                current_pos.pose.orientation.y,
+                current_pos.pose.orientation.z,
+                current_pos.pose.orientation.w
+            );
+
+            double roll, pitch, yaw;
+            tf2::Matrix3x3(q_current).getRPY(roll, pitch, yaw);
+
+            // Calculate the angle difference to the initial orientation
+            double angle_diff_return = std::fabs(roll) + std::fabs(pitch) + std::fabs(yaw);
+            if (angle_diff_return <= angle_tolerance) break;
+        }
     }
 
 

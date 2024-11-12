@@ -1,0 +1,13 @@
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘void TemplateDroneControl::turn(std::string, double)’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:423:18: error: ‘Matrix3x3’ is not a member of ‘tf2’
+  423 |             tf2::Matrix3x3(q_current).getRPY(roll, pitch, yaw);
+      |                  ^~~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:464:18: error: ‘Matrix3x3’ is not a member of ‘tf2’
+  464 |             tf2::Matrix3x3(q_current).getRPY(roll, pitch, yaw);
+      |                  ^~~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:380:16: warning: unused variable ‘initial_angle’ [-Wunused-variable]
+  380 |         double initial_angle = angle;
+      |                ^~~~~~~~~~~~~
+make[2]: *** [CMakeFiles/template_drone_control_node.dir/build.make:63: CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:105: CMakeFiles/template_drone_control_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

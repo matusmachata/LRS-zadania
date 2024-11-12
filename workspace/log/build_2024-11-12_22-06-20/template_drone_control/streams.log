@@ -1,0 +1,31 @@
+[0.007s] Invoking command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16
+[0.039s] [35m[1mScanning dependencies of target template_drone_control_node[0m
+[0.060s] [ 50%] [32mBuilding CXX object CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o[0m
+[2.976s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘void TemplateDroneControl::move(const string&, const string&)’:
+[2.976s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:357:30: error: ‘ommand’ was not declared in this scope; did you mean ‘command’?
+[2.976s]   357 |                         turn(ommand.command,command.value);
+[2.976s]       |                              ^~~~~~
+[2.976s]       |                              command
+[2.977s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘void TemplateDroneControl::turn(std::string, double)’:
+[2.977s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:408:13: error: ‘rate’ was not declared in this scope
+[2.977s]   408 |             rate.sleep();
+[2.977s]       |             ^~~~
+[2.977s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:421:18: error: ‘Matrix3x3’ is not a member of ‘tf2’
+[2.977s]   421 |             tf2::Matrix3x3(q_current).getRPY(roll, pitch, yaw);
+[2.977s]       |                  ^~~~~~~~~
+[2.977s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:451:13: error: ‘rate’ was not declared in this scope
+[2.977s]   451 |             rate.sleep();
+[2.977s]       |             ^~~~
+[2.977s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:462:18: error: ‘Matrix3x3’ is not a member of ‘tf2’
+[2.977s]   462 |             tf2::Matrix3x3(q_current).getRPY(roll, pitch, yaw);
+[2.977s]       |                  ^~~~~~~~~
+[2.977s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:466:38: error: ‘angle_tolerance’ was not declared in this scope
+[2.977s]   466 |             if (angle_diff_return <= angle_tolerance) break;
+[2.977s]       |                                      ^~~~~~~~~~~~~~~
+[2.977s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:378:16: warning: unused variable ‘initial_angle’ [-Wunused-variable]
+[2.977s]   378 |         double initial_angle = angle;
+[2.977s]       |                ^~~~~~~~~~~~~
+[2.978s] make[2]: *** [CMakeFiles/template_drone_control_node.dir/build.make:63: CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o] Error 1
+[2.978s] make[1]: *** [CMakeFiles/Makefile2:105: CMakeFiles/template_drone_control_node.dir/all] Error 2
+[2.978s] make: *** [Makefile:141: all] Error 2
+[2.979s] Invoked command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control' returned '2': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16
