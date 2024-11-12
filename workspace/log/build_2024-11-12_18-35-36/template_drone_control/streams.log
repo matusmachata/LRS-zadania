@@ -1,0 +1,38 @@
+[0.007s] Invoking command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16
+[0.036s] [35m[1mScanning dependencies of target template_drone_control_node[0m
+[0.057s] [ 50%] [32mBuilding CXX object CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o[0m
+[2.992s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:192:14: error: ‘optional’ in namespace ‘std’ does not name a template type
+[2.992s]   192 |         std::optional<double> value;
+[2.992s]       |              ^~~~~~~~
+[2.992s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:192:9: note: ‘std::optional’ is only available from C++17 onwards
+[2.992s]   192 |         std::optional<double> value;
+[2.992s]       |         ^~~
+[2.993s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘TemplateDroneControl::DecodedCommand TemplateDroneControl::decodeCommand(const string&)’:
+[2.993s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:201:35: error: ‘nullopt’ is not a member of ‘std’
+[2.993s]   201 |             result.command = std::nullopt;
+[2.993s]       |                                   ^~~~~~~
+[2.993s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:202:20: error: ‘struct TemplateDroneControl::DecodedCommand’ has no member named ‘value’
+[2.993s]   202 |             result.value = std::nullopt;
+[2.993s]       |                    ^~~~~
+[2.993s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:202:33: error: ‘nullopt’ is not a member of ‘std’
+[2.993s]   202 |             result.value = std::nullopt;
+[2.993s]       |                                 ^~~~~~~
+[2.993s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:207:20: error: ‘struct TemplateDroneControl::DecodedCommand’ has no member named ‘value’
+[2.993s]   207 |             result.value = std::nullopt; // Null equivalent for value
+[2.993s]       |                    ^~~~~
+[2.993s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:207:33: error: ‘nullopt’ is not a member of ‘std’
+[2.993s]   207 |             result.value = std::nullopt; // Null equivalent for value
+[2.993s]       |                                 ^~~~~~~
+[2.993s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:219:24: error: ‘struct TemplateDroneControl::DecodedCommand’ has no member named ‘value’
+[2.993s]   219 |                 result.value = std::stod(input.substr(numStart)); // Numeric part as double (e.g., 180)
+[2.993s]       |                        ^~~~~
+[2.993s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:223:24: error: ‘struct TemplateDroneControl::DecodedCommand’ has no member named ‘value’
+[2.993s]   223 |                 result.value = std::nullopt;
+[2.994s]       |                        ^~~~~
+[2.994s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:223:37: error: ‘nullopt’ is not a member of ‘std’
+[2.994s]   223 |                 result.value = std::nullopt;
+[2.994s]       |                                     ^~~~~~~
+[2.994s] make[2]: *** [CMakeFiles/template_drone_control_node.dir/build.make:63: CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o] Error 1
+[2.994s] make[1]: *** [CMakeFiles/Makefile2:105: CMakeFiles/template_drone_control_node.dir/all] Error 2
+[2.994s] make: *** [Makefile:141: all] Error 2
+[2.994s] Invoked command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control' returned '2': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16

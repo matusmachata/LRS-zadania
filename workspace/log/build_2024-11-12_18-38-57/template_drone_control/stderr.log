@@ -1,0 +1,34 @@
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:193:14: error: ‘optional’ in namespace ‘std’ does not name a template type
+  193 |         std::optional<double> value;
+      |              ^~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:193:9: note: ‘std::optional’ is only available from C++17 onwards
+  193 |         std::optional<double> value;
+      |         ^~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘TemplateDroneControl::DecodedCommand TemplateDroneControl::decodeCommand(const string&)’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:202:35: error: ‘nullopt’ is not a member of ‘std’
+  202 |             result.command = std::nullopt;
+      |                                   ^~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:203:20: error: ‘struct TemplateDroneControl::DecodedCommand’ has no member named ‘value’
+  203 |             result.value = std::nullopt;
+      |                    ^~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:203:33: error: ‘nullopt’ is not a member of ‘std’
+  203 |             result.value = std::nullopt;
+      |                                 ^~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:208:20: error: ‘struct TemplateDroneControl::DecodedCommand’ has no member named ‘value’
+  208 |             result.value = std::nullopt; // Null equivalent for value
+      |                    ^~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:208:33: error: ‘nullopt’ is not a member of ‘std’
+  208 |             result.value = std::nullopt; // Null equivalent for value
+      |                                 ^~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:220:24: error: ‘struct TemplateDroneControl::DecodedCommand’ has no member named ‘value’
+  220 |                 result.value = std::stod(input.substr(numStart)); // Numeric part as double (e.g., 180)
+      |                        ^~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:224:24: error: ‘struct TemplateDroneControl::DecodedCommand’ has no member named ‘value’
+  224 |                 result.value = std::nullopt;
+      |                        ^~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:224:37: error: ‘nullopt’ is not a member of ‘std’
+  224 |                 result.value = std::nullopt;
+      |                                     ^~~~~~~
+make[2]: *** [CMakeFiles/template_drone_control_node.dir/build.make:63: CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:105: CMakeFiles/template_drone_control_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

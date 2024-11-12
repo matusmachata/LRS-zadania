@@ -1,0 +1,1547 @@
+[0.007s] Invoking command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16
+[0.036s] [35m[1mScanning dependencies of target template_drone_control_node[0m
+[0.061s] [ 50%] [32mBuilding CXX object CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o[0m
+[2.950s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘void TemplateDroneControl::move(const string&, const string&)’:
+[2.950s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:41: error: no match for ‘operator==’ (operand types are ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ and ‘const char [2]’)
+[2.950s]   341 |                     if (command.command == "-"){
+[2.950s]       |                         ~~~~~~~~~~~~~~~ ^~ ~~~
+[2.950s]       |                                 |          |
+[2.950s]       |                                 |          const char [2]
+[2.950s]       |                                 std::unique_ptr<std::__cxx11::basic_string<char> >
+[2.950s] In file included from /usr/include/c++/9/bits/stl_algobase.h:64,
+[2.950s]                  from /usr/include/c++/9/memory:62,
+[2.950s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.951s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.951s] /usr/include/c++/9/bits/stl_pair.h:448:5: note: candidate: ‘template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)’
+[2.951s]   448 |     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+[2.951s]       |     ^~~~~~~~
+[2.951s] /usr/include/c++/9/bits/stl_pair.h:448:5: note:   template argument deduction/substitution failed:
+[2.951s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::pair<_T1, _T2>’
+[2.951s]   341 |                     if (command.command == "-"){
+[2.951s]       |                                            ^~~
+[2.951s] In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+[2.951s]                  from /usr/include/c++/9/memory:62,
+[2.951s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.951s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.951s] /usr/include/c++/9/bits/stl_iterator.h:325:5: note: candidate: ‘template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)’
+[2.951s]   325 |     operator==(const reverse_iterator<_Iterator>& __x,
+[2.951s]       |     ^~~~~~~~
+[2.951s] /usr/include/c++/9/bits/stl_iterator.h:325:5: note:   template argument deduction/substitution failed:
+[2.951s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+[2.952s]   341 |                     if (command.command == "-"){
+[2.952s]       |                                            ^~~
+[2.952s] In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+[2.952s]                  from /usr/include/c++/9/memory:62,
+[2.952s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.952s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.952s] /usr/include/c++/9/bits/stl_iterator.h:363:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)’
+[2.952s]   363 |     operator==(const reverse_iterator<_IteratorL>& __x,
+[2.952s]       |     ^~~~~~~~
+[2.952s] /usr/include/c++/9/bits/stl_iterator.h:363:5: note:   template argument deduction/substitution failed:
+[2.952s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+[2.952s]   341 |                     if (command.command == "-"){
+[2.952s]       |                                            ^~~
+[2.953s] In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+[2.953s]                  from /usr/include/c++/9/memory:62,
+[2.953s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.953s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.953s] /usr/include/c++/9/bits/stl_iterator.h:1136:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorR>&)’
+[2.953s]  1136 |     operator==(const move_iterator<_IteratorL>& __x,
+[2.953s]       |     ^~~~~~~~
+[2.953s] /usr/include/c++/9/bits/stl_iterator.h:1136:5: note:   template argument deduction/substitution failed:
+[2.953s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::move_iterator<_IteratorL>’
+[2.953s]   341 |                     if (command.command == "-"){
+[2.953s]       |                                            ^~~
+[2.953s] In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+[2.953s]                  from /usr/include/c++/9/memory:62,
+[2.953s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.953s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.953s] /usr/include/c++/9/bits/stl_iterator.h:1142:5: note: candidate: ‘template<class _Iterator> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorL>&)’
+[2.953s]  1142 |     operator==(const move_iterator<_Iterator>& __x,
+[2.953s]       |     ^~~~~~~~
+[2.953s] /usr/include/c++/9/bits/stl_iterator.h:1142:5: note:   template argument deduction/substitution failed:
+[2.954s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::move_iterator<_IteratorL>’
+[2.954s]   341 |                     if (command.command == "-"){
+[2.954s]       |                                            ^~~
+[2.954s] In file included from /usr/include/c++/9/memory:63,
+[2.954s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.954s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.954s] /usr/include/c++/9/bits/allocator.h:167:5: note: candidate: ‘template<class _T1, class _T2> bool std::operator==(const std::allocator<_Tp1>&, const std::allocator<_T2>&)’
+[2.954s]   167 |     operator==(const allocator<_T1>&, const allocator<_T2>&)
+[2.954s]       |     ^~~~~~~~
+[2.954s] /usr/include/c++/9/bits/allocator.h:167:5: note:   template argument deduction/substitution failed:
+[2.954s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::allocator<_Tp1>’
+[2.955s]   341 |                     if (command.command == "-"){
+[2.955s]       |                                            ^~~
+[2.955s] In file included from /usr/include/c++/9/iosfwd:40,
+[2.955s]                  from /usr/include/c++/9/memory:72,
+[2.955s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.955s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.955s] /usr/include/c++/9/bits/postypes.h:222:5: note: candidate: ‘template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)’
+[2.955s]   222 |     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+[2.955s]       |     ^~~~~~~~
+[2.955s] /usr/include/c++/9/bits/postypes.h:222:5: note:   template argument deduction/substitution failed:
+[2.955s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::fpos<_StateT>’
+[2.955s]   341 |                     if (command.command == "-"){
+[2.956s]       |                                            ^~~
+[2.956s] In file included from /usr/include/c++/9/string:55,
+[2.956s]                  from /usr/include/c++/9/stdexcept:39,
+[2.956s]                  from /usr/include/c++/9/array:39,
+[2.956s]                  from /usr/include/c++/9/tuple:39,
+[2.956s]                  from /usr/include/c++/9/bits/unique_ptr.h:37,
+[2.956s]                  from /usr/include/c++/9/memory:80,
+[2.956s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.956s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.956s] /usr/include/c++/9/bits/basic_string.h:6144:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+[2.956s]  6144 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+[2.956s]       |     ^~~~~~~~
+[2.956s] /usr/include/c++/9/bits/basic_string.h:6144:5: note:   template argument deduction/substitution failed:
+[2.956s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+[2.956s]   341 |                     if (command.command == "-"){
+[2.956s]       |                                            ^~~
+[2.956s] In file included from /usr/include/c++/9/string:55,
+[2.956s]                  from /usr/include/c++/9/stdexcept:39,
+[2.957s]                  from /usr/include/c++/9/array:39,
+[2.957s]                  from /usr/include/c++/9/tuple:39,
+[2.957s]                  from /usr/include/c++/9/bits/unique_ptr.h:37,
+[2.957s]                  from /usr/include/c++/9/memory:80,
+[2.957s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.957s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.957s] /usr/include/c++/9/bits/basic_string.h:6152:5: note: candidate: ‘template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::__cxx11::basic_string<_CharT>&, const std::__cxx11::basic_string<_CharT>&)’
+[2.957s]  6152 |     operator==(const basic_string<_CharT>& __lhs,
+[2.957s]       |     ^~~~~~~~
+[2.957s] /usr/include/c++/9/bits/basic_string.h:6152:5: note:   template argument deduction/substitution failed:
+[2.957s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::__cxx11::basic_string<_CharT>’
+[2.957s]   341 |                     if (command.command == "-"){
+[2.957s]       |                                            ^~~
+[2.957s] In file included from /usr/include/c++/9/string:55,
+[2.957s]                  from /usr/include/c++/9/stdexcept:39,
+[2.957s]                  from /usr/include/c++/9/array:39,
+[2.957s]                  from /usr/include/c++/9/tuple:39,
+[2.958s]                  from /usr/include/c++/9/bits/unique_ptr.h:37,
+[2.958s]                  from /usr/include/c++/9/memory:80,
+[2.958s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.958s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.958s] /usr/include/c++/9/bits/basic_string.h:6166:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+[2.958s]  6166 |     operator==(const _CharT* __lhs,
+[2.958s]       |     ^~~~~~~~
+[2.958s] /usr/include/c++/9/bits/basic_string.h:6166:5: note:   template argument deduction/substitution failed:
+[2.958s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   mismatched types ‘const _CharT*’ and ‘std::unique_ptr<std::__cxx11::basic_string<char> >’
+[2.958s]   341 |                     if (command.command == "-"){
+[2.958s]       |                                            ^~~
+[2.965s] In file included from /usr/include/c++/9/string:55,
+[2.965s]                  from /usr/include/c++/9/stdexcept:39,
+[2.966s]                  from /usr/include/c++/9/array:39,
+[2.966s]                  from /usr/include/c++/9/tuple:39,
+[2.966s]                  from /usr/include/c++/9/bits/unique_ptr.h:37,
+[2.966s]                  from /usr/include/c++/9/memory:80,
+[2.966s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.966s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.966s] /usr/include/c++/9/bits/basic_string.h:6178:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)’
+[2.966s]  6178 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+[2.966s]       |     ^~~~~~~~
+[2.966s] /usr/include/c++/9/bits/basic_string.h:6178:5: note:   template argument deduction/substitution failed:
+[2.966s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+[2.966s]   341 |                     if (command.command == "-"){
+[2.966s]       |                                            ^~~
+[2.966s] In file included from /usr/include/c++/9/tuple:39,
+[2.967s]                  from /usr/include/c++/9/bits/unique_ptr.h:37,
+[2.967s]                  from /usr/include/c++/9/memory:80,
+[2.967s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.967s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.967s] /usr/include/c++/9/array:252:5: note: candidate: ‘template<class _Tp, long unsigned int _Nm> bool std::operator==(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)’
+[2.967s]   252 |     operator==(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+[2.967s]       |     ^~~~~~~~
+[2.967s] /usr/include/c++/9/array:252:5: note:   template argument deduction/substitution failed:
+[2.967s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::array<_Tp, _Nm>’
+[2.967s]   341 |                     if (command.command == "-"){
+[2.967s]       |                                            ^~~
+[2.967s] In file included from /usr/include/c++/9/bits/unique_ptr.h:37,
+[2.968s]                  from /usr/include/c++/9/memory:80,
+[2.968s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.968s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.968s] /usr/include/c++/9/tuple:1419:5: note: candidate: ‘template<class ... _TElements, class ... _UElements> constexpr bool std::operator==(const std::tuple<_Tps ...>&, const std::tuple<_Elements ...>&)’
+[2.968s]  1419 |     operator==(const tuple<_TElements...>& __t,
+[2.968s]       |     ^~~~~~~~
+[2.968s] /usr/include/c++/9/tuple:1419:5: note:   template argument deduction/substitution failed:
+[2.968s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::tuple<_Tps ...>’
+[2.968s]   341 |                     if (command.command == "-"){
+[2.968s]       |                                            ^~~
+[2.968s] In file included from /usr/include/c++/9/memory:80,
+[2.968s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.968s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.969s] /usr/include/c++/9/bits/unique_ptr.h:715:5: note: candidate: ‘template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, const std::unique_ptr<_Up, _Ep>&)’
+[2.969s]   715 |     operator==(const unique_ptr<_Tp, _Dp>& __x,
+[2.969s]       |     ^~~~~~~~
+[2.969s] /usr/include/c++/9/bits/unique_ptr.h:715:5: note:   template argument deduction/substitution failed:
+[2.969s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   mismatched types ‘const std::unique_ptr<_Up, _Ep>’ and ‘const char [2]’
+[2.969s]   341 |                     if (command.command == "-"){
+[2.969s]       |                                            ^~~
+[2.969s] In file included from /usr/include/c++/9/memory:80,
+[2.969s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.969s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.969s] /usr/include/c++/9/bits/unique_ptr.h:721:5: note: candidate: ‘template<class _Tp, class _Dp> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, std::nullptr_t)’
+[2.969s]   721 |     operator==(const unique_ptr<_Tp, _Dp>& __x, nullptr_t) noexcept
+[2.970s]       |     ^~~~~~~~
+[2.970s] /usr/include/c++/9/bits/unique_ptr.h:721:5: note:   template argument deduction/substitution failed:
+[2.970s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   cannot convert ‘"-"’ (type ‘const char [2]’) to type ‘std::nullptr_t’
+[2.970s]   341 |                     if (command.command == "-"){
+[2.970s]       |                                            ^~~
+[2.970s] In file included from /usr/include/c++/9/memory:80,
+[2.970s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.970s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.970s] /usr/include/c++/9/bits/unique_ptr.h:726:5: note: candidate: ‘template<class _Tp, class _Dp> bool std::operator==(std::nullptr_t, const std::unique_ptr<_Tp, _Dp>&)’
+[2.970s]   726 |     operator==(nullptr_t, const unique_ptr<_Tp, _Dp>& __x) noexcept
+[2.971s]       |     ^~~~~~~~
+[2.971s] /usr/include/c++/9/bits/unique_ptr.h:726:5: note:   template argument deduction/substitution failed:
+[2.971s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   mismatched types ‘const std::unique_ptr<_Tp, _Dp>’ and ‘const char [2]’
+[2.971s]   341 |                     if (command.command == "-"){
+[2.971s]       |                                            ^~~
+[2.971s] In file included from /usr/include/c++/9/bits/shared_ptr.h:52,
+[2.971s]                  from /usr/include/c++/9/memory:81,
+[2.971s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.971s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.971s] /usr/include/c++/9/bits/shared_ptr_base.h:1412:5: note: candidate: ‘template<class _Tp1, class _Tp2, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const std::__shared_ptr<_Tp1, _Lp>&, const std::__shared_ptr<_Tp2, _Lp>&)’
+[2.972s]  1412 |     operator==(const __shared_ptr<_Tp1, _Lp>& __a,
+[2.972s]       |     ^~~~~~~~
+[2.972s] /usr/include/c++/9/bits/shared_ptr_base.h:1412:5: note:   template argument deduction/substitution failed:
+[2.972s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::__shared_ptr<_Tp1, _Lp>’
+[2.972s]   341 |                     if (command.command == "-"){
+[2.972s]       |                                            ^~~
+[2.972s] In file included from /usr/include/c++/9/bits/shared_ptr.h:52,
+[2.972s]                  from /usr/include/c++/9/memory:81,
+[2.972s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.972s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.972s] /usr/include/c++/9/bits/shared_ptr_base.h:1418:5: note: candidate: ‘template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const std::__shared_ptr<_Tp, _Lp>&, std::nullptr_t)’
+[2.972s]  1418 |     operator==(const __shared_ptr<_Tp, _Lp>& __a, nullptr_t) noexcept
+[2.972s]       |     ^~~~~~~~
+[2.972s] /usr/include/c++/9/bits/shared_ptr_base.h:1418:5: note:   template argument deduction/substitution failed:
+[2.973s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::__shared_ptr<_Tp, _Lp>’
+[2.973s]   341 |                     if (command.command == "-"){
+[2.973s]       |                                            ^~~
+[2.973s] In file included from /usr/include/c++/9/bits/shared_ptr.h:52,
+[2.973s]                  from /usr/include/c++/9/memory:81,
+[2.973s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.973s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.973s] /usr/include/c++/9/bits/shared_ptr_base.h:1423:5: note: candidate: ‘template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(std::nullptr_t, const std::__shared_ptr<_Tp, _Lp>&)’
+[2.973s]  1423 |     operator==(nullptr_t, const __shared_ptr<_Tp, _Lp>& __a) noexcept
+[2.973s]       |     ^~~~~~~~
+[2.973s] /usr/include/c++/9/bits/shared_ptr_base.h:1423:5: note:   template argument deduction/substitution failed:
+[2.973s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   mismatched types ‘const std::__shared_ptr<_Tp, _Lp>’ and ‘const char [2]’
+[2.973s]   341 |                     if (command.command == "-"){
+[2.973s]       |                                            ^~~
+[2.974s] In file included from /usr/include/c++/9/memory:81,
+[2.974s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.974s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.974s] /usr/include/c++/9/bits/shared_ptr.h:383:5: note: candidate: ‘template<class _Tp, class _Up> bool std::operator==(const std::shared_ptr<_Tp>&, const std::shared_ptr<_Tp>&)’
+[2.974s]   383 |     operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+[2.974s]       |     ^~~~~~~~
+[2.974s] /usr/include/c++/9/bits/shared_ptr.h:383:5: note:   template argument deduction/substitution failed:
+[2.974s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::shared_ptr<_Tp>’
+[2.974s]   341 |                     if (command.command == "-"){
+[2.974s]       |                                            ^~~
+[2.974s] In file included from /usr/include/c++/9/memory:81,
+[2.974s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.974s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.974s] /usr/include/c++/9/bits/shared_ptr.h:388:5: note: candidate: ‘template<class _Tp> bool std::operator==(const std::shared_ptr<_Tp>&, std::nullptr_t)’
+[2.975s]   388 |     operator==(const shared_ptr<_Tp>& __a, nullptr_t) noexcept
+[2.975s]       |     ^~~~~~~~
+[2.975s] /usr/include/c++/9/bits/shared_ptr.h:388:5: note:   template argument deduction/substitution failed:
+[2.975s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::shared_ptr<_Tp>’
+[2.975s]   341 |                     if (command.command == "-"){
+[2.975s]       |                                            ^~~
+[2.975s] In file included from /usr/include/c++/9/memory:81,
+[2.975s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.975s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.975s] /usr/include/c++/9/bits/shared_ptr.h:393:5: note: candidate: ‘template<class _Tp> bool std::operator==(std::nullptr_t, const std::shared_ptr<_Tp>&)’
+[2.975s]   393 |     operator==(nullptr_t, const shared_ptr<_Tp>& __a) noexcept
+[2.975s]       |     ^~~~~~~~
+[2.975s] /usr/include/c++/9/bits/shared_ptr.h:393:5: note:   template argument deduction/substitution failed:
+[2.976s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   mismatched types ‘const std::shared_ptr<_Tp>’ and ‘const char [2]’
+[2.976s]   341 |                     if (command.command == "-"){
+[2.976s]       |                                            ^~~
+[2.976s] In file included from /usr/include/c++/9/mutex:42,
+[2.976s]                  from /usr/include/c++/9/future:38,
+[2.976s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:18,
+[2.977s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[2.977s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.977s] /usr/include/c++/9/system_error:292:3: note: candidate: ‘bool std::operator==(const std::error_code&, const std::error_code&)’
+[2.977s]   292 |   operator==(const error_code& __lhs, const error_code& __rhs) noexcept
+[2.977s]       |   ^~~~~~~~
+[2.977s] /usr/include/c++/9/system_error:292:32: note:   no known conversion for argument 1 from ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ to ‘const std::error_code&’
+[2.977s]   292 |   operator==(const error_code& __lhs, const error_code& __rhs) noexcept
+[2.977s]       |              ~~~~~~~~~~~~~~~~~~^~~~~
+[2.977s] /usr/include/c++/9/system_error:297:3: note: candidate: ‘bool std::operator==(const std::error_code&, const std::error_condition&)’
+[2.977s]   297 |   operator==(const error_code& __lhs, const error_condition& __rhs) noexcept
+[2.977s]       |   ^~~~~~~~
+[2.977s] /usr/include/c++/9/system_error:297:32: note:   no known conversion for argument 1 from ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ to ‘const std::error_code&’
+[2.977s]   297 |   operator==(const error_code& __lhs, const error_condition& __rhs) noexcept
+[2.977s]       |              ~~~~~~~~~~~~~~~~~~^~~~~
+[2.978s] /usr/include/c++/9/system_error:304:3: note: candidate: ‘bool std::operator==(const std::error_condition&, const std::error_code&)’
+[2.978s]   304 |   operator==(const error_condition& __lhs, const error_code& __rhs) noexcept
+[2.978s]       |   ^~~~~~~~
+[2.978s] /usr/include/c++/9/system_error:304:37: note:   no known conversion for argument 1 from ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ to ‘const std::error_condition&’
+[2.978s]   304 |   operator==(const error_condition& __lhs, const error_code& __rhs) noexcept
+[2.978s]       |              ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+[2.978s] /usr/include/c++/9/system_error:311:3: note: candidate: ‘bool std::operator==(const std::error_condition&, const std::error_condition&)’
+[2.978s]   311 |   operator==(const error_condition& __lhs,
+[2.978s]       |   ^~~~~~~~
+[2.979s] /usr/include/c++/9/system_error:311:37: note:   no known conversion for argument 1 from ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ to ‘const std::error_condition&’
+[2.979s]   311 |   operator==(const error_condition& __lhs,
+[2.979s]       |              ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+[2.979s] In file included from /usr/include/c++/9/future:39,
+[2.979s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:18,
+[2.979s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[2.979s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.979s] /usr/include/c++/9/thread:276:3: note: candidate: ‘bool std::operator==(std::thread::id, std::thread::id)’
+[2.979s]   276 |   operator==(thread::id __x, thread::id __y) noexcept
+[2.979s]       |   ^~~~~~~~
+[2.979s] /usr/include/c++/9/thread:276:25: note:   no known conversion for argument 1 from ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ to ‘std::thread::id’
+[2.979s]   276 |   operator==(thread::id __x, thread::id __y) noexcept
+[2.979s]       |              ~~~~~~~~~~~^~~
+[2.979s] In file included from /usr/include/c++/9/future:48,
+[2.979s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:18,
+[2.979s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[2.979s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.979s] /usr/include/c++/9/bits/std_function.h:746:5: note: candidate: ‘template<class _Res, class ... _Args> bool std::operator==(const std::function<_Res(_ArgTypes ...)>&, std::nullptr_t)’
+[2.979s]   746 |     operator==(const function<_Res(_Args...)>& __f, nullptr_t) noexcept
+[2.980s]       |     ^~~~~~~~
+[2.980s] /usr/include/c++/9/bits/std_function.h:746:5: note:   template argument deduction/substitution failed:
+[2.980s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::function<_Res(_ArgTypes ...)>’
+[2.980s]   341 |                     if (command.command == "-"){
+[2.980s]       |                                            ^~~
+[2.980s] In file included from /usr/include/c++/9/future:48,
+[2.980s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:18,
+[2.980s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[2.980s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.980s] /usr/include/c++/9/bits/std_function.h:752:5: note: candidate: ‘template<class _Res, class ... _Args> bool std::operator==(std::nullptr_t, const std::function<_Res(_ArgTypes ...)>&)’
+[2.980s]   752 |     operator==(nullptr_t, const function<_Res(_Args...)>& __f) noexcept
+[2.980s]       |     ^~~~~~~~
+[2.980s] /usr/include/c++/9/bits/std_function.h:752:5: note:   template argument deduction/substitution failed:
+[2.980s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   mismatched types ‘const std::function<_Res(_ArgTypes ...)>’ and ‘const char [2]’
+[2.980s]   341 |                     if (command.command == "-"){
+[2.980s]       |                                            ^~~
+[2.980s] In file included from /usr/include/c++/9/set:61,
+[2.980s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:21,
+[2.980s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[2.980s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[2.981s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.981s] /usr/include/c++/9/bits/stl_set.h:979:5: note: candidate: ‘template<class _Key, class _Compare, class _Alloc> bool std::operator==(const std::set<_Key, _Compare, _Alloc>&, const std::set<_Key, _Compare, _Alloc>&)’
+[2.981s]   979 |     operator==(const set<_Key, _Compare, _Alloc>& __x,
+[2.981s]       |     ^~~~~~~~
+[2.981s] /usr/include/c++/9/bits/stl_set.h:979:5: note:   template argument deduction/substitution failed:
+[2.981s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::set<_Key, _Compare, _Alloc>’
+[2.981s]   341 |                     if (command.command == "-"){
+[2.981s]       |                                            ^~~
+[2.981s] In file included from /usr/include/c++/9/set:62,
+[2.981s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:21,
+[2.981s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[2.981s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[2.981s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.981s] /usr/include/c++/9/bits/stl_multiset.h:964:5: note: candidate: ‘template<class _Key, class _Compare, class _Alloc> bool std::operator==(const std::multiset<_Key, _Compare, _Alloc>&, const std::multiset<_Key, _Compare, _Alloc>&)’
+[2.981s]   964 |     operator==(const multiset<_Key, _Compare, _Alloc>& __x,
+[2.981s]       |     ^~~~~~~~
+[2.981s] /usr/include/c++/9/bits/stl_multiset.h:964:5: note:   template argument deduction/substitution failed:
+[2.981s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::multiset<_Key, _Compare, _Alloc>’
+[2.981s]   341 |                     if (command.command == "-"){
+[2.981s]       |                                            ^~~
+[2.982s] In file included from /usr/include/c++/9/unordered_map:47,
+[2.982s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:23,
+[2.982s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[2.982s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[2.982s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.982s] /usr/include/c++/9/bits/unordered_map.h:2093:5: note: candidate: ‘template<class _Key, class _Tp, class _Hash, class _Pred, class _Alloc> bool std::operator==(const std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>&, const std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>&)’
+[2.982s]  2093 |     operator==(const unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+[2.982s]       |     ^~~~~~~~
+[2.982s] /usr/include/c++/9/bits/unordered_map.h:2093:5: note:   template argument deduction/substitution failed:
+[2.982s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>’
+[2.982s]   341 |                     if (command.command == "-"){
+[2.982s]       |                                            ^~~
+[2.982s] In file included from /usr/include/c++/9/unordered_map:47,
+[2.982s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:23,
+[2.982s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[2.982s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[2.982s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.982s] /usr/include/c++/9/bits/unordered_map.h:2105:5: note: candidate: ‘template<class _Key, class _Tp, class _Hash, class _Pred, class _Alloc> bool std::operator==(const std::unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>&, const std::unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>&)’
+[2.982s]  2105 |     operator==(const unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+[2.983s]       |     ^~~~~~~~
+[2.983s] /usr/include/c++/9/bits/unordered_map.h:2105:5: note:   template argument deduction/substitution failed:
+[2.983s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>’
+[2.983s]   341 |                     if (command.command == "-"){
+[2.983s]       |                                            ^~~
+[2.983s] In file included from /usr/include/c++/9/bits/locale_facets.h:48,
+[2.983s]                  from /usr/include/c++/9/bits/basic_ios.h:37,
+[2.983s]                  from /usr/include/c++/9/ios:44,
+[2.983s]                  from /usr/include/c++/9/ostream:38,
+[2.983s]                  from /usr/include/c++/9/iostream:39,
+[2.983s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:22,
+[2.983s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[2.983s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[2.983s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[2.983s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.983s] /usr/include/c++/9/bits/streambuf_iterator.h:208:5: note: candidate: ‘template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)’
+[2.983s]   208 |     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+[2.983s]       |     ^~~~~~~~
+[2.983s] /usr/include/c++/9/bits/streambuf_iterator.h:208:5: note:   template argument deduction/substitution failed:
+[2.984s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::istreambuf_iterator<_CharT, _Traits>’
+[2.984s]   341 |                     if (command.command == "-"){
+[2.984s]       |                                            ^~~
+[2.984s] In file included from /usr/include/c++/9/list:63,
+[2.984s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:23,
+[2.984s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[2.984s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[2.984s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[2.984s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.984s] /usr/include/c++/9/bits/stl_list.h:1991:5: note: candidate: ‘template<class _Tp, class _Alloc> bool std::operator==(const std::__cxx11::list<_Tp, _Alloc>&, const std::__cxx11::list<_Tp, _Alloc>&)’
+[2.984s]  1991 |     operator==(const list<_Tp, _Alloc>& __x, const list<_Tp, _Alloc>& __y)
+[2.984s]       |     ^~~~~~~~
+[2.984s] /usr/include/c++/9/bits/stl_list.h:1991:5: note:   template argument deduction/substitution failed:
+[2.984s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::__cxx11::list<_Tp, _Alloc>’
+[2.984s]   341 |                     if (command.command == "-"){
+[2.984s]       |                                            ^~~
+[2.984s] In file included from /usr/include/c++/9/vector:67,
+[2.984s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:27,
+[2.985s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[2.985s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[2.985s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[2.985s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.985s] /usr/include/c++/9/bits/stl_vector.h:1888:5: note: candidate: ‘template<class _Tp, class _Alloc> bool std::operator==(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)’
+[2.985s]  1888 |     operator==(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+[2.985s]       |     ^~~~~~~~
+[2.985s] /usr/include/c++/9/bits/stl_vector.h:1888:5: note:   template argument deduction/substitution failed:
+[2.985s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::vector<_Tp, _Alloc>’
+[2.985s]   341 |                     if (command.command == "-"){
+[2.985s]       |                                            ^~~
+[2.985s] In file included from /usr/include/c++/9/map:61,
+[2.985s]                  from /opt/ros/foxy/include/rclcpp/client.hpp:20,
+[2.985s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+[2.985s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[2.985s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[2.985s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[2.985s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[2.985s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[2.986s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[2.986s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[2.986s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[2.986s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.986s] /usr/include/c++/9/bits/stl_map.h:1455:5: note: candidate: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator==(const std::map<_Key, _Tp, _Compare, _Alloc>&, const std::map<_Key, _Tp, _Compare, _Alloc>&)’
+[2.986s]  1455 |     operator==(const map<_Key, _Tp, _Compare, _Alloc>& __x,
+[2.986s]       |     ^~~~~~~~
+[2.986s] /usr/include/c++/9/bits/stl_map.h:1455:5: note:   template argument deduction/substitution failed:
+[2.986s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::map<_Key, _Tp, _Compare, _Alloc>’
+[2.986s]   341 |                     if (command.command == "-"){
+[2.986s]       |                                            ^~~
+[2.986s] In file included from /usr/include/c++/9/map:62,
+[2.986s]                  from /opt/ros/foxy/include/rclcpp/client.hpp:20,
+[2.986s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+[2.986s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[2.986s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[2.986s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[2.986s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[2.987s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[2.987s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[2.987s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[2.987s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[2.987s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.987s] /usr/include/c++/9/bits/stl_multimap.h:1119:5: note: candidate: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator==(const std::multimap<_Key, _Tp, _Compare, _Alloc>&, const std::multimap<_Key, _Tp, _Compare, _Alloc>&)’
+[2.987s]  1119 |     operator==(const multimap<_Key, _Tp, _Compare, _Alloc>& __x,
+[2.987s]       |     ^~~~~~~~
+[2.987s] /usr/include/c++/9/bits/stl_multimap.h:1119:5: note:   template argument deduction/substitution failed:
+[2.987s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::multimap<_Key, _Tp, _Compare, _Alloc>’
+[2.987s]   341 |                     if (command.command == "-"){
+[2.987s]       |                                            ^~~
+[2.987s] In file included from /usr/include/c++/9/iterator:66,
+[2.987s]                  from /opt/ros/foxy/include/rcpputils/join.hpp:23,
+[2.987s]                  from /opt/ros/foxy/include/rclcpp/exceptions/exceptions.hpp:26,
+[2.987s]                  from /opt/ros/foxy/include/rclcpp/exceptions.hpp:18,
+[2.987s]                  from /opt/ros/foxy/include/rclcpp/client.hpp:31,
+[2.987s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+[2.987s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[2.988s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[2.988s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[2.988s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[2.988s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[2.988s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[2.988s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[2.988s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[2.988s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.988s] /usr/include/c++/9/bits/stream_iterator.h:134:5: note: candidate: ‘template<class _Tp, class _CharT, class _Traits, class _Dist> bool std::operator==(const std::istream_iterator<_Tp, _CharT, _Traits, _Dist>&, const std::istream_iterator<_Tp, _CharT, _Traits, _Dist>&)’
+[2.988s]   134 |     operator==(const istream_iterator<_Tp, _CharT, _Traits, _Dist>& __x,
+[2.988s]       |     ^~~~~~~~
+[2.988s] /usr/include/c++/9/bits/stream_iterator.h:134:5: note:   template argument deduction/substitution failed:
+[2.988s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::istream_iterator<_Tp, _CharT, _Traits, _Dist>’
+[2.988s]   341 |                     if (command.command == "-"){
+[2.988s]       |                                            ^~~
+[2.988s] In file included from /usr/include/c++/9/memory:63,
+[2.988s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.988s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.988s] /usr/include/c++/9/bits/allocator.h:155:7: note: candidate: ‘bool std::operator==(const std::allocator<char>&, const std::allocator<char>&)’
+[2.989s]   155 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+[2.989s]       |       ^~~~~~~~
+[2.989s] /usr/include/c++/9/bits/allocator.h:155:18: note:   no known conversion for argument 1 from ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ to ‘const std::allocator<char>&’
+[2.989s]   155 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+[2.989s]       |                  ^~~~~~~~~~~~~~~~
+[2.989s] In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+[2.989s]                  from /usr/include/c++/9/memory:62,
+[2.989s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.989s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.989s] /usr/include/c++/9/bits/stl_iterator.h:883:5: note: candidate: ‘template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)’
+[2.989s]   883 |     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+[2.989s]       |     ^~~~~~~~
+[2.989s] /usr/include/c++/9/bits/stl_iterator.h:883:5: note:   template argument deduction/substitution failed:
+[2.989s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const __gnu_cxx::__normal_iterator<_IteratorL, _Container>’
+[2.989s]   341 |                     if (command.command == "-"){
+[2.989s]       |                                            ^~~
+[2.990s] In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+[2.990s]                  from /usr/include/c++/9/memory:62,
+[2.990s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.990s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.990s] /usr/include/c++/9/bits/stl_iterator.h:890:5: note: candidate: ‘template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)’
+[2.990s]   890 |     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+[2.990s]       |     ^~~~~~~~
+[2.990s] /usr/include/c++/9/bits/stl_iterator.h:890:5: note:   template argument deduction/substitution failed:
+[2.990s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const __gnu_cxx::__normal_iterator<_Iterator, _Container>’
+[2.990s]   341 |                     if (command.command == "-"){
+[2.990s]       |                                            ^~~
+[2.990s] In file included from /usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h:33,
+[2.990s]                  from /usr/include/c++/9/bits/allocator.h:46,
+[2.990s]                  from /usr/include/c++/9/memory:63,
+[2.990s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.990s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.990s] /usr/include/c++/9/ext/new_allocator.h:166:2: note: candidate: ‘template<class _Up> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<char>&, const __gnu_cxx::new_allocator<_Tp>&)’
+[2.990s]   166 |  operator==(const new_allocator&, const new_allocator<_Up>&)
+[2.990s]       |  ^~~~~~~~
+[2.991s] /usr/include/c++/9/ext/new_allocator.h:166:2: note:   template argument deduction/substitution failed:
+[2.991s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:341:44: note:   mismatched types ‘const __gnu_cxx::new_allocator<_Tp>’ and ‘const char [2]’
+[2.991s]   341 |                     if (command.command == "-"){
+[2.991s]       |                                            ^~~
+[2.992s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:46: error: no match for ‘operator==’ (operand types are ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ and ‘const char [5]’)
+[2.992s]   344 |                     else if (command.command == "land"){
+[2.992s]       |                              ~~~~~~~~~~~~~~~ ^~ ~~~~~~
+[2.992s]       |                                      |          |
+[2.992s]       |                                      |          const char [5]
+[2.992s]       |                                      std::unique_ptr<std::__cxx11::basic_string<char> >
+[2.992s] In file included from /usr/include/c++/9/bits/stl_algobase.h:64,
+[2.992s]                  from /usr/include/c++/9/memory:62,
+[2.992s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.992s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.992s] /usr/include/c++/9/bits/stl_pair.h:448:5: note: candidate: ‘template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)’
+[2.992s]   448 |     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+[2.992s]       |     ^~~~~~~~
+[2.992s] /usr/include/c++/9/bits/stl_pair.h:448:5: note:   template argument deduction/substitution failed:
+[2.992s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::pair<_T1, _T2>’
+[2.992s]   344 |                     else if (command.command == "land"){
+[2.992s]       |                                                 ^~~~~~
+[2.992s] In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+[2.992s]                  from /usr/include/c++/9/memory:62,
+[2.993s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.993s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.993s] /usr/include/c++/9/bits/stl_iterator.h:325:5: note: candidate: ‘template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)’
+[2.993s]   325 |     operator==(const reverse_iterator<_Iterator>& __x,
+[2.993s]       |     ^~~~~~~~
+[2.993s] /usr/include/c++/9/bits/stl_iterator.h:325:5: note:   template argument deduction/substitution failed:
+[2.993s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+[2.993s]   344 |                     else if (command.command == "land"){
+[2.993s]       |                                                 ^~~~~~
+[2.993s] In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+[2.993s]                  from /usr/include/c++/9/memory:62,
+[2.993s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.993s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.993s] /usr/include/c++/9/bits/stl_iterator.h:363:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)’
+[2.993s]   363 |     operator==(const reverse_iterator<_IteratorL>& __x,
+[2.993s]       |     ^~~~~~~~
+[2.993s] /usr/include/c++/9/bits/stl_iterator.h:363:5: note:   template argument deduction/substitution failed:
+[2.993s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+[2.994s]   344 |                     else if (command.command == "land"){
+[2.994s]       |                                                 ^~~~~~
+[2.994s] In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+[2.994s]                  from /usr/include/c++/9/memory:62,
+[2.994s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.994s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.994s] /usr/include/c++/9/bits/stl_iterator.h:1136:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorR>&)’
+[2.994s]  1136 |     operator==(const move_iterator<_IteratorL>& __x,
+[2.994s]       |     ^~~~~~~~
+[2.994s] /usr/include/c++/9/bits/stl_iterator.h:1136:5: note:   template argument deduction/substitution failed:
+[2.994s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::move_iterator<_IteratorL>’
+[2.994s]   344 |                     else if (command.command == "land"){
+[2.994s]       |                                                 ^~~~~~
+[2.994s] In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+[2.994s]                  from /usr/include/c++/9/memory:62,
+[2.994s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.994s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.995s] /usr/include/c++/9/bits/stl_iterator.h:1142:5: note: candidate: ‘template<class _Iterator> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorL>&)’
+[2.995s]  1142 |     operator==(const move_iterator<_Iterator>& __x,
+[2.995s]       |     ^~~~~~~~
+[2.995s] /usr/include/c++/9/bits/stl_iterator.h:1142:5: note:   template argument deduction/substitution failed:
+[2.995s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::move_iterator<_IteratorL>’
+[2.995s]   344 |                     else if (command.command == "land"){
+[2.995s]       |                                                 ^~~~~~
+[2.995s] In file included from /usr/include/c++/9/memory:63,
+[2.995s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.995s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.995s] /usr/include/c++/9/bits/allocator.h:167:5: note: candidate: ‘template<class _T1, class _T2> bool std::operator==(const std::allocator<_Tp1>&, const std::allocator<_T2>&)’
+[2.995s]   167 |     operator==(const allocator<_T1>&, const allocator<_T2>&)
+[2.995s]       |     ^~~~~~~~
+[2.995s] /usr/include/c++/9/bits/allocator.h:167:5: note:   template argument deduction/substitution failed:
+[2.995s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::allocator<_Tp1>’
+[2.995s]   344 |                     else if (command.command == "land"){
+[2.995s]       |                                                 ^~~~~~
+[2.995s] In file included from /usr/include/c++/9/iosfwd:40,
+[2.996s]                  from /usr/include/c++/9/memory:72,
+[2.996s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.996s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.996s] /usr/include/c++/9/bits/postypes.h:222:5: note: candidate: ‘template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)’
+[2.996s]   222 |     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+[2.996s]       |     ^~~~~~~~
+[2.996s] /usr/include/c++/9/bits/postypes.h:222:5: note:   template argument deduction/substitution failed:
+[2.996s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::fpos<_StateT>’
+[2.996s]   344 |                     else if (command.command == "land"){
+[2.996s]       |                                                 ^~~~~~
+[2.996s] In file included from /usr/include/c++/9/string:55,
+[2.996s]                  from /usr/include/c++/9/stdexcept:39,
+[2.996s]                  from /usr/include/c++/9/array:39,
+[2.996s]                  from /usr/include/c++/9/tuple:39,
+[2.996s]                  from /usr/include/c++/9/bits/unique_ptr.h:37,
+[2.996s]                  from /usr/include/c++/9/memory:80,
+[2.996s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.997s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.997s] /usr/include/c++/9/bits/basic_string.h:6144:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+[2.997s]  6144 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+[2.997s]       |     ^~~~~~~~
+[2.997s] /usr/include/c++/9/bits/basic_string.h:6144:5: note:   template argument deduction/substitution failed:
+[2.997s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+[2.997s]   344 |                     else if (command.command == "land"){
+[2.997s]       |                                                 ^~~~~~
+[2.997s] In file included from /usr/include/c++/9/string:55,
+[2.997s]                  from /usr/include/c++/9/stdexcept:39,
+[2.997s]                  from /usr/include/c++/9/array:39,
+[2.997s]                  from /usr/include/c++/9/tuple:39,
+[2.997s]                  from /usr/include/c++/9/bits/unique_ptr.h:37,
+[2.997s]                  from /usr/include/c++/9/memory:80,
+[2.997s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.997s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.997s] /usr/include/c++/9/bits/basic_string.h:6152:5: note: candidate: ‘template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::__cxx11::basic_string<_CharT>&, const std::__cxx11::basic_string<_CharT>&)’
+[2.997s]  6152 |     operator==(const basic_string<_CharT>& __lhs,
+[2.997s]       |     ^~~~~~~~
+[2.998s] /usr/include/c++/9/bits/basic_string.h:6152:5: note:   template argument deduction/substitution failed:
+[2.998s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::__cxx11::basic_string<_CharT>’
+[2.998s]   344 |                     else if (command.command == "land"){
+[2.998s]       |                                                 ^~~~~~
+[2.998s] In file included from /usr/include/c++/9/string:55,
+[2.998s]                  from /usr/include/c++/9/stdexcept:39,
+[2.998s]                  from /usr/include/c++/9/array:39,
+[2.998s]                  from /usr/include/c++/9/tuple:39,
+[2.998s]                  from /usr/include/c++/9/bits/unique_ptr.h:37,
+[2.998s]                  from /usr/include/c++/9/memory:80,
+[2.998s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.998s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.998s] /usr/include/c++/9/bits/basic_string.h:6166:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+[2.998s]  6166 |     operator==(const _CharT* __lhs,
+[2.998s]       |     ^~~~~~~~
+[2.998s] /usr/include/c++/9/bits/basic_string.h:6166:5: note:   template argument deduction/substitution failed:
+[2.998s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   mismatched types ‘const _CharT*’ and ‘std::unique_ptr<std::__cxx11::basic_string<char> >’
+[2.998s]   344 |                     else if (command.command == "land"){
+[2.998s]       |                                                 ^~~~~~
+[2.999s] In file included from /usr/include/c++/9/string:55,
+[2.999s]                  from /usr/include/c++/9/stdexcept:39,
+[2.999s]                  from /usr/include/c++/9/array:39,
+[2.999s]                  from /usr/include/c++/9/tuple:39,
+[2.999s]                  from /usr/include/c++/9/bits/unique_ptr.h:37,
+[2.999s]                  from /usr/include/c++/9/memory:80,
+[2.999s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.999s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.999s] /usr/include/c++/9/bits/basic_string.h:6178:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)’
+[2.999s]  6178 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+[2.999s]       |     ^~~~~~~~
+[2.999s] /usr/include/c++/9/bits/basic_string.h:6178:5: note:   template argument deduction/substitution failed:
+[2.999s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+[2.999s]   344 |                     else if (command.command == "land"){
+[2.999s]       |                                                 ^~~~~~
+[2.999s] In file included from /usr/include/c++/9/tuple:39,
+[2.999s]                  from /usr/include/c++/9/bits/unique_ptr.h:37,
+[2.999s]                  from /usr/include/c++/9/memory:80,
+[2.999s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[2.999s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.000s] /usr/include/c++/9/array:252:5: note: candidate: ‘template<class _Tp, long unsigned int _Nm> bool std::operator==(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)’
+[3.000s]   252 |     operator==(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+[3.000s]       |     ^~~~~~~~
+[3.000s] /usr/include/c++/9/array:252:5: note:   template argument deduction/substitution failed:
+[3.000s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::array<_Tp, _Nm>’
+[3.000s]   344 |                     else if (command.command == "land"){
+[3.000s]       |                                                 ^~~~~~
+[3.000s] In file included from /usr/include/c++/9/bits/unique_ptr.h:37,
+[3.000s]                  from /usr/include/c++/9/memory:80,
+[3.000s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.000s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.000s] /usr/include/c++/9/tuple:1419:5: note: candidate: ‘template<class ... _TElements, class ... _UElements> constexpr bool std::operator==(const std::tuple<_Tps ...>&, const std::tuple<_Elements ...>&)’
+[3.000s]  1419 |     operator==(const tuple<_TElements...>& __t,
+[3.000s]       |     ^~~~~~~~
+[3.000s] /usr/include/c++/9/tuple:1419:5: note:   template argument deduction/substitution failed:
+[3.000s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::tuple<_Tps ...>’
+[3.000s]   344 |                     else if (command.command == "land"){
+[3.000s]       |                                                 ^~~~~~
+[3.000s] In file included from /usr/include/c++/9/memory:80,
+[3.000s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.001s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.001s] /usr/include/c++/9/bits/unique_ptr.h:715:5: note: candidate: ‘template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, const std::unique_ptr<_Up, _Ep>&)’
+[3.001s]   715 |     operator==(const unique_ptr<_Tp, _Dp>& __x,
+[3.001s]       |     ^~~~~~~~
+[3.001s] /usr/include/c++/9/bits/unique_ptr.h:715:5: note:   template argument deduction/substitution failed:
+[3.001s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   mismatched types ‘const std::unique_ptr<_Up, _Ep>’ and ‘const char [5]’
+[3.001s]   344 |                     else if (command.command == "land"){
+[3.001s]       |                                                 ^~~~~~
+[3.001s] In file included from /usr/include/c++/9/memory:80,
+[3.001s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.001s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.001s] /usr/include/c++/9/bits/unique_ptr.h:721:5: note: candidate: ‘template<class _Tp, class _Dp> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, std::nullptr_t)’
+[3.001s]   721 |     operator==(const unique_ptr<_Tp, _Dp>& __x, nullptr_t) noexcept
+[3.001s]       |     ^~~~~~~~
+[3.001s] /usr/include/c++/9/bits/unique_ptr.h:721:5: note:   template argument deduction/substitution failed:
+[3.001s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   cannot convert ‘"land"’ (type ‘const char [5]’) to type ‘std::nullptr_t’
+[3.001s]   344 |                     else if (command.command == "land"){
+[3.001s]       |                                                 ^~~~~~
+[3.001s] In file included from /usr/include/c++/9/memory:80,
+[3.002s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.002s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.002s] /usr/include/c++/9/bits/unique_ptr.h:726:5: note: candidate: ‘template<class _Tp, class _Dp> bool std::operator==(std::nullptr_t, const std::unique_ptr<_Tp, _Dp>&)’
+[3.002s]   726 |     operator==(nullptr_t, const unique_ptr<_Tp, _Dp>& __x) noexcept
+[3.002s]       |     ^~~~~~~~
+[3.002s] /usr/include/c++/9/bits/unique_ptr.h:726:5: note:   template argument deduction/substitution failed:
+[3.002s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   mismatched types ‘const std::unique_ptr<_Tp, _Dp>’ and ‘const char [5]’
+[3.002s]   344 |                     else if (command.command == "land"){
+[3.002s]       |                                                 ^~~~~~
+[3.002s] In file included from /usr/include/c++/9/bits/shared_ptr.h:52,
+[3.002s]                  from /usr/include/c++/9/memory:81,
+[3.002s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.002s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.002s] /usr/include/c++/9/bits/shared_ptr_base.h:1412:5: note: candidate: ‘template<class _Tp1, class _Tp2, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const std::__shared_ptr<_Tp1, _Lp>&, const std::__shared_ptr<_Tp2, _Lp>&)’
+[3.002s]  1412 |     operator==(const __shared_ptr<_Tp1, _Lp>& __a,
+[3.002s]       |     ^~~~~~~~
+[3.002s] /usr/include/c++/9/bits/shared_ptr_base.h:1412:5: note:   template argument deduction/substitution failed:
+[3.002s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::__shared_ptr<_Tp1, _Lp>’
+[3.003s]   344 |                     else if (command.command == "land"){
+[3.003s]       |                                                 ^~~~~~
+[3.003s] In file included from /usr/include/c++/9/bits/shared_ptr.h:52,
+[3.003s]                  from /usr/include/c++/9/memory:81,
+[3.003s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.003s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.003s] /usr/include/c++/9/bits/shared_ptr_base.h:1418:5: note: candidate: ‘template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const std::__shared_ptr<_Tp, _Lp>&, std::nullptr_t)’
+[3.003s]  1418 |     operator==(const __shared_ptr<_Tp, _Lp>& __a, nullptr_t) noexcept
+[3.003s]       |     ^~~~~~~~
+[3.003s] /usr/include/c++/9/bits/shared_ptr_base.h:1418:5: note:   template argument deduction/substitution failed:
+[3.003s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::__shared_ptr<_Tp, _Lp>’
+[3.003s]   344 |                     else if (command.command == "land"){
+[3.003s]       |                                                 ^~~~~~
+[3.003s] In file included from /usr/include/c++/9/bits/shared_ptr.h:52,
+[3.003s]                  from /usr/include/c++/9/memory:81,
+[3.003s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.003s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.003s] /usr/include/c++/9/bits/shared_ptr_base.h:1423:5: note: candidate: ‘template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(std::nullptr_t, const std::__shared_ptr<_Tp, _Lp>&)’
+[3.003s]  1423 |     operator==(nullptr_t, const __shared_ptr<_Tp, _Lp>& __a) noexcept
+[3.004s]       |     ^~~~~~~~
+[3.004s] /usr/include/c++/9/bits/shared_ptr_base.h:1423:5: note:   template argument deduction/substitution failed:
+[3.004s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   mismatched types ‘const std::__shared_ptr<_Tp, _Lp>’ and ‘const char [5]’
+[3.004s]   344 |                     else if (command.command == "land"){
+[3.004s]       |                                                 ^~~~~~
+[3.004s] In file included from /usr/include/c++/9/memory:81,
+[3.004s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.004s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.004s] /usr/include/c++/9/bits/shared_ptr.h:383:5: note: candidate: ‘template<class _Tp, class _Up> bool std::operator==(const std::shared_ptr<_Tp>&, const std::shared_ptr<_Tp>&)’
+[3.004s]   383 |     operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+[3.004s]       |     ^~~~~~~~
+[3.004s] /usr/include/c++/9/bits/shared_ptr.h:383:5: note:   template argument deduction/substitution failed:
+[3.004s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::shared_ptr<_Tp>’
+[3.004s]   344 |                     else if (command.command == "land"){
+[3.004s]       |                                                 ^~~~~~
+[3.004s] In file included from /usr/include/c++/9/memory:81,
+[3.004s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.004s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.004s] /usr/include/c++/9/bits/shared_ptr.h:388:5: note: candidate: ‘template<class _Tp> bool std::operator==(const std::shared_ptr<_Tp>&, std::nullptr_t)’
+[3.005s]   388 |     operator==(const shared_ptr<_Tp>& __a, nullptr_t) noexcept
+[3.005s]       |     ^~~~~~~~
+[3.005s] /usr/include/c++/9/bits/shared_ptr.h:388:5: note:   template argument deduction/substitution failed:
+[3.005s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::shared_ptr<_Tp>’
+[3.005s]   344 |                     else if (command.command == "land"){
+[3.005s]       |                                                 ^~~~~~
+[3.005s] In file included from /usr/include/c++/9/memory:81,
+[3.005s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.005s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.005s] /usr/include/c++/9/bits/shared_ptr.h:393:5: note: candidate: ‘template<class _Tp> bool std::operator==(std::nullptr_t, const std::shared_ptr<_Tp>&)’
+[3.005s]   393 |     operator==(nullptr_t, const shared_ptr<_Tp>& __a) noexcept
+[3.005s]       |     ^~~~~~~~
+[3.005s] /usr/include/c++/9/bits/shared_ptr.h:393:5: note:   template argument deduction/substitution failed:
+[3.005s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   mismatched types ‘const std::shared_ptr<_Tp>’ and ‘const char [5]’
+[3.005s]   344 |                     else if (command.command == "land"){
+[3.005s]       |                                                 ^~~~~~
+[3.005s] In file included from /usr/include/c++/9/mutex:42,
+[3.006s]                  from /usr/include/c++/9/future:38,
+[3.006s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:18,
+[3.006s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.006s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.006s] /usr/include/c++/9/system_error:292:3: note: candidate: ‘bool std::operator==(const std::error_code&, const std::error_code&)’
+[3.006s]   292 |   operator==(const error_code& __lhs, const error_code& __rhs) noexcept
+[3.006s]       |   ^~~~~~~~
+[3.006s] /usr/include/c++/9/system_error:292:32: note:   no known conversion for argument 1 from ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ to ‘const std::error_code&’
+[3.006s]   292 |   operator==(const error_code& __lhs, const error_code& __rhs) noexcept
+[3.006s]       |              ~~~~~~~~~~~~~~~~~~^~~~~
+[3.006s] /usr/include/c++/9/system_error:297:3: note: candidate: ‘bool std::operator==(const std::error_code&, const std::error_condition&)’
+[3.006s]   297 |   operator==(const error_code& __lhs, const error_condition& __rhs) noexcept
+[3.006s]       |   ^~~~~~~~
+[3.006s] /usr/include/c++/9/system_error:297:32: note:   no known conversion for argument 1 from ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ to ‘const std::error_code&’
+[3.006s]   297 |   operator==(const error_code& __lhs, const error_condition& __rhs) noexcept
+[3.006s]       |              ~~~~~~~~~~~~~~~~~~^~~~~
+[3.006s] /usr/include/c++/9/system_error:304:3: note: candidate: ‘bool std::operator==(const std::error_condition&, const std::error_code&)’
+[3.006s]   304 |   operator==(const error_condition& __lhs, const error_code& __rhs) noexcept
+[3.006s]       |   ^~~~~~~~
+[3.006s] /usr/include/c++/9/system_error:304:37: note:   no known conversion for argument 1 from ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ to ‘const std::error_condition&’
+[3.007s]   304 |   operator==(const error_condition& __lhs, const error_code& __rhs) noexcept
+[3.007s]       |              ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+[3.007s] /usr/include/c++/9/system_error:311:3: note: candidate: ‘bool std::operator==(const std::error_condition&, const std::error_condition&)’
+[3.007s]   311 |   operator==(const error_condition& __lhs,
+[3.007s]       |   ^~~~~~~~
+[3.007s] /usr/include/c++/9/system_error:311:37: note:   no known conversion for argument 1 from ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ to ‘const std::error_condition&’
+[3.007s]   311 |   operator==(const error_condition& __lhs,
+[3.007s]       |              ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+[3.007s] In file included from /usr/include/c++/9/future:39,
+[3.007s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:18,
+[3.007s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.007s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.007s] /usr/include/c++/9/thread:276:3: note: candidate: ‘bool std::operator==(std::thread::id, std::thread::id)’
+[3.007s]   276 |   operator==(thread::id __x, thread::id __y) noexcept
+[3.007s]       |   ^~~~~~~~
+[3.007s] /usr/include/c++/9/thread:276:25: note:   no known conversion for argument 1 from ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ to ‘std::thread::id’
+[3.007s]   276 |   operator==(thread::id __x, thread::id __y) noexcept
+[3.007s]       |              ~~~~~~~~~~~^~~
+[3.007s] In file included from /usr/include/c++/9/future:48,
+[3.007s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:18,
+[3.008s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.008s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.008s] /usr/include/c++/9/bits/std_function.h:746:5: note: candidate: ‘template<class _Res, class ... _Args> bool std::operator==(const std::function<_Res(_ArgTypes ...)>&, std::nullptr_t)’
+[3.008s]   746 |     operator==(const function<_Res(_Args...)>& __f, nullptr_t) noexcept
+[3.008s]       |     ^~~~~~~~
+[3.008s] /usr/include/c++/9/bits/std_function.h:746:5: note:   template argument deduction/substitution failed:
+[3.008s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::function<_Res(_ArgTypes ...)>’
+[3.008s]   344 |                     else if (command.command == "land"){
+[3.008s]       |                                                 ^~~~~~
+[3.008s] In file included from /usr/include/c++/9/future:48,
+[3.008s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:18,
+[3.008s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.009s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.009s] /usr/include/c++/9/bits/std_function.h:752:5: note: candidate: ‘template<class _Res, class ... _Args> bool std::operator==(std::nullptr_t, const std::function<_Res(_ArgTypes ...)>&)’
+[3.009s]   752 |     operator==(nullptr_t, const function<_Res(_Args...)>& __f) noexcept
+[3.009s]       |     ^~~~~~~~
+[3.009s] /usr/include/c++/9/bits/std_function.h:752:5: note:   template argument deduction/substitution failed:
+[3.009s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   mismatched types ‘const std::function<_Res(_ArgTypes ...)>’ and ‘const char [5]’
+[3.009s]   344 |                     else if (command.command == "land"){
+[3.009s]       |                                                 ^~~~~~
+[3.009s] In file included from /usr/include/c++/9/set:61,
+[3.009s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:21,
+[3.009s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.009s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.009s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.009s] /usr/include/c++/9/bits/stl_set.h:979:5: note: candidate: ‘template<class _Key, class _Compare, class _Alloc> bool std::operator==(const std::set<_Key, _Compare, _Alloc>&, const std::set<_Key, _Compare, _Alloc>&)’
+[3.009s]   979 |     operator==(const set<_Key, _Compare, _Alloc>& __x,
+[3.009s]       |     ^~~~~~~~
+[3.009s] /usr/include/c++/9/bits/stl_set.h:979:5: note:   template argument deduction/substitution failed:
+[3.009s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::set<_Key, _Compare, _Alloc>’
+[3.010s]   344 |                     else if (command.command == "land"){
+[3.010s]       |                                                 ^~~~~~
+[3.010s] In file included from /usr/include/c++/9/set:62,
+[3.010s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:21,
+[3.010s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.010s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.010s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.010s] /usr/include/c++/9/bits/stl_multiset.h:964:5: note: candidate: ‘template<class _Key, class _Compare, class _Alloc> bool std::operator==(const std::multiset<_Key, _Compare, _Alloc>&, const std::multiset<_Key, _Compare, _Alloc>&)’
+[3.010s]   964 |     operator==(const multiset<_Key, _Compare, _Alloc>& __x,
+[3.010s]       |     ^~~~~~~~
+[3.010s] /usr/include/c++/9/bits/stl_multiset.h:964:5: note:   template argument deduction/substitution failed:
+[3.010s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::multiset<_Key, _Compare, _Alloc>’
+[3.010s]   344 |                     else if (command.command == "land"){
+[3.010s]       |                                                 ^~~~~~
+[3.010s] In file included from /usr/include/c++/9/unordered_map:47,
+[3.010s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:23,
+[3.010s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.010s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.010s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.010s] /usr/include/c++/9/bits/unordered_map.h:2093:5: note: candidate: ‘template<class _Key, class _Tp, class _Hash, class _Pred, class _Alloc> bool std::operator==(const std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>&, const std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>&)’
+[3.011s]  2093 |     operator==(const unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+[3.011s]       |     ^~~~~~~~
+[3.011s] /usr/include/c++/9/bits/unordered_map.h:2093:5: note:   template argument deduction/substitution failed:
+[3.011s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>’
+[3.011s]   344 |                     else if (command.command == "land"){
+[3.011s]       |                                                 ^~~~~~
+[3.011s] In file included from /usr/include/c++/9/unordered_map:47,
+[3.011s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:23,
+[3.011s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.011s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.011s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.011s] /usr/include/c++/9/bits/unordered_map.h:2105:5: note: candidate: ‘template<class _Key, class _Tp, class _Hash, class _Pred, class _Alloc> bool std::operator==(const std::unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>&, const std::unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>&)’
+[3.011s]  2105 |     operator==(const unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+[3.011s]       |     ^~~~~~~~
+[3.011s] /usr/include/c++/9/bits/unordered_map.h:2105:5: note:   template argument deduction/substitution failed:
+[3.011s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>’
+[3.011s]   344 |                     else if (command.command == "land"){
+[3.011s]       |                                                 ^~~~~~
+[3.012s] In file included from /usr/include/c++/9/bits/locale_facets.h:48,
+[3.012s]                  from /usr/include/c++/9/bits/basic_ios.h:37,
+[3.012s]                  from /usr/include/c++/9/ios:44,
+[3.012s]                  from /usr/include/c++/9/ostream:38,
+[3.012s]                  from /usr/include/c++/9/iostream:39,
+[3.012s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:22,
+[3.012s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.012s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.012s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.012s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.012s] /usr/include/c++/9/bits/streambuf_iterator.h:208:5: note: candidate: ‘template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)’
+[3.012s]   208 |     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+[3.012s]       |     ^~~~~~~~
+[3.012s] /usr/include/c++/9/bits/streambuf_iterator.h:208:5: note:   template argument deduction/substitution failed:
+[3.012s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::istreambuf_iterator<_CharT, _Traits>’
+[3.012s]   344 |                     else if (command.command == "land"){
+[3.012s]       |                                                 ^~~~~~
+[3.012s] In file included from /usr/include/c++/9/list:63,
+[3.012s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:23,
+[3.013s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.013s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.013s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.013s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.013s] /usr/include/c++/9/bits/stl_list.h:1991:5: note: candidate: ‘template<class _Tp, class _Alloc> bool std::operator==(const std::__cxx11::list<_Tp, _Alloc>&, const std::__cxx11::list<_Tp, _Alloc>&)’
+[3.013s]  1991 |     operator==(const list<_Tp, _Alloc>& __x, const list<_Tp, _Alloc>& __y)
+[3.013s]       |     ^~~~~~~~
+[3.013s] /usr/include/c++/9/bits/stl_list.h:1991:5: note:   template argument deduction/substitution failed:
+[3.013s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::__cxx11::list<_Tp, _Alloc>’
+[3.013s]   344 |                     else if (command.command == "land"){
+[3.013s]       |                                                 ^~~~~~
+[3.013s] In file included from /usr/include/c++/9/vector:67,
+[3.013s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:27,
+[3.013s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.013s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.013s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.013s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.013s] /usr/include/c++/9/bits/stl_vector.h:1888:5: note: candidate: ‘template<class _Tp, class _Alloc> bool std::operator==(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)’
+[3.013s]  1888 |     operator==(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+[3.013s]       |     ^~~~~~~~
+[3.014s] /usr/include/c++/9/bits/stl_vector.h:1888:5: note:   template argument deduction/substitution failed:
+[3.014s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::vector<_Tp, _Alloc>’
+[3.014s]   344 |                     else if (command.command == "land"){
+[3.014s]       |                                                 ^~~~~~
+[3.014s] In file included from /usr/include/c++/9/map:61,
+[3.014s]                  from /opt/ros/foxy/include/rclcpp/client.hpp:20,
+[3.014s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+[3.014s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[3.014s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[3.014s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[3.014s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[3.014s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[3.014s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.014s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.014s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.014s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.014s] /usr/include/c++/9/bits/stl_map.h:1455:5: note: candidate: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator==(const std::map<_Key, _Tp, _Compare, _Alloc>&, const std::map<_Key, _Tp, _Compare, _Alloc>&)’
+[3.014s]  1455 |     operator==(const map<_Key, _Tp, _Compare, _Alloc>& __x,
+[3.014s]       |     ^~~~~~~~
+[3.015s] /usr/include/c++/9/bits/stl_map.h:1455:5: note:   template argument deduction/substitution failed:
+[3.015s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::map<_Key, _Tp, _Compare, _Alloc>’
+[3.015s]   344 |                     else if (command.command == "land"){
+[3.015s]       |                                                 ^~~~~~
+[3.015s] In file included from /usr/include/c++/9/map:62,
+[3.015s]                  from /opt/ros/foxy/include/rclcpp/client.hpp:20,
+[3.015s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+[3.015s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[3.015s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[3.015s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[3.015s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[3.015s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[3.015s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.015s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.015s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.015s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.015s] /usr/include/c++/9/bits/stl_multimap.h:1119:5: note: candidate: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator==(const std::multimap<_Key, _Tp, _Compare, _Alloc>&, const std::multimap<_Key, _Tp, _Compare, _Alloc>&)’
+[3.015s]  1119 |     operator==(const multimap<_Key, _Tp, _Compare, _Alloc>& __x,
+[3.015s]       |     ^~~~~~~~
+[3.015s] /usr/include/c++/9/bits/stl_multimap.h:1119:5: note:   template argument deduction/substitution failed:
+[3.016s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::multimap<_Key, _Tp, _Compare, _Alloc>’
+[3.016s]   344 |                     else if (command.command == "land"){
+[3.016s]       |                                                 ^~~~~~
+[3.016s] In file included from /usr/include/c++/9/iterator:66,
+[3.016s]                  from /opt/ros/foxy/include/rcpputils/join.hpp:23,
+[3.016s]                  from /opt/ros/foxy/include/rclcpp/exceptions/exceptions.hpp:26,
+[3.016s]                  from /opt/ros/foxy/include/rclcpp/exceptions.hpp:18,
+[3.016s]                  from /opt/ros/foxy/include/rclcpp/client.hpp:31,
+[3.016s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+[3.016s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[3.016s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[3.016s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[3.016s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[3.016s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[3.016s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.016s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.016s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.016s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.016s] /usr/include/c++/9/bits/stream_iterator.h:134:5: note: candidate: ‘template<class _Tp, class _CharT, class _Traits, class _Dist> bool std::operator==(const std::istream_iterator<_Tp, _CharT, _Traits, _Dist>&, const std::istream_iterator<_Tp, _CharT, _Traits, _Dist>&)’
+[3.017s]   134 |     operator==(const istream_iterator<_Tp, _CharT, _Traits, _Dist>& __x,
+[3.017s]       |     ^~~~~~~~
+[3.017s] /usr/include/c++/9/bits/stream_iterator.h:134:5: note:   template argument deduction/substitution failed:
+[3.017s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::istream_iterator<_Tp, _CharT, _Traits, _Dist>’
+[3.017s]   344 |                     else if (command.command == "land"){
+[3.017s]       |                                                 ^~~~~~
+[3.017s] In file included from /usr/include/c++/9/memory:63,
+[3.017s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.017s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.017s] /usr/include/c++/9/bits/allocator.h:155:7: note: candidate: ‘bool std::operator==(const std::allocator<char>&, const std::allocator<char>&)’
+[3.017s]   155 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+[3.017s]       |       ^~~~~~~~
+[3.017s] /usr/include/c++/9/bits/allocator.h:155:18: note:   no known conversion for argument 1 from ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ to ‘const std::allocator<char>&’
+[3.017s]   155 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+[3.017s]       |                  ^~~~~~~~~~~~~~~~
+[3.017s] In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+[3.017s]                  from /usr/include/c++/9/memory:62,
+[3.017s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.017s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.018s] /usr/include/c++/9/bits/stl_iterator.h:883:5: note: candidate: ‘template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)’
+[3.018s]   883 |     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+[3.018s]       |     ^~~~~~~~
+[3.018s] /usr/include/c++/9/bits/stl_iterator.h:883:5: note:   template argument deduction/substitution failed:
+[3.018s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const __gnu_cxx::__normal_iterator<_IteratorL, _Container>’
+[3.018s]   344 |                     else if (command.command == "land"){
+[3.018s]       |                                                 ^~~~~~
+[3.018s] In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+[3.018s]                  from /usr/include/c++/9/memory:62,
+[3.018s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.018s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.018s] /usr/include/c++/9/bits/stl_iterator.h:890:5: note: candidate: ‘template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)’
+[3.018s]   890 |     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+[3.018s]       |     ^~~~~~~~
+[3.018s] /usr/include/c++/9/bits/stl_iterator.h:890:5: note:   template argument deduction/substitution failed:
+[3.018s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const __gnu_cxx::__normal_iterator<_Iterator, _Container>’
+[3.018s]   344 |                     else if (command.command == "land"){
+[3.018s]       |                                                 ^~~~~~
+[3.018s] In file included from /usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h:33,
+[3.018s]                  from /usr/include/c++/9/bits/allocator.h:46,
+[3.019s]                  from /usr/include/c++/9/memory:63,
+[3.019s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.019s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.019s] /usr/include/c++/9/ext/new_allocator.h:166:2: note: candidate: ‘template<class _Up> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<char>&, const __gnu_cxx::new_allocator<_Tp>&)’
+[3.019s]   166 |  operator==(const new_allocator&, const new_allocator<_Up>&)
+[3.019s]       |  ^~~~~~~~
+[3.019s] /usr/include/c++/9/ext/new_allocator.h:166:2: note:   template argument deduction/substitution failed:
+[3.019s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:344:49: note:   mismatched types ‘const __gnu_cxx::new_allocator<_Tp>’ and ‘const char [5]’
+[3.019s]   344 |                     else if (command.command == "land"){
+[3.019s]       |                                                 ^~~~~~
+[3.019s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:46: error: no match for ‘operator==’ (operand types are ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ and ‘const char [12]’)
+[3.019s]   347 |                     else if (command.command == "landtakeoff"){
+[3.019s]       |                              ~~~~~~~~~~~~~~~ ^~ ~~~~~~~~~~~~~
+[3.019s]       |                                      |          |
+[3.019s]       |                                      |          const char [12]
+[3.019s]       |                                      std::unique_ptr<std::__cxx11::basic_string<char> >
+[3.019s] In file included from /usr/include/c++/9/bits/stl_algobase.h:64,
+[3.019s]                  from /usr/include/c++/9/memory:62,
+[3.019s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.020s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.020s] /usr/include/c++/9/bits/stl_pair.h:448:5: note: candidate: ‘template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)’
+[3.020s]   448 |     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+[3.020s]       |     ^~~~~~~~
+[3.020s] /usr/include/c++/9/bits/stl_pair.h:448:5: note:   template argument deduction/substitution failed:
+[3.020s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::pair<_T1, _T2>’
+[3.020s]   347 |                     else if (command.command == "landtakeoff"){
+[3.020s]       |                                                 ^~~~~~~~~~~~~
+[3.020s] In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+[3.020s]                  from /usr/include/c++/9/memory:62,
+[3.020s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.020s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.020s] /usr/include/c++/9/bits/stl_iterator.h:325:5: note: candidate: ‘template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)’
+[3.020s]   325 |     operator==(const reverse_iterator<_Iterator>& __x,
+[3.020s]       |     ^~~~~~~~
+[3.020s] /usr/include/c++/9/bits/stl_iterator.h:325:5: note:   template argument deduction/substitution failed:
+[3.020s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+[3.020s]   347 |                     else if (command.command == "landtakeoff"){
+[3.020s]       |                                                 ^~~~~~~~~~~~~
+[3.020s] In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+[3.020s]                  from /usr/include/c++/9/memory:62,
+[3.021s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.021s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.021s] /usr/include/c++/9/bits/stl_iterator.h:363:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)’
+[3.021s]   363 |     operator==(const reverse_iterator<_IteratorL>& __x,
+[3.021s]       |     ^~~~~~~~
+[3.021s] /usr/include/c++/9/bits/stl_iterator.h:363:5: note:   template argument deduction/substitution failed:
+[3.021s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+[3.021s]   347 |                     else if (command.command == "landtakeoff"){
+[3.021s]       |                                                 ^~~~~~~~~~~~~
+[3.021s] In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+[3.021s]                  from /usr/include/c++/9/memory:62,
+[3.021s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.021s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.021s] /usr/include/c++/9/bits/stl_iterator.h:1136:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorR>&)’
+[3.021s]  1136 |     operator==(const move_iterator<_IteratorL>& __x,
+[3.021s]       |     ^~~~~~~~
+[3.021s] /usr/include/c++/9/bits/stl_iterator.h:1136:5: note:   template argument deduction/substitution failed:
+[3.021s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::move_iterator<_IteratorL>’
+[3.021s]   347 |                     else if (command.command == "landtakeoff"){
+[3.021s]       |                                                 ^~~~~~~~~~~~~
+[3.021s] In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+[3.022s]                  from /usr/include/c++/9/memory:62,
+[3.022s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.022s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.022s] /usr/include/c++/9/bits/stl_iterator.h:1142:5: note: candidate: ‘template<class _Iterator> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorL>&)’
+[3.022s]  1142 |     operator==(const move_iterator<_Iterator>& __x,
+[3.022s]       |     ^~~~~~~~
+[3.022s] /usr/include/c++/9/bits/stl_iterator.h:1142:5: note:   template argument deduction/substitution failed:
+[3.022s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::move_iterator<_IteratorL>’
+[3.022s]   347 |                     else if (command.command == "landtakeoff"){
+[3.022s]       |                                                 ^~~~~~~~~~~~~
+[3.022s] In file included from /usr/include/c++/9/memory:63,
+[3.022s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.022s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.022s] /usr/include/c++/9/bits/allocator.h:167:5: note: candidate: ‘template<class _T1, class _T2> bool std::operator==(const std::allocator<_Tp1>&, const std::allocator<_T2>&)’
+[3.022s]   167 |     operator==(const allocator<_T1>&, const allocator<_T2>&)
+[3.022s]       |     ^~~~~~~~
+[3.022s] /usr/include/c++/9/bits/allocator.h:167:5: note:   template argument deduction/substitution failed:
+[3.022s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::allocator<_Tp1>’
+[3.022s]   347 |                     else if (command.command == "landtakeoff"){
+[3.022s]       |                                                 ^~~~~~~~~~~~~
+[3.022s] In file included from /usr/include/c++/9/iosfwd:40,
+[3.022s]                  from /usr/include/c++/9/memory:72,
+[3.023s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.023s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.023s] /usr/include/c++/9/bits/postypes.h:222:5: note: candidate: ‘template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)’
+[3.023s]   222 |     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+[3.023s]       |     ^~~~~~~~
+[3.023s] /usr/include/c++/9/bits/postypes.h:222:5: note:   template argument deduction/substitution failed:
+[3.023s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::fpos<_StateT>’
+[3.023s]   347 |                     else if (command.command == "landtakeoff"){
+[3.023s]       |                                                 ^~~~~~~~~~~~~
+[3.023s] In file included from /usr/include/c++/9/string:55,
+[3.023s]                  from /usr/include/c++/9/stdexcept:39,
+[3.023s]                  from /usr/include/c++/9/array:39,
+[3.023s]                  from /usr/include/c++/9/tuple:39,
+[3.024s]                  from /usr/include/c++/9/bits/unique_ptr.h:37,
+[3.024s]                  from /usr/include/c++/9/memory:80,
+[3.024s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.024s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.024s] /usr/include/c++/9/bits/basic_string.h:6144:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+[3.024s]  6144 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+[3.024s]       |     ^~~~~~~~
+[3.024s] /usr/include/c++/9/bits/basic_string.h:6144:5: note:   template argument deduction/substitution failed:
+[3.024s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+[3.024s]   347 |                     else if (command.command == "landtakeoff"){
+[3.024s]       |                                                 ^~~~~~~~~~~~~
+[3.024s] In file included from /usr/include/c++/9/string:55,
+[3.024s]                  from /usr/include/c++/9/stdexcept:39,
+[3.024s]                  from /usr/include/c++/9/array:39,
+[3.024s]                  from /usr/include/c++/9/tuple:39,
+[3.024s]                  from /usr/include/c++/9/bits/unique_ptr.h:37,
+[3.025s]                  from /usr/include/c++/9/memory:80,
+[3.025s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.025s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.025s] /usr/include/c++/9/bits/basic_string.h:6152:5: note: candidate: ‘template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::__cxx11::basic_string<_CharT>&, const std::__cxx11::basic_string<_CharT>&)’
+[3.025s]  6152 |     operator==(const basic_string<_CharT>& __lhs,
+[3.025s]       |     ^~~~~~~~
+[3.025s] /usr/include/c++/9/bits/basic_string.h:6152:5: note:   template argument deduction/substitution failed:
+[3.025s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::__cxx11::basic_string<_CharT>’
+[3.025s]   347 |                     else if (command.command == "landtakeoff"){
+[3.025s]       |                                                 ^~~~~~~~~~~~~
+[3.025s] In file included from /usr/include/c++/9/string:55,
+[3.025s]                  from /usr/include/c++/9/stdexcept:39,
+[3.025s]                  from /usr/include/c++/9/array:39,
+[3.025s]                  from /usr/include/c++/9/tuple:39,
+[3.025s]                  from /usr/include/c++/9/bits/unique_ptr.h:37,
+[3.025s]                  from /usr/include/c++/9/memory:80,
+[3.025s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.025s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.025s] /usr/include/c++/9/bits/basic_string.h:6166:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+[3.025s]  6166 |     operator==(const _CharT* __lhs,
+[3.026s]       |     ^~~~~~~~
+[3.026s] /usr/include/c++/9/bits/basic_string.h:6166:5: note:   template argument deduction/substitution failed:
+[3.026s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   mismatched types ‘const _CharT*’ and ‘std::unique_ptr<std::__cxx11::basic_string<char> >’
+[3.026s]   347 |                     else if (command.command == "landtakeoff"){
+[3.026s]       |                                                 ^~~~~~~~~~~~~
+[3.026s] In file included from /usr/include/c++/9/string:55,
+[3.026s]                  from /usr/include/c++/9/stdexcept:39,
+[3.026s]                  from /usr/include/c++/9/array:39,
+[3.026s]                  from /usr/include/c++/9/tuple:39,
+[3.026s]                  from /usr/include/c++/9/bits/unique_ptr.h:37,
+[3.026s]                  from /usr/include/c++/9/memory:80,
+[3.026s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.026s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.026s] /usr/include/c++/9/bits/basic_string.h:6178:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)’
+[3.026s]  6178 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+[3.026s]       |     ^~~~~~~~
+[3.026s] /usr/include/c++/9/bits/basic_string.h:6178:5: note:   template argument deduction/substitution failed:
+[3.026s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+[3.026s]   347 |                     else if (command.command == "landtakeoff"){
+[3.026s]       |                                                 ^~~~~~~~~~~~~
+[3.027s] In file included from /usr/include/c++/9/tuple:39,
+[3.027s]                  from /usr/include/c++/9/bits/unique_ptr.h:37,
+[3.027s]                  from /usr/include/c++/9/memory:80,
+[3.027s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.027s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.027s] /usr/include/c++/9/array:252:5: note: candidate: ‘template<class _Tp, long unsigned int _Nm> bool std::operator==(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)’
+[3.027s]   252 |     operator==(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+[3.027s]       |     ^~~~~~~~
+[3.027s] /usr/include/c++/9/array:252:5: note:   template argument deduction/substitution failed:
+[3.027s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::array<_Tp, _Nm>’
+[3.027s]   347 |                     else if (command.command == "landtakeoff"){
+[3.027s]       |                                                 ^~~~~~~~~~~~~
+[3.027s] In file included from /usr/include/c++/9/bits/unique_ptr.h:37,
+[3.027s]                  from /usr/include/c++/9/memory:80,
+[3.027s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.028s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.028s] /usr/include/c++/9/tuple:1419:5: note: candidate: ‘template<class ... _TElements, class ... _UElements> constexpr bool std::operator==(const std::tuple<_Tps ...>&, const std::tuple<_Elements ...>&)’
+[3.028s]  1419 |     operator==(const tuple<_TElements...>& __t,
+[3.028s]       |     ^~~~~~~~
+[3.028s] /usr/include/c++/9/tuple:1419:5: note:   template argument deduction/substitution failed:
+[3.028s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::tuple<_Tps ...>’
+[3.028s]   347 |                     else if (command.command == "landtakeoff"){
+[3.028s]       |                                                 ^~~~~~~~~~~~~
+[3.028s] In file included from /usr/include/c++/9/memory:80,
+[3.028s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.028s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.028s] /usr/include/c++/9/bits/unique_ptr.h:715:5: note: candidate: ‘template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, const std::unique_ptr<_Up, _Ep>&)’
+[3.028s]   715 |     operator==(const unique_ptr<_Tp, _Dp>& __x,
+[3.028s]       |     ^~~~~~~~
+[3.028s] /usr/include/c++/9/bits/unique_ptr.h:715:5: note:   template argument deduction/substitution failed:
+[3.028s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   mismatched types ‘const std::unique_ptr<_Up, _Ep>’ and ‘const char [12]’
+[3.028s]   347 |                     else if (command.command == "landtakeoff"){
+[3.028s]       |                                                 ^~~~~~~~~~~~~
+[3.028s] In file included from /usr/include/c++/9/memory:80,
+[3.028s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.029s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.029s] /usr/include/c++/9/bits/unique_ptr.h:721:5: note: candidate: ‘template<class _Tp, class _Dp> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, std::nullptr_t)’
+[3.029s]   721 |     operator==(const unique_ptr<_Tp, _Dp>& __x, nullptr_t) noexcept
+[3.029s]       |     ^~~~~~~~
+[3.029s] /usr/include/c++/9/bits/unique_ptr.h:721:5: note:   template argument deduction/substitution failed:
+[3.029s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   cannot convert ‘"landtakeoff"’ (type ‘const char [12]’) to type ‘std::nullptr_t’
+[3.029s]   347 |                     else if (command.command == "landtakeoff"){
+[3.029s]       |                                                 ^~~~~~~~~~~~~
+[3.029s] In file included from /usr/include/c++/9/memory:80,
+[3.029s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.029s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.029s] /usr/include/c++/9/bits/unique_ptr.h:726:5: note: candidate: ‘template<class _Tp, class _Dp> bool std::operator==(std::nullptr_t, const std::unique_ptr<_Tp, _Dp>&)’
+[3.029s]   726 |     operator==(nullptr_t, const unique_ptr<_Tp, _Dp>& __x) noexcept
+[3.029s]       |     ^~~~~~~~
+[3.029s] /usr/include/c++/9/bits/unique_ptr.h:726:5: note:   template argument deduction/substitution failed:
+[3.029s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   mismatched types ‘const std::unique_ptr<_Tp, _Dp>’ and ‘const char [12]’
+[3.029s]   347 |                     else if (command.command == "landtakeoff"){
+[3.029s]       |                                                 ^~~~~~~~~~~~~
+[3.029s] In file included from /usr/include/c++/9/bits/shared_ptr.h:52,
+[3.029s]                  from /usr/include/c++/9/memory:81,
+[3.030s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.030s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.030s] /usr/include/c++/9/bits/shared_ptr_base.h:1412:5: note: candidate: ‘template<class _Tp1, class _Tp2, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const std::__shared_ptr<_Tp1, _Lp>&, const std::__shared_ptr<_Tp2, _Lp>&)’
+[3.030s]  1412 |     operator==(const __shared_ptr<_Tp1, _Lp>& __a,
+[3.030s]       |     ^~~~~~~~
+[3.030s] /usr/include/c++/9/bits/shared_ptr_base.h:1412:5: note:   template argument deduction/substitution failed:
+[3.030s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::__shared_ptr<_Tp1, _Lp>’
+[3.030s]   347 |                     else if (command.command == "landtakeoff"){
+[3.030s]       |                                                 ^~~~~~~~~~~~~
+[3.030s] In file included from /usr/include/c++/9/bits/shared_ptr.h:52,
+[3.030s]                  from /usr/include/c++/9/memory:81,
+[3.030s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.030s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.030s] /usr/include/c++/9/bits/shared_ptr_base.h:1418:5: note: candidate: ‘template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const std::__shared_ptr<_Tp, _Lp>&, std::nullptr_t)’
+[3.030s]  1418 |     operator==(const __shared_ptr<_Tp, _Lp>& __a, nullptr_t) noexcept
+[3.030s]       |     ^~~~~~~~
+[3.030s] /usr/include/c++/9/bits/shared_ptr_base.h:1418:5: note:   template argument deduction/substitution failed:
+[3.030s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::__shared_ptr<_Tp, _Lp>’
+[3.030s]   347 |                     else if (command.command == "landtakeoff"){
+[3.031s]       |                                                 ^~~~~~~~~~~~~
+[3.031s] In file included from /usr/include/c++/9/bits/shared_ptr.h:52,
+[3.031s]                  from /usr/include/c++/9/memory:81,
+[3.031s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.031s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.031s] /usr/include/c++/9/bits/shared_ptr_base.h:1423:5: note: candidate: ‘template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(std::nullptr_t, const std::__shared_ptr<_Tp, _Lp>&)’
+[3.031s]  1423 |     operator==(nullptr_t, const __shared_ptr<_Tp, _Lp>& __a) noexcept
+[3.031s]       |     ^~~~~~~~
+[3.031s] /usr/include/c++/9/bits/shared_ptr_base.h:1423:5: note:   template argument deduction/substitution failed:
+[3.031s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   mismatched types ‘const std::__shared_ptr<_Tp, _Lp>’ and ‘const char [12]’
+[3.031s]   347 |                     else if (command.command == "landtakeoff"){
+[3.031s]       |                                                 ^~~~~~~~~~~~~
+[3.031s] In file included from /usr/include/c++/9/memory:81,
+[3.031s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.032s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.032s] /usr/include/c++/9/bits/shared_ptr.h:383:5: note: candidate: ‘template<class _Tp, class _Up> bool std::operator==(const std::shared_ptr<_Tp>&, const std::shared_ptr<_Tp>&)’
+[3.032s]   383 |     operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+[3.032s]       |     ^~~~~~~~
+[3.032s] /usr/include/c++/9/bits/shared_ptr.h:383:5: note:   template argument deduction/substitution failed:
+[3.032s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::shared_ptr<_Tp>’
+[3.032s]   347 |                     else if (command.command == "landtakeoff"){
+[3.032s]       |                                                 ^~~~~~~~~~~~~
+[3.032s] In file included from /usr/include/c++/9/memory:81,
+[3.032s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.032s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.032s] /usr/include/c++/9/bits/shared_ptr.h:388:5: note: candidate: ‘template<class _Tp> bool std::operator==(const std::shared_ptr<_Tp>&, std::nullptr_t)’
+[3.032s]   388 |     operator==(const shared_ptr<_Tp>& __a, nullptr_t) noexcept
+[3.032s]       |     ^~~~~~~~
+[3.032s] /usr/include/c++/9/bits/shared_ptr.h:388:5: note:   template argument deduction/substitution failed:
+[3.032s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::shared_ptr<_Tp>’
+[3.032s]   347 |                     else if (command.command == "landtakeoff"){
+[3.032s]       |                                                 ^~~~~~~~~~~~~
+[3.032s] In file included from /usr/include/c++/9/memory:81,
+[3.033s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.033s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.033s] /usr/include/c++/9/bits/shared_ptr.h:393:5: note: candidate: ‘template<class _Tp> bool std::operator==(std::nullptr_t, const std::shared_ptr<_Tp>&)’
+[3.033s]   393 |     operator==(nullptr_t, const shared_ptr<_Tp>& __a) noexcept
+[3.033s]       |     ^~~~~~~~
+[3.033s] /usr/include/c++/9/bits/shared_ptr.h:393:5: note:   template argument deduction/substitution failed:
+[3.033s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   mismatched types ‘const std::shared_ptr<_Tp>’ and ‘const char [12]’
+[3.033s]   347 |                     else if (command.command == "landtakeoff"){
+[3.033s]       |                                                 ^~~~~~~~~~~~~
+[3.033s] In file included from /usr/include/c++/9/mutex:42,
+[3.033s]                  from /usr/include/c++/9/future:38,
+[3.033s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:18,
+[3.033s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.033s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.033s] /usr/include/c++/9/system_error:292:3: note: candidate: ‘bool std::operator==(const std::error_code&, const std::error_code&)’
+[3.033s]   292 |   operator==(const error_code& __lhs, const error_code& __rhs) noexcept
+[3.033s]       |   ^~~~~~~~
+[3.033s] /usr/include/c++/9/system_error:292:32: note:   no known conversion for argument 1 from ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ to ‘const std::error_code&’
+[3.033s]   292 |   operator==(const error_code& __lhs, const error_code& __rhs) noexcept
+[3.033s]       |              ~~~~~~~~~~~~~~~~~~^~~~~
+[3.033s] /usr/include/c++/9/system_error:297:3: note: candidate: ‘bool std::operator==(const std::error_code&, const std::error_condition&)’
+[3.034s]   297 |   operator==(const error_code& __lhs, const error_condition& __rhs) noexcept
+[3.034s]       |   ^~~~~~~~
+[3.034s] /usr/include/c++/9/system_error:297:32: note:   no known conversion for argument 1 from ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ to ‘const std::error_code&’
+[3.034s]   297 |   operator==(const error_code& __lhs, const error_condition& __rhs) noexcept
+[3.034s]       |              ~~~~~~~~~~~~~~~~~~^~~~~
+[3.034s] /usr/include/c++/9/system_error:304:3: note: candidate: ‘bool std::operator==(const std::error_condition&, const std::error_code&)’
+[3.034s]   304 |   operator==(const error_condition& __lhs, const error_code& __rhs) noexcept
+[3.034s]       |   ^~~~~~~~
+[3.034s] /usr/include/c++/9/system_error:304:37: note:   no known conversion for argument 1 from ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ to ‘const std::error_condition&’
+[3.034s]   304 |   operator==(const error_condition& __lhs, const error_code& __rhs) noexcept
+[3.034s]       |              ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+[3.034s] /usr/include/c++/9/system_error:311:3: note: candidate: ‘bool std::operator==(const std::error_condition&, const std::error_condition&)’
+[3.034s]   311 |   operator==(const error_condition& __lhs,
+[3.035s]       |   ^~~~~~~~
+[3.035s] /usr/include/c++/9/system_error:311:37: note:   no known conversion for argument 1 from ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ to ‘const std::error_condition&’
+[3.035s]   311 |   operator==(const error_condition& __lhs,
+[3.035s]       |              ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+[3.035s] In file included from /usr/include/c++/9/future:39,
+[3.035s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:18,
+[3.035s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.035s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.035s] /usr/include/c++/9/thread:276:3: note: candidate: ‘bool std::operator==(std::thread::id, std::thread::id)’
+[3.035s]   276 |   operator==(thread::id __x, thread::id __y) noexcept
+[3.035s]       |   ^~~~~~~~
+[3.035s] /usr/include/c++/9/thread:276:25: note:   no known conversion for argument 1 from ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ to ‘std::thread::id’
+[3.035s]   276 |   operator==(thread::id __x, thread::id __y) noexcept
+[3.035s]       |              ~~~~~~~~~~~^~~
+[3.035s] In file included from /usr/include/c++/9/future:48,
+[3.036s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:18,
+[3.036s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.036s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.036s] /usr/include/c++/9/bits/std_function.h:746:5: note: candidate: ‘template<class _Res, class ... _Args> bool std::operator==(const std::function<_Res(_ArgTypes ...)>&, std::nullptr_t)’
+[3.036s]   746 |     operator==(const function<_Res(_Args...)>& __f, nullptr_t) noexcept
+[3.036s]       |     ^~~~~~~~
+[3.036s] /usr/include/c++/9/bits/std_function.h:746:5: note:   template argument deduction/substitution failed:
+[3.036s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::function<_Res(_ArgTypes ...)>’
+[3.036s]   347 |                     else if (command.command == "landtakeoff"){
+[3.036s]       |                                                 ^~~~~~~~~~~~~
+[3.036s] In file included from /usr/include/c++/9/future:48,
+[3.036s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:18,
+[3.036s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.036s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.036s] /usr/include/c++/9/bits/std_function.h:752:5: note: candidate: ‘template<class _Res, class ... _Args> bool std::operator==(std::nullptr_t, const std::function<_Res(_ArgTypes ...)>&)’
+[3.036s]   752 |     operator==(nullptr_t, const function<_Res(_Args...)>& __f) noexcept
+[3.036s]       |     ^~~~~~~~
+[3.036s] /usr/include/c++/9/bits/std_function.h:752:5: note:   template argument deduction/substitution failed:
+[3.036s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   mismatched types ‘const std::function<_Res(_ArgTypes ...)>’ and ‘const char [12]’
+[3.036s]   347 |                     else if (command.command == "landtakeoff"){
+[3.036s]       |                                                 ^~~~~~~~~~~~~
+[3.037s] In file included from /usr/include/c++/9/set:61,
+[3.037s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:21,
+[3.037s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.037s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.037s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.037s] /usr/include/c++/9/bits/stl_set.h:979:5: note: candidate: ‘template<class _Key, class _Compare, class _Alloc> bool std::operator==(const std::set<_Key, _Compare, _Alloc>&, const std::set<_Key, _Compare, _Alloc>&)’
+[3.037s]   979 |     operator==(const set<_Key, _Compare, _Alloc>& __x,
+[3.037s]       |     ^~~~~~~~
+[3.037s] /usr/include/c++/9/bits/stl_set.h:979:5: note:   template argument deduction/substitution failed:
+[3.037s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::set<_Key, _Compare, _Alloc>’
+[3.037s]   347 |                     else if (command.command == "landtakeoff"){
+[3.037s]       |                                                 ^~~~~~~~~~~~~
+[3.037s] In file included from /usr/include/c++/9/set:62,
+[3.037s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:21,
+[3.037s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.037s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.037s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.037s] /usr/include/c++/9/bits/stl_multiset.h:964:5: note: candidate: ‘template<class _Key, class _Compare, class _Alloc> bool std::operator==(const std::multiset<_Key, _Compare, _Alloc>&, const std::multiset<_Key, _Compare, _Alloc>&)’
+[3.038s]   964 |     operator==(const multiset<_Key, _Compare, _Alloc>& __x,
+[3.038s]       |     ^~~~~~~~
+[3.038s] /usr/include/c++/9/bits/stl_multiset.h:964:5: note:   template argument deduction/substitution failed:
+[3.038s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::multiset<_Key, _Compare, _Alloc>’
+[3.038s]   347 |                     else if (command.command == "landtakeoff"){
+[3.038s]       |                                                 ^~~~~~~~~~~~~
+[3.038s] In file included from /usr/include/c++/9/unordered_map:47,
+[3.038s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:23,
+[3.038s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.038s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.038s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.038s] /usr/include/c++/9/bits/unordered_map.h:2093:5: note: candidate: ‘template<class _Key, class _Tp, class _Hash, class _Pred, class _Alloc> bool std::operator==(const std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>&, const std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>&)’
+[3.038s]  2093 |     operator==(const unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+[3.038s]       |     ^~~~~~~~
+[3.038s] /usr/include/c++/9/bits/unordered_map.h:2093:5: note:   template argument deduction/substitution failed:
+[3.038s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>’
+[3.038s]   347 |                     else if (command.command == "landtakeoff"){
+[3.038s]       |                                                 ^~~~~~~~~~~~~
+[3.038s] In file included from /usr/include/c++/9/unordered_map:47,
+[3.039s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:23,
+[3.039s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.039s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.039s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.039s] /usr/include/c++/9/bits/unordered_map.h:2105:5: note: candidate: ‘template<class _Key, class _Tp, class _Hash, class _Pred, class _Alloc> bool std::operator==(const std::unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>&, const std::unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>&)’
+[3.039s]  2105 |     operator==(const unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+[3.039s]       |     ^~~~~~~~
+[3.039s] /usr/include/c++/9/bits/unordered_map.h:2105:5: note:   template argument deduction/substitution failed:
+[3.039s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>’
+[3.039s]   347 |                     else if (command.command == "landtakeoff"){
+[3.039s]       |                                                 ^~~~~~~~~~~~~
+[3.039s] In file included from /usr/include/c++/9/bits/locale_facets.h:48,
+[3.039s]                  from /usr/include/c++/9/bits/basic_ios.h:37,
+[3.040s]                  from /usr/include/c++/9/ios:44,
+[3.040s]                  from /usr/include/c++/9/ostream:38,
+[3.040s]                  from /usr/include/c++/9/iostream:39,
+[3.040s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:22,
+[3.040s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.040s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.040s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.040s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.040s] /usr/include/c++/9/bits/streambuf_iterator.h:208:5: note: candidate: ‘template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)’
+[3.040s]   208 |     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+[3.041s]       |     ^~~~~~~~
+[3.041s] /usr/include/c++/9/bits/streambuf_iterator.h:208:5: note:   template argument deduction/substitution failed:
+[3.041s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::istreambuf_iterator<_CharT, _Traits>’
+[3.041s]   347 |                     else if (command.command == "landtakeoff"){
+[3.041s]       |                                                 ^~~~~~~~~~~~~
+[3.041s] In file included from /usr/include/c++/9/list:63,
+[3.041s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:23,
+[3.041s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.041s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.041s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.041s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.041s] /usr/include/c++/9/bits/stl_list.h:1991:5: note: candidate: ‘template<class _Tp, class _Alloc> bool std::operator==(const std::__cxx11::list<_Tp, _Alloc>&, const std::__cxx11::list<_Tp, _Alloc>&)’
+[3.041s]  1991 |     operator==(const list<_Tp, _Alloc>& __x, const list<_Tp, _Alloc>& __y)
+[3.041s]       |     ^~~~~~~~
+[3.041s] /usr/include/c++/9/bits/stl_list.h:1991:5: note:   template argument deduction/substitution failed:
+[3.041s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::__cxx11::list<_Tp, _Alloc>’
+[3.041s]   347 |                     else if (command.command == "landtakeoff"){
+[3.041s]       |                                                 ^~~~~~~~~~~~~
+[3.042s] In file included from /usr/include/c++/9/vector:67,
+[3.042s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:27,
+[3.042s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.042s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.042s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.042s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.042s] /usr/include/c++/9/bits/stl_vector.h:1888:5: note: candidate: ‘template<class _Tp, class _Alloc> bool std::operator==(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)’
+[3.042s]  1888 |     operator==(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+[3.042s]       |     ^~~~~~~~
+[3.042s] /usr/include/c++/9/bits/stl_vector.h:1888:5: note:   template argument deduction/substitution failed:
+[3.042s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::vector<_Tp, _Alloc>’
+[3.042s]   347 |                     else if (command.command == "landtakeoff"){
+[3.042s]       |                                                 ^~~~~~~~~~~~~
+[3.042s] In file included from /usr/include/c++/9/map:61,
+[3.042s]                  from /opt/ros/foxy/include/rclcpp/client.hpp:20,
+[3.043s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+[3.043s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[3.043s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[3.043s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[3.043s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[3.043s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[3.043s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.043s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.043s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.043s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.043s] /usr/include/c++/9/bits/stl_map.h:1455:5: note: candidate: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator==(const std::map<_Key, _Tp, _Compare, _Alloc>&, const std::map<_Key, _Tp, _Compare, _Alloc>&)’
+[3.044s]  1455 |     operator==(const map<_Key, _Tp, _Compare, _Alloc>& __x,
+[3.044s]       |     ^~~~~~~~
+[3.044s] /usr/include/c++/9/bits/stl_map.h:1455:5: note:   template argument deduction/substitution failed:
+[3.044s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::map<_Key, _Tp, _Compare, _Alloc>’
+[3.044s]   347 |                     else if (command.command == "landtakeoff"){
+[3.044s]       |                                                 ^~~~~~~~~~~~~
+[3.044s] In file included from /usr/include/c++/9/map:62,
+[3.044s]                  from /opt/ros/foxy/include/rclcpp/client.hpp:20,
+[3.044s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+[3.044s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[3.044s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[3.044s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[3.044s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[3.044s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[3.044s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.044s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.044s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.045s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.045s] /usr/include/c++/9/bits/stl_multimap.h:1119:5: note: candidate: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator==(const std::multimap<_Key, _Tp, _Compare, _Alloc>&, const std::multimap<_Key, _Tp, _Compare, _Alloc>&)’
+[3.045s]  1119 |     operator==(const multimap<_Key, _Tp, _Compare, _Alloc>& __x,
+[3.045s]       |     ^~~~~~~~
+[3.045s] /usr/include/c++/9/bits/stl_multimap.h:1119:5: note:   template argument deduction/substitution failed:
+[3.045s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::multimap<_Key, _Tp, _Compare, _Alloc>’
+[3.045s]   347 |                     else if (command.command == "landtakeoff"){
+[3.045s]       |                                                 ^~~~~~~~~~~~~
+[3.045s] In file included from /usr/include/c++/9/iterator:66,
+[3.045s]                  from /opt/ros/foxy/include/rcpputils/join.hpp:23,
+[3.045s]                  from /opt/ros/foxy/include/rclcpp/exceptions/exceptions.hpp:26,
+[3.045s]                  from /opt/ros/foxy/include/rclcpp/exceptions.hpp:18,
+[3.045s]                  from /opt/ros/foxy/include/rclcpp/client.hpp:31,
+[3.045s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+[3.045s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[3.045s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[3.045s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[3.046s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[3.046s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[3.046s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.046s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.046s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.046s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.046s] /usr/include/c++/9/bits/stream_iterator.h:134:5: note: candidate: ‘template<class _Tp, class _CharT, class _Traits, class _Dist> bool std::operator==(const std::istream_iterator<_Tp, _CharT, _Traits, _Dist>&, const std::istream_iterator<_Tp, _CharT, _Traits, _Dist>&)’
+[3.046s]   134 |     operator==(const istream_iterator<_Tp, _CharT, _Traits, _Dist>& __x,
+[3.046s]       |     ^~~~~~~~
+[3.046s] /usr/include/c++/9/bits/stream_iterator.h:134:5: note:   template argument deduction/substitution failed:
+[3.046s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const std::istream_iterator<_Tp, _CharT, _Traits, _Dist>’
+[3.046s]   347 |                     else if (command.command == "landtakeoff"){
+[3.046s]       |                                                 ^~~~~~~~~~~~~
+[3.046s] In file included from /usr/include/c++/9/memory:63,
+[3.046s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.046s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.046s] /usr/include/c++/9/bits/allocator.h:155:7: note: candidate: ‘bool std::operator==(const std::allocator<char>&, const std::allocator<char>&)’
+[3.047s]   155 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+[3.047s]       |       ^~~~~~~~
+[3.047s] /usr/include/c++/9/bits/allocator.h:155:18: note:   no known conversion for argument 1 from ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ to ‘const std::allocator<char>&’
+[3.047s]   155 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+[3.047s]       |                  ^~~~~~~~~~~~~~~~
+[3.047s] In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+[3.047s]                  from /usr/include/c++/9/memory:62,
+[3.047s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.047s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.047s] /usr/include/c++/9/bits/stl_iterator.h:883:5: note: candidate: ‘template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)’
+[3.047s]   883 |     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+[3.048s]       |     ^~~~~~~~
+[3.048s] /usr/include/c++/9/bits/stl_iterator.h:883:5: note:   template argument deduction/substitution failed:
+[3.048s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const __gnu_cxx::__normal_iterator<_IteratorL, _Container>’
+[3.048s]   347 |                     else if (command.command == "landtakeoff"){
+[3.048s]       |                                                 ^~~~~~~~~~~~~
+[3.048s] In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+[3.048s]                  from /usr/include/c++/9/memory:62,
+[3.048s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.048s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.048s] /usr/include/c++/9/bits/stl_iterator.h:890:5: note: candidate: ‘template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)’
+[3.048s]   890 |     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+[3.048s]       |     ^~~~~~~~
+[3.048s] /usr/include/c++/9/bits/stl_iterator.h:890:5: note:   template argument deduction/substitution failed:
+[3.048s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   ‘std::unique_ptr<std::__cxx11::basic_string<char> >’ is not derived from ‘const __gnu_cxx::__normal_iterator<_Iterator, _Container>’
+[3.048s]   347 |                     else if (command.command == "landtakeoff"){
+[3.048s]       |                                                 ^~~~~~~~~~~~~
+[3.048s] In file included from /usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h:33,
+[3.048s]                  from /usr/include/c++/9/bits/allocator.h:46,
+[3.049s]                  from /usr/include/c++/9/memory:63,
+[3.049s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144,
+[3.049s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[3.049s] /usr/include/c++/9/ext/new_allocator.h:166:2: note: candidate: ‘template<class _Up> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<char>&, const __gnu_cxx::new_allocator<_Tp>&)’
+[3.049s]   166 |  operator==(const new_allocator&, const new_allocator<_Up>&)
+[3.049s]       |  ^~~~~~~~
+[3.049s] /usr/include/c++/9/ext/new_allocator.h:166:2: note:   template argument deduction/substitution failed:
+[3.049s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:347:49: note:   mismatched types ‘const __gnu_cxx::new_allocator<_Tp>’ and ‘const char [12]’
+[3.049s]   347 |                     else if (command.command == "landtakeoff"){
+[3.049s]       |                                                 ^~~~~~~~~~~~~
+[3.049s] make[2]: *** [CMakeFiles/template_drone_control_node.dir/build.make:63: CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o] Error 1
+[3.049s] make[1]: *** [CMakeFiles/Makefile2:105: CMakeFiles/template_drone_control_node.dir/all] Error 2
+[3.049s] make: *** [Makefile:141: all] Error 2
+[3.049s] Invoked command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control' returned '2': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16

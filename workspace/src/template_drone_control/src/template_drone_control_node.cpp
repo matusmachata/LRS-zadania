@@ -12,6 +12,8 @@
 #include <string>
 #include <cstdlib>
 #include <optional>
+#include <cctype>
+
 
 
 // TODO
@@ -191,6 +193,57 @@ public:
         std::optional<double> value; 
     };
 
+
+    DecodedCommand decodeCommand(const std::string& input) {
+        DecodedCommand result;
+
+        // Check for the "-" case, which should return null for both command and value
+        if (input == "-") {
+            result.command = std::nullopt;
+            result.value = std::nullopt;
+        }
+        // Type 1 commands
+        else if (input == "takeoff" || input == "land" || input == "landtakeoff") {
+            result.command = input;
+            result.value = std::nullopt; // Null equivalent for value
+        } 
+        // Type 2 commands
+        else {
+            // Find the first digit position in the string to separate command and value
+            size_t numStart = 0;
+            while (numStart < input.size() && !std::isdigit(input[numStart])) {
+                ++numStart;
+            }
+
+            if (numStart < input.size()) {
+                result.command = input.substr(0, numStart); // Command part (e.g., "yaw")
+                result.value = std::stod(input.substr(numStart)); // Numeric part as double (e.g., 180)
+            } else {
+                // If no numeric part found, treat as an invalid command
+                result.command = "Invalid";
+                result.value = std::nullopt;
+            }
+        }
+
+        return result;
+    }
+
+    void land_drone(){
+            // Set the mode to LAND
+            set_mode("LAND");
+
+            // Wait until the drone has landed (current altitude reaches close to zero)
+            rclcpp::Rate rate(1.0);
+            while (rclcpp::ok() && current_position_.pose.position.z > 0.1)
+            {
+                rclcpp::spin_some(this->get_node_base_interface());
+                rate.sleep();
+                RCLCPP_INFO(this->get_logger(), "Current altitude: %.2f", current_position_.pose.position.z);
+            }
+
+            RCLCPP_INFO(this->get_logger(), "Drone has successfully landed.");
+    }
+
     void move(const std::string& pathFile, const std::string& waypointsFile) {
         auto wholePath = readPath(pathFile);
         double tolerance;
@@ -284,6 +337,21 @@ public:
                             if (distacneZ <=tolerance) break; 
                         }
                     }
+                    DecodedCommand command = decodeCommand(curWaypoint.additionalCommand);
+                    if (command.command == "-"){
+
+                    }
+                    else if (command.command == "land"){
+                        land_drone();
+                    }
+                    else if (command.command == "landtakeoff"){
+                        land_drone();
+                        takeoff(2,0);
+                    }
+                    else{
+
+                    }
+
 
 
                 }
