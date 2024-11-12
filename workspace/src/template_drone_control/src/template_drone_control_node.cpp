@@ -66,8 +66,9 @@ public:
         std::string homeDir = std::getenv("HOME");
         // std::string filePath = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/path.txt";
 
-        std::string waypoints_file = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/path_test.txt";
-        move(waypoints_file, 2.0, "soft");
+        std::string path_file = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/path_test.txt";
+        std::string waypoints_file = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/waypoints.csv";
+        move(path_file, waypoints_file);
         // geometry_msgs::msg::PoseStamped target_pose;
 
         // Point2D point;
@@ -85,8 +86,16 @@ public:
         double y;
     };
 
+    struct Waypoints {
+        double x;
+        double y;
+        double z;
+        std::string accuracy;
+        std::string additionalCommand;
+    };
+
     // Method to read waypoints from file
-    std::vector<std::vector<Point2D>> readWaypoints(const std::string& filename) {
+    std::vector<std::vector<Point2D>> readPath(const std::string& filename) {
         std::ifstream file(filename);
         std::vector<std::vector<Point2D>> waypoints;
 
@@ -127,17 +136,47 @@ public:
         return waypoints;
     }
 
+    std::vector<Waypoints> readWaypointsCSV(const std::string& filename) {
+        std::ifstream file(filename);
+        std::vector<Waypoints> waypoints;
+
+        // Check if the file opened successfully
+        if (!file.is_open()) {
+            std::cerr << "Error: Could not open file " << filename << std::endl;
+            return waypoints;
+        }
+
+        // Check if the file is empty
+        file.seekg(0, std::ios::end);
+        if (file.tellg() == 0) {
+            std::cerr << "Error: File " << filename << " is empty" << std::endl;
+            return waypoints;
+        }
+        file.seekg(0, std::ios::beg);
+
+        std::string line;
+        while (std::getline(file, line)) {
+            std::istringstream ss(line);
+            Waypoints point;
+            char comma;
+
+            // Read x, y, z as doubles, followed by accuracy and additionalCommand as strings
+            if ((ss >> point.x >> comma >> point.y >> comma >> point.z >> comma) &&
+                std::getline(ss, point.accuracy, ',') &&
+                std::getline(ss, point.additionalCommand)) {
+                waypoints.push_back(point);
+            } else {
+                std::cerr << "Error: Incorrect file format in line: " << line << std::endl;
+            }
+        }
+
+        return waypoints;
+    }
+
     Point2D transformPoint(const Point2D& point) {
 
-    
-    double newX = point.x - 13;
-    double newY = point.y - 1;
-    // double newX = point.x;
-    // double newY = point.y;
-
-    // Point2D transformedPoint;
-    // transformedPoint.x = newX - 13;
-    // transformedPoint.y = newY - 1;
+    double newX = point.x - 14.035;
+    double newY = point.y - 1.514;
 
     Point2D transformedPoint;
     transformedPoint.x = -newY;
@@ -146,74 +185,20 @@ public:
     return transformedPoint;
     }
 
-    // Move function to process waypoints
-    // void move(const std::string& filename, double z, const std::string& finish_type) {
-    //     auto waypoints = readWaypoints(filename);
-    //     double tolerance = (finish_type == "hard") ? 0.2 : 0.5;
-    //     bool isOnTarget = false;
-    //     // RCLCPP_INFO(this->get_logger(), "Print no 0 (%.2f)", waypoints.);
-
-    //     for (const auto& path : waypoints) {
-            
-    //         for (const auto& waypoint : path) {
-    //             geometry_msgs::msg::PoseStamped target_pose;
-    //             Point2D transformedPoint;
-    //             transformedPoint = transformPoint(waypoint);
-    //             // transformedPoint = waypoint;
-
-    //             target_pose.pose.position.x = transformedPoint.x;
-    //             target_pose.pose.position.y = transformedPoint.y;
-    //             target_pose.pose.position.z = z;
-
-    //             RCLCPP_INFO(this->get_logger(), "Print no 1 (%.2f, %.2f)", waypoint.x, waypoint.y);
-    //             RCLCPP_INFO(this->get_logger(), "Print no 2 transformed (%.2f, %.2f)", transformedPoint.x, transformedPoint.y);
-
-    //             local_pos_pub_->publish(target_pose);
-
-    //             rclcpp::Rate rate(2); // Publish at 10 Hz
-    //             while (rclcpp::ok()) {
-                    
-
-    //                 // Get the current position
-    //                 auto current_pos = current_position_; // Assume current_position_ is updated in local_pos_cb
-                    
-    //                 RCLCPP_INFO(this->get_logger(), "Print no 3 curr positions (%.2f, %.2f)", current_pos.pose.position.x, current_pos.pose.position.y);
-
-    //                 // Calculate distance to target
-    //                 double dx = current_pos.pose.position.x - waypoint.x;
-    //                 double dy = current_pos.pose.position.y - waypoint.y;
-    //                 double dz = current_pos.pose.position.z - z;
-    //                 double distance = std::sqrt(dx * dx + dy * dy + dz * dz);
-
-    //                 RCLCPP_INFO(this->get_logger(), "Print no 4 distance tolerance (%.2f, %.2f)", distance, tolerance);
-
-    //                 // Check if the drone is within tolerance of the target
-    //                 if (distance <= tolerance) {
-    //                     RCLCPP_INFO(this->get_logger(), "Reached waypoint (%.2f, %.2f) with %s finish", waypoint.x, waypoint.y, finish_type.c_str());
-    //                     isOnTarget = true;
-    //                     break;
-    //                 }
-
-    //                 rclcpp::spin_some(this->get_node_base_interface());
-    //                 rate.sleep();
-    //             }
-    //             if (isOnTarget) break;
-    //         }
-    //         RCLCPP_INFO(this->get_logger(), "Reached end of current path segment.");
-    //         isOnTarget = false;
-    //     }
-    //     RCLCPP_INFO(this->get_logger(), "All waypoints reached.");
-    // }
 
 
-    void move(const std::string& filename, double z, const std::string& finish_type) {
-        auto waypoints = readWaypoints(filename);
-        double tolerance = (finish_type == "hard") ? 0.2 : 0.5;
+    void move(const std::string& pathFile, const std::string& waypointsFile) {
+        auto wholePath = readPath(pathFile);
+        double tolerance;
+        auto allWaypoints = readWaypointsCSV(waypointsFile);
         bool isOnTarget = false;
+        int waypointsIndex = 0;
+        double z = 2;
         // RCLCPP_INFO(this->get_logger(), "Print no 0 (%.2f)", waypoints.);
 
-        for (const auto& path : waypoints) {
-            
+        for (const auto& path : wholePath) {
+            Waypoints curWaypoint = allWaypoints[waypointsIndex];
+            tolerance = (curWaypoint.accuracy == "hard") ? 0.2 : 0.5;
             for (const auto& waypoint : path) {
                 rclcpp::Rate rate(2.0);
 
@@ -228,13 +213,13 @@ public:
 
                 RCLCPP_INFO(this->get_logger(), "map orientation target (%.2f, %.2f)", waypoint.x, waypoint.y);
                 RCLCPP_INFO(this->get_logger(), "drone orientation target (%.2f, %.2f)", transformedPoint.x, transformedPoint.y);
+                RCLCPP_INFO(this->get_logger(), "current waypoint data (%.2f, %.2f, %.2f, %s, %s)", curWaypoint.x, curWaypoint.y, curWaypoint.z, curWaypoint.accuracy.c_str(), curWaypoint.additionalCommand.c_str());
 
                 local_pos_pub_->publish(target_pose);
                 while(rclcpp::ok())
                 {
                     rclcpp::spin_some(this->get_node_base_interface());
                     rate.sleep();
-                    // local_pos_pub_->publish(target_pose);
 
                     auto current_pos = current_position_; 
                     
@@ -242,19 +227,50 @@ public:
 
                     // Calculate distance to target
                     double dx = current_pos.pose.position.x - transformedPoint.x;
-                    double dy = current_pos.pose.position.y - transformedPoint.y;
-                    double dz = current_pos.pose.position.z - z;
-                    double distance = std::sqrt(dx * dx + dy * dy + dz * dz);
+                    double dy = current_pos.pose.position.y - transformedPoint.y;                   
+                    double distance = std::sqrt(dx * dx + dy * dy);
+
+                    double dxFinal = current_pos.pose.position.x - curWaypoint.x;
+                    double dyFinal = current_pos.pose.position.y - curWaypoint.y;
+                    double distanceFinal = std::sqrt(dxFinal * dxFinal + dyFinal * dyFinal);
+
+                    if (distanceFinal <= tolerance){
+                        isOnTarget = true;
+                        break;                        
+                    }
                     
                     if (distance <= tolerance) {
-                        RCLCPP_INFO(this->get_logger(), "Reached waypoint map orientation (%.2f, %.2f) with %s finish", waypoint.x, waypoint.y, finish_type.c_str());
-                        isOnTarget = true;
+                        RCLCPP_INFO(this->get_logger(), "Reached waypoint map orientation (%.2f, %.2f) with %s finish", curWaypoint.x, curWaypoint.y, curWaypoint.accuracy.c_str());
                         break;
                     }
+                }
+                if (isOnTarget){
+                    auto current_pos = current_position_; 
+                    double zTemp = current_pos.pose.position.z;
+
+                    target_pose.pose.position.x = current_pos.pose.position.x;
+                    target_pose.pose.position.y = current_pos.pose.position.y;
+                    target_pose.pose.position.z = curWaypoint.z;
+
+                    local_pos_pub_->publish(target_pose);
+
+                    while(rclcpp::ok()){
+                        rclcpp::spin_some(this->get_node_base_interface());
+                        rate.sleep();
+
+                        current_pos = current_position_;
+                        double dz = current_pos.pose.position.z - curWaypoint.z;
+                        double distacneZ = std::sqrt(dz * dz);
+
+                        if (distacneZ <=tolerance) break; 
+
+                    }
+
                 }
             }
             RCLCPP_INFO(this->get_logger(), "Reached end of current path segment.");
             isOnTarget = false;
+            waypointsIndex++;
         }
         RCLCPP_INFO(this->get_logger(), "All waypoints reached.");
     }

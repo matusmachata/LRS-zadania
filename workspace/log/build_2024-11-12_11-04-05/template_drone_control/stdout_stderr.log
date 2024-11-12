@@ -1,0 +1,32 @@
+[ 50%] [32mBuilding CXX object CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o[0m
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In constructor ‘TemplateDroneControl::TemplateDroneControl()’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:71:36: error: no matching function for call to ‘TemplateDroneControl::move(std::string&, double, const char [5])’
+   71 |         move(path_file, 2.0, "soft");
+      |                                    ^
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:190:10: note: candidate: ‘void TemplateDroneControl::move(const string&, const string&)’
+  190 |     void move(const std::string& pathFile, const std::string& waypointsFile) {
+      |          ^~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:190:10: note:   candidate expects 2 arguments, 3 provided
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘void TemplateDroneControl::move(const string&, const string&)’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:193:46: error: ‘waypoints_file’ was not declared in this scope; did you mean ‘waypointsFile’?
+  193 |         auto allWaypoints = readWaypointsCSV(waypoints_file);
+      |                                              ^~~~~~~~~~~~~~
+      |                                              waypointsFile
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:196:9: error: expected ‘,’ or ‘;’ before ‘double’
+  196 |         double z = 2;
+      |         ^~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:201:26: error: ‘finish_type’ was not declared in this scope
+  201 |             tolerance = (finish_type == curWaypoint.accuracy) ? 0.2 : 0.5;
+      |                          ^~~~~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:212:47: error: ‘z’ was not declared in this scope
+  212 |                 target_pose.pose.position.z = z;
+      |                                               ^
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:232:28: warning: unused variable ‘dz’ [-Wunused-variable]
+  232 |                     double dz = current_pos.pose.position.z - z;
+      |                            ^~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:190:63: warning: unused parameter ‘waypointsFile’ [-Wunused-parameter]
+  190 |     void move(const std::string& pathFile, const std::string& waypointsFile) {
+      |                                            ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+make[2]: *** [CMakeFiles/template_drone_control_node.dir/build.make:63: CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:105: CMakeFiles/template_drone_control_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

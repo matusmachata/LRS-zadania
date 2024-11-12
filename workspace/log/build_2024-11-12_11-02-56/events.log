@@ -1,0 +1,105 @@
+[0.000000] (-) TimerEvent: {}
+[0.000113] (template_drone_control) JobQueued: {'identifier': 'template_drone_control', 'dependencies': OrderedDict()}
+[0.000326] (template_drone_control) JobStarted: {'identifier': 'template_drone_control'}
+[0.005279] (template_drone_control) JobProgress: {'identifier': 'template_drone_control', 'progress': 'cmake'}
+[0.005707] (template_drone_control) JobProgress: {'identifier': 'template_drone_control', 'progress': 'build'}
+[0.007289] (template_drone_control) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control', '--', '-j16', '-l16'], 'cwd': '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'lrs-ubuntu'), ('LC_TIME', 'sk_SK.UTF-8'), ('SSH_AGENT_PID', '1933'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/lrs-ubuntu'), ('OLDPWD', '/home/lrs-ubuntu'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'sk_SK.UTF-8'), ('MANAGERPID', '1754'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '4822'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'lrs-ubuntu'), ('JOURNAL_STREAM', '8:50740'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'lrs-ubuntu'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', '/home/lrs-ubuntu/fei_lrs_gazebo/models:'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/lib/ccache:/home/lrs-ubuntu/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/lrs-ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/lrs:@/tmp/.ICE-unix/1970,unix/lrs:/tmp/.ICE-unix/1970'), ('INVOCATION_ID', 'fd1b16d7a4be484c8e1adfdb6fe1ab4e'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'sk_SK.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'sk_SK.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'sk_SK.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:f8afd23d-0774-4bb7-8690-fe44cc904e5d'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'sk_SK.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'sk_SK.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'sk_SK.UTF-8'), ('LC_PAPER', 'sk_SK.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[0.050308] (template_drone_control) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o\x1b[0m\n'}
+[0.099910] (-) TimerEvent: {}
+[0.200097] (-) TimerEvent: {}
+[0.300290] (-) TimerEvent: {}
+[0.400485] (-) TimerEvent: {}
+[0.500680] (-) TimerEvent: {}
+[0.600876] (-) TimerEvent: {}
+[0.701068] (-) TimerEvent: {}
+[0.801260] (-) TimerEvent: {}
+[0.901453] (-) TimerEvent: {}
+[1.001643] (-) TimerEvent: {}
+[1.101802] (-) TimerEvent: {}
+[1.201995] (-) TimerEvent: {}
+[1.302184] (-) TimerEvent: {}
+[1.402369] (-) TimerEvent: {}
+[1.502556] (-) TimerEvent: {}
+[1.602746] (-) TimerEvent: {}
+[1.702934] (-) TimerEvent: {}
+[1.803129] (-) TimerEvent: {}
+[1.903336] (-) TimerEvent: {}
+[2.003526] (-) TimerEvent: {}
+[2.103715] (-) TimerEvent: {}
+[2.203896] (-) TimerEvent: {}
+[2.304069] (-) TimerEvent: {}
+[2.404242] (-) TimerEvent: {}
+[2.504416] (-) TimerEvent: {}
+[2.604583] (-) TimerEvent: {}
+[2.704749] (-) TimerEvent: {}
+[2.804921] (-) TimerEvent: {}
+[2.905092] (-) TimerEvent: {}
+[2.949608] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:93:9: error: \xe2\x80\x98string\xe2\x80\x99 does not name a type; did you mean \xe2\x80\x98stdin\xe2\x80\x99?\n'}
+[2.949854] (template_drone_control) StderrLine: {'line': b'   93 |         string accuracy;\n'}
+[2.949913] (template_drone_control) StderrLine: {'line': b'      |         ^~~~~~\n'}
+[2.949964] (template_drone_control) StderrLine: {'line': b'      |         stdin\n'}
+[2.950011] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:94:9: error: \xe2\x80\x98string\xe2\x80\x99 does not name a type; did you mean \xe2\x80\x98stdin\xe2\x80\x99?\n'}
+[2.950059] (template_drone_control) StderrLine: {'line': b'   94 |         string additionalCommand;\n'}
+[2.950105] (template_drone_control) StderrLine: {'line': b'      |         ^~~~~~\n'}
+[2.950151] (template_drone_control) StderrLine: {'line': b'      |         stdin\n'}
+[2.950196] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In constructor \xe2\x80\x98TemplateDroneControl::TemplateDroneControl()\xe2\x80\x99:\n'}
+[2.950244] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:71:36: error: no matching function for call to \xe2\x80\x98TemplateDroneControl::move(std::string&, double, const char [5])\xe2\x80\x99\n'}
+[2.950291] (template_drone_control) StderrLine: {'line': b'   71 |         move(path_file, 2.0, "soft");\n'}
+[2.950336] (template_drone_control) StderrLine: {'line': b'      |                                    ^\n'}
+[2.950380] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:190:10: note: candidate: \xe2\x80\x98void TemplateDroneControl::move(const string&, const string&)\xe2\x80\x99\n'}
+[2.950429] (template_drone_control) StderrLine: {'line': b'  190 |     void move(const std::string& pathFile, const std::string& waypointsFile) {\n'}
+[2.950474] (template_drone_control) StderrLine: {'line': b'      |          ^~~~\n'}
+[2.950518] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:190:10: note:   candidate expects 2 arguments, 3 provided\n'}
+[2.950563] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function \xe2\x80\x98std::vector<TemplateDroneControl::Waypoints> TemplateDroneControl::readWaypointsCSV(const string&)\xe2\x80\x99:\n'}
+[2.950610] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:165:40: error: \xe2\x80\x98struct TemplateDroneControl::Waypoints\xe2\x80\x99 has no member named \xe2\x80\x98accuracy\xe2\x80\x99\n'}
+[2.950656] (template_drone_control) StderrLine: {'line': b"  165 |                 std::getline(ss, point.accuracy, ',') &&\n"}
+[2.950701] (template_drone_control) StderrLine: {'line': b'      |                                        ^~~~~~~~\n'}
+[2.950746] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:166:40: error: \xe2\x80\x98struct TemplateDroneControl::Waypoints\xe2\x80\x99 has no member named \xe2\x80\x98additionalCommand\xe2\x80\x99\n'}
+[2.950793] (template_drone_control) StderrLine: {'line': b'  166 |                 std::getline(ss, point.additionalCommand)) {\n'}
+[2.950837] (template_drone_control) StderrLine: {'line': b'      |                                        ^~~~~~~~~~~~~~~~~\n'}
+[2.950882] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function \xe2\x80\x98void TemplateDroneControl::move(const string&, const string&)\xe2\x80\x99:\n'}
+[2.950927] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:193:46: error: \xe2\x80\x98waypoints_file\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98waypointsFile\xe2\x80\x99?\n'}
+[2.950972] (template_drone_control) StderrLine: {'line': b'  193 |         auto allWaypoints = readWaypointsCSV(waypoints_file);\n'}
+[2.951017] (template_drone_control) StderrLine: {'line': b'      |                                              ^~~~~~~~~~~~~~\n'}
+[2.951062] (template_drone_control) StderrLine: {'line': b'      |                                              waypointsFile\n'}
+[2.951106] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:196:9: error: expected \xe2\x80\x98,\xe2\x80\x99 or \xe2\x80\x98;\xe2\x80\x99 before \xe2\x80\x98double\xe2\x80\x99\n'}
+[2.951151] (template_drone_control) StderrLine: {'line': b'  196 |         double z = 2;\n'}
+[2.951195] (template_drone_control) StderrLine: {'line': b'      |         ^~~~~~\n'}
+[2.951240] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:201:26: error: \xe2\x80\x98finish_type\xe2\x80\x99 was not declared in this scope\n'}
+[2.951305] (template_drone_control) StderrLine: {'line': b'  201 |             tolerance = (finish_type == curWaypoint.accuracy) ? 0.2 : 0.5;\n'}
+[2.951354] (template_drone_control) StderrLine: {'line': b'      |                          ^~~~~~~~~~~\n'}
+[2.951403] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:201:53: error: \xe2\x80\x98struct TemplateDroneControl::Waypoints\xe2\x80\x99 has no member named \xe2\x80\x98accuracy\xe2\x80\x99\n'}
+[2.951452] (template_drone_control) StderrLine: {'line': b'  201 |             tolerance = (finish_type == curWaypoint.accuracy) ? 0.2 : 0.5;\n'}
+[2.951500] (template_drone_control) StderrLine: {'line': b'      |                                                     ^~~~~~~~\n'}
+[2.951565] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:212:47: error: \xe2\x80\x98z\xe2\x80\x99 was not declared in this scope\n'}
+[2.951615] (template_drone_control) StderrLine: {'line': b'  212 |                 target_pose.pose.position.z = z;\n'}
+[2.951660] (template_drone_control) StderrLine: {'line': b'      |                                               ^\n'}
+[2.951705] (template_drone_control) StderrLine: {'line': b'In file included from /opt/ros/foxy/include/rclcpp/client.hpp:40,\n'}
+[2.951750] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,\n'}
+[2.951795] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,\n'}
+[2.951839] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,\n'}
+[2.951883] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,\n'}
+[2.951928] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,\n'}
+[2.951974] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,\n'}
+[2.952018] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,\n'}
+[2.952064] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,\n'}
+[2.952110] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,\n'}
+[2.952155] (template_drone_control) StderrLine: {'line': b'                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:\n'}
+[2.952200] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:216:158: error: \xe2\x80\x98struct TemplateDroneControl::Waypoints\xe2\x80\x99 has no member named \xe2\x80\x98accuracy\xe2\x80\x99\n'}
+[2.952245] (template_drone_control) StderrLine: {'line': b'  216 |                 RCLCPP_INFO(this->get_logger(), "current waypoint data (%.2f, %.2f, %.2f, %s, %s)", curWaypoint.x, curWaypoint.y, curWaypoint.z, curWaypoint.accuracy, curWaypoint.additionalCommand);\n'}
+[2.952290] (template_drone_control) StderrLine: {'line': b'      |                                                                                                                                                              ^~~~~~~~\n'}
+[2.952335] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:216:180: error: \xe2\x80\x98struct TemplateDroneControl::Waypoints\xe2\x80\x99 has no member named \xe2\x80\x98additionalCommand\xe2\x80\x99\n'}
+[2.952382] (template_drone_control) StderrLine: {'line': b'  216 |                 RCLCPP_INFO(this->get_logger(), "current waypoint data (%.2f, %.2f, %.2f, %s, %s)", curWaypoint.x, curWaypoint.y, curWaypoint.z, curWaypoint.accuracy, curWaypoint.additionalCommand);\n'}
+[2.952461] (template_drone_control) StderrLine: {'line': b'      |                                                                                                                                                                                    ^~~~~~~~~~~~~~~~~\n'}
+[2.952509] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:232:28: warning: unused variable \xe2\x80\x98dz\xe2\x80\x99 [-Wunused-variable]\n'}
+[2.952557] (template_drone_control) StderrLine: {'line': b'  232 |                     double dz = current_pos.pose.position.z - z;\n'}
+[2.952606] (template_drone_control) StderrLine: {'line': b'      |                            ^~\n'}
+[2.952654] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:190:63: warning: unused parameter \xe2\x80\x98waypointsFile\xe2\x80\x99 [-Wunused-parameter]\n'}
+[2.952702] (template_drone_control) StderrLine: {'line': b'  190 |     void move(const std::string& pathFile, const std::string& waypointsFile) {\n'}
+[2.952751] (template_drone_control) StderrLine: {'line': b'      |                                            ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~\n'}
+[2.952800] (template_drone_control) StderrLine: {'line': b'make[2]: *** [CMakeFiles/template_drone_control_node.dir/build.make:63: CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o] Error 1\n'}
+[2.952898] (template_drone_control) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:105: CMakeFiles/template_drone_control_node.dir/all] Error 2\n'}
+[2.952949] (template_drone_control) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[2.953290] (template_drone_control) CommandEnded: {'returncode': 2}
+[2.990462] (template_drone_control) JobEnded: {'identifier': 'template_drone_control', 'rc': 2}
+[3.000721] (-) EventReactorShutdown: {}

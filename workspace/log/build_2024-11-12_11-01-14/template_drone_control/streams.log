@@ -1,0 +1,70 @@
+[0.007s] Invoking command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16
+[0.039s] [35m[1mScanning dependencies of target template_drone_control_node[0m
+[0.065s] [ 50%] [32mBuilding CXX object CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o[0m
+[2.922s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:93:9: error: ‘string’ does not name a type; did you mean ‘stdin’?
+[2.922s]    93 |         string accuracy;
+[2.922s]       |         ^~~~~~
+[2.923s]       |         stdin
+[2.923s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:94:9: error: ‘string’ does not name a type; did you mean ‘stdin’?
+[2.923s]    94 |         string additionalCommand;
+[2.923s]       |         ^~~~~~
+[2.923s]       |         stdin
+[2.923s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In constructor ‘TemplateDroneControl::TemplateDroneControl()’:
+[2.923s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:71:36: error: no matching function for call to ‘TemplateDroneControl::move(std::string&, double, const char [5])’
+[2.923s]    71 |         move(path_file, 2.0, "soft");
+[2.923s]       |                                    ^
+[2.923s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:190:10: note: candidate: ‘void TemplateDroneControl::move(const string&, const string&)’
+[2.923s]   190 |     void move(const std::string& pathFile, const std::string& waypointsFile) {
+[2.923s]       |          ^~~~
+[2.923s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:190:10: note:   candidate expects 2 arguments, 3 provided
+[2.923s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘std::vector<TemplateDroneControl::Waypoints> TemplateDroneControl::readWaypointsCSV(const string&)’:
+[2.923s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:165:40: error: ‘struct TemplateDroneControl::Waypoints’ has no member named ‘accuracy’
+[2.923s]   165 |                 std::getline(ss, point.accuracy, ',') &&
+[2.923s]       |                                        ^~~~~~~~
+[2.923s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:166:40: error: ‘struct TemplateDroneControl::Waypoints’ has no member named ‘additionalCommand’
+[2.923s]   166 |                 std::getline(ss, point.additionalCommand)) {
+[2.923s]       |                                        ^~~~~~~~~~~~~~~~~
+[2.923s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘void TemplateDroneControl::move(const string&, const string&)’:
+[2.923s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:193:46: error: ‘waypoints_file’ was not declared in this scope; did you mean ‘waypointsFile’?
+[2.924s]   193 |         auto allWaypoints = readWaypointsCSV(waypoints_file);
+[2.924s]       |                                              ^~~~~~~~~~~~~~
+[2.924s]       |                                              waypointsFile
+[2.924s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:196:9: error: expected ‘,’ or ‘;’ before ‘double’
+[2.924s]   196 |         double z = 2;
+[2.924s]       |         ^~~~~~
+[2.924s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:201:26: error: ‘finish_type’ was not declared in this scope
+[2.924s]   201 |             tolerance = (finish_type == curWaypoint.accuracy) ? 0.2 : 0.5;
+[2.924s]       |                          ^~~~~~~~~~~
+[2.924s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:201:53: error: ‘struct TemplateDroneControl::Waypoints’ has no member named ‘accuracy’
+[2.924s]   201 |             tolerance = (finish_type == curWaypoint.accuracy) ? 0.2 : 0.5;
+[2.924s]       |                                                     ^~~~~~~~
+[2.924s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:212:47: error: ‘z’ was not declared in this scope
+[2.924s]   212 |                 target_pose.pose.position.z = z;
+[2.924s]       |                                               ^
+[2.924s] In file included from /opt/ros/foxy/include/rclcpp/client.hpp:40,
+[2.924s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+[2.925s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[2.925s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[2.925s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[2.925s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[2.925s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[2.925s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[2.925s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[2.925s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[2.925s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:1:
+[2.925s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:216:158: error: ‘struct TemplateDroneControl::Waypoints’ has no member named ‘accuracy’
+[2.925s]   216 |                 RCLCPP_INFO(this->get_logger(), "current waypoint data (%.2f, %.2f, %.2f, %s, %s)", curWaypoint.x, curWaypoint.y, curWaypoint.z, curWaypoint.accuracy, curWaypoint.additionalCommand);
+[2.925s]       |                                                                                                                                                              ^~~~~~~~
+[2.925s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:216:180: error: ‘struct TemplateDroneControl::Waypoints’ has no member named ‘additionalCommand’
+[2.925s]   216 |                 RCLCPP_INFO(this->get_logger(), "current waypoint data (%.2f, %.2f, %.2f, %s, %s)", curWaypoint.x, curWaypoint.y, curWaypoint.z, curWaypoint.accuracy, curWaypoint.additionalCommand);
+[2.925s]       |                                                                                                                                                                                    ^~~~~~~~~~~~~~~~~
+[2.925s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:232:28: warning: unused variable ‘dz’ [-Wunused-variable]
+[2.925s]   232 |                     double dz = current_pos.pose.position.z - z;
+[2.925s]       |                            ^~
+[2.925s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:190:63: warning: unused parameter ‘waypointsFile’ [-Wunused-parameter]
+[2.926s]   190 |     void move(const std::string& pathFile, const std::string& waypointsFile) {
+[2.926s]       |                                            ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+[2.926s] make[2]: *** [CMakeFiles/template_drone_control_node.dir/build.make:63: CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o] Error 1
+[2.926s] make[1]: *** [CMakeFiles/Makefile2:105: CMakeFiles/template_drone_control_node.dir/all] Error 2
+[2.926s] make: *** [Makefile:141: all] Error 2
+[2.926s] Invoked command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control' returned '2': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16
