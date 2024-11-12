@@ -11,6 +11,7 @@
 #include <vector>
 #include <string>
 #include <cstdlib>
+#include <optional>
 
 
 // TODO
@@ -185,7 +186,10 @@ public:
     return transformedPoint;
     }
 
-
+    struct DecodedCommand {
+        std::string command;
+        std::optional<double> value; 
+    };
 
     void move(const std::string& pathFile, const std::string& waypointsFile) {
         auto wholePath = readPath(pathFile);
@@ -218,7 +222,7 @@ public:
                 // RCLCPP_INFO(this->get_logger(), "map orientation target (%.2f, %.2f)", waypoint.x, waypoint.y);
                 // RCLCPP_INFO(this->get_logger(), "drone orientation target (%.2f, %.2f)", transformedPoint.x, transformedPoint.y);
                 // RCLCPP_INFO(this->get_logger(), "current waypoint data (%.2f, %.2f, %.2f, %s, %s)", curWaypoint.x, curWaypoint.y, curWaypoint.z, curWaypoint.accuracy.c_str(), curWaypoint.additionalCommand.c_str());
-                RCLCPP_INFO(this->get_logger(), "waypoint target transformed (%.2f, %.2f)", curWaypointTransformed.x, curWaypointTransformed.y);
+                // RCLCPP_INFO(this->get_logger(), "waypoint target transformed (%.2f, %.2f)", curWaypointTransformed.x, curWaypointTransformed.y);
                 local_pos_pub_->publish(target_pose);
                 while(rclcpp::ok())
                 {
@@ -237,9 +241,9 @@ public:
                     double dxFinal = current_pos.pose.position.x - curWaypointTransformed.x;
                     double dyFinal = current_pos.pose.position.y - curWaypointTransformed.y;
                     double distanceFinal = std::sqrt(dxFinal * dxFinal + dyFinal * dyFinal);
-                    RCLCPP_INFO(this->get_logger(), "distance to waypoint (%.2f)", distanceFinal);
+                    // RCLCPP_INFO(this->get_logger(), "distance to waypoint (%.2f)", distanceFinal);
                     if (distanceFinal <= tolerance){
-                        RCLCPP_INFO(this->get_logger(), "isOnTarget je true =============");
+                        // RCLCPP_INFO(this->get_logger(), "isOnTarget je true =============");
                         isOnTarget = true;
                         break;                        
                     }
@@ -250,18 +254,23 @@ public:
                     }
                 }
                 if (isOnTarget){
-                    RCLCPP_INFO(this->get_logger(), "podmienka na stupanie =============");
+                    // RCLCPP_INFO(this->get_logger(), "podmienka na stupanie =============");
                     auto current_pos = current_position_; 
                     double zTemp = current_pos.pose.position.z;
                     target_pose.pose.position.x = current_pos.pose.position.x;
                     target_pose.pose.position.y = current_pos.pose.position.y;
+                    double height;
 
                     for (int i = 0; i < 2; i++){
                         if (i == 0){
-                            target_pose.pose.position.z = curWaypoint.z;  
+                            target_pose.pose.position.z = curWaypoint.z;
+                            height = curWaypoint.z; 
+                            RCLCPP_INFO(this->get_logger(), "tam ============="); 
                         }
                         else{
                             target_pose.pose.position.z = zTemp;
+                            height = zTemp;
+                            RCLCPP_INFO(this->get_logger(), "spat =============");
                         }
                         local_pos_pub_->publish(target_pose);
                         while(rclcpp::ok()){
@@ -269,9 +278,9 @@ public:
                             rate.sleep();
 
                             current_pos = current_position_;
-                            double dz = current_pos.pose.position.z - curWaypoint.z;
+                            double dz = current_pos.pose.position.z - height;
                             double distacneZ = std::sqrt(dz * dz);
-
+                            RCLCPP_INFO(this->get_logger(), "distance to waypoint (%.2f)", distacneZ);
                             if (distacneZ <=tolerance) break; 
                         }
                     }
