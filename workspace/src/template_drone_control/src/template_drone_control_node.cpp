@@ -67,7 +67,7 @@ public:
         // std::string filePath = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/path.txt";
 
         std::string path_file = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/path_test.txt";
-        std::string waypoints_file = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/waypoints.csv";
+        std::string waypoints_file = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/waypoints_test.csv";
         move(path_file, waypoints_file);
         // geometry_msgs::msg::PoseStamped target_pose;
 
@@ -199,8 +199,12 @@ public:
         for (const auto& path : wholePath) {
             Waypoints curWaypoint = allWaypoints[waypointsIndex];
             tolerance = (curWaypoint.accuracy == "hard") ? 0.2 : 0.5;
+            Point2D curWaypointTransformed;
+            curWaypointTransformed.x = curWaypoint.x;
+            curWaypointTransformed.y = curWaypoint.y;
+            curWaypointTransformed = transformPoint(curWaypointTransformed);
             for (const auto& waypoint : path) {
-                rclcpp::Rate rate(2.0);
+                rclcpp::Rate rate(15.0);
 
                 geometry_msgs::msg::PoseStamped target_pose;
                 Point2D transformedPoint;
@@ -211,10 +215,10 @@ public:
                 target_pose.pose.position.y = transformedPoint.y;
                 target_pose.pose.position.z = z;
 
-                RCLCPP_INFO(this->get_logger(), "map orientation target (%.2f, %.2f)", waypoint.x, waypoint.y);
-                RCLCPP_INFO(this->get_logger(), "drone orientation target (%.2f, %.2f)", transformedPoint.x, transformedPoint.y);
-                RCLCPP_INFO(this->get_logger(), "current waypoint data (%.2f, %.2f, %.2f, %s, %s)", curWaypoint.x, curWaypoint.y, curWaypoint.z, curWaypoint.accuracy.c_str(), curWaypoint.additionalCommand.c_str());
-
+                // RCLCPP_INFO(this->get_logger(), "map orientation target (%.2f, %.2f)", waypoint.x, waypoint.y);
+                // RCLCPP_INFO(this->get_logger(), "drone orientation target (%.2f, %.2f)", transformedPoint.x, transformedPoint.y);
+                // RCLCPP_INFO(this->get_logger(), "current waypoint data (%.2f, %.2f, %.2f, %s, %s)", curWaypoint.x, curWaypoint.y, curWaypoint.z, curWaypoint.accuracy.c_str(), curWaypoint.additionalCommand.c_str());
+                RCLCPP_INFO(this->get_logger(), "waypoint target transformed (%.2f, %.2f)", curWaypointTransformed.x, curWaypointTransformed.y);
                 local_pos_pub_->publish(target_pose);
                 while(rclcpp::ok())
                 {
@@ -223,48 +227,55 @@ public:
 
                     auto current_pos = current_position_; 
                     
-                    RCLCPP_INFO(this->get_logger(), "ros curr position (%.2f, %.2f)", current_pos.pose.position.x, current_pos.pose.position.y);
+                    // RCLCPP_INFO(this->get_logger(), "ros curr position (%.2f, %.2f)", current_pos.pose.position.x, current_pos.pose.position.y);
 
                     // Calculate distance to target
                     double dx = current_pos.pose.position.x - transformedPoint.x;
                     double dy = current_pos.pose.position.y - transformedPoint.y;                   
                     double distance = std::sqrt(dx * dx + dy * dy);
 
-                    double dxFinal = current_pos.pose.position.x - curWaypoint.x;
-                    double dyFinal = current_pos.pose.position.y - curWaypoint.y;
+                    double dxFinal = current_pos.pose.position.x - curWaypointTransformed.x;
+                    double dyFinal = current_pos.pose.position.y - curWaypointTransformed.y;
                     double distanceFinal = std::sqrt(dxFinal * dxFinal + dyFinal * dyFinal);
-
+                    RCLCPP_INFO(this->get_logger(), "distance to waypoint (%.2f)", distanceFinal);
                     if (distanceFinal <= tolerance){
+                        RCLCPP_INFO(this->get_logger(), "isOnTarget je true =============");
                         isOnTarget = true;
                         break;                        
                     }
                     
                     if (distance <= tolerance) {
-                        RCLCPP_INFO(this->get_logger(), "Reached waypoint map orientation (%.2f, %.2f) with %s finish", curWaypoint.x, curWaypoint.y, curWaypoint.accuracy.c_str());
+                        // RCLCPP_INFO(this->get_logger(), "Reached waypoint map orientation (%.2f, %.2f) with %s finish", curWaypoint.x, curWaypoint.y, curWaypoint.accuracy.c_str());
                         break;
                     }
                 }
                 if (isOnTarget){
+                    RCLCPP_INFO(this->get_logger(), "podmienka na stupanie =============");
                     auto current_pos = current_position_; 
                     double zTemp = current_pos.pose.position.z;
-
                     target_pose.pose.position.x = current_pos.pose.position.x;
                     target_pose.pose.position.y = current_pos.pose.position.y;
-                    target_pose.pose.position.z = curWaypoint.z;
 
-                    local_pos_pub_->publish(target_pose);
+                    for (int i = 0; i < 2; i++){
+                        if (i == 0){
+                            target_pose.pose.position.z = curWaypoint.z;  
+                        }
+                        else{
+                            target_pose.pose.position.z = zTemp;
+                        }
+                        local_pos_pub_->publish(target_pose);
+                        while(rclcpp::ok()){
+                            rclcpp::spin_some(this->get_node_base_interface());
+                            rate.sleep();
 
-                    while(rclcpp::ok()){
-                        rclcpp::spin_some(this->get_node_base_interface());
-                        rate.sleep();
+                            current_pos = current_position_;
+                            double dz = current_pos.pose.position.z - curWaypoint.z;
+                            double distacneZ = std::sqrt(dz * dz);
 
-                        current_pos = current_position_;
-                        double dz = current_pos.pose.position.z - curWaypoint.z;
-                        double distacneZ = std::sqrt(dz * dz);
-
-                        if (distacneZ <=tolerance) break; 
-
+                            if (distacneZ <=tolerance) break; 
+                        }
                     }
+
 
                 }
             }
