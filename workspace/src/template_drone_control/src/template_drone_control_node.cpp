@@ -354,10 +354,12 @@ public:
                     else if (command.command == "land"){
                         RCLCPP_INFO(this->get_logger(), "land =============");
                         land_drone();
+                        std::this_thread::sleep_for(50ms);
                         break;
                     }
                     else if (command.command == "landtakeoff"){
                         land_drone();
+                        std::this_thread::sleep_for(50ms);
                         set_mode("GUIDED");
                         arm_drone();
                         takeoff(2,0);
