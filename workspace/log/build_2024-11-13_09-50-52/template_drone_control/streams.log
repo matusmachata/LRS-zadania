@@ -1,0 +1,30 @@
+[0.008s] Invoking command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16
+[0.033s] [35m[1mScanning dependencies of target template_drone_control_node[0m
+[0.053s] [ 50%] [32mBuilding CXX object CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o[0m
+[6.454s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘void TemplateDroneControl::turn(std::string, double)’:
+[6.454s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:385:16: warning: unused variable ‘initial_angle’ [-Wunused-variable]
+[6.454s]   385 |         double initial_angle = angle;
+[6.454s]       |                ^~~~~~~~~~~~~
+[6.463s] [100%] [32m[1mLinking CXX executable template_drone_control_node[0m
+[6.799s] [100%] Built target template_drone_control_node
+[6.806s] Invoked command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16
+[6.825s] Invoking command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control
+[6.829s] -- Install configuration: ""
+[6.830s] -- Execute custom install script
+[6.830s] -- Up-to-date symlink: /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control/lib/template_drone_control/template_drone_control_node
+[6.830s] -- Up-to-date symlink: /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control/share/ament_index/resource_index/package_run_dependencies/template_drone_control
+[6.830s] -- Up-to-date symlink: /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control/share/ament_index/resource_index/parent_prefix_path/template_drone_control
+[6.831s] -- Up-to-date symlink: /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control/share/template_drone_control/environment/ament_prefix_path.sh
+[6.831s] -- Up-to-date symlink: /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control/share/template_drone_control/environment/ament_prefix_path.dsv
+[6.831s] -- Up-to-date symlink: /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control/share/template_drone_control/environment/path.sh
+[6.831s] -- Up-to-date symlink: /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control/share/template_drone_control/environment/path.dsv
+[6.831s] -- Up-to-date symlink: /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control/share/template_drone_control/local_setup.bash
+[6.832s] -- Up-to-date symlink: /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control/share/template_drone_control/local_setup.sh
+[6.832s] -- Up-to-date symlink: /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control/share/template_drone_control/local_setup.zsh
+[6.832s] -- Up-to-date symlink: /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control/share/template_drone_control/local_setup.dsv
+[6.832s] -- Symlinking: /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control/share/template_drone_control/package.dsv
+[6.838s] -- Up-to-date symlink: /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control/share/ament_index/resource_index/packages/template_drone_control
+[6.838s] -- Up-to-date symlink: /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control/share/template_drone_control/cmake/template_drone_controlConfig.cmake
+[6.838s] -- Up-to-date symlink: /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control/share/template_drone_control/cmake/template_drone_controlConfig-version.cmake
+[6.838s] -- Up-to-date symlink: /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control/share/template_drone_control/package.xml
+[6.840s] Invoked command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control

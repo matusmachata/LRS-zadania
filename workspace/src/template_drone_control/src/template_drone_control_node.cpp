@@ -65,14 +65,14 @@ public:
         // Takeoff
         takeoff(2.0, 0);
 
-        std::this_thread::sleep_for(9000ms);
+        // std::this_thread::sleep_for(9000ms);
 
         // Example waypoints file
         std::string homeDir = std::getenv("HOME");
         // std::string filePath = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/path.txt";
 
-        std::string path_file = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/path_test.txt";
-        std::string waypoints_file = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/waypoints_test.csv";
+        std::string path_file = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/all_paths.txt";
+        std::string waypoints_file = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/waypoints.csv";
         move(path_file, waypoints_file);
         // geometry_msgs::msg::PoseStamped target_pose;
 
@@ -132,6 +132,10 @@ public:
                 Point2D point;
                 char comma;
                 ss >> point.x >> comma >> point.y;
+
+                point.x = point.x/20;
+                point.y = point.y/20;
+
                 current_path.push_back(point);
             }
         }
@@ -274,7 +278,7 @@ public:
                 target_pose.pose.position.y = transformedPoint.y;
                 target_pose.pose.position.z = z;
 
-                // RCLCPP_INFO(this->get_logger(), "map orientation target (%.2f, %.2f)", waypoint.x, waypoint.y);
+                RCLCPP_INFO(this->get_logger(), "map orientation target (%.2f, %.2f)", waypoint.x, waypoint.y);
                 // RCLCPP_INFO(this->get_logger(), "drone orientation target (%.2f, %.2f)", transformedPoint.x, transformedPoint.y);
                 // RCLCPP_INFO(this->get_logger(), "current waypoint data (%.2f, %.2f, %.2f, %s, %s)", curWaypoint.x, curWaypoint.y, curWaypoint.z, curWaypoint.accuracy.c_str(), curWaypoint.additionalCommand.c_str());
                 // RCLCPP_INFO(this->get_logger(), "waypoint target transformed (%.2f, %.2f)", curWaypointTransformed.x, curWaypointTransformed.y);
@@ -296,7 +300,7 @@ public:
                     double dxFinal = current_pos.pose.position.x - curWaypointTransformed.x;
                     double dyFinal = current_pos.pose.position.y - curWaypointTransformed.y;
                     double distanceFinal = std::sqrt(dxFinal * dxFinal + dyFinal * dyFinal);
-                    RCLCPP_INFO(this->get_logger(), "distance to waypoint (%.2f)", distanceFinal);
+                    // RCLCPP_INFO(this->get_logger(), "distance to waypoint (%.2f)", distanceFinal);
                     if (distanceFinal <= tolerance){
                         // RCLCPP_INFO(this->get_logger(), "isOnTarget je true =============");
                         isOnTarget = true;
@@ -335,7 +339,7 @@ public:
                             current_pos = current_position_;
                             double dz = current_pos.pose.position.z - height;
                             double distacneZ = std::sqrt(dz * dz);
-                            RCLCPP_INFO(this->get_logger(), "distance to waypoint (%.2f)", distacneZ);
+                            // RCLCPP_INFO(this->get_logger(), "distance to waypoint (%.2f)", distacneZ);
                             if (distacneZ <=tolerance) break; 
                         }
                     }

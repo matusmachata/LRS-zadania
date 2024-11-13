@@ -1,0 +1,11 @@
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘std::vector<std::vector<TemplateDroneControl::Point2D> > TemplateDroneControl::readPath(const string&)’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:137:23: error: ‘struct TemplateDroneControl::Point2D’ has no member named ‘t’
+  137 |                 point.t /= 20;
+      |                       ^
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘void TemplateDroneControl::turn(std::string, double)’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:385:16: warning: unused variable ‘initial_angle’ [-Wunused-variable]
+  385 |         double initial_angle = angle;
+      |                ^~~~~~~~~~~~~
+make[2]: *** [CMakeFiles/template_drone_control_node.dir/build.make:63: CMakeFiles/template_drone_control_node.dir/src/template_drone_control_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:105: CMakeFiles/template_drone_control_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
