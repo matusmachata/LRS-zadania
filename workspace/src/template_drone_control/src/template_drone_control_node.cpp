@@ -132,10 +132,6 @@ public:
                 Point2D point;
                 char comma;
                 ss >> point.x >> comma >> point.y;
-
-                point.x = point.x/20;
-                point.y = point.y/20;
-
                 current_path.push_back(point);
             }
         }
@@ -189,7 +185,7 @@ public:
 
     Point2D transformedPoint;
     transformedPoint.x = -newY;
-    transformedPoint.y = -newX;
+    transformedPoint.y = newX;
 
     return transformedPoint;
     }
@@ -266,6 +262,7 @@ public:
             curWaypointTransformed.x = curWaypoint.x;
             curWaypointTransformed.y = curWaypoint.y;
             curWaypointTransformed = transformPoint(curWaypointTransformed);
+            int waypointIndex = 0;
             for (const auto& waypoint : path) {
                 rclcpp::Rate rate(15.0);
 
@@ -278,7 +275,7 @@ public:
                 target_pose.pose.position.y = transformedPoint.y;
                 target_pose.pose.position.z = z;
 
-                RCLCPP_INFO(this->get_logger(), "map orientation target (%.2f, %.2f)", waypoint.x, waypoint.y);
+                // RCLCPP_INFO(this->get_logger(), "map orientation target (%.2f, %.2f)", waypoint.x, waypoint.y);
                 // RCLCPP_INFO(this->get_logger(), "drone orientation target (%.2f, %.2f)", transformedPoint.x, transformedPoint.y);
                 // RCLCPP_INFO(this->get_logger(), "current waypoint data (%.2f, %.2f, %.2f, %s, %s)", curWaypoint.x, curWaypoint.y, curWaypoint.z, curWaypoint.accuracy.c_str(), curWaypoint.additionalCommand.c_str());
                 // RCLCPP_INFO(this->get_logger(), "waypoint target transformed (%.2f, %.2f)", curWaypointTransformed.x, curWaypointTransformed.y);
@@ -312,8 +309,13 @@ public:
                         break;
                     }
                 }
+
+                if (waypointIndex == (path.size() - 1)) isOnTarget = true;
+
+                RCLCPP_INFO(this->get_logger(), "waypointindex (%d) pathsize (%d)", waypointIndex, (path.size() - 1));
+
                 if (isOnTarget){
-                    // RCLCPP_INFO(this->get_logger(), "podmienka na stupanie =============");
+                    RCLCPP_INFO(this->get_logger(), "podmienka na stupanie =============");
                     auto current_pos = current_position_; 
                     double zTemp = current_pos.pose.position.z;
                     target_pose.pose.position.x = current_pos.pose.position.x;
@@ -344,10 +346,13 @@ public:
                         }
                     }
                     DecodedCommand command = decodeCommand(curWaypoint.additionalCommand);
+                    RCLCPP_INFO(this->get_logger(), "command from csv %s ", command.command.c_str());
+
                     if (command.command == "-"){
                         break;
                     }
                     else if (command.command == "land"){
+                        RCLCPP_INFO(this->get_logger(), "land =============");
                         land_drone();
                         break;
                     }
@@ -356,6 +361,7 @@ public:
                         set_mode("GUIDED");
                         arm_drone();
                         takeoff(2,0);
+                        std::this_thread::sleep_for(50ms);
                         break;
                     }
                     else{
@@ -366,6 +372,7 @@ public:
 
 
                 }
+                waypointIndex++;
             }
             RCLCPP_INFO(this->get_logger(), "Reached end of current path segment.");
             isOnTarget = false;
@@ -562,7 +569,7 @@ private:
                 current_pos = current_position_;
                 double dz = current_pos.pose.position.z - altitude;
                 double distacneZ = std::sqrt(dz * dz);
-                RCLCPP_INFO(this->get_logger(), "distance to waypoint (%.2f)", distacneZ);
+                // RCLCPP_INFO(this->get_logger(), "distance to waypoint (%.2f)", distacneZ);
                 if (distacneZ <=tolerance) break; 
             }
         }

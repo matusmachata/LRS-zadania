@@ -1,0 +1,11 @@
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘void TemplateDroneControl::move(const string&, const string&)’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:313:35: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<TemplateDroneControl::Point2D>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  313 |                 if (waypointIndex == path.size() - 1) isOnTarget == true;
+      |                     ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:313:66: warning: statement has no effect [-Wunused-value]
+  313 |                 if (waypointIndex == path.size() - 1) isOnTarget == true;
+      |                                                       ~~~~~~~~~~~^~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp: In member function ‘void TemplateDroneControl::turn(std::string, double)’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/template_drone_control_node.cpp:389:16: warning: unused variable ‘initial_angle’ [-Wunused-variable]
+  389 |         double initial_angle = angle;
+      |                ^~~~~~~~~~~~~

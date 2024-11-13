@@ -117,11 +117,14 @@ def bfs_pathfinding(grid, start, goal, proximity_radius):
                     visited.add((n_row, n_col))
     return None  # No path found
 
-def save_all_paths(paths, filename):
+def save_all_paths(paths, filename, scale, trimmed_height):
     with open(filename, 'w') as f:
         for path in paths:
             for point in path:
-                f.write(f"{point[0]}, {point[1]}\n")
+                # Convert back to meters from pixels
+                y_meters = (trimmed_height - point[0]) * scale  # Convert row back to meters
+                x_meters = point[1] * scale  # Convert column back to meters
+                f.write(f"{x_meters:.2f}, {y_meters:.2f}\n")
             f.write('\n')  # Empty line between paths
 
 def main():
@@ -177,7 +180,7 @@ def main():
 
     # Step 4: Create inflated obstacle grid for path planning
     obstacle_grid = (image == 0)
-    inflation_radius = 6
+    inflation_radius = 8
     structuring_element = np.ones((2 * inflation_radius + 1, 2 * inflation_radius + 1), dtype=bool)
     inflated_obstacle_grid = binary_dilation(obstacle_grid, structure=structuring_element)
 
@@ -191,7 +194,7 @@ def main():
         if isinstance(proximity, str):
             proximity = proximity.lower()
         if proximity == 'soft':
-            proximity_radius_pixels = 6  # 30 cm
+            proximity_radius_pixels = 8  # 30 cm
         elif proximity == 'hard':
             proximity_radius_pixels = 3  # 15 cm
         else:
@@ -202,16 +205,17 @@ def main():
         if is_straight_line_clear(start, goal, inflated_obstacle_grid):
             path = [start, goal]
         else:
-            # Perform pathfinding using BFS
+            # Perform BFS pathfinding to get around obstacles
             path = bfs_pathfinding(inflated_obstacle_grid, start, goal, proximity_radius_pixels)
             if path is None:
-                print(f"No path found between waypoint {i} and {i+1}.")
+                print(f"No valid path found between waypoints {i} and {i+1}.")
                 continue
         paths.append(path)
 
-    # Step 6: Save all paths to one text file with empty lines between paths
-    save_all_paths(paths, 'all_paths.txt')
+    # Step 6: Save all paths to one text file with empty lines between paths, converting back to meters
+    save_all_paths(paths, 'all_paths.txt', scale, trimmed_height)
 
+    print("Paths have been saved to 'all_paths.txt'.")
     # Step 7: Draw paths on the map (do not draw waypoints)
     # Create a copy of the image to draw on
     output_image = image.copy()
@@ -236,3 +240,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
