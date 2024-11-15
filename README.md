@@ -4,7 +4,8 @@
 
 ### 1.1 Načítanie PGM súboru (`load_pgm`)
 Táto funkcia načíta obrazový súbor vo formáte PGM a overí jeho formát (musí byť vo formáte P2). Načíta rozlíšenie obrazu, maximálnu hodnotu sivej farby a samotné pixely, ktoré vracia ako dvojrozmerné pole numpy a maximálnu sivú hodnotu.
-![Vstupná mapa](https://github.com/matusmachata/LRS-zadania/tree/master/pathfinder/input_map.pgm)
+![Vstupná mapa](https://github.com/matusmachata/LRS-zadania/tree/master/img/input_map.png)
+
 
 ### 1.2 Uloženie PGM súboru (`save_pgm`)
 Funkcia zapisuje obrázok do PGM súboru vo formáte P2, kde sa každý pixel prepisuje do textovej reprezentácie, aby bol súbor prístupný ďalším programom.
