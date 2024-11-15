@@ -1,11 +1,44 @@
-# Dokumentácia ku kódom
+# Dokumentácia
 
 ## Časť 1: Spracovanie mapy a plánovanie trasy (Python kód)
 
 ### 1.1 Načítanie PGM súboru (`load_pgm`)
 Táto funkcia načíta obrazový súbor vo formáte PGM a overí jeho formát (musí byť vo formáte P2). Načíta rozlíšenie obrazu, maximálnu hodnotu sivej farby a samotné pixely, ktoré vracia ako dvojrozmerné pole numpy a maximálnu sivú hodnotu.
-![Vstupná mapa](https://github.com/matusmachata/LRS-zadania/tree/master/img/input_map.png)
+![Vstupná mapa](/img/input_map.png)
 
+### 1.2 Uloženie PGM súboru (`save_pgm`)
+Funkcia zapisuje obrázok do PGM súboru vo formáte P2, kde sa každý pixel prepisuje do textovej reprezentácie, aby bol súbor prístupný ďalším programom.
+
+### 1.3 Orezať prázdne okraje (`trim_empty_edges`)
+Funkcia odstraňuje prázdne (biele) okraje z obrázka a vracia orezaný obrázok spolu s posunom orezania pre neskoršie korekcie súradníc.
+
+### 1.4 Načítanie bodov trasy (`load_waypoints`)
+Načíta súbor CSV obsahujúci body trasy a nastaví stĺpce (`X`, `Y`, `Z`, `Proximity`, `Action`). Výsledkom je tabuľka s uloženými súradnicami a akciami.
+
+### 1.5 Algoritmus kreslenia úsečky (`bresenham_line`)
+Implementuje Bresenhamov algoritmus na kreslenie úsečky, ktorý generuje súradnice bodov medzi dvoma bodmi. Je užitočný na kontrolu kolízií a preverenie či je úsek medzi dvoma bodmi priamy a voľný.
+
+### 1.6 Kontrola voľného priameho spojenia (`is_straight_line_clear`)
+Funkcia preveruje, či je priamy úsek medzi dvoma bodmi voľný, pomocou `bresenham_line`. Prechádza každým bodom úsečky a kontroluje, či sa v danom bode nenachádza prekážka.
+
+### 1.7 Vyhľadávanie trasy pomocou BFS (`bfs_pathfinding`)
+Používa BFS (Breadth-First Search) na hľadanie trasy v blízkosti cieľového bodu vo vzdialenosti `proximity_radius`. Vytvára zoznam bodov pre trasu, ktorá prekonáva prekážky pomocou vyhýbania sa susedným bodom, ak je priamy prístup blokovaný.
+
+### 1.8 Uloženie trasy do textového súboru (`save_all_paths`)
+Pre všetky trasy prevádza body z pixelových súradníc späť na metre, pričom každý bod ukladá do textového súboru vo formáte `x, y`. Každá trasa je oddelená prázdnym riadkom.
+
+![Výstupná mapa](/img/output.png)
+
+### 1.9 Hlavná funkcia (`main`)
+Obsahuje kroky:
+1. Načíta PGM obrázok mapy a orezáva okraje.
+2. Načíta body trasy a prevedie ich na pixely s vhodným priblížením.
+3. Vytvára mriežku prekážok so zvýšenou bezpečnostnou vzdialenosťou.# Dokumentácia ku kódom
+
+## Časť 1: Spracovanie mapy a plánovanie trasy (Python kód)
+
+### 1.1 Načítanie PGM súboru (`load_pgm`)
+Táto funkcia načíta obrazový súbor vo formáte PGM a overí jeho formát (musí byť vo formáte P2). Načíta rozlíšenie obrazu, maximálnu hodnotu sivej farby a samotné pixely, ktoré vracia ako dvojrozmerné pole numpy a maximálnu sivú hodnotu.
 
 ### 1.2 Uloženie PGM súboru (`save_pgm`)
 Funkcia zapisuje obrázok do PGM súboru vo formáte P2, kde sa každý pixel prepisuje do textovej reprezentácie, aby bol súbor prístupný ďalším programom.
@@ -74,6 +107,24 @@ Spúšťa ROS uzol `TemplateDroneControl` a inicializuje riadenie. Tento uzol č
 
 ---
 
+
+## Komunikácia a prúd dát
+![MAVROS](/img/block.png)
+
+### Prúd dát v simulácii:
+1. Python Script → C++ Script (Generované trasy).
+2. C++ Script ↔ ROS2 (Príkazy a spätná väzba).
+3. ROS2 ↔ MAVROS Middleware (Preklad príkazov a stavových údajov).
+4. MAVROS ↔ GAZEBO Simulátor (Príkazy na pohyb dronu a simulované senzory). 
+---
+
+ ![MAVROS](/img/Gazebo.png)
+ 
+ ![MAVROS](/img/MAVROS.png)
+ 
+---
+
 ## Zhrnutie
 Táto dokumentácia poskytuje prehľad funkcií a štruktúry kódu. Python kód zabezpečuje spracovanie mapy a generovanie trás medzi bodmi, zatiaľ čo C++ kód implementuje algoritmy na ovládanie dronu v ROS prostredí.
-"""
+
+---
