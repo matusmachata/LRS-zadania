@@ -97,7 +97,7 @@ Spúšťa ROS uzol `TemplateDroneControl` a inicializuje riadenie. Tento uzol č
 ---
 
 ### Spustenie:
-Pre správne fungovanie a dpustenie je potrebné dodržať nasledovné kroky:
+Pre správne fungovanie a spustenie je potrebné dodržať nasledovné kroky:
 1. V priečinku pathfinder spustiť llama.py a uistiť sa že sa v ňom nachádzajú súbory vstupnej mapy - input_map.pgm a misie v tvare bodov ako boli zadané v textovom súbore waypoints.txt.
 2. Následne je potrebné spustiť prerekvizície pre simuláciu, t.j. Gazebo, ArduPilot SITL a MAVROS.
 3. Ako poslednú spusiť node template_drone_control.cpp v podpriečinku /workspace/src/template_drone_control/src/ a uistiť sa že výstupný textový súbor all_paths.txt obsahuje body v správnom formáte a je k nemu dobre zadefinovaná cesta. 
