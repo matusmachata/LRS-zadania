@@ -80,11 +80,10 @@ Spúšťa ROS uzol `TemplateDroneControl` a inicializuje riadenie. Tento uzol č
 
 ---
 
-
-## Komunikácia a prúd dát
+## Komunikácia a tok dát
 ![MAVROS](/img/block.png)
 
-### Prúd dát v simulácii:
+### Tok dát v simulácii:
 1. Python Script → C++ Script (Generované trasy).
 2. C++ Script ↔ ROS2 (Príkazy a spätná väzba).
 3. ROS2 ↔ MAVROS Middleware (Preklad príkazov a stavových údajov).
@@ -97,6 +96,13 @@ Spúšťa ROS uzol `TemplateDroneControl` a inicializuje riadenie. Tento uzol č
  
 ---
 
+### Spustenie:
+Pre správne fungovanie a dpustenie je potrebné dodržať nasledovné kroky:
+1. V priečinku pathfinder spustiť llama.py a uistiť sa že sa v ňom nachádzajú súbory vstupnej mapy - input_map.pgm a misie v tvare bodov ako boli zadané v textovom súbore waypoints.txt.
+2. Následne je potrebné spustiť prerekvizície pre simuláciu, t.j. Gazebo, ArduPilot SITL a MAVROS.
+3. Ako poslednú spusiť node template_drone_control.cpp v podpriečinku /workspace/src/template_drone_control/src/ a uistiť sa že výstupný textový súbor all_paths.txt obsahuje body v správnom formáte a je k nemu dobre zadefinovaná cesta. 
+
+---
 ## Zhrnutie
 Táto dokumentácia poskytuje prehľad funkcií a štruktúry kódu. Python kód zabezpečuje spracovanie mapy a generovanie trás medzi bodmi, zatiaľ čo C++ kód implementuje algoritmy na ovládanie dronu v ROS prostredí.
 
