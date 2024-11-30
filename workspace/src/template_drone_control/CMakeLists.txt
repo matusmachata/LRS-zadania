@@ -18,12 +18,15 @@ find_package(mavros_msgs REQUIRED)
 
 # Declare a C++ executable
 add_executable(template_drone_control_node src/template_drone_control_node.cpp)
+add_executable(swaarm_control src/swaarm_control.cpp)
 
 # Specify libraries to link a library or executable target against
 ament_target_dependencies(template_drone_control_node rclcpp geometry_msgs mavros_msgs)
+ament_target_dependencies(swaarm_control rclcpp geometry_msgs mavros_msgs)
 
 # Install the executable
 install(TARGETS template_drone_control_node DESTINATION lib/${PROJECT_NAME})
+install(TARGETS swaarm_control DESTINATION lib/${PROJECT_NAME})
 
 # Ament package
 ament_package()

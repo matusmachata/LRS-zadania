@@ -72,7 +72,7 @@ public:
         // std::string filePath = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/path.txt";
 
         std::string path_file = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/all_paths.txt";
-        std::string waypoints_file = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/waypoints.csv";
+        std::string waypoints_file = homeDir + "/Documents/GitHub/LRS-zadania/pathfinder/mission_3_all.csv";
         move(path_file, waypoints_file);
         // geometry_msgs::msg::PoseStamped target_pose;
 
@@ -362,6 +362,7 @@ public:
                         std::this_thread::sleep_for(50ms);
                         set_mode("GUIDED");
                         arm_drone();
+                        std::this_thread::sleep_for(50ms);
                         takeoff(2,0);
                         std::this_thread::sleep_for(50ms);
                         break;

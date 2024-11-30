@@ -53,6 +53,7 @@ CMAKE_BINARY_DIR = /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/swaarm_control.dir/all
 all: CMakeFiles/template_drone_control_node.dir/all
 
 .PHONY : all
@@ -63,11 +64,39 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/swaarm_control.dir/clean
 clean: CMakeFiles/template_drone_control_uninstall.dir/clean
 clean: CMakeFiles/template_drone_control_node.dir/clean
 clean: CMakeFiles/uninstall.dir/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/swaarm_control.dir
+
+# All Build rule for target.
+CMakeFiles/swaarm_control.dir/all:
+	$(MAKE) -f CMakeFiles/swaarm_control.dir/build.make CMakeFiles/swaarm_control.dir/depend
+	$(MAKE) -f CMakeFiles/swaarm_control.dir/build.make CMakeFiles/swaarm_control.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeFiles --progress-num=1,2 "Built target swaarm_control"
+.PHONY : CMakeFiles/swaarm_control.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/swaarm_control.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/swaarm_control.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeFiles 0
+.PHONY : CMakeFiles/swaarm_control.dir/rule
+
+# Convenience name for target.
+swaarm_control: CMakeFiles/swaarm_control.dir/rule
+
+.PHONY : swaarm_control
+
+# clean rule for target.
+CMakeFiles/swaarm_control.dir/clean:
+	$(MAKE) -f CMakeFiles/swaarm_control.dir/build.make CMakeFiles/swaarm_control.dir/clean
+.PHONY : CMakeFiles/swaarm_control.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/template_drone_control_uninstall.dir
@@ -103,7 +132,7 @@ CMakeFiles/template_drone_control_uninstall.dir/clean:
 CMakeFiles/template_drone_control_node.dir/all:
 	$(MAKE) -f CMakeFiles/template_drone_control_node.dir/build.make CMakeFiles/template_drone_control_node.dir/depend
 	$(MAKE) -f CMakeFiles/template_drone_control_node.dir/build.make CMakeFiles/template_drone_control_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeFiles --progress-num=1,2 "Built target template_drone_control_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeFiles --progress-num=3,4 "Built target template_drone_control_node"
 .PHONY : CMakeFiles/template_drone_control_node.dir/all
 
 # Build rule for subdir invocation for target.

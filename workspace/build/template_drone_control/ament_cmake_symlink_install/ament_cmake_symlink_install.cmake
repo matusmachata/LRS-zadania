@@ -313,6 +313,9 @@ message(STATUS "Execute custom install script")
 # install("TARGETS" "template_drone_control_node" "DESTINATION" "lib/template_drone_control")
 include("/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
+# install("TARGETS" "swaarm_control" "DESTINATION" "lib/template_drone_control")
+include("/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/ament_cmake_symlink_install_targets_1_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+
 # install(FILES "/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/template_drone_control" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control" FILES "/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/template_drone_control" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 

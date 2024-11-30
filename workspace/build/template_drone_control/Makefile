@@ -168,6 +168,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named swaarm_control
+
+# Build rule for target.
+swaarm_control: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 swaarm_control
+.PHONY : swaarm_control
+
+# fast build rule for target.
+swaarm_control/fast:
+	$(MAKE) -f CMakeFiles/swaarm_control.dir/build.make CMakeFiles/swaarm_control.dir/build
+.PHONY : swaarm_control/fast
+
+#=============================================================================
 # Target rules for targets named template_drone_control_uninstall
 
 # Build rule for target.
@@ -206,6 +219,33 @@ uninstall/fast:
 	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/build
 .PHONY : uninstall/fast
 
+src/swaarm_control.o: src/swaarm_control.cpp.o
+
+.PHONY : src/swaarm_control.o
+
+# target to build an object file
+src/swaarm_control.cpp.o:
+	$(MAKE) -f CMakeFiles/swaarm_control.dir/build.make CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o
+.PHONY : src/swaarm_control.cpp.o
+
+src/swaarm_control.i: src/swaarm_control.cpp.i
+
+.PHONY : src/swaarm_control.i
+
+# target to preprocess a source file
+src/swaarm_control.cpp.i:
+	$(MAKE) -f CMakeFiles/swaarm_control.dir/build.make CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.i
+.PHONY : src/swaarm_control.cpp.i
+
+src/swaarm_control.s: src/swaarm_control.cpp.s
+
+.PHONY : src/swaarm_control.s
+
+# target to generate assembly for a file
+src/swaarm_control.cpp.s:
+	$(MAKE) -f CMakeFiles/swaarm_control.dir/build.make CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.s
+.PHONY : src/swaarm_control.cpp.s
+
 src/template_drone_control_node.o: src/template_drone_control_node.cpp.o
 
 .PHONY : src/template_drone_control_node.o
@@ -243,12 +283,16 @@ help:
 	@echo "... install/local"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... swaarm_control"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... template_drone_control_uninstall"
 	@echo "... template_drone_control_node"
 	@echo "... uninstall"
+	@echo "... src/swaarm_control.o"
+	@echo "... src/swaarm_control.i"
+	@echo "... src/swaarm_control.s"
 	@echo "... src/template_drone_control_node.o"
 	@echo "... src/template_drone_control_node.i"
 	@echo "... src/template_drone_control_node.s"

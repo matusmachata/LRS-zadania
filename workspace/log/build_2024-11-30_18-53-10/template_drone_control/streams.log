@@ -1,0 +1,25 @@
+[0.014s] Invoking command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16
+[0.072s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.091s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.207s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.228s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.271s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.277s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.380s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.433s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.436s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.568s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[0.598s] -- Found mavros_msgs: 2.4.0 (/opt/ros/foxy/share/mavros_msgs/cmake)
+[0.987s] CMake Error at CMakeLists.txt:21 (add_executable):
+[0.987s]   add_executable cannot create target "template_drone_control_node" because
+[0.987s]   another target with the same name already exists.  The existing target is
+[0.988s]   an executable created in source directory
+[0.988s]   "/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control".
+[0.988s]   See documentation for policy CMP0002 for more details.
+[0.988s] 
+[0.988s] 
+[1.042s] -- Configuring incomplete, errors occurred!
+[1.042s] See also "/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeFiles/CMakeOutput.log".
+[1.042s] See also "/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeFiles/CMakeError.log".
+[1.045s] make: *** [Makefile:266: cmake_check_build_system] Error 1
+[1.047s] Invoked command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16

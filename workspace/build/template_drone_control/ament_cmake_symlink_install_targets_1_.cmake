@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/swaarm_control" "TARGETS" "swaarm_control" "DESTINATION" "lib/template_drone_control")

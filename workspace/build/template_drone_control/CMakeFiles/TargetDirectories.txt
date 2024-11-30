@@ -2,6 +2,7 @@
 /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeFiles/install/local.dir
 /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeFiles/edit_cache.dir
 /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeFiles/test.dir
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeFiles/swaarm_control.dir
 /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeFiles/install.dir
 /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeFiles/list_install_components.dir
 /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control/CMakeFiles/rebuild_cache.dir

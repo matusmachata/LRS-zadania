@@ -142,7 +142,7 @@ def main():
     max_gray = image.max()
 
     # Step 3: Load waypoints
-    waypoints_df = load_waypoints('waypoints.csv')
+    waypoints_df = load_waypoints('mission_3_all.csv')
 
     # Convert waypoints from meters to grid coordinates
     scale = 0.05  # Each pixel represents 0.05m
@@ -180,7 +180,7 @@ def main():
 
     # Step 4: Create inflated obstacle grid for path planning
     obstacle_grid = (image == 0)
-    inflation_radius = 8
+    inflation_radius = 6
     structuring_element = np.ones((2 * inflation_radius + 1, 2 * inflation_radius + 1), dtype=bool)
     inflated_obstacle_grid = binary_dilation(obstacle_grid, structure=structuring_element)
 
