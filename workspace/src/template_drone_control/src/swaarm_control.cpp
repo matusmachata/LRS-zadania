@@ -25,25 +25,34 @@ public:
             // Create subscribers, publishers, and clients for each drone
             state_subs_.push_back(
                 this->create_subscription<mavros_msgs::msg::State>(
-                    ns + "/mavros/state", 10, 
+                    ns + "/state", 10, 
                     [this, ns](mavros_msgs::msg::State::SharedPtr msg) {
                         current_states_[ns] = *msg;
                     }));
 
             local_pos_pubs_.push_back(
-                this->create_publisher<geometry_msgs::msg::PoseStamped>(ns + "/mavros/setpoint_position/local", 10));
+                this->create_publisher<geometry_msgs::msg::PoseStamped>(ns + "/setpoint_position/local", 10));
 
             arming_clients_.push_back(
-                this->create_client<mavros_msgs::srv::CommandBool>(ns + "/mavros/cmd/arming"));
+                this->create_client<mavros_msgs::srv::CommandBool>(ns + "/cmd/arming"));
 
             set_mode_clients_.push_back(
-                this->create_client<mavros_msgs::srv::SetMode>(ns + "/mavros/set_mode"));
+                this->create_client<mavros_msgs::srv::SetMode>(ns + "/set_mode"));
 
             takeoff_clients_.push_back(
-                this->create_client<mavros_msgs::srv::CommandTOL>(ns + "/mavros/cmd/takeoff"));
+                this->create_client<mavros_msgs::srv::CommandTOL>(ns + "/cmd/takeoff"));
 
-            current_states_[ns] = mavros_msgs::msg::State();
+            // current_states_[ns] = mavros_msgs::msg::State();
+            // current_positions_[ns] = geometry_msgs::msg::PoseStamped();
+            // last_pose_time_[ns] = rclcpp::Time(0, 0, this->get_clock()->get_clock_type());
         }
+
+        struct Waypoints {
+            double x;
+            double y;
+            double z;
+            double angle;
+        };
 
         // Connect to all drones, set mode, arm, and take off
         for (const auto &ns : drone_namespaces_)
@@ -63,6 +72,15 @@ private:
     std::vector<rclcpp::Client<mavros_msgs::srv::SetMode>::SharedPtr> set_mode_clients_;
     std::vector<rclcpp::Client<mavros_msgs::srv::CommandTOL>::SharedPtr> takeoff_clients_;
     std::map<std::string, mavros_msgs::msg::State> current_states_;
+
+    void to_default_positions(const std::string &ns){
+
+    }
+
+    std::vector<waypoints> get_position(const std::string &ns){
+
+    }
+
 
     void wait_for_connection(const std::string &ns)
     {
