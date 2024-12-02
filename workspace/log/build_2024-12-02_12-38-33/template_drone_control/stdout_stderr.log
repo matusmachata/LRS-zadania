@@ -1,0 +1,16 @@
+[35m[1mScanning dependencies of target swaarm_control[0m
+[ 50%] Built target template_drone_control_node
+[ 75%] [32mBuilding CXX object CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o[0m
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In constructor ‘MultiDroneControl::MultiDroneControl()’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:69:56: error: no match for ‘operator=’ (operand types are ‘MultiDroneControl::MultiDroneControl()::Coords’ and ‘MultiDroneControl::Coords’)
+   69 |         droneCoords = get_position(drone_namespaces_[1]);
+      |                                                        ^
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:54:16: note: candidate: ‘constexpr MultiDroneControl::MultiDroneControl()::Coords& MultiDroneControl::MultiDroneControl()::Coords::operator=(const MultiDroneControl::MultiDroneControl()::Coords&)’
+   54 |         struct Coords {
+      |                ^~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:54:16: note:   no known conversion for argument 1 from ‘MultiDroneControl::Coords’ to ‘const MultiDroneControl::MultiDroneControl()::Coords&’
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:54:16: note: candidate: ‘constexpr MultiDroneControl::MultiDroneControl()::Coords& MultiDroneControl::MultiDroneControl()::Coords::operator=(MultiDroneControl::MultiDroneControl()::Coords&&)’
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:54:16: note:   no known conversion for argument 1 from ‘MultiDroneControl::Coords’ to ‘MultiDroneControl::MultiDroneControl()::Coords&&’
+make[2]: *** [CMakeFiles/swaarm_control.dir/build.make:63: CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/swaarm_control.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

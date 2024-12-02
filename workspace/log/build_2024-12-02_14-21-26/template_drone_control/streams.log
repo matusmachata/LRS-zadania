@@ -1,0 +1,25 @@
+[0.008s] Invoking command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16
+[0.036s] [35m[1mScanning dependencies of target swaarm_control[0m
+[0.049s] [ 50%] Built target template_drone_control_node
+[0.056s] [ 75%] [32mBuilding CXX object CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o[0m
+[2.922s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In constructor ‘MultiDroneControl::MultiDroneControl()’:
+[2.922s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:70:40: error: no match for ‘operator=’ (operand types are ‘MultiDroneControl::MultiDroneControl()::Coords’ and ‘MultiDroneControl::Coords’)
+[2.922s]    70 |             droneCoords = get_coords(ns);
+[2.922s]       |                                        ^
+[2.922s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:54:16: note: candidate: ‘constexpr MultiDroneControl::MultiDroneControl()::Coords& MultiDroneControl::MultiDroneControl()::Coords::operator=(const MultiDroneControl::MultiDroneControl()::Coords&)’
+[2.922s]    54 |         struct Coords {
+[2.922s]       |                ^~~~~~
+[2.922s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:54:16: note:   no known conversion for argument 1 from ‘MultiDroneControl::Coords’ to ‘const MultiDroneControl::MultiDroneControl()::Coords&’
+[2.922s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:54:16: note: candidate: ‘constexpr MultiDroneControl::MultiDroneControl()::Coords& MultiDroneControl::MultiDroneControl()::Coords::operator=(MultiDroneControl::MultiDroneControl()::Coords&&)’
+[2.923s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:54:16: note:   no known conversion for argument 1 from ‘MultiDroneControl::Coords’ to ‘MultiDroneControl::MultiDroneControl()::Coords&&’
+[2.923s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In member function ‘MultiDroneControl::Coords MultiDroneControl::get_coords(const string&)’:
+[2.923s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:83:9: error: ‘droneCoords’ was not declared in this scope
+[2.923s]    83 |         droneCoords.x = current_positions_[ns].pose.position.x;
+[2.923s]       |         ^~~~~~~~~~~
+[2.923s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:87:5: warning: no return statement in function returning non-void [-Wreturn-type]
+[2.923s]    87 |     }
+[2.923s]       |     ^
+[2.923s] make[2]: *** [CMakeFiles/swaarm_control.dir/build.make:63: CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o] Error 1
+[2.923s] make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/swaarm_control.dir/all] Error 2
+[2.923s] make: *** [Makefile:141: all] Error 2
+[2.924s] Invoked command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16

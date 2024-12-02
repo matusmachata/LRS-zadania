@@ -7,12 +7,20 @@
 #include <chrono>
 #include <vector>
 #include <string>
+#include <map>
 
 using namespace std::chrono_literals;
 
 class MultiDroneControl : public rclcpp::Node
 {
 public:
+
+    struct Coords {
+            double x;
+            double y;
+            double z;
+    };
+
     MultiDroneControl() : Node("multi_drone_control_node")
     {
         // Define namespaces for the drones
@@ -25,13 +33,20 @@ public:
             // Create subscribers, publishers, and clients for each drone
             state_subs_.push_back(
                 this->create_subscription<mavros_msgs::msg::State>(
-                    ns + "/state", 10, 
+                    ns + "/state", 10,
                     [this, ns](mavros_msgs::msg::State::SharedPtr msg) {
                         current_states_[ns] = *msg;
                     }));
 
             local_pos_pubs_.push_back(
                 this->create_publisher<geometry_msgs::msg::PoseStamped>(ns + "/setpoint_position/local", 10));
+
+            local_pos_subs_.push_back(
+                this->create_subscription<geometry_msgs::msg::PoseStamped>(
+                    ns + "/mavros/local_position/pose", 10,
+                    [this, ns](geometry_msgs::msg::PoseStamped::SharedPtr msg) {
+                        local_pos_cb(msg, ns);
+                    }));
 
             arming_clients_.push_back(
                 this->create_client<mavros_msgs::srv::CommandBool>(ns + "/cmd/arming"));
@@ -41,18 +56,15 @@ public:
 
             takeoff_clients_.push_back(
                 this->create_client<mavros_msgs::srv::CommandTOL>(ns + "/cmd/takeoff"));
-
-            // current_states_[ns] = mavros_msgs::msg::State();
-            // current_positions_[ns] = geometry_msgs::msg::PoseStamped();
-            // last_pose_time_[ns] = rclcpp::Time(0, 0, this->get_clock()->get_clock_type());
         }
 
-        struct Waypoints {
-            double x;
-            double y;
-            double z;
-            double angle;
-        };
+        // struct Coords {
+        //     double x;
+        //     double y;
+        //     double z;
+        // };
+
+        Coords droneCoords;
 
         // Connect to all drones, set mode, arm, and take off
         for (const auto &ns : drone_namespaces_)
@@ -61,24 +73,48 @@ public:
             set_mode(ns, "GUIDED");
             arm_drone(ns);
             takeoff(ns, 3.0, 0.0); // Takeoff to 3 meters
+
         }
+
+        std::this_thread::sleep_for(2000ms);
+        for (const auto &ns : drone_namespaces_)
+        {
+            droneCoords = get_coords(ns);
+        }
+        
+
     }
 
+
+
+
+
+
+
 private:
+
     std::vector<std::string> drone_namespaces_;
     std::vector<rclcpp::Subscription<mavros_msgs::msg::State>::SharedPtr> state_subs_;
     std::vector<rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr> local_pos_pubs_;
+    std::vector<rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr> local_pos_subs_;
     std::vector<rclcpp::Client<mavros_msgs::srv::CommandBool>::SharedPtr> arming_clients_;
     std::vector<rclcpp::Client<mavros_msgs::srv::SetMode>::SharedPtr> set_mode_clients_;
     std::vector<rclcpp::Client<mavros_msgs::srv::CommandTOL>::SharedPtr> takeoff_clients_;
     std::map<std::string, mavros_msgs::msg::State> current_states_;
+    std::map<std::string, geometry_msgs::msg::PoseStamped> current_positions_;
 
-    void to_default_positions(const std::string &ns){
-
+    void local_pos_cb(const geometry_msgs::msg::PoseStamped::SharedPtr msg, const std::string &ns)
+    {
+        current_positions_[ns] = *msg;
     }
 
-    std::vector<waypoints> get_position(const std::string &ns){
-
+    Coords get_coords(const std::string &ns){
+        Coords droneCoords;
+        droneCoords.x = current_positions_[ns].pose.position.x;
+        droneCoords.y = current_positions_[ns].pose.position.y;
+        droneCoords.z = current_positions_[ns].pose.position.z;
+        RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.2f, %.2f, %.2f", ns.c_str(),droneCoords.x,droneCoords.y,droneCoords.z);
+        return droneCoords;
     }
 
 

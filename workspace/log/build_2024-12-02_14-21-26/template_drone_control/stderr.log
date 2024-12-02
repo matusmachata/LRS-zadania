@@ -1,0 +1,20 @@
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In constructor ‘MultiDroneControl::MultiDroneControl()’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:70:40: error: no match for ‘operator=’ (operand types are ‘MultiDroneControl::MultiDroneControl()::Coords’ and ‘MultiDroneControl::Coords’)
+   70 |             droneCoords = get_coords(ns);
+      |                                        ^
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:54:16: note: candidate: ‘constexpr MultiDroneControl::MultiDroneControl()::Coords& MultiDroneControl::MultiDroneControl()::Coords::operator=(const MultiDroneControl::MultiDroneControl()::Coords&)’
+   54 |         struct Coords {
+      |                ^~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:54:16: note:   no known conversion for argument 1 from ‘MultiDroneControl::Coords’ to ‘const MultiDroneControl::MultiDroneControl()::Coords&’
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:54:16: note: candidate: ‘constexpr MultiDroneControl::MultiDroneControl()::Coords& MultiDroneControl::MultiDroneControl()::Coords::operator=(MultiDroneControl::MultiDroneControl()::Coords&&)’
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:54:16: note:   no known conversion for argument 1 from ‘MultiDroneControl::Coords’ to ‘MultiDroneControl::MultiDroneControl()::Coords&&’
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In member function ‘MultiDroneControl::Coords MultiDroneControl::get_coords(const string&)’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:83:9: error: ‘droneCoords’ was not declared in this scope
+   83 |         droneCoords.x = current_positions_[ns].pose.position.x;
+      |         ^~~~~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:87:5: warning: no return statement in function returning non-void [-Wreturn-type]
+   87 |     }
+      |     ^
+make[2]: *** [CMakeFiles/swaarm_control.dir/build.make:63: CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/swaarm_control.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
