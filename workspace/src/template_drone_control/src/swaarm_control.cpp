@@ -43,7 +43,7 @@ public:
 
             local_pos_subs_.push_back(
                 this->create_subscription<geometry_msgs::msg::PoseStamped>(
-                    ns + "/mavros/local_position/pose", 10,
+                    ns + "/local_position/pose", 10,
                     [this, ns](geometry_msgs::msg::PoseStamped::SharedPtr msg) {
                         local_pos_cb(msg, ns);
                     }));
@@ -76,6 +76,8 @@ public:
 
         }
 
+        wait_for_positions();
+
         std::this_thread::sleep_for(2000ms);
         for (const auto &ns : drone_namespaces_)
         {
@@ -106,7 +108,36 @@ private:
     void local_pos_cb(const geometry_msgs::msg::PoseStamped::SharedPtr msg, const std::string &ns)
     {
         current_positions_[ns] = *msg;
+        RCLCPP_INFO(this->get_logger(), "Updated position for drone: %s", ns.c_str());
     }
+
+    void wait_for_positions()
+    {
+        RCLCPP_INFO(this->get_logger(), "Waiting for position updates...");
+        while (rclcpp::ok())
+        {
+            bool all_positions_received = true;
+            for (const auto &ns : drone_namespaces_)
+            {
+                if (current_positions_.find(ns) == current_positions_.end())
+                {
+                    all_positions_received = false;
+                    break;
+                }
+            }
+
+            if (all_positions_received)
+            {
+                RCLCPP_INFO(this->get_logger(), "All drone positions received.");
+                break;
+            }
+
+            rclcpp::spin_some(this->get_node_base_interface());
+            std::this_thread::sleep_for(100ms);
+        }
+    }
+
+
 
     Coords get_coords(const std::string &ns){
         Coords droneCoords;

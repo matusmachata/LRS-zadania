@@ -1,0 +1,11 @@
+[35m[1mScanning dependencies of target swaarm_control[0m
+[ 50%] Built target template_drone_control_node
+[ 75%] [32mBuilding CXX object CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o[0m
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In constructor ‘MultiDroneControl::MultiDroneControl()’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:79:9: error: ‘vait_for_positions’ was not declared in this scope; did you mean ‘wait_for_positions’?
+   79 |         vait_for_positions();
+      |         ^~~~~~~~~~~~~~~~~~
+      |         wait_for_positions
+make[2]: *** [CMakeFiles/swaarm_control.dir/build.make:63: CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/swaarm_control.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
