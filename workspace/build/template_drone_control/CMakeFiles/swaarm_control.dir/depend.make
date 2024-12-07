@@ -327,6 +327,13 @@ CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o: /opt/ros/foxy/include/st
 CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o: /opt/ros/foxy/include/statistics_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
 CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o: /opt/ros/foxy/include/std_msgs/msg/detail/header__struct.hpp
 CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o: /opt/ros/foxy/include/std_msgs/msg/detail/header__traits.hpp
+CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o: /opt/ros/foxy/include/tf2/LinearMath/Matrix3x3.h
+CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o: /opt/ros/foxy/include/tf2/LinearMath/MinMax.h
+CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o: /opt/ros/foxy/include/tf2/LinearMath/QuadWord.h
+CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o: /opt/ros/foxy/include/tf2/LinearMath/Quaternion.h
+CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o: /opt/ros/foxy/include/tf2/LinearMath/Scalar.h
+CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o: /opt/ros/foxy/include/tf2/LinearMath/Vector3.h
+CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o: /opt/ros/foxy/include/tf2/visibility_control.h
 CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o: /opt/ros/foxy/include/tracetools/config.h
 CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o: /opt/ros/foxy/include/tracetools/tracetools.h
 CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o: /opt/ros/foxy/include/tracetools/utils.hpp

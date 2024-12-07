@@ -1,0 +1,18 @@
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In constructor ‘MultiDroneControl::MultiDroneControl()’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:90:14: warning: structured bindings only available with ‘-std=c++17’ or ‘-std=gnu++17’
+   90 |         auto [coordsDrone2, coordsDrone3] = calculateFollowerPositions(coordsDrone1, coordsDrone1.angle);
+      |              ^
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:65:16: warning: unused variable ‘droneCoords’ [-Wunused-variable]
+   65 |         Coords droneCoords;
+      |                ^~~~~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In member function ‘std::pair<MultiDroneControl::Coords, MultiDroneControl::Coords> MultiDroneControl::calculateFollowerPositions(const MultiDroneControl::Coords&, double)’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:168:16: warning: unused variable ‘angleRad’ [-Wunused-variable]
+  168 |         double angleRad = angle * M_PI / 180.0;
+      |                ^~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In member function ‘MultiDroneControl::Coords MultiDroneControl::get_coords(const string&)’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:246:13: warning: unused variable ‘i’ [-Wunused-variable]
+  246 |         int i = 0;
+      |             ^
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:244:42: warning: unused parameter ‘ns’ [-Wunused-parameter]
+  244 |     Coords get_coords(const std::string &ns){
+      |                       ~~~~~~~~~~~~~~~~~~~^~

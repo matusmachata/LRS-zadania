@@ -8,6 +8,8 @@
 #include <vector>
 #include <string>
 #include <map>
+#include <tf2/LinearMath/Quaternion.h>
+#include <tf2/LinearMath/Matrix3x3.h>
 
 using namespace std::chrono_literals;
 
@@ -76,16 +78,18 @@ public:
 
         std::this_thread::sleep_for(6000ms);
         Coords coordsDrone1;
-        Coords coordsDrone2;
-        Coords coordsDrone3;
+        // Coords coordsDrone2;
+        // Coords coordsDrone3;
         coordsDrone1.x = 0;
-        coordsDrone1.y = 2;
+        coordsDrone1.y = 1;
         coordsDrone1.z = 3;
-        coordsDrone1.angle = 180;
+        coordsDrone1.angle = 0;
 
         move_drone(drone_namespaces_[0],coordsDrone1);
-        [coordsDrone2, coordsDrone3] = calculateFollowerPositions(coordsDrone1, coordsDrone1.angle);
+        std::this_thread::sleep_for(2000ms);
+        auto [coordsDrone2, coordsDrone3] = calculateFollowerPositions(coordsDrone1, coordsDrone1.angle);
         move_drone(drone_namespaces_[1],coordsDrone2);
+        std::this_thread::sleep_for(2000ms);
         move_drone(drone_namespaces_[2],coordsDrone3);
         // coordsDrone2.x = 2;
         // coordsDrone2.y = 2;
@@ -154,11 +158,11 @@ private:
 
     std::pair<Coords, Coords> calculateFollowerPositions(const Coords &coords, double angle) {
         // Circle radius (half of the diameter)
-        const double radius = 0.5;
+        const double radius = 1;
 
         // Angles for the follower drones in degrees
-        const double drone1AngleOffset = 225.0; // Drone 1 offset angle
-        const double drone2AngleOffset = 135.0; // Drone 2 offset angle
+        const double drone1AngleOffset = 225.0 +90; // Drone 1 offset angle
+        const double drone2AngleOffset = 135.0 +90; // Drone 2 offset angle
 
         // Convert angles from degrees to radians
         double angleRad = angle * M_PI / 180.0;
@@ -170,12 +174,14 @@ private:
         drone1.x = coords.x + radius * cos(drone1AngleRad);
         drone1.y = coords.y + radius * sin(drone1AngleRad);
         drone1.z = coords.z; // Same altitude as the leading drone
+        drone1.angle = coords.angle;
 
         // Calculate coordinates for drone 2
         Coords drone2;
         drone2.x = coords.x + radius * cos(drone2AngleRad);
         drone2.y = coords.y + radius * sin(drone2AngleRad);
         drone2.z = coords.z; // Same altitude as the leading drone
+        drone2.angle = coords.angle;
 
         // Return the pair of follower drone coordinates
         return std::make_pair(drone1, drone2);
@@ -194,13 +200,17 @@ private:
             return;
         }
 
+        tf2::Quaternion q;
+        q.setRPY(0, 0, coords.angle);
+
         auto pose_msg = geometry_msgs::msg::PoseStamped();
-        // pose_msg.header.stamp = this->now();
-        // pose_msg.header.frame_id = "map";  // Assuming "map" frame is being used
         pose_msg.pose.position.x = coords.x;
         pose_msg.pose.position.y = coords.y;
         pose_msg.pose.position.z = coords.z;
-        // pose_msg.pose.orientation.w = 1.0;  // Neutral orientation
+        pose_msg.pose.orientation.x = q.x();
+        pose_msg.pose.orientation.y = q.y();
+        pose_msg.pose.orientation.z = q.z();
+        pose_msg.pose.orientation.w = q.w();
 
         // Publish the desired pose
         local_pos_pubs_[idx]->publish(pose_msg);
