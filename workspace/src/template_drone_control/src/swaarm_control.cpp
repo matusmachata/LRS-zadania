@@ -24,7 +24,7 @@ public:
     MultiDroneControl() : Node("multi_drone_control_node")
     {
         // Define namespaces for the drones
-        drone_namespaces_ = {"/drone1", "/drone2", "/drone3"};
+        drone_namespaces_ = {"drone1", "drone2", "drone3"};
 
         for (const auto &ns : drone_namespaces_)
         {
@@ -33,36 +33,31 @@ public:
             // Create subscribers, publishers, and clients for each drone
             state_subs_.push_back(
                 this->create_subscription<mavros_msgs::msg::State>(
-                    ns + "/state", 10,
+                    "/" + ns + "/state", 10,
                     [this, ns](mavros_msgs::msg::State::SharedPtr msg) {
                         current_states_[ns] = *msg;
                     }));
 
             local_pos_pubs_.push_back(
-                this->create_publisher<geometry_msgs::msg::PoseStamped>(ns + "/setpoint_position/local", 10));
+                this->create_publisher<geometry_msgs::msg::PoseStamped>("/" + ns + "/setpoint_position/local", 10));
 
             local_pos_subs_.push_back(
                 this->create_subscription<geometry_msgs::msg::PoseStamped>(
-                    ns + "/local_position/pose", 10,
+                    "/" + ns + "/local_position/pose", 10,
                     [this, ns](geometry_msgs::msg::PoseStamped::SharedPtr msg) {
                         local_pos_cb(msg, ns);
                     }));
 
             arming_clients_.push_back(
-                this->create_client<mavros_msgs::srv::CommandBool>(ns + "/cmd/arming"));
+                this->create_client<mavros_msgs::srv::CommandBool>("/" + ns + "/cmd/arming"));
 
             set_mode_clients_.push_back(
-                this->create_client<mavros_msgs::srv::SetMode>(ns + "/set_mode"));
+                this->create_client<mavros_msgs::srv::SetMode>("/" + ns + "/set_mode"));
 
             takeoff_clients_.push_back(
-                this->create_client<mavros_msgs::srv::CommandTOL>(ns + "/cmd/takeoff"));
+                this->create_client<mavros_msgs::srv::CommandTOL>("/" + ns + "/cmd/takeoff"));
         }
 
-        // struct Coords {
-        //     double x;
-        //     double y;
-        //     double z;
-        // };
 
         Coords droneCoords;
 
@@ -76,9 +71,9 @@ public:
 
         }
 
-        wait_for_positions();
+        // wait_for_positions();
 
-        std::this_thread::sleep_for(2000ms);
+        std::this_thread::sleep_for(6000ms);
         for (const auto &ns : drone_namespaces_)
         {
             droneCoords = get_coords(ns);
@@ -86,12 +81,6 @@ public:
         
 
     }
-
-
-
-
-
-
 
 private:
 
@@ -141,11 +130,26 @@ private:
 
     Coords get_coords(const std::string &ns){
         Coords droneCoords;
-        droneCoords.x = current_positions_[ns].pose.position.x;
-        droneCoords.y = current_positions_[ns].pose.position.y;
-        droneCoords.z = current_positions_[ns].pose.position.z;
-        RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.2f, %.2f, %.2f", ns.c_str(),droneCoords.x,droneCoords.y,droneCoords.z);
+        int i = 0;
+        rclcpp::Rate rate(5.0);
+
+
+        while(rclcpp::ok()) {
+            rclcpp::spin_some(this->get_node_base_interface());
+            rate.sleep();
+            droneCoords.x = current_positions_[ns].pose.position.x;
+            droneCoords.y = current_positions_[ns].pose.position.y;
+            droneCoords.z = current_positions_[ns].pose.position.z;
+            RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.6f, %.6f, %.6f", ns.c_str(),droneCoords.x,droneCoords.y,droneCoords.z);
+            RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.6f, %.6f, %.6f", ns.c_str(),current_positions_[ns].pose.position.x,current_positions_[ns].pose.position.y,current_positions_[ns].pose.position.z);
+        
+            if (i == 20) break;
+            i += 1;
+        }
+
         return droneCoords;
+
+
     }
 
 
@@ -239,6 +243,34 @@ private:
         else
         {
             RCLCPP_ERROR(this->get_logger(), "Failed to initiate takeoff for drone: %s", ns.c_str());
+        }
+    }
+
+    void land_drone(const std::string &ns)
+    {
+        auto client = set_mode_clients_[index_for_namespace(ns)];
+        auto request = std::make_shared<mavros_msgs::srv::SetMode::Request>();
+        request->custom_mode = "LAND";
+
+        while (!client->wait_for_service(1s))
+        {
+            if (!rclcpp::ok())
+            {
+                RCLCPP_ERROR(this->get_logger(), "Interrupted while waiting for set_mode service for drone: %s. Exiting.", ns.c_str());
+                return;
+            }
+            RCLCPP_INFO(this->get_logger(), "Waiting for set_mode service for drone: %s...", ns.c_str());
+        }
+
+        auto result = client->async_send_request(request);
+        if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), result) ==
+            rclcpp::FutureReturnCode::SUCCESS)
+        {
+            RCLCPP_INFO(this->get_logger(), "Landing command sent for drone: %s", ns.c_str());
+        }
+        else
+        {
+            RCLCPP_ERROR(this->get_logger(), "Failed to land drone: %s", ns.c_str());
         }
     }
 
