@@ -1,0 +1,155 @@
+[35m[1mScanning dependencies of target swaarm_control[0m
+[ 50%] Built target template_drone_control_node
+[ 75%] [32mBuilding CXX object CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o[0m
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In constructor ‘MultiDroneControl::MultiDroneControl()’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:94:26: warning: unused variable ‘ns’ [-Wunused-variable]
+   94 |         for (const auto &ns : drone_namespaces_)
+      |                          ^~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:62:16: warning: unused variable ‘droneCoords’ [-Wunused-variable]
+   62 |         Coords droneCoords;
+      |                ^~~~~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In member function ‘MultiDroneControl::Coords MultiDroneControl::get_coords(const string&)’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:203:44: error: no match for ‘operator[]’ (operand types are ‘std::map<std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > >’ and ‘size_t’ {aka ‘long unsigned int’})
+  203 |             auto drone = current_positions_[index_for_namespace(ns)];
+      |                                            ^
+In file included from /usr/include/c++/9/map:61,
+                 from /opt/ros/foxy/include/rclcpp/client.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:
+/usr/include/c++/9/bits/stl_map.h:490:7: note: candidate: ‘std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type& std::map<_Key, _Tp, _Compare, _Alloc>::operator[](const key_type&) [with _Key = std::__cxx11::basic_string<char>; _Tp = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > > >; std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; std::map<_Key, _Tp, _Compare, _Alloc>::key_type = std::__cxx11::basic_string<char>]’
+  490 |       operator[](const key_type& __k)
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/stl_map.h:490:34: note:   no known conversion for argument 1 from ‘size_t’ {aka ‘long unsigned int’} to ‘const key_type&’ {aka ‘const std::__cxx11::basic_string<char>&’}
+  490 |       operator[](const key_type& __k)
+      |                  ~~~~~~~~~~~~~~~~^~~
+/usr/include/c++/9/bits/stl_map.h:510:7: note: candidate: ‘std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type& std::map<_Key, _Tp, _Compare, _Alloc>::operator[](std::map<_Key, _Tp, _Compare, _Alloc>::key_type&&) [with _Key = std::__cxx11::basic_string<char>; _Tp = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > > >; std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; std::map<_Key, _Tp, _Compare, _Alloc>::key_type = std::__cxx11::basic_string<char>]’
+  510 |       operator[](key_type&& __k)
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/stl_map.h:510:29: note:   no known conversion for argument 1 from ‘size_t’ {aka ‘long unsigned int’} to ‘std::map<std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > >::key_type&&’ {aka ‘std::__cxx11::basic_string<char>&&’}
+  510 |       operator[](key_type&& __k)
+      |                  ~~~~~~~~~~~^~~
+In file included from /opt/ros/foxy/include/rclcpp/client.hpp:40,
+                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:210:115: error: no match for ‘operator[]’ (operand types are ‘std::map<std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > >’ and ‘size_t’ {aka ‘long unsigned int’})
+  210 |             RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.6f, %.6f, %.6f", ns.c_str(),current_positions_[index_for_namespace(ns)].pose.position.x,current_positions_[index_for_namespace(ns)].pose.position.y,current_positions_[index_for_namespace(ns)].pose.position.z);
+      |                                                                                                                   ^
+In file included from /usr/include/c++/9/map:61,
+                 from /opt/ros/foxy/include/rclcpp/client.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:
+/usr/include/c++/9/bits/stl_map.h:490:7: note: candidate: ‘std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type& std::map<_Key, _Tp, _Compare, _Alloc>::operator[](const key_type&) [with _Key = std::__cxx11::basic_string<char>; _Tp = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > > >; std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; std::map<_Key, _Tp, _Compare, _Alloc>::key_type = std::__cxx11::basic_string<char>]’
+  490 |       operator[](const key_type& __k)
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/stl_map.h:490:34: note:   no known conversion for argument 1 from ‘size_t’ {aka ‘long unsigned int’} to ‘const key_type&’ {aka ‘const std::__cxx11::basic_string<char>&’}
+  490 |       operator[](const key_type& __k)
+      |                  ~~~~~~~~~~~~~~~~^~~
+/usr/include/c++/9/bits/stl_map.h:510:7: note: candidate: ‘std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type& std::map<_Key, _Tp, _Compare, _Alloc>::operator[](std::map<_Key, _Tp, _Compare, _Alloc>::key_type&&) [with _Key = std::__cxx11::basic_string<char>; _Tp = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > > >; std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; std::map<_Key, _Tp, _Compare, _Alloc>::key_type = std::__cxx11::basic_string<char>]’
+  510 |       operator[](key_type&& __k)
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/stl_map.h:510:29: note:   no known conversion for argument 1 from ‘size_t’ {aka ‘long unsigned int’} to ‘std::map<std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > >::key_type&&’ {aka ‘std::__cxx11::basic_string<char>&&’}
+  510 |       operator[](key_type&& __k)
+      |                  ~~~~~~~~~~~^~~
+In file included from /opt/ros/foxy/include/rclcpp/client.hpp:40,
+                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:210:175: error: no match for ‘operator[]’ (operand types are ‘std::map<std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > >’ and ‘size_t’ {aka ‘long unsigned int’})
+  210 |             RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.6f, %.6f, %.6f", ns.c_str(),current_positions_[index_for_namespace(ns)].pose.position.x,current_positions_[index_for_namespace(ns)].pose.position.y,current_positions_[index_for_namespace(ns)].pose.position.z);
+      |                                                                                                                                                                               ^
+In file included from /usr/include/c++/9/map:61,
+                 from /opt/ros/foxy/include/rclcpp/client.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:
+/usr/include/c++/9/bits/stl_map.h:490:7: note: candidate: ‘std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type& std::map<_Key, _Tp, _Compare, _Alloc>::operator[](const key_type&) [with _Key = std::__cxx11::basic_string<char>; _Tp = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > > >; std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; std::map<_Key, _Tp, _Compare, _Alloc>::key_type = std::__cxx11::basic_string<char>]’
+  490 |       operator[](const key_type& __k)
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/stl_map.h:490:34: note:   no known conversion for argument 1 from ‘size_t’ {aka ‘long unsigned int’} to ‘const key_type&’ {aka ‘const std::__cxx11::basic_string<char>&’}
+  490 |       operator[](const key_type& __k)
+      |                  ~~~~~~~~~~~~~~~~^~~
+/usr/include/c++/9/bits/stl_map.h:510:7: note: candidate: ‘std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type& std::map<_Key, _Tp, _Compare, _Alloc>::operator[](std::map<_Key, _Tp, _Compare, _Alloc>::key_type&&) [with _Key = std::__cxx11::basic_string<char>; _Tp = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > > >; std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; std::map<_Key, _Tp, _Compare, _Alloc>::key_type = std::__cxx11::basic_string<char>]’
+  510 |       operator[](key_type&& __k)
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/stl_map.h:510:29: note:   no known conversion for argument 1 from ‘size_t’ {aka ‘long unsigned int’} to ‘std::map<std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > >::key_type&&’ {aka ‘std::__cxx11::basic_string<char>&&’}
+  510 |       operator[](key_type&& __k)
+      |                  ~~~~~~~~~~~^~~
+In file included from /opt/ros/foxy/include/rclcpp/client.hpp:40,
+                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:210:235: error: no match for ‘operator[]’ (operand types are ‘std::map<std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > >’ and ‘size_t’ {aka ‘long unsigned int’})
+  210 |             RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.6f, %.6f, %.6f", ns.c_str(),current_positions_[index_for_namespace(ns)].pose.position.x,current_positions_[index_for_namespace(ns)].pose.position.y,current_positions_[index_for_namespace(ns)].pose.position.z);
+      |                                                                                                                                                                                                                                           ^
+In file included from /usr/include/c++/9/map:61,
+                 from /opt/ros/foxy/include/rclcpp/client.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:
+/usr/include/c++/9/bits/stl_map.h:490:7: note: candidate: ‘std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type& std::map<_Key, _Tp, _Compare, _Alloc>::operator[](const key_type&) [with _Key = std::__cxx11::basic_string<char>; _Tp = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > > >; std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; std::map<_Key, _Tp, _Compare, _Alloc>::key_type = std::__cxx11::basic_string<char>]’
+  490 |       operator[](const key_type& __k)
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/stl_map.h:490:34: note:   no known conversion for argument 1 from ‘size_t’ {aka ‘long unsigned int’} to ‘const key_type&’ {aka ‘const std::__cxx11::basic_string<char>&’}
+  490 |       operator[](const key_type& __k)
+      |                  ~~~~~~~~~~~~~~~~^~~
+/usr/include/c++/9/bits/stl_map.h:510:7: note: candidate: ‘std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type& std::map<_Key, _Tp, _Compare, _Alloc>::operator[](std::map<_Key, _Tp, _Compare, _Alloc>::key_type&&) [with _Key = std::__cxx11::basic_string<char>; _Tp = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > > >; std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; std::map<_Key, _Tp, _Compare, _Alloc>::key_type = std::__cxx11::basic_string<char>]’
+  510 |       operator[](key_type&& __k)
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/stl_map.h:510:29: note:   no known conversion for argument 1 from ‘size_t’ {aka ‘long unsigned int’} to ‘std::map<std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > >::key_type&&’ {aka ‘std::__cxx11::basic_string<char>&&’}
+  510 |       operator[](key_type&& __k)
+      |                  ~~~~~~~~~~~^~~
+make[2]: *** [CMakeFiles/swaarm_control.dir/build.make:63: CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/swaarm_control.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

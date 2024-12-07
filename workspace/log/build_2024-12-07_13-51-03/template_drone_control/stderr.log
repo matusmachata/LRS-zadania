@@ -1,0 +1,4 @@
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In constructor ‘MultiDroneControl::MultiDroneControl()’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:62:16: warning: unused variable ‘droneCoords’ [-Wunused-variable]
+   62 |         Coords droneCoords;
+      |                ^~~~~~~~~~~

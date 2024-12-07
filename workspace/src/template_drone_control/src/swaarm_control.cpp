@@ -19,6 +19,7 @@ public:
             double x;
             double y;
             double z;
+            double angle;
     };
 
     MultiDroneControl() : Node("multi_drone_control_node")
@@ -74,10 +75,33 @@ public:
         // wait_for_positions();
 
         std::this_thread::sleep_for(6000ms);
-        for (const auto &ns : drone_namespaces_)
-        {
-            droneCoords = get_coords(ns);
-        }
+        Coords coordsDrone1;
+        Coords coordsDrone2;
+        Coords coordsDrone3;
+        coordsDrone1.x = 0;
+        coordsDrone1.y = 2;
+        coordsDrone1.z = 3;
+        coordsDrone1.angle = 180;
+
+        move_drone(drone_namespaces_[0],coordsDrone1);
+        [coordsDrone2, coordsDrone3] = calculateFollowerPositions(coordsDrone1, coordsDrone1.angle);
+        move_drone(drone_namespaces_[1],coordsDrone2);
+        move_drone(drone_namespaces_[2],coordsDrone3);
+        // coordsDrone2.x = 2;
+        // coordsDrone2.y = 2;
+        // coordsDrone2.z = 3;
+
+        // coordsDrone3.x = 3;
+        // coordsDrone3.y = 2;
+        // coordsDrone3.z = 3;
+        // move_drone(drone_namespaces_[0],coordsDrone1);
+        // move_drone(drone_namespaces_[1],coordsDrone2);
+        // move_drone(drone_namespaces_[2],coordsDrone3);
+        // for (const auto &ns : drone_namespaces_)
+        // {
+        //     // droneCoords = get_coords(ns);
+
+        // }
         
 
     }
@@ -126,6 +150,84 @@ private:
             std::this_thread::sleep_for(100ms);
         }
     }
+    
+
+    std::pair<Coords, Coords> calculateFollowerPositions(const Coords &coords, double angle) {
+        // Circle radius (half of the diameter)
+        const double radius = 0.5;
+
+        // Angles for the follower drones in degrees
+        const double drone1AngleOffset = 225.0; // Drone 1 offset angle
+        const double drone2AngleOffset = 135.0; // Drone 2 offset angle
+
+        // Convert angles from degrees to radians
+        double angleRad = angle * M_PI / 180.0;
+        double drone1AngleRad = (angle + drone1AngleOffset) * M_PI / 180.0;
+        double drone2AngleRad = (angle + drone2AngleOffset) * M_PI / 180.0;
+
+        // Calculate coordinates for drone 1
+        Coords drone1;
+        drone1.x = coords.x + radius * cos(drone1AngleRad);
+        drone1.y = coords.y + radius * sin(drone1AngleRad);
+        drone1.z = coords.z; // Same altitude as the leading drone
+
+        // Calculate coordinates for drone 2
+        Coords drone2;
+        drone2.x = coords.x + radius * cos(drone2AngleRad);
+        drone2.y = coords.y + radius * sin(drone2AngleRad);
+        drone2.z = coords.z; // Same altitude as the leading drone
+
+        // Return the pair of follower drone coordinates
+        return std::make_pair(drone1, drone2);
+    }
+
+
+    void move_drone(const std::string &ns, const Coords &coords)
+    {
+        RCLCPP_INFO(this->get_logger(), "Moving drone %s to coordinates: x=%.2f, y=%.2f, z=%.2f", 
+                    ns.c_str(), coords.x, coords.y, coords.z);
+
+        size_t idx = index_for_namespace(ns);
+
+        if (idx >= local_pos_pubs_.size()) {
+            RCLCPP_ERROR(this->get_logger(), "Invalid namespace index for drone: %s", ns.c_str());
+            return;
+        }
+
+        auto pose_msg = geometry_msgs::msg::PoseStamped();
+        // pose_msg.header.stamp = this->now();
+        // pose_msg.header.frame_id = "map";  // Assuming "map" frame is being used
+        pose_msg.pose.position.x = coords.x;
+        pose_msg.pose.position.y = coords.y;
+        pose_msg.pose.position.z = coords.z;
+        // pose_msg.pose.orientation.w = 1.0;  // Neutral orientation
+
+        // Publish the desired pose
+        local_pos_pubs_[idx]->publish(pose_msg);
+
+        RCLCPP_INFO(this->get_logger(), "Command sent to move drone %s to x=%.2f, y=%.2f, z=%.2f", 
+                    ns.c_str(), coords.x, coords.y, coords.z);
+
+        // Optionally, wait for the drone to reach the target position
+        // rclcpp::Rate rate(5); // 5 Hz
+        // while (rclcpp::ok()) {
+        //     rclcpp::spin_some(this->get_node_base_interface());
+
+        //     // Check if the drone is at the desired position
+        //     const auto &current_pos = current_positions_[ns].pose.position;
+        //     RCLCPP_INFO(this->get_logger(), "Drone %s is on coordinates: x=%.2f, y=%.2f, z=%.2f", 
+        //         ns.c_str(), current_pos.x, current_pos.y, current_pos.z);
+
+        //     if (std::fabs(current_pos.x - coords.x) < 0.2 &&
+        //         std::fabs(current_pos.y - coords.y) < 0.2 &&
+        //         std::fabs(current_pos.z - coords.z) < 0.2) {
+        //         RCLCPP_INFO(this->get_logger(), "Drone %s reached the target position.", ns.c_str());
+        //         break;
+        //     }
+
+        //     rate.sleep();
+        // }
+    }
 
 
 
@@ -135,18 +237,24 @@ private:
         rclcpp::Rate rate(5.0);
 
 
-        while(rclcpp::ok()) {
-            rclcpp::spin_some(this->get_node_base_interface());
-            rate.sleep();
-            droneCoords.x = current_positions_[ns].pose.position.x;
-            droneCoords.y = current_positions_[ns].pose.position.y;
-            droneCoords.z = current_positions_[ns].pose.position.z;
-            RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.6f, %.6f, %.6f", ns.c_str(),droneCoords.x,droneCoords.y,droneCoords.z);
-            RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.6f, %.6f, %.6f", ns.c_str(),current_positions_[ns].pose.position.x,current_positions_[ns].pose.position.y,current_positions_[ns].pose.position.z);
+        // while(rclcpp::ok()) {
+        //     rclcpp::spin_some(this->get_node_base_interface());
+        //     // rate.sleep();
+        //     auto drone = current_positions_[index_for_namespace(ns)];
+        //     droneCoords.x = drone.pose.position.x;
+        //     droneCoords.y = drone.pose.position.y;
+        //     droneCoords.z = drone.pose.position.z;
+        //     // droneCoords.x = current_positions_[ns].pose.position.x;
+        //     // droneCoords.y = current_positions_[ns].pose.position.y;
+        //     // droneCoords.z = current_positions_[ns].pose.position.z;
+        //     RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.6f, %.6f, %.6f", ns.c_str(),current_positions_[index_for_namespace(ns)].pose.position.x,current_positions_[index_for_namespace(ns)].pose.position.y,current_positions_[index_for_namespace(ns)].pose.position.z);
+        //     RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.6f, %.6f, %.6f", ns.c_str(),droneCoords.x,droneCoords.y,droneCoords.z);
+        //     // RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.6f, %.6f, %.6f", ns.c_str(),droneCoords.x,droneCoords.y,droneCoords.z);
+        //     // RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.6f, %.6f, %.6f", ns.c_str(),current_positions_[ns].pose.position.x,current_positions_[ns].pose.position.y,current_positions_[ns].pose.position.z);
         
-            if (i == 20) break;
-            i += 1;
-        }
+        //     if (i == 20) break;
+        //     i += 1;
+        // }
 
         return droneCoords;
 

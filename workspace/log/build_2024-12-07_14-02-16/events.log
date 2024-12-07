@@ -1,0 +1,187 @@
+[0.000000] (-) TimerEvent: {}
+[0.000121] (template_drone_control) JobQueued: {'identifier': 'template_drone_control', 'dependencies': OrderedDict()}
+[0.000343] (template_drone_control) JobStarted: {'identifier': 'template_drone_control'}
+[0.005658] (template_drone_control) JobProgress: {'identifier': 'template_drone_control', 'progress': 'cmake'}
+[0.006087] (template_drone_control) JobProgress: {'identifier': 'template_drone_control', 'progress': 'build'}
+[0.006664] (template_drone_control) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control', '--', '-j16', '-l16'], 'cwd': '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'lrs-ubuntu'), ('LC_TIME', 'sk_SK.UTF-8'), ('SSH_AGENT_PID', '2069'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/lrs-ubuntu'), ('OLDPWD', '/home/lrs-ubuntu'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'sk_SK.UTF-8'), ('MANAGERPID', '1890'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5141'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'lrs-ubuntu'), ('JOURNAL_STREAM', '8:44943'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'lrs-ubuntu'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', '/home/lrs-ubuntu/fei_lrs_gazebo/models:'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/lib/ccache:/home/lrs-ubuntu/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/lrs-ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/lrs:@/tmp/.ICE-unix/2106,unix/lrs:/tmp/.ICE-unix/2106'), ('INVOCATION_ID', '18eedba2dec0420fb741ba6a9c90eb46'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'sk_SK.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'sk_SK.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'sk_SK.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:678530c5-1b95-4be0-8d13-173f3e9f85ce'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'sk_SK.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'sk_SK.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'sk_SK.UTF-8'), ('LC_PAPER', 'sk_SK.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control:/opt/ros/foxy')]), 'shell': False}
+[0.034445] (template_drone_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target swaarm_control\x1b[0m\n'}
+[0.046802] (template_drone_control) StdoutLine: {'line': b'[ 50%] Built target template_drone_control_node\n'}
+[0.053980] (template_drone_control) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o\x1b[0m\n'}
+[0.099901] (-) TimerEvent: {}
+[0.200113] (-) TimerEvent: {}
+[0.300291] (-) TimerEvent: {}
+[0.400541] (-) TimerEvent: {}
+[0.500743] (-) TimerEvent: {}
+[0.600970] (-) TimerEvent: {}
+[0.701163] (-) TimerEvent: {}
+[0.801333] (-) TimerEvent: {}
+[0.901532] (-) TimerEvent: {}
+[1.001732] (-) TimerEvent: {}
+[1.101921] (-) TimerEvent: {}
+[1.202111] (-) TimerEvent: {}
+[1.302316] (-) TimerEvent: {}
+[1.402540] (-) TimerEvent: {}
+[1.502735] (-) TimerEvent: {}
+[1.602928] (-) TimerEvent: {}
+[1.703116] (-) TimerEvent: {}
+[1.803304] (-) TimerEvent: {}
+[1.903494] (-) TimerEvent: {}
+[2.003682] (-) TimerEvent: {}
+[2.103871] (-) TimerEvent: {}
+[2.204059] (-) TimerEvent: {}
+[2.304255] (-) TimerEvent: {}
+[2.404444] (-) TimerEvent: {}
+[2.504635] (-) TimerEvent: {}
+[2.604829] (-) TimerEvent: {}
+[2.705019] (-) TimerEvent: {}
+[2.805210] (-) TimerEvent: {}
+[2.905427] (-) TimerEvent: {}
+[3.005252] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In member function \xe2\x80\x98MultiDroneControl::Coords MultiDroneControl::get_coords(const string&)\xe2\x80\x99:\n'}
+[3.005616] (-) TimerEvent: {}
+[3.005853] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:141:44: error: no match for \xe2\x80\x98operator[]\xe2\x80\x99 (operand types are \xe2\x80\x98std::map<std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > >\xe2\x80\x99 and \xe2\x80\x98size_t\xe2\x80\x99 {aka \xe2\x80\x98long unsigned int\xe2\x80\x99})\n'}
+[3.005932] (template_drone_control) StderrLine: {'line': b'  141 |             auto drone = current_positions_[index_for_namespace(ns)];\n'}
+[3.005986] (template_drone_control) StderrLine: {'line': b'      |                                            ^\n'}
+[3.006036] (template_drone_control) StderrLine: {'line': b'In file included from /usr/include/c++/9/map:61,\n'}
+[3.006084] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/client.hpp:20,\n'}
+[3.006132] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,\n'}
+[3.006178] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,\n'}
+[3.006244] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,\n'}
+[3.006288] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,\n'}
+[3.006332] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,\n'}
+[3.006375] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,\n'}
+[3.006418] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,\n'}
+[3.006461] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,\n'}
+[3.006504] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,\n'}
+[3.006547] (template_drone_control) StderrLine: {'line': b'                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:\n'}
+[3.006590] (template_drone_control) StderrLine: {'line': b'/usr/include/c++/9/bits/stl_map.h:490:7: note: candidate: \xe2\x80\x98std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type& std::map<_Key, _Tp, _Compare, _Alloc>::operator[](const key_type&) [with _Key = std::__cxx11::basic_string<char>; _Tp = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > > >; std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; std::map<_Key, _Tp, _Compare, _Alloc>::key_type = std::__cxx11::basic_string<char>]\xe2\x80\x99\n'}
+[3.006640] (template_drone_control) StderrLine: {'line': b'  490 |       operator[](const key_type& __k)\n'}
+[3.006684] (template_drone_control) StderrLine: {'line': b'      |       ^~~~~~~~\n'}
+[3.006727] (template_drone_control) StderrLine: {'line': b'/usr/include/c++/9/bits/stl_map.h:490:34: note:   no known conversion for argument 1 from \xe2\x80\x98size_t\xe2\x80\x99 {aka \xe2\x80\x98long unsigned int\xe2\x80\x99} to \xe2\x80\x98const key_type&\xe2\x80\x99 {aka \xe2\x80\x98const std::__cxx11::basic_string<char>&\xe2\x80\x99}\n'}
+[3.006772] (template_drone_control) StderrLine: {'line': b'  490 |       operator[](const key_type& __k)\n'}
+[3.006815] (template_drone_control) StderrLine: {'line': b'      |                  ~~~~~~~~~~~~~~~~^~~\n'}
+[3.006859] (template_drone_control) StderrLine: {'line': b'/usr/include/c++/9/bits/stl_map.h:510:7: note: candidate: \xe2\x80\x98std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type& std::map<_Key, _Tp, _Compare, _Alloc>::operator[](std::map<_Key, _Tp, _Compare, _Alloc>::key_type&&) [with _Key = std::__cxx11::basic_string<char>; _Tp = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > > >; std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; std::map<_Key, _Tp, _Compare, _Alloc>::key_type = std::__cxx11::basic_string<char>]\xe2\x80\x99\n'}
+[3.006908] (template_drone_control) StderrLine: {'line': b'  510 |       operator[](key_type&& __k)\n'}
+[3.007010] (template_drone_control) StderrLine: {'line': b'      |       ^~~~~~~~\n'}
+[3.007307] (template_drone_control) StderrLine: {'line': b'/usr/include/c++/9/bits/stl_map.h:510:29: note:   no known conversion for argument 1 from \xe2\x80\x98size_t\xe2\x80\x99 {aka \xe2\x80\x98long unsigned int\xe2\x80\x99} to \xe2\x80\x98std::map<std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > >::key_type&&\xe2\x80\x99 {aka \xe2\x80\x98std::__cxx11::basic_string<char>&&\xe2\x80\x99}\n'}
+[3.007636] (template_drone_control) StderrLine: {'line': b'  510 |       operator[](key_type&& __k)\n'}
+[3.008584] (template_drone_control) StderrLine: {'line': b'      |                  ~~~~~~~~~~~^~~\n'}
+[3.009012] (template_drone_control) StderrLine: {'line': b'In file included from /opt/ros/foxy/include/rclcpp/client.hpp:40,\n'}
+[3.009063] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,\n'}
+[3.009215] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,\n'}
+[3.009266] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,\n'}
+[3.009619] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,\n'}
+[3.009730] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,\n'}
+[3.009811] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,\n'}
+[3.009922] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,\n'}
+[3.010015] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,\n'}
+[3.010115] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,\n'}
+[3.010193] (template_drone_control) StderrLine: {'line': b'                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:\n'}
+[3.010275] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:148:115: error: no match for \xe2\x80\x98operator[]\xe2\x80\x99 (operand types are \xe2\x80\x98std::map<std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > >\xe2\x80\x99 and \xe2\x80\x98size_t\xe2\x80\x99 {aka \xe2\x80\x98long unsigned int\xe2\x80\x99})\n'}
+[3.010357] (template_drone_control) StderrLine: {'line': b'  148 |             RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.6f, %.6f, %.6f", ns.c_str(),current_positions_[index_for_namespace(ns)].pose.position.x,current_positions_[index_for_namespace(ns)].pose.position.y,current_positions_[index_for_namespace(ns)].pose.position.z);\n'}
+[3.010436] (template_drone_control) StderrLine: {'line': b'      |                                                                                                                   ^\n'}
+[3.010510] (template_drone_control) StderrLine: {'line': b'In file included from /usr/include/c++/9/map:61,\n'}
+[3.010584] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/client.hpp:20,\n'}
+[3.010659] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,\n'}
+[3.010734] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,\n'}
+[3.010809] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,\n'}
+[3.010890] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,\n'}
+[3.010974] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,\n'}
+[3.011224] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,\n'}
+[3.011346] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,\n'}
+[3.011442] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,\n'}
+[3.011591] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,\n'}
+[3.011681] (template_drone_control) StderrLine: {'line': b'                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:\n'}
+[3.011794] (template_drone_control) StderrLine: {'line': b'/usr/include/c++/9/bits/stl_map.h:490:7: note: candidate: \xe2\x80\x98std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type& std::map<_Key, _Tp, _Compare, _Alloc>::operator[](const key_type&) [with _Key = std::__cxx11::basic_string<char>; _Tp = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > > >; std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; std::map<_Key, _Tp, _Compare, _Alloc>::key_type = std::__cxx11::basic_string<char>]\xe2\x80\x99\n'}
+[3.011919] (template_drone_control) StderrLine: {'line': b'  490 |       operator[](const key_type& __k)\n'}
+[3.012012] (template_drone_control) StderrLine: {'line': b'      |       ^~~~~~~~\n'}
+[3.012088] (template_drone_control) StderrLine: {'line': b'/usr/include/c++/9/bits/stl_map.h:490:34: note:   no known conversion for argument 1 from \xe2\x80\x98size_t\xe2\x80\x99 {aka \xe2\x80\x98long unsigned int\xe2\x80\x99} to \xe2\x80\x98const key_type&\xe2\x80\x99 {aka \xe2\x80\x98const std::__cxx11::basic_string<char>&\xe2\x80\x99}\n'}
+[3.012167] (template_drone_control) StderrLine: {'line': b'  490 |       operator[](const key_type& __k)\n'}
+[3.012244] (template_drone_control) StderrLine: {'line': b'      |                  ~~~~~~~~~~~~~~~~^~~\n'}
+[3.012319] (template_drone_control) StderrLine: {'line': b'/usr/include/c++/9/bits/stl_map.h:510:7: note: candidate: \xe2\x80\x98std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type& std::map<_Key, _Tp, _Compare, _Alloc>::operator[](std::map<_Key, _Tp, _Compare, _Alloc>::key_type&&) [with _Key = std::__cxx11::basic_string<char>; _Tp = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > > >; std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; std::map<_Key, _Tp, _Compare, _Alloc>::key_type = std::__cxx11::basic_string<char>]\xe2\x80\x99\n'}
+[3.012402] (template_drone_control) StderrLine: {'line': b'  510 |       operator[](key_type&& __k)\n'}
+[3.012477] (template_drone_control) StderrLine: {'line': b'      |       ^~~~~~~~\n'}
+[3.012550] (template_drone_control) StderrLine: {'line': b'/usr/include/c++/9/bits/stl_map.h:510:29: note:   no known conversion for argument 1 from \xe2\x80\x98size_t\xe2\x80\x99 {aka \xe2\x80\x98long unsigned int\xe2\x80\x99} to \xe2\x80\x98std::map<std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > >::key_type&&\xe2\x80\x99 {aka \xe2\x80\x98std::__cxx11::basic_string<char>&&\xe2\x80\x99}\n'}
+[3.012636] (template_drone_control) StderrLine: {'line': b'  510 |       operator[](key_type&& __k)\n'}
+[3.012710] (template_drone_control) StderrLine: {'line': b'      |                  ~~~~~~~~~~~^~~\n'}
+[3.012786] (template_drone_control) StderrLine: {'line': b'In file included from /opt/ros/foxy/include/rclcpp/client.hpp:40,\n'}
+[3.012865] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,\n'}
+[3.012941] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,\n'}
+[3.013017] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,\n'}
+[3.013077] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,\n'}
+[3.013133] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,\n'}
+[3.013176] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,\n'}
+[3.013219] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,\n'}
+[3.013262] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,\n'}
+[3.013320] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,\n'}
+[3.013365] (template_drone_control) StderrLine: {'line': b'                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:\n'}
+[3.013410] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:148:175: error: no match for \xe2\x80\x98operator[]\xe2\x80\x99 (operand types are \xe2\x80\x98std::map<std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > >\xe2\x80\x99 and \xe2\x80\x98size_t\xe2\x80\x99 {aka \xe2\x80\x98long unsigned int\xe2\x80\x99})\n'}
+[3.013455] (template_drone_control) StderrLine: {'line': b'  148 |             RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.6f, %.6f, %.6f", ns.c_str(),current_positions_[index_for_namespace(ns)].pose.position.x,current_positions_[index_for_namespace(ns)].pose.position.y,current_positions_[index_for_namespace(ns)].pose.position.z);\n'}
+[3.013499] (template_drone_control) StderrLine: {'line': b'      |                                                                                                                                                                               ^\n'}
+[3.013544] (template_drone_control) StderrLine: {'line': b'In file included from /usr/include/c++/9/map:61,\n'}
+[3.013587] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/client.hpp:20,\n'}
+[3.013630] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,\n'}
+[3.013672] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,\n'}
+[3.013715] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,\n'}
+[3.013757] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,\n'}
+[3.013798] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,\n'}
+[3.013841] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,\n'}
+[3.013883] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,\n'}
+[3.013925] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,\n'}
+[3.013968] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,\n'}
+[3.014014] (template_drone_control) StderrLine: {'line': b'                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:\n'}
+[3.014059] (template_drone_control) StderrLine: {'line': b'/usr/include/c++/9/bits/stl_map.h:490:7: note: candidate: \xe2\x80\x98std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type& std::map<_Key, _Tp, _Compare, _Alloc>::operator[](const key_type&) [with _Key = std::__cxx11::basic_string<char>; _Tp = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > > >; std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; std::map<_Key, _Tp, _Compare, _Alloc>::key_type = std::__cxx11::basic_string<char>]\xe2\x80\x99\n'}
+[3.014110] (template_drone_control) StderrLine: {'line': b'  490 |       operator[](const key_type& __k)\n'}
+[3.014154] (template_drone_control) StderrLine: {'line': b'      |       ^~~~~~~~\n'}
+[3.014197] (template_drone_control) StderrLine: {'line': b'/usr/include/c++/9/bits/stl_map.h:490:34: note:   no known conversion for argument 1 from \xe2\x80\x98size_t\xe2\x80\x99 {aka \xe2\x80\x98long unsigned int\xe2\x80\x99} to \xe2\x80\x98const key_type&\xe2\x80\x99 {aka \xe2\x80\x98const std::__cxx11::basic_string<char>&\xe2\x80\x99}\n'}
+[3.014241] (template_drone_control) StderrLine: {'line': b'  490 |       operator[](const key_type& __k)\n'}
+[3.014287] (template_drone_control) StderrLine: {'line': b'      |                  ~~~~~~~~~~~~~~~~^~~\n'}
+[3.014330] (template_drone_control) StderrLine: {'line': b'/usr/include/c++/9/bits/stl_map.h:510:7: note: candidate: \xe2\x80\x98std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type& std::map<_Key, _Tp, _Compare, _Alloc>::operator[](std::map<_Key, _Tp, _Compare, _Alloc>::key_type&&) [with _Key = std::__cxx11::basic_string<char>; _Tp = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > > >; std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; std::map<_Key, _Tp, _Compare, _Alloc>::key_type = std::__cxx11::basic_string<char>]\xe2\x80\x99\n'}
+[3.014379] (template_drone_control) StderrLine: {'line': b'  510 |       operator[](key_type&& __k)\n'}
+[3.014421] (template_drone_control) StderrLine: {'line': b'      |       ^~~~~~~~\n'}
+[3.014464] (template_drone_control) StderrLine: {'line': b'/usr/include/c++/9/bits/stl_map.h:510:29: note:   no known conversion for argument 1 from \xe2\x80\x98size_t\xe2\x80\x99 {aka \xe2\x80\x98long unsigned int\xe2\x80\x99} to \xe2\x80\x98std::map<std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > >::key_type&&\xe2\x80\x99 {aka \xe2\x80\x98std::__cxx11::basic_string<char>&&\xe2\x80\x99}\n'}
+[3.014508] (template_drone_control) StderrLine: {'line': b'  510 |       operator[](key_type&& __k)\n'}
+[3.014551] (template_drone_control) StderrLine: {'line': b'      |                  ~~~~~~~~~~~^~~\n'}
+[3.014593] (template_drone_control) StderrLine: {'line': b'In file included from /opt/ros/foxy/include/rclcpp/client.hpp:40,\n'}
+[3.014635] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,\n'}
+[3.014678] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,\n'}
+[3.014722] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,\n'}
+[3.014821] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,\n'}
+[3.014865] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,\n'}
+[3.014908] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,\n'}
+[3.014950] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,\n'}
+[3.014993] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,\n'}
+[3.015035] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,\n'}
+[3.015113] (template_drone_control) StderrLine: {'line': b'                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:\n'}
+[3.015157] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:148:235: error: no match for \xe2\x80\x98operator[]\xe2\x80\x99 (operand types are \xe2\x80\x98std::map<std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > >\xe2\x80\x99 and \xe2\x80\x98size_t\xe2\x80\x99 {aka \xe2\x80\x98long unsigned int\xe2\x80\x99})\n'}
+[3.015202] (template_drone_control) StderrLine: {'line': b'  148 |             RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.6f, %.6f, %.6f", ns.c_str(),current_positions_[index_for_namespace(ns)].pose.position.x,current_positions_[index_for_namespace(ns)].pose.position.y,current_positions_[index_for_namespace(ns)].pose.position.z);\n'}
+[3.015246] (template_drone_control) StderrLine: {'line': b'      |                                                                                                                                                                                                                                           ^\n'}
+[3.015292] (template_drone_control) StderrLine: {'line': b'In file included from /usr/include/c++/9/map:61,\n'}
+[3.015336] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/client.hpp:20,\n'}
+[3.015385] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,\n'}
+[3.015432] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,\n'}
+[3.015478] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,\n'}
+[3.015523] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,\n'}
+[3.015569] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,\n'}
+[3.015615] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,\n'}
+[3.015661] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,\n'}
+[3.015707] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,\n'}
+[3.015753] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,\n'}
+[3.015799] (template_drone_control) StderrLine: {'line': b'                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:\n'}
+[3.015845] (template_drone_control) StderrLine: {'line': b'/usr/include/c++/9/bits/stl_map.h:490:7: note: candidate: \xe2\x80\x98std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type& std::map<_Key, _Tp, _Compare, _Alloc>::operator[](const key_type&) [with _Key = std::__cxx11::basic_string<char>; _Tp = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > > >; std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; std::map<_Key, _Tp, _Compare, _Alloc>::key_type = std::__cxx11::basic_string<char>]\xe2\x80\x99\n'}
+[3.015974] (template_drone_control) StderrLine: {'line': b'  490 |       operator[](const key_type& __k)\n'}
+[3.016034] (template_drone_control) StderrLine: {'line': b'      |       ^~~~~~~~\n'}
+[3.016083] (template_drone_control) StderrLine: {'line': b'/usr/include/c++/9/bits/stl_map.h:490:34: note:   no known conversion for argument 1 from \xe2\x80\x98size_t\xe2\x80\x99 {aka \xe2\x80\x98long unsigned int\xe2\x80\x99} to \xe2\x80\x98const key_type&\xe2\x80\x99 {aka \xe2\x80\x98const std::__cxx11::basic_string<char>&\xe2\x80\x99}\n'}
+[3.016134] (template_drone_control) StderrLine: {'line': b'  490 |       operator[](const key_type& __k)\n'}
+[3.016182] (template_drone_control) StderrLine: {'line': b'      |                  ~~~~~~~~~~~~~~~~^~~\n'}
+[3.016231] (template_drone_control) StderrLine: {'line': b'/usr/include/c++/9/bits/stl_map.h:510:7: note: candidate: \xe2\x80\x98std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type& std::map<_Key, _Tp, _Compare, _Alloc>::operator[](std::map<_Key, _Tp, _Compare, _Alloc>::key_type&&) [with _Key = std::__cxx11::basic_string<char>; _Tp = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > > >; std::map<_Key, _Tp, _Compare, _Alloc>::mapped_type = geometry_msgs::msg::PoseStamped_<std::allocator<void> >; std::map<_Key, _Tp, _Compare, _Alloc>::key_type = std::__cxx11::basic_string<char>]\xe2\x80\x99\n'}
+[3.016284] (template_drone_control) StderrLine: {'line': b'  510 |       operator[](key_type&& __k)\n'}
+[3.016331] (template_drone_control) StderrLine: {'line': b'      |       ^~~~~~~~\n'}
+[3.016378] (template_drone_control) StderrLine: {'line': b'/usr/include/c++/9/bits/stl_map.h:510:29: note:   no known conversion for argument 1 from \xe2\x80\x98size_t\xe2\x80\x99 {aka \xe2\x80\x98long unsigned int\xe2\x80\x99} to \xe2\x80\x98std::map<std::__cxx11::basic_string<char>, geometry_msgs::msg::PoseStamped_<std::allocator<void> > >::key_type&&\xe2\x80\x99 {aka \xe2\x80\x98std::__cxx11::basic_string<char>&&\xe2\x80\x99}\n'}
+[3.016427] (template_drone_control) StderrLine: {'line': b'  510 |       operator[](key_type&& __k)\n'}
+[3.016473] (template_drone_control) StderrLine: {'line': b'      |                  ~~~~~~~~~~~^~~\n'}
+[3.016559] (template_drone_control) StderrLine: {'line': b'make[2]: *** [CMakeFiles/swaarm_control.dir/build.make:63: CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o] Error 1\n'}
+[3.016604] (template_drone_control) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/swaarm_control.dir/all] Error 2\n'}
+[3.016648] (template_drone_control) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[3.016695] (template_drone_control) CommandEnded: {'returncode': 2}
+[3.028807] (template_drone_control) JobEnded: {'identifier': 'template_drone_control', 'rc': 2}
+[3.039112] (-) EventReactorShutdown: {}

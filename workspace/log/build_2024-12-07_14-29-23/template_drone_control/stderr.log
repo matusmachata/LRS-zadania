@@ -1,0 +1,14 @@
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In constructor ‘MultiDroneControl::MultiDroneControl()’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:94:26: warning: unused variable ‘ns’ [-Wunused-variable]
+   94 |         for (const auto &ns : drone_namespaces_)
+      |                          ^~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:62:16: warning: unused variable ‘droneCoords’ [-Wunused-variable]
+   62 |         Coords droneCoords;
+      |                ^~~~~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In member function ‘MultiDroneControl::Coords MultiDroneControl::get_coords(const string&)’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:196:13: warning: unused variable ‘i’ [-Wunused-variable]
+  196 |         int i = 0;
+      |             ^
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:194:42: warning: unused parameter ‘ns’ [-Wunused-parameter]
+  194 |     Coords get_coords(const std::string &ns){
+      |                       ~~~~~~~~~~~~~~~~~~~^~
