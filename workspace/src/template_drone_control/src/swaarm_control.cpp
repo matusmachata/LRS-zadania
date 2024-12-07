@@ -94,11 +94,12 @@ private:
     std::map<std::string, mavros_msgs::msg::State> current_states_;
     std::map<std::string, geometry_msgs::msg::PoseStamped> current_positions_;
 
-    void local_pos_cb(const geometry_msgs::msg::PoseStamped::SharedPtr msg, const std::string &ns)
-    {
+    void local_pos_cb(const geometry_msgs::msg::PoseStamped::SharedPtr msg, const std::string &ns) {
         current_positions_[ns] = *msg;
-        RCLCPP_INFO(this->get_logger(), "Updated position for drone: %s", ns.c_str());
+        RCLCPP_INFO(this->get_logger(), "Updated position for %s: x=%.2f, y=%.2f, z=%.2f", 
+                    ns.c_str(), msg->pose.position.x, msg->pose.position.y, msg->pose.position.z);
     }
+
 
     void wait_for_positions()
     {
