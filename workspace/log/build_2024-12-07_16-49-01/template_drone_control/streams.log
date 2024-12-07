@@ -1,0 +1,44 @@
+[0.008s] Invoking command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16
+[0.038s] [35m[1mScanning dependencies of target swaarm_control[0m
+[0.050s] [ 50%] Built target template_drone_control_node
+[0.067s] [ 75%] [32mBuilding CXX object CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o[0m
+[3.164s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In constructor ‘MultiDroneControl::MultiDroneControl()’:
+[3.164s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:90:14: warning: structured bindings only available with ‘-std=c++17’ or ‘-std=gnu++17’
+[3.164s]    90 |         auto [coordsDrone2, coordsDrone3] = calculateFollowerPositions(coordsDrone1);
+[3.164s]       |              ^
+[3.164s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:102:14: warning: structured bindings only available with ‘-std=c++17’ or ‘-std=gnu++17’
+[3.164s]   102 |         auto [coordsDrone2, coordsDrone3] = calculateFollowerPositions(coordsDrone1);
+[3.164s]       |              ^
+[3.165s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:102:15: error: conflicting declaration ‘auto coordsDrone2’
+[3.165s]   102 |         auto [coordsDrone2, coordsDrone3] = calculateFollowerPositions(coordsDrone1);
+[3.165s]       |               ^~~~~~~~~~~~
+[3.165s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:90:15: note: previous declaration as ‘std::tuple_element<0, std::pair<MultiDroneControl::Coords, MultiDroneControl::Coords> >::type&& coordsDrone2’
+[3.165s]    90 |         auto [coordsDrone2, coordsDrone3] = calculateFollowerPositions(coordsDrone1);
+[3.165s]       |               ^~~~~~~~~~~~
+[3.165s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:102:29: error: conflicting declaration ‘auto coordsDrone3’
+[3.165s]   102 |         auto [coordsDrone2, coordsDrone3] = calculateFollowerPositions(coordsDrone1);
+[3.165s]       |                             ^~~~~~~~~~~~
+[3.165s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:90:29: note: previous declaration as ‘std::tuple_element<1, std::pair<MultiDroneControl::Coords, MultiDroneControl::Coords> >::type&& coordsDrone3’
+[3.165s]    90 |         auto [coordsDrone2, coordsDrone3] = calculateFollowerPositions(coordsDrone1);
+[3.165s]       |                             ^~~~~~~~~~~~
+[3.165s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:65:16: warning: unused variable ‘droneCoords’ [-Wunused-variable]
+[3.165s]    65 |         Coords droneCoords;
+[3.165s]       |                ^~~~~~~~~~~
+[3.165s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:102:14: warning: unused structured binding declaration [-Wunused-variable]
+[3.165s]   102 |         auto [coordsDrone2, coordsDrone3] = calculateFollowerPositions(coordsDrone1);
+[3.165s]       |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[3.165s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In member function ‘std::pair<MultiDroneControl::Coords, MultiDroneControl::Coords> MultiDroneControl::calculateFollowerPositions(const MultiDroneControl::Coords&)’:
+[3.165s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:181:16: warning: unused variable ‘angleRad’ [-Wunused-variable]
+[3.166s]   181 |         double angleRad = angle * M_PI / 180.0;
+[3.166s]       |                ^~~~~~~~
+[3.166s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In member function ‘MultiDroneControl::Coords MultiDroneControl::get_coords(const string&)’:
+[3.166s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:259:13: warning: unused variable ‘i’ [-Wunused-variable]
+[3.166s]   259 |         int i = 0;
+[3.166s]       |             ^
+[3.166s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:257:42: warning: unused parameter ‘ns’ [-Wunused-parameter]
+[3.166s]   257 |     Coords get_coords(const std::string &ns){
+[3.166s]       |                       ~~~~~~~~~~~~~~~~~~~^~
+[3.166s] make[2]: *** [CMakeFiles/swaarm_control.dir/build.make:63: CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o] Error 1
+[3.166s] make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/swaarm_control.dir/all] Error 2
+[3.167s] make: *** [Makefile:141: all] Error 2
+[3.167s] Invoked command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16

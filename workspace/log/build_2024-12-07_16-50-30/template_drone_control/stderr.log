@@ -1,0 +1,30 @@
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In constructor ‘MultiDroneControl::MultiDroneControl()’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:90:14: warning: structured bindings only available with ‘-std=c++17’ or ‘-std=gnu++17’
+   90 |         auto [coordsDrone2, coordsDrone3] = calculateFollowerPositions(coordsDrone1);
+      |              ^
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:102:77: error: no match for ‘operator=’ (operand types are ‘std::tuple_element<1, std::pair<MultiDroneControl::Coords, MultiDroneControl::Coords> >::type’ {aka ‘MultiDroneControl::Coords’} and ‘std::pair<MultiDroneControl::Coords, MultiDroneControl::Coords>’)
+  102 |         coordsDrone2, coordsDrone3 = calculateFollowerPositions(coordsDrone1);
+      |                                                                             ^
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:20:12: note: candidate: ‘constexpr MultiDroneControl::Coords& MultiDroneControl::Coords::operator=(const MultiDroneControl::Coords&)’
+   20 |     struct Coords {
+      |            ^~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:20:12: note:   no known conversion for argument 1 from ‘std::pair<MultiDroneControl::Coords, MultiDroneControl::Coords>’ to ‘const MultiDroneControl::Coords&’
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:20:12: note: candidate: ‘constexpr MultiDroneControl::Coords& MultiDroneControl::Coords::operator=(MultiDroneControl::Coords&&)’
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:20:12: note:   no known conversion for argument 1 from ‘std::pair<MultiDroneControl::Coords, MultiDroneControl::Coords>’ to ‘MultiDroneControl::Coords&&’
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:65:16: warning: unused variable ‘droneCoords’ [-Wunused-variable]
+   65 |         Coords droneCoords;
+      |                ^~~~~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In member function ‘std::pair<MultiDroneControl::Coords, MultiDroneControl::Coords> MultiDroneControl::calculateFollowerPositions(const MultiDroneControl::Coords&)’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:181:16: warning: unused variable ‘angleRad’ [-Wunused-variable]
+  181 |         double angleRad = angle * M_PI / 180.0;
+      |                ^~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In member function ‘MultiDroneControl::Coords MultiDroneControl::get_coords(const string&)’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:259:13: warning: unused variable ‘i’ [-Wunused-variable]
+  259 |         int i = 0;
+      |             ^
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:257:42: warning: unused parameter ‘ns’ [-Wunused-parameter]
+  257 |     Coords get_coords(const std::string &ns){
+      |                       ~~~~~~~~~~~~~~~~~~~^~
+make[2]: *** [CMakeFiles/swaarm_control.dir/build.make:63: CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/swaarm_control.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

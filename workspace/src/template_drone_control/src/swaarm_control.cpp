@@ -78,8 +78,8 @@ public:
 
         std::this_thread::sleep_for(6000ms);
         Coords coordsDrone1;
-        // Coords coordsDrone2;
-        // Coords coordsDrone3;
+        Coords coordsDrone2;
+        Coords coordsDrone3;
         coordsDrone1.x = 0;
         coordsDrone1.y = 1;
         coordsDrone1.z = 3;
@@ -87,10 +87,60 @@ public:
 
         move_drone(drone_namespaces_[0],coordsDrone1);
         std::this_thread::sleep_for(2000ms);
-        auto [coordsDrone2, coordsDrone3] = calculateFollowerPositions(coordsDrone1, coordsDrone1.angle);
+        std::tie(coordsDrone2, coordsDrone3) = calculateFollowerPositions(coordsDrone1);
         move_drone(drone_namespaces_[1],coordsDrone2);
         std::this_thread::sleep_for(2000ms);
         move_drone(drone_namespaces_[2],coordsDrone3);
+        std::this_thread::sleep_for(2000ms);
+
+        coordsDrone1.x = 0;
+        coordsDrone1.y = 3;
+        coordsDrone1.z = 3;
+        coordsDrone1.angle = 0;
+
+        move_drone(drone_namespaces_[0],coordsDrone1);
+        std::tie(coordsDrone2, coordsDrone3) = calculateFollowerPositions(coordsDrone1);
+        move_drone(drone_namespaces_[1],coordsDrone2);
+        move_drone(drone_namespaces_[2],coordsDrone3);
+        std::this_thread::sleep_for(2000ms);
+
+        coordsDrone1.x = 3;
+        coordsDrone1.y = 3;
+        coordsDrone1.z = 3;
+        coordsDrone1.angle = -90;
+
+        move_drone(drone_namespaces_[0],coordsDrone1);
+        std::tie(coordsDrone2, coordsDrone3) = calculateFollowerPositions(coordsDrone1);
+        move_drone(drone_namespaces_[1],coordsDrone2);
+        move_drone(drone_namespaces_[2],coordsDrone3);
+        std::this_thread::sleep_for(2000ms);
+
+        coordsDrone1.x = 3;
+        coordsDrone1.y = 3;
+        coordsDrone1.z = 3;
+        coordsDrone1.angle = -180;
+
+        move_drone(drone_namespaces_[0],coordsDrone1);
+        std::tie(coordsDrone2, coordsDrone3) = calculateFollowerPositions(coordsDrone1);
+        move_drone(drone_namespaces_[1],coordsDrone2);
+        move_drone(drone_namespaces_[2],coordsDrone3);
+        std::this_thread::sleep_for(2000ms);
+
+        coordsDrone1.x = 3;
+        coordsDrone1.y = 0;
+        coordsDrone1.z = 3;
+        coordsDrone1.angle = -180;
+
+        move_drone(drone_namespaces_[0],coordsDrone1);
+        std::tie(coordsDrone2, coordsDrone3) = calculateFollowerPositions(coordsDrone1);
+        move_drone(drone_namespaces_[1],coordsDrone2);
+        move_drone(drone_namespaces_[2],coordsDrone3);
+        std::this_thread::sleep_for(2000ms);
+
+        land_drone(drone_namespaces_[0]);
+        land_drone(drone_namespaces_[1]);
+        land_drone(drone_namespaces_[2]);
+
         // coordsDrone2.x = 2;
         // coordsDrone2.y = 2;
         // coordsDrone2.z = 3;
@@ -156,9 +206,10 @@ private:
     }
     
 
-    std::pair<Coords, Coords> calculateFollowerPositions(const Coords &coords, double angle) {
+    std::pair<Coords, Coords> calculateFollowerPositions(const Coords &coords) {
         // Circle radius (half of the diameter)
         const double radius = 1;
+        double angle = coords.angle;
 
         // Angles for the follower drones in degrees
         const double drone1AngleOffset = 225.0 +90; // Drone 1 offset angle
@@ -172,14 +223,14 @@ private:
         // Calculate coordinates for drone 1
         Coords drone1;
         drone1.x = coords.x + radius * cos(drone1AngleRad);
-        drone1.y = coords.y + radius * sin(drone1AngleRad);
+        drone1.y = coords.y + 1 + radius * sin(drone1AngleRad);
         drone1.z = coords.z; // Same altitude as the leading drone
         drone1.angle = coords.angle;
 
         // Calculate coordinates for drone 2
         Coords drone2;
         drone2.x = coords.x + radius * cos(drone2AngleRad);
-        drone2.y = coords.y + radius * sin(drone2AngleRad);
+        drone2.y = coords.y + 2 + radius * sin(drone2AngleRad);
         drone2.z = coords.z; // Same altitude as the leading drone
         drone2.angle = coords.angle;
 
