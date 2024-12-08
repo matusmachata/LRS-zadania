@@ -260,6 +260,8 @@ private:
             all_active_local = false;
             RCLCPP_INFO(this->get_logger(), "this 1");
             return all_active_local;
+            // NOTE KUBO: tu sa dostane, co by nemal, tato podmienka je na to ze ked uz sa raz deaktuje jeden aby sa netrigerovali ostatne move funkcie ale ocividne sa nastavi all_active na false niekde a cele sa to povypina
+        // skus vypisat toten checkAllActive ze kedy sa to pripocitava lebo mi to nejak nevychadza
         }
         int checkAllActive = 0;
         const auto &drone1 = drone_namespaces_[0];
@@ -297,9 +299,10 @@ private:
                 lastTimestampDrone2 != posDrone2.header.stamp.nanosec &&
                 lastTimestampDrone3 != posDrone3.header.stamp.nanosec) {
                 checkAllActive = 0;
+                all_active_local = true;
             } else {
                 checkAllActive++;
-                if (checkAllActive > 10){
+                if (checkAllActive > 20){
                     all_active_local = false;
                     RCLCPP_WARN(this->get_logger(), "Drone was disconnected, landing...");
                     land_drone(drone_namespaces_[0]);
