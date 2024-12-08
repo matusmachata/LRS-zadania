@@ -1,0 +1,7 @@
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In member function ‘void MultiDroneControl::move_drones(MultiDroneControl::Coords)’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:317:21: warning: unused variable ‘drone2’ [-Wunused-variable]
+  317 |         const auto &drone2 = drone_namespaces_[1];
+      |                     ^~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:318:21: warning: unused variable ‘drone3’ [-Wunused-variable]
+  318 |         const auto &drone3 = drone_namespaces_[2];
+      |                     ^~~~~~

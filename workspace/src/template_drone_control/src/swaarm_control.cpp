@@ -9,7 +9,8 @@
 #include <string>
 #include <map>
 #include <tf2/LinearMath/Quaternion.h>
-#include <tf2/LinearMath/Matrix3x3.h>
+#include <mutex>
+#include <thread> // For threading
 
 using namespace std::chrono_literals;
 
@@ -18,11 +19,71 @@ class MultiDroneControl : public rclcpp::Node
 public:
 
     struct Coords {
-            double x;
-            double y;
-            double z;
-            double angle;
+        double x;
+        double y;
+        double z;
+        double angle; // in degrees
     };
+
+
+// void move_drones(Coords coordsLeadingDrone)
+//     {
+//         // Access the position of the leading drone (drone1)
+//         const auto &drone1 = drone_namespaces_[0];
+//         const auto &drone2 = drone_namespaces_[1];
+//         const auto &drone3 = drone_namespaces_[2];
+//         geometry_msgs::msg::PoseStamped posDrone1;
+//         geometry_msgs::msg::PoseStamped posDrone2;
+//         geometry_msgs::msg::PoseStamped posDrone3;
+//         double tolerance = 0.1;
+
+
+
+//         // posDrone1 = current_positions_[drone1];
+
+//         // RCLCPP_INFO(this->get_logger(), "Current position for %s: x=%.2f, y=%.2f, z=%.2f", 
+//         //             drone1.c_str(), posDrone1.pose.position.x, posDrone1.pose.position.y, posDrone1.pose.position.z);
+
+//         // Move the leading drone
+//         move_drone(drone1, coordsLeadingDrone);
+
+//         // Calculate follower positions based on the leading drone's position
+//         Coords coordsDrone2, coordsDrone3;
+//         std::tie(coordsDrone2, coordsDrone3) = calculateFollowerPositions(coordsLeadingDrone);
+
+//         // Move follower drones
+//         move_drone(drone_namespaces_[1], coordsDrone2);
+//         move_drone(drone_namespaces_[2], coordsDrone3);
+//         RCLCPP_INFO(this->get_logger(), "This 1");
+//         rclcpp::Rate rate(5.0);
+//         while(rclcpp::ok())
+//         {
+//         RCLCPP_INFO(this->get_logger(), "This 2");
+//             rclcpp::spin_some(this->get_node_base_interface());
+//             rate.sleep();
+//         RCLCPP_INFO(this->get_logger(), "This 3");
+//             posDrone1 = current_positions_[drone1];
+//         RCLCPP_INFO(this->get_logger(), "This 4");
+//             RCLCPP_INFO(this->get_logger(), "Position of leading drone : x=%.2f, y=%.2f, z=%.2f", 
+//                         posDrone1.pose.position.x, posDrone1.pose.position.y, posDrone1.pose.position.z);
+//         RCLCPP_INFO(this->get_logger(), "This 5");
+//             // Calculate distance to target
+//             double dx = posDrone1.pose.position.x - coordsLeadingDrone.x;
+//             double dy = posDrone1.pose.position.y - coordsLeadingDrone.y;                   
+//             double distance = std::sqrt(dx * dx + dy * dy);
+//         RCLCPP_INFO(this->get_logger(), "This 6");
+
+            
+//             if (distance <= tolerance) {
+//                 break;
+//             }
+//         }
+
+
+
+//         // std::this_thread::sleep_for(2s); // Allow time for movement
+//     }
+
 
     MultiDroneControl() : Node("multi_drone_control_node")
     {
@@ -33,24 +94,31 @@ public:
         {
             RCLCPP_INFO(this->get_logger(), "Setting up drone with namespace: %s", ns.c_str());
 
-            // Create subscribers, publishers, and clients for each drone
-            state_subs_.push_back(
-                this->create_subscription<mavros_msgs::msg::State>(
-                    "/" + ns + "/state", 10,
-                    [this, ns](mavros_msgs::msg::State::SharedPtr msg) {
-                        current_states_[ns] = *msg;
-                    }));
+            // State Topic Subscription
+            std::string state_topic = "/" + ns + "/state";
+            auto state_sub = this->create_subscription<mavros_msgs::msg::State>(
+                state_topic, 10,
+                [this, ns](mavros_msgs::msg::State::SharedPtr msg) {
+                    std::lock_guard<std::mutex> lock(mutex_);
+                    current_states_[ns] = *msg;
+                });
+            state_subs_.push_back(state_sub);
 
-            local_pos_pubs_.push_back(
-                this->create_publisher<geometry_msgs::msg::PoseStamped>("/" + ns + "/setpoint_position/local", 10));
+            // Local Position Topic Subscription
+            std::string position_topic = "/" + ns + "/local_position/pose";
+            auto pose_sub = this->create_subscription<geometry_msgs::msg::PoseStamped>(
+                position_topic, rclcpp::SensorDataQoS(),
+                [this, ns](geometry_msgs::msg::PoseStamped::SharedPtr msg) {
+                    local_pos_cb(msg, ns);
+                });
+            local_pos_subs_.push_back(pose_sub);
 
-            local_pos_subs_.push_back(
-                this->create_subscription<geometry_msgs::msg::PoseStamped>(
-                    "/" + ns + "/local_position/pose", 10,
-                    [this, ns](geometry_msgs::msg::PoseStamped::SharedPtr msg) {
-                        local_pos_cb(msg, ns);
-                    }));
+            // Setpoint Position Publisher
+            std::string setpoint_topic = "/" + ns + "/setpoint_position/local";
+            auto pose_pub = this->create_publisher<geometry_msgs::msg::PoseStamped>(setpoint_topic, 10);
+            local_pos_pubs_.push_back(pose_pub);
 
+            // Service Clients
             arming_clients_.push_back(
                 this->create_client<mavros_msgs::srv::CommandBool>("/" + ns + "/cmd/arming"));
 
@@ -61,103 +129,8 @@ public:
                 this->create_client<mavros_msgs::srv::CommandTOL>("/" + ns + "/cmd/takeoff"));
         }
 
-
-        Coords droneCoords;
-
-        // Connect to all drones, set mode, arm, and take off
-        for (const auto &ns : drone_namespaces_)
-        {
-            wait_for_connection(ns);
-            set_mode(ns, "GUIDED");
-            arm_drone(ns);
-            takeoff(ns, 3.0, 0.0); // Takeoff to 3 meters
-
-        }
-
-        // wait_for_positions();
-
-        std::this_thread::sleep_for(6000ms);
-        Coords coordsDrone1;
-        Coords coordsDrone2;
-        Coords coordsDrone3;
-        coordsDrone1.x = 0;
-        coordsDrone1.y = 1;
-        coordsDrone1.z = 3;
-        coordsDrone1.angle = 0;
-
-        move_drone(drone_namespaces_[0],coordsDrone1);
-        std::this_thread::sleep_for(2000ms);
-        std::tie(coordsDrone2, coordsDrone3) = calculateFollowerPositions(coordsDrone1);
-        move_drone(drone_namespaces_[1],coordsDrone2);
-        std::this_thread::sleep_for(2000ms);
-        move_drone(drone_namespaces_[2],coordsDrone3);
-        std::this_thread::sleep_for(2000ms);
-
-        coordsDrone1.x = 0;
-        coordsDrone1.y = 3;
-        coordsDrone1.z = 3;
-        coordsDrone1.angle = 0;
-
-        move_drone(drone_namespaces_[0],coordsDrone1);
-        std::tie(coordsDrone2, coordsDrone3) = calculateFollowerPositions(coordsDrone1);
-        move_drone(drone_namespaces_[1],coordsDrone2);
-        move_drone(drone_namespaces_[2],coordsDrone3);
-        std::this_thread::sleep_for(2000ms);
-
-        coordsDrone1.x = 3;
-        coordsDrone1.y = 3;
-        coordsDrone1.z = 3;
-        coordsDrone1.angle = -90;
-
-        move_drone(drone_namespaces_[0],coordsDrone1);
-        std::tie(coordsDrone2, coordsDrone3) = calculateFollowerPositions(coordsDrone1);
-        move_drone(drone_namespaces_[1],coordsDrone2);
-        move_drone(drone_namespaces_[2],coordsDrone3);
-        std::this_thread::sleep_for(2000ms);
-
-        coordsDrone1.x = 3;
-        coordsDrone1.y = 3;
-        coordsDrone1.z = 3;
-        coordsDrone1.angle = -180;
-
-        move_drone(drone_namespaces_[0],coordsDrone1);
-        std::tie(coordsDrone2, coordsDrone3) = calculateFollowerPositions(coordsDrone1);
-        move_drone(drone_namespaces_[1],coordsDrone2);
-        move_drone(drone_namespaces_[2],coordsDrone3);
-        std::this_thread::sleep_for(2000ms);
-
-        coordsDrone1.x = 3;
-        coordsDrone1.y = 0;
-        coordsDrone1.z = 3;
-        coordsDrone1.angle = -180;
-
-        move_drone(drone_namespaces_[0],coordsDrone1);
-        std::tie(coordsDrone2, coordsDrone3) = calculateFollowerPositions(coordsDrone1);
-        move_drone(drone_namespaces_[1],coordsDrone2);
-        move_drone(drone_namespaces_[2],coordsDrone3);
-        std::this_thread::sleep_for(2000ms);
-
-        land_drone(drone_namespaces_[0]);
-        land_drone(drone_namespaces_[1]);
-        land_drone(drone_namespaces_[2]);
-
-        // coordsDrone2.x = 2;
-        // coordsDrone2.y = 2;
-        // coordsDrone2.z = 3;
-
-        // coordsDrone3.x = 3;
-        // coordsDrone3.y = 2;
-        // coordsDrone3.z = 3;
-        // move_drone(drone_namespaces_[0],coordsDrone1);
-        // move_drone(drone_namespaces_[1],coordsDrone2);
-        // move_drone(drone_namespaces_[2],coordsDrone3);
-        // for (const auto &ns : drone_namespaces_)
-        // {
-        //     // droneCoords = get_coords(ns);
-
-        // }
-        
-
+        // Launch the mission execution in a separate thread
+        std::thread(&MultiDroneControl::execute_mission, this).detach();
     }
 
 private:
@@ -171,52 +144,391 @@ private:
     std::vector<rclcpp::Client<mavros_msgs::srv::CommandTOL>::SharedPtr> takeoff_clients_;
     std::map<std::string, mavros_msgs::msg::State> current_states_;
     std::map<std::string, geometry_msgs::msg::PoseStamped> current_positions_;
+    std::mutex mutex_; // Mutex for thread-safe access
 
-    void local_pos_cb(const geometry_msgs::msg::PoseStamped::SharedPtr msg, const std::string &ns) {
+    // Callback function for local position
+    void local_pos_cb(const geometry_msgs::msg::PoseStamped::SharedPtr msg, const std::string &ns) 
+    {   
+        // RCLCPP_INFO(this->get_logger(), "Updated position for %s: x=%.2f, y=%.2f, z=%.2f", 
+        //     ns.c_str(), msg->pose.position.x, msg->pose.position.y, msg->pose.position.z);
+
+        // Lock the mutex to ensure thread-safe access to current_positions_
+        std::lock_guard<std::mutex> lock(mutex_);
+    
+        // Update the position for the given namespace
         current_positions_[ns] = *msg;
-        RCLCPP_INFO(this->get_logger(), "Updated position for %s: x=%.2f, y=%.2f, z=%.2f", 
-                    ns.c_str(), msg->pose.position.x, msg->pose.position.y, msg->pose.position.z);
     }
 
-
-    void wait_for_positions()
+    // Function to execute mission steps
+    void execute_mission()
     {
-        RCLCPP_INFO(this->get_logger(), "Waiting for position updates...");
+        // Connect to all drones, set mode, arm, and take off
+        for (const auto &ns : drone_namespaces_)
+        {
+            wait_for_connection(ns);
+            set_mode(ns, "GUIDED");
+            arm_drone(ns);
+            takeoff(ns, 3.0, 0.0); // Takeoff to 3 meters
+        }
+
+        // Allow some time for drones to stabilize
+        std::this_thread::sleep_for(6s);
+
+        // Define coordinates for mission steps
+        Coords coordsDrone1;
+        Coords coordsDrone2;
+        Coords coordsDrone3;
+
+        // First movement
+        coordsDrone1.x = 0;
+        coordsDrone1.y = 1;
+        coordsDrone1.z = 3;
+        coordsDrone1.angle = 0;
+
+        move_drone(drone_namespaces_[0], coordsDrone1);
+        std::this_thread::sleep_for(2s);
+        std::tie(coordsDrone2, coordsDrone3) = calculateFollowerPositions(coordsDrone1);
+        move_drone(drone_namespaces_[1], coordsDrone2);
+        std::this_thread::sleep_for(2s);
+        move_drone(drone_namespaces_[2], coordsDrone3);
+        std::this_thread::sleep_for(2s);
+
+        // Second movement
+        coordsDrone1.x = 0;
+        coordsDrone1.y = 3;
+        coordsDrone1.z = 3;
+        coordsDrone1.angle = 0;
+
+        move_drones(coordsDrone1);
+
+        // Third movement
+        coordsDrone1.x = 3;
+        coordsDrone1.y = 3;
+        coordsDrone1.z = 3;
+        coordsDrone1.angle = -90;
+
+        // move_drone(drone_namespaces_[0], coordsDrone1);
+        // std::tie(coordsDrone2, coordsDrone3) = calculateFollowerPositions(coordsDrone1);
+        // move_drone(drone_namespaces_[1], coordsDrone2);
+        // move_drone(drone_namespaces_[2], coordsDrone3);
+        // std::this_thread::sleep_for(2s);
+        move_drones(coordsDrone1);
+
+        // Fourth movement
+        coordsDrone1.x = 3;
+        coordsDrone1.y = 3;
+        coordsDrone1.z = 3;
+        coordsDrone1.angle = -180;
+
+        // move_drone(drone_namespaces_[0], coordsDrone1);
+        // std::tie(coordsDrone2, coordsDrone3) = calculateFollowerPositions(coordsDrone1);
+        // move_drone(drone_namespaces_[1], coordsDrone2);
+        // move_drone(drone_namespaces_[2], coordsDrone3);
+        // std::this_thread::sleep_for(2s);
+        move_drones(coordsDrone1);
+
+        // Fifth movement
+        coordsDrone1.x = 3;
+        coordsDrone1.y = 0;
+        coordsDrone1.z = 3;
+        coordsDrone1.angle = -180;
+
+        // move_drone(drone_namespaces_[0], coordsDrone1);
+        // std::tie(coordsDrone2, coordsDrone3) = calculateFollowerPositions(coordsDrone1);
+        // move_drone(drone_namespaces_[1], coordsDrone2);
+        // move_drone(drone_namespaces_[2], coordsDrone3);
+        // std::this_thread::sleep_for(2s);
+        move_drones(coordsDrone1);
+
+        // Land all drones
+        land_drone(drone_namespaces_[0]);
+        land_drone(drone_namespaces_[1]);
+        land_drone(drone_namespaces_[2]);
+    }
+
+    // Function to wait for a drone to connect
+    void wait_for_connection(const std::string &ns)
+    {
+        RCLCPP_INFO(this->get_logger(), "Waiting for connection to drone: %s", ns.c_str());
         while (rclcpp::ok())
         {
-            bool all_positions_received = true;
-            for (const auto &ns : drone_namespaces_)
+            bool connected = false;
             {
-                if (current_positions_.find(ns) == current_positions_.end())
+                std::lock_guard<std::mutex> lock(mutex_);
+                if (current_states_.find(ns) != current_states_.end())
                 {
-                    all_positions_received = false;
-                    break;
+                    connected = current_states_[ns].connected;
                 }
             }
 
-            if (all_positions_received)
+            if (connected)
             {
-                RCLCPP_INFO(this->get_logger(), "All drone positions received.");
+                RCLCPP_INFO(this->get_logger(), "Connected to drone: %s", ns.c_str());
                 break;
             }
 
-            rclcpp::spin_some(this->get_node_base_interface());
             std::this_thread::sleep_for(100ms);
         }
     }
-    
 
+    // Function to set mode for a drone
+    void set_mode(const std::string &ns, const std::string &mode)
+    {
+        auto idx = index_for_namespace(ns);
+        if (idx >= set_mode_clients_.size()) {
+            RCLCPP_ERROR(this->get_logger(), "Invalid index for set_mode_clients_ for drone: %s", ns.c_str());
+            return;
+        }
+
+        auto client = set_mode_clients_[idx];
+        auto request = std::make_shared<mavros_msgs::srv::SetMode::Request>();
+        request->custom_mode = mode;
+
+        while (!client->wait_for_service(1s))
+        {
+            if (!rclcpp::ok())
+            {
+                RCLCPP_ERROR(this->get_logger(), "Interrupted while waiting for set_mode service for drone: %s. Exiting.", ns.c_str());
+                return;
+            }
+            RCLCPP_INFO(this->get_logger(), "Waiting for set_mode service for drone: %s...", ns.c_str());
+        }
+
+        auto future = client->async_send_request(request);
+
+        // Wait for the result without spinning
+        if (future.wait_for(5s) == std::future_status::ready)
+        {
+            auto response = future.get();
+            // You can add additional checks on the response if needed
+            RCLCPP_INFO(this->get_logger(), "Mode set to %s for drone: %s", mode.c_str(), ns.c_str());
+        }
+        else
+        {
+            RCLCPP_ERROR(this->get_logger(), "Failed to set mode for drone: %s", ns.c_str());
+        }
+    }
+
+
+    void move_drones(Coords coordsLeadingDrone)
+    {
+        // Access the position of the leading drone (drone1)
+        const auto &drone1 = drone_namespaces_[0];
+        const auto &drone2 = drone_namespaces_[1];
+        const auto &drone3 = drone_namespaces_[2];
+        geometry_msgs::msg::PoseStamped posDrone1;
+        geometry_msgs::msg::PoseStamped posDrone2;
+        geometry_msgs::msg::PoseStamped posDrone3;
+        double tolerance = 0.1;
+
+
+
+        // posDrone1 = current_positions_[drone1];
+
+        // RCLCPP_INFO(this->get_logger(), "Current position for %s: x=%.2f, y=%.2f, z=%.2f", 
+        //             drone1.c_str(), posDrone1.pose.position.x, posDrone1.pose.position.y, posDrone1.pose.position.z);
+
+        // Move the leading drone
+        move_drone(drone1, coordsLeadingDrone);
+
+        // Calculate follower positions based on the leading drone's position
+        Coords coordsDrone2, coordsDrone3;
+        std::tie(coordsDrone2, coordsDrone3) = calculateFollowerPositions(coordsLeadingDrone);
+
+        // Move follower drones
+        move_drone(drone_namespaces_[1], coordsDrone2);
+        move_drone(drone_namespaces_[2], coordsDrone3);
+        RCLCPP_INFO(this->get_logger(), "This 1");
+        rclcpp::Rate rate(15.0);
+        while(rclcpp::ok())
+        {
+        RCLCPP_INFO(this->get_logger(), "This 2");
+            rclcpp::spin_some(this->get_node_base_interface());
+            rate.sleep();
+        RCLCPP_INFO(this->get_logger(), "This 3");
+            posDrone1 = current_positions_[drone1];
+        RCLCPP_INFO(this->get_logger(), "This 4");
+            RCLCPP_INFO(this->get_logger(), "Position of leading drone : x=%.2f, y=%.2f, z=%.2f", 
+                        posDrone1.pose.position.x, posDrone1.pose.position.y, posDrone1.pose.position.z);
+        RCLCPP_INFO(this->get_logger(), "This 5");
+            // Calculate distance to target
+            double dx = posDrone1.pose.position.x - coordsLeadingDrone.x;
+            double dy = posDrone1.pose.position.y - coordsLeadingDrone.y;                   
+            double distance = std::sqrt(dx * dx + dy * dy);
+        RCLCPP_INFO(this->get_logger(), "This 6");
+
+            
+            if (distance <= tolerance) {
+                break;
+            }
+        }
+
+
+
+        // std::this_thread::sleep_for(2s); // Allow time for movement
+    }
+
+
+
+    // Function to arm a drone
+    void arm_drone(const std::string &ns)
+    {
+        auto idx = index_for_namespace(ns);
+        if (idx >= arming_clients_.size()) {
+            RCLCPP_ERROR(this->get_logger(), "Invalid index for arming_clients_ for drone: %s", ns.c_str());
+            return;
+        }
+
+        auto client = arming_clients_[idx];
+        auto request = std::make_shared<mavros_msgs::srv::CommandBool::Request>();
+        request->value = true;
+
+        while (!client->wait_for_service(1s))
+        {
+            if (!rclcpp::ok())
+            {
+                RCLCPP_ERROR(this->get_logger(), "Interrupted while waiting for arming service for drone: %s. Exiting.", ns.c_str());
+                return;
+            }
+            RCLCPP_INFO(this->get_logger(), "Waiting for arming service for drone: %s...", ns.c_str());
+        }
+
+        auto future = client->async_send_request(request);
+
+        // Wait for the result without spinning
+        if (future.wait_for(5s) == std::future_status::ready)
+        {
+            auto response = future.get();
+            if (response->success)
+            {
+                RCLCPP_INFO(this->get_logger(), "Drone armed: %s", ns.c_str());
+            }
+            else
+            {
+                RCLCPP_ERROR(this->get_logger(), "Failed to arm drone: %s", ns.c_str());
+            }
+        }
+        else
+        {
+            RCLCPP_ERROR(this->get_logger(), "Failed to arm drone: %s", ns.c_str());
+        }
+    }
+
+    // Function to take off a drone
+    void takeoff(const std::string &ns, double altitude, double yaw)
+    {
+        auto idx = index_for_namespace(ns);
+        if (idx >= takeoff_clients_.size()) {
+            RCLCPP_ERROR(this->get_logger(), "Invalid index for takeoff_clients_ for drone: %s", ns.c_str());
+            return;
+        }
+
+        auto client = takeoff_clients_[idx];
+        auto request = std::make_shared<mavros_msgs::srv::CommandTOL::Request>();
+        request->altitude = altitude;
+        request->yaw = yaw;
+
+        while (!client->wait_for_service(1s))
+        {
+            if (!rclcpp::ok())
+            {
+                RCLCPP_ERROR(this->get_logger(), "Interrupted while waiting for takeoff service for drone: %s. Exiting.", ns.c_str());
+                return;
+            }
+            RCLCPP_INFO(this->get_logger(), "Waiting for takeoff service for drone: %s...", ns.c_str());
+        }
+
+        auto future = client->async_send_request(request);
+
+        // Wait for the result without spinning
+        if (future.wait_for(5s) == std::future_status::ready)
+        {
+            auto response = future.get();
+            if (response->success)
+            {
+                RCLCPP_INFO(this->get_logger(), "Takeoff command sent for drone: %s", ns.c_str());
+            }
+            else
+            {
+                RCLCPP_ERROR(this->get_logger(), "Failed to initiate takeoff for drone: %s", ns.c_str());
+            }
+        }
+        else
+        {
+            RCLCPP_ERROR(this->get_logger(), "Failed to initiate takeoff for drone: %s", ns.c_str());
+        }
+    }
+
+    // Function to land a drone
+    void land_drone(const std::string &ns)
+    {
+        auto idx = index_for_namespace(ns);
+        if (idx >= set_mode_clients_.size()) {
+            RCLCPP_ERROR(this->get_logger(), "Invalid index for set_mode_clients_ for drone: %s", ns.c_str());
+            return;
+        }
+
+        auto client = set_mode_clients_[idx];
+        auto request = std::make_shared<mavros_msgs::srv::SetMode::Request>();
+        request->custom_mode = "LAND";
+
+        while (!client->wait_for_service(1s))
+        {
+            if (!rclcpp::ok())
+            {
+                RCLCPP_ERROR(this->get_logger(), "Interrupted while waiting for set_mode service for drone: %s. Exiting.", ns.c_str());
+                return;
+            }
+            RCLCPP_INFO(this->get_logger(), "Waiting for set_mode service for drone: %s...", ns.c_str());
+        }
+
+        auto future = client->async_send_request(request);
+
+        // Wait for the result without spinning
+        if (future.wait_for(5s) == std::future_status::ready)
+        {
+            auto response = future.get();
+            if (response->mode_sent)
+            {
+                RCLCPP_INFO(this->get_logger(), "Landing command sent for drone: %s", ns.c_str());
+            }
+            else
+            {
+                RCLCPP_ERROR(this->get_logger(), "Failed to land drone: %s", ns.c_str());
+            }
+        }
+        else
+        {
+            RCLCPP_ERROR(this->get_logger(), "Failed to land drone: %s", ns.c_str());
+        }
+    }
+
+    // Function to get the index of a drone based on its namespace
+    size_t index_for_namespace(const std::string &ns)
+    {
+        auto it = std::find(drone_namespaces_.begin(), drone_namespaces_.end(), ns);
+        if (it != drone_namespaces_.end())
+        {
+            return std::distance(drone_namespaces_.begin(), it);
+        }
+        else
+        {
+            RCLCPP_ERROR(this->get_logger(), "Namespace not found: %s", ns.c_str());
+            return drone_namespaces_.size(); // Return an invalid index
+        }
+    }
+
+    // Function to calculate follower drone positions
     std::pair<Coords, Coords> calculateFollowerPositions(const Coords &coords) {
         // Circle radius (half of the diameter)
         const double radius = 1;
         double angle = coords.angle;
 
         // Angles for the follower drones in degrees
-        const double drone1AngleOffset = 225.0 +90; // Drone 1 offset angle
-        const double drone2AngleOffset = 135.0 +90; // Drone 2 offset angle
+        const double drone1AngleOffset = 225.0 + 90; // Drone 1 offset angle
+        const double drone2AngleOffset = 135.0 + 90; // Drone 2 offset angle
 
         // Convert angles from degrees to radians
-        double angleRad = angle * M_PI / 180.0;
         double drone1AngleRad = (angle + drone1AngleOffset) * M_PI / 180.0;
         double drone2AngleRad = (angle + drone2AngleOffset) * M_PI / 180.0;
 
@@ -238,7 +550,7 @@ private:
         return std::make_pair(drone1, drone2);
     }
 
-
+    // Function to move a single drone
     void move_drone(const std::string &ns, const Coords &coords)
     {
         RCLCPP_INFO(this->get_logger(), "Moving drone %s to coordinates: x=%.2f, y=%.2f, z=%.2f", 
@@ -252,9 +564,11 @@ private:
         }
 
         tf2::Quaternion q;
-        q.setRPY(0, 0, coords.angle);
+        q.setRPY(0, 0, coords.angle * M_PI / 180.0); // Convert degrees to radians
 
         auto pose_msg = geometry_msgs::msg::PoseStamped();
+        pose_msg.header.stamp = this->now();
+        pose_msg.header.frame_id = "map";
         pose_msg.pose.position.x = coords.x;
         pose_msg.pose.position.y = coords.y;
         pose_msg.pose.position.z = coords.z;
@@ -268,193 +582,14 @@ private:
 
         RCLCPP_INFO(this->get_logger(), "Command sent to move drone %s to x=%.2f, y=%.2f, z=%.2f", 
                     ns.c_str(), coords.x, coords.y, coords.z);
-
-        // Optionally, wait for the drone to reach the target position
-        // rclcpp::Rate rate(5); // 5 Hz
-        // while (rclcpp::ok()) {
-        //     rclcpp::spin_some(this->get_node_base_interface());
-
-        //     // Check if the drone is at the desired position
-        //     const auto &current_pos = current_positions_[ns].pose.position;
-        //     RCLCPP_INFO(this->get_logger(), "Drone %s is on coordinates: x=%.2f, y=%.2f, z=%.2f", 
-        //         ns.c_str(), current_pos.x, current_pos.y, current_pos.z);
-
-        //     if (std::fabs(current_pos.x - coords.x) < 0.2 &&
-        //         std::fabs(current_pos.y - coords.y) < 0.2 &&
-        //         std::fabs(current_pos.z - coords.z) < 0.2) {
-        //         RCLCPP_INFO(this->get_logger(), "Drone %s reached the target position.", ns.c_str());
-        //         break;
-        //     }
-
-        //     rate.sleep();
-        // }
-    }
-
-
-
-    Coords get_coords(const std::string &ns){
-        Coords droneCoords;
-        int i = 0;
-        rclcpp::Rate rate(5.0);
-
-
-        // while(rclcpp::ok()) {
-        //     rclcpp::spin_some(this->get_node_base_interface());
-        //     // rate.sleep();
-        //     auto drone = current_positions_[index_for_namespace(ns)];
-        //     droneCoords.x = drone.pose.position.x;
-        //     droneCoords.y = drone.pose.position.y;
-        //     droneCoords.z = drone.pose.position.z;
-        //     // droneCoords.x = current_positions_[ns].pose.position.x;
-        //     // droneCoords.y = current_positions_[ns].pose.position.y;
-        //     // droneCoords.z = current_positions_[ns].pose.position.z;
-        //     RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.6f, %.6f, %.6f", ns.c_str(),current_positions_[index_for_namespace(ns)].pose.position.x,current_positions_[index_for_namespace(ns)].pose.position.y,current_positions_[index_for_namespace(ns)].pose.position.z);
-        //     RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.6f, %.6f, %.6f", ns.c_str(),droneCoords.x,droneCoords.y,droneCoords.z);
-        //     // RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.6f, %.6f, %.6f", ns.c_str(),droneCoords.x,droneCoords.y,droneCoords.z);
-        //     // RCLCPP_INFO(this->get_logger(), "Drone %s coords are: %.6f, %.6f, %.6f", ns.c_str(),current_positions_[ns].pose.position.x,current_positions_[ns].pose.position.y,current_positions_[ns].pose.position.z);
-        
-        //     if (i == 20) break;
-        //     i += 1;
-        // }
-
-        return droneCoords;
-
-
-    }
-
-
-    void wait_for_connection(const std::string &ns)
-    {
-        RCLCPP_INFO(this->get_logger(), "Waiting for connection to drone: %s", ns.c_str());
-        while (rclcpp::ok() && !current_states_[ns].connected)
-        {
-            rclcpp::spin_some(this->get_node_base_interface());
-            std::this_thread::sleep_for(100ms);
-        }
-        RCLCPP_INFO(this->get_logger(), "Connected to drone: %s", ns.c_str());
-    }
-
-    void set_mode(const std::string &ns, const std::string &mode)
-    {
-        auto client = set_mode_clients_[index_for_namespace(ns)];
-        auto request = std::make_shared<mavros_msgs::srv::SetMode::Request>();
-        request->custom_mode = mode;
-
-        while (!client->wait_for_service(1s))
-        {
-            if (!rclcpp::ok())
-            {
-                RCLCPP_ERROR(this->get_logger(), "Interrupted while waiting for set_mode service for drone: %s. Exiting.", ns.c_str());
-                return;
-            }
-            RCLCPP_INFO(this->get_logger(), "Waiting for set_mode service for drone: %s...", ns.c_str());
-        }
-
-        auto result = client->async_send_request(request);
-        if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), result) == rclcpp::FutureReturnCode::SUCCESS)
-        {
-            RCLCPP_INFO(this->get_logger(), "Mode set to %s for drone: %s", mode.c_str(), ns.c_str());
-        }
-        else
-        {
-            RCLCPP_ERROR(this->get_logger(), "Failed to set mode for drone: %s", ns.c_str());
-        }
-    }
-
-    void arm_drone(const std::string &ns)
-    {
-        auto client = arming_clients_[index_for_namespace(ns)];
-        auto request = std::make_shared<mavros_msgs::srv::CommandBool::Request>();
-        request->value = true;
-
-        while (!client->wait_for_service(1s))
-        {
-            if (!rclcpp::ok())
-            {
-                RCLCPP_ERROR(this->get_logger(), "Interrupted while waiting for arming service for drone: %s. Exiting.", ns.c_str());
-                return;
-            }
-            RCLCPP_INFO(this->get_logger(), "Waiting for arming service for drone: %s...", ns.c_str());
-        }
-
-        auto result = client->async_send_request(request);
-        if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), result) == rclcpp::FutureReturnCode::SUCCESS)
-        {
-            RCLCPP_INFO(this->get_logger(), "Drone armed: %s", ns.c_str());
-        }
-        else
-        {
-            RCLCPP_ERROR(this->get_logger(), "Failed to arm drone: %s", ns.c_str());
-        }
-    }
-
-    void takeoff(const std::string &ns, double altitude, double yaw)
-    {
-        auto client = takeoff_clients_[index_for_namespace(ns)];
-        auto request = std::make_shared<mavros_msgs::srv::CommandTOL::Request>();
-        request->altitude = altitude;
-        request->yaw = yaw;
-
-        while (!client->wait_for_service(1s))
-        {
-            if (!rclcpp::ok())
-            {
-                RCLCPP_ERROR(this->get_logger(), "Interrupted while waiting for takeoff service for drone: %s. Exiting.", ns.c_str());
-                return;
-            }
-            RCLCPP_INFO(this->get_logger(), "Waiting for takeoff service for drone: %s...", ns.c_str());
-        }
-
-        auto result = client->async_send_request(request);
-        if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), result) == rclcpp::FutureReturnCode::SUCCESS)
-        {
-            RCLCPP_INFO(this->get_logger(), "Takeoff command sent for drone: %s", ns.c_str());
-        }
-        else
-        {
-            RCLCPP_ERROR(this->get_logger(), "Failed to initiate takeoff for drone: %s", ns.c_str());
-        }
-    }
-
-    void land_drone(const std::string &ns)
-    {
-        auto client = set_mode_clients_[index_for_namespace(ns)];
-        auto request = std::make_shared<mavros_msgs::srv::SetMode::Request>();
-        request->custom_mode = "LAND";
-
-        while (!client->wait_for_service(1s))
-        {
-            if (!rclcpp::ok())
-            {
-                RCLCPP_ERROR(this->get_logger(), "Interrupted while waiting for set_mode service for drone: %s. Exiting.", ns.c_str());
-                return;
-            }
-            RCLCPP_INFO(this->get_logger(), "Waiting for set_mode service for drone: %s...", ns.c_str());
-        }
-
-        auto result = client->async_send_request(request);
-        if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), result) ==
-            rclcpp::FutureReturnCode::SUCCESS)
-        {
-            RCLCPP_INFO(this->get_logger(), "Landing command sent for drone: %s", ns.c_str());
-        }
-        else
-        {
-            RCLCPP_ERROR(this->get_logger(), "Failed to land drone: %s", ns.c_str());
-        }
-    }
-
-    size_t index_for_namespace(const std::string &ns)
-    {
-        auto it = std::find(drone_namespaces_.begin(), drone_namespaces_.end(), ns);
-        return std::distance(drone_namespaces_.begin(), it);
     }
 };
 
 int main(int argc, char **argv)
 {
     rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<MultiDroneControl>());
+    auto node = std::make_shared<MultiDroneControl>();
+    rclcpp::spin(node); // Spin the node once
     rclcpp::shutdown();
     return 0;
 }

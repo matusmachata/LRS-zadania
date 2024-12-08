@@ -1,0 +1,69 @@
+[0.000000] (-) TimerEvent: {}
+[0.000113] (template_drone_control) JobQueued: {'identifier': 'template_drone_control', 'dependencies': OrderedDict()}
+[0.000329] (template_drone_control) JobStarted: {'identifier': 'template_drone_control'}
+[0.005664] (template_drone_control) JobProgress: {'identifier': 'template_drone_control', 'progress': 'cmake'}
+[0.006080] (template_drone_control) JobProgress: {'identifier': 'template_drone_control', 'progress': 'build'}
+[0.006553] (template_drone_control) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control', '--', '-j16', '-l16'], 'cwd': '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'lrs-ubuntu'), ('LC_TIME', 'sk_SK.UTF-8'), ('SSH_AGENT_PID', '2074'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/lrs-ubuntu'), ('OLDPWD', '/home/lrs-ubuntu'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'sk_SK.UTF-8'), ('MANAGERPID', '1892'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5402'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'lrs-ubuntu'), ('JOURNAL_STREAM', '8:55459'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'lrs-ubuntu'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', '/home/lrs-ubuntu/fei_lrs_gazebo/models:'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/lib/ccache:/home/lrs-ubuntu/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/lrs-ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/lrs:@/tmp/.ICE-unix/2115,unix/lrs:/tmp/.ICE-unix/2115'), ('INVOCATION_ID', '7b5f29001f204853bedd2ff7ba05049e'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'sk_SK.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'sk_SK.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'sk_SK.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:5c41921a-acff-48c3-adf3-6aab29ba83b8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'sk_SK.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'sk_SK.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'sk_SK.UTF-8'), ('LC_PAPER', 'sk_SK.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control:/opt/ros/foxy')]), 'shell': False}
+[0.043525] (template_drone_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target swaarm_control\x1b[0m\n'}
+[0.056052] (template_drone_control) StdoutLine: {'line': b'[ 50%] Built target template_drone_control_node\n'}
+[0.066411] (template_drone_control) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o\x1b[0m\n'}
+[0.099909] (-) TimerEvent: {}
+[0.200115] (-) TimerEvent: {}
+[0.300309] (-) TimerEvent: {}
+[0.400497] (-) TimerEvent: {}
+[0.500688] (-) TimerEvent: {}
+[0.600878] (-) TimerEvent: {}
+[0.701071] (-) TimerEvent: {}
+[0.801254] (-) TimerEvent: {}
+[0.901446] (-) TimerEvent: {}
+[1.001638] (-) TimerEvent: {}
+[1.101830] (-) TimerEvent: {}
+[1.202020] (-) TimerEvent: {}
+[1.302212] (-) TimerEvent: {}
+[1.402430] (-) TimerEvent: {}
+[1.502663] (-) TimerEvent: {}
+[1.602845] (-) TimerEvent: {}
+[1.703033] (-) TimerEvent: {}
+[1.803224] (-) TimerEvent: {}
+[1.903418] (-) TimerEvent: {}
+[2.003611] (-) TimerEvent: {}
+[2.103836] (-) TimerEvent: {}
+[2.204025] (-) TimerEvent: {}
+[2.304215] (-) TimerEvent: {}
+[2.404409] (-) TimerEvent: {}
+[2.504600] (-) TimerEvent: {}
+[2.604799] (-) TimerEvent: {}
+[2.705027] (-) TimerEvent: {}
+[2.805258] (-) TimerEvent: {}
+[2.905498] (-) TimerEvent: {}
+[3.005742] (-) TimerEvent: {}
+[3.020612] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In member function \xe2\x80\x98void MultiDroneControl::move_drones(MultiDroneControl::Coords)\xe2\x80\x99:\n'}
+[3.020743] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:286:35: error: no matching function for call to \xe2\x80\x98spin_some(MultiDroneControl*)\xe2\x80\x99\n'}
+[3.020799] (template_drone_control) StderrLine: {'line': b'  286 |             rclcpp::spin_some(this);\n'}
+[3.020847] (template_drone_control) StderrLine: {'line': b'      |                                   ^\n'}
+[3.020894] (template_drone_control) StderrLine: {'line': b'In file included from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,\n'}
+[3.020939] (template_drone_control) StderrLine: {'line': b'                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:\n'}
+[3.020986] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/executors.hpp:35:1: note: candidate: \xe2\x80\x98void rclcpp::spin_some(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr)\xe2\x80\x99\n'}
+[3.021033] (template_drone_control) StderrLine: {'line': b'   35 | spin_some(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr node_ptr);\n'}
+[3.021104] (template_drone_control) StderrLine: {'line': b'      | ^~~~~~~~~\n'}
+[3.021148] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/executors.hpp:35:65: note:   no known conversion for argument 1 from \xe2\x80\x98MultiDroneControl*\xe2\x80\x99 to \xe2\x80\x98rclcpp::node_interfaces::NodeBaseInterface::SharedPtr\xe2\x80\x99 {aka \xe2\x80\x98std::shared_ptr<rclcpp::node_interfaces::NodeBaseInterface>\xe2\x80\x99}\n'}
+[3.021197] (template_drone_control) StderrLine: {'line': b'   35 | spin_some(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr node_ptr);\n'}
+[3.021243] (template_drone_control) StderrLine: {'line': b'      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~\n'}
+[3.021289] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/executors.hpp:39:1: note: candidate: \xe2\x80\x98void rclcpp::spin_some(rclcpp::Node::SharedPtr)\xe2\x80\x99\n'}
+[3.021335] (template_drone_control) StderrLine: {'line': b'   39 | spin_some(rclcpp::Node::SharedPtr node_ptr);\n'}
+[3.021382] (template_drone_control) StderrLine: {'line': b'      | ^~~~~~~~~\n'}
+[3.021428] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/executors.hpp:39:35: note:   no known conversion for argument 1 from \xe2\x80\x98MultiDroneControl*\xe2\x80\x99 to \xe2\x80\x98rclcpp::Node::SharedPtr\xe2\x80\x99 {aka \xe2\x80\x98std::shared_ptr<rclcpp::Node>\xe2\x80\x99}\n'}
+[3.021477] (template_drone_control) StderrLine: {'line': b'   39 | spin_some(rclcpp::Node::SharedPtr node_ptr);\n'}
+[3.021524] (template_drone_control) StderrLine: {'line': b'      |           ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~\n'}
+[3.021570] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:257:21: warning: unused variable \xe2\x80\x98drone2\xe2\x80\x99 [-Wunused-variable]\n'}
+[3.021617] (template_drone_control) StderrLine: {'line': b'  257 |         const auto &drone2 = drone_namespaces_[1];\n'}
+[3.021663] (template_drone_control) StderrLine: {'line': b'      |                     ^~~~~~\n'}
+[3.021709] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:258:21: warning: unused variable \xe2\x80\x98drone3\xe2\x80\x99 [-Wunused-variable]\n'}
+[3.021754] (template_drone_control) StderrLine: {'line': b'  258 |         const auto &drone3 = drone_namespaces_[2];\n'}
+[3.021800] (template_drone_control) StderrLine: {'line': b'      |                     ^~~~~~\n'}
+[3.021845] (template_drone_control) StderrLine: {'line': b'make[2]: *** [CMakeFiles/swaarm_control.dir/build.make:63: CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o] Error 1\n'}
+[3.021931] (template_drone_control) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/swaarm_control.dir/all] Error 2\n'}
+[3.021984] (template_drone_control) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[3.022407] (template_drone_control) CommandEnded: {'returncode': 2}
+[3.048154] (template_drone_control) JobEnded: {'identifier': 'template_drone_control', 'rc': 2}
+[3.058983] (-) EventReactorShutdown: {}
