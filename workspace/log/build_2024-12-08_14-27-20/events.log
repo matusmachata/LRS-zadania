@@ -1,0 +1,254 @@
+[0.000000] (-) TimerEvent: {}
+[0.000119] (template_drone_control) JobQueued: {'identifier': 'template_drone_control', 'dependencies': OrderedDict()}
+[0.000339] (template_drone_control) JobStarted: {'identifier': 'template_drone_control'}
+[0.005776] (template_drone_control) JobProgress: {'identifier': 'template_drone_control', 'progress': 'cmake'}
+[0.006202] (template_drone_control) JobProgress: {'identifier': 'template_drone_control', 'progress': 'build'}
+[0.006696] (template_drone_control) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control', '--', '-j16', '-l16'], 'cwd': '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'lrs-ubuntu'), ('LC_TIME', 'sk_SK.UTF-8'), ('SSH_AGENT_PID', '2034'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/lrs-ubuntu'), ('OLDPWD', '/home/lrs-ubuntu'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'sk_SK.UTF-8'), ('MANAGERPID', '1855'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '4007'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'lrs-ubuntu'), ('JOURNAL_STREAM', '8:56472'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'lrs-ubuntu'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', '/home/lrs-ubuntu/fei_lrs_gazebo/models:'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/lib/ccache:/home/lrs-ubuntu/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/lrs-ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/lrs:@/tmp/.ICE-unix/2071,unix/lrs:/tmp/.ICE-unix/2071'), ('INVOCATION_ID', 'caf0f65e5c604c3da80d6551a06452f4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'sk_SK.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'sk_SK.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'sk_SK.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:c8cf918b-1a19-44dc-a854-ab35fa2ac0cf'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'sk_SK.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'sk_SK.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'sk_SK.UTF-8'), ('LC_PAPER', 'sk_SK.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/install/template_drone_control:/opt/ros/foxy')]), 'shell': False}
+[0.037972] (template_drone_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target swaarm_control\x1b[0m\n'}
+[0.052297] (template_drone_control) StdoutLine: {'line': b'[ 50%] Built target template_drone_control_node\n'}
+[0.069948] (template_drone_control) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o\x1b[0m\n'}
+[0.099910] (-) TimerEvent: {}
+[0.200110] (-) TimerEvent: {}
+[0.300321] (-) TimerEvent: {}
+[0.400530] (-) TimerEvent: {}
+[0.500735] (-) TimerEvent: {}
+[0.600988] (-) TimerEvent: {}
+[0.701183] (-) TimerEvent: {}
+[0.801377] (-) TimerEvent: {}
+[0.901579] (-) TimerEvent: {}
+[1.001776] (-) TimerEvent: {}
+[1.101976] (-) TimerEvent: {}
+[1.202179] (-) TimerEvent: {}
+[1.302382] (-) TimerEvent: {}
+[1.402579] (-) TimerEvent: {}
+[1.502787] (-) TimerEvent: {}
+[1.602990] (-) TimerEvent: {}
+[1.703189] (-) TimerEvent: {}
+[1.803384] (-) TimerEvent: {}
+[1.903585] (-) TimerEvent: {}
+[2.003795] (-) TimerEvent: {}
+[2.103990] (-) TimerEvent: {}
+[2.204189] (-) TimerEvent: {}
+[2.304387] (-) TimerEvent: {}
+[2.404581] (-) TimerEvent: {}
+[2.504779] (-) TimerEvent: {}
+[2.604976] (-) TimerEvent: {}
+[2.705179] (-) TimerEvent: {}
+[2.805375] (-) TimerEvent: {}
+[2.905578] (-) TimerEvent: {}
+[3.005772] (-) TimerEvent: {}
+[3.069230] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In member function \xe2\x80\x98bool MultiDroneControl::move_drones(MultiDroneControl::Coords)\xe2\x80\x99:\n'}
+[3.070230] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:294:37: error: no match for \xe2\x80\x98operator!=\xe2\x80\x99 (operand types are \xe2\x80\x98rclcpp::Time\xe2\x80\x99 and \xe2\x80\x98builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type\xe2\x80\x99 {aka \xe2\x80\x98int\xe2\x80\x99})\n'}
+[3.070381] (template_drone_control) StderrLine: {'line': b'  294 |             if (lastTimestampDrone1 != posDrone1.header.stamp.sec &&\n'}
+[3.070433] (template_drone_control) StderrLine: {'line': b'      |                 ~~~~~~~~~~~~~~~~~~~ ^~ ~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[3.070482] (template_drone_control) StderrLine: {'line': b'      |                 |                                             |\n'}
+[3.070529] (template_drone_control) StderrLine: {'line': b'      |                 rclcpp::Time                                  builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type {aka int}\n'}
+[3.070577] (template_drone_control) StderrLine: {'line': b'In file included from /opt/ros/foxy/include/rclcpp/clock.hpp:23,\n'}
+[3.070642] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/timer.hpp:27,\n'}
+[3.070705] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:27,\n'}
+[3.070768] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,\n'}
+[3.070819] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,\n'}
+[3.070874] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,\n'}
+[3.070954] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,\n'}
+[3.071003] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,\n'}
+[3.071051] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,\n'}
+[3.071100] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,\n'}
+[3.071148] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,\n'}
+[3.071196] (template_drone_control) StderrLine: {'line': b'                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:\n'}
+[3.071245] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/time.hpp:112:3: note: candidate: \xe2\x80\x98bool rclcpp::Time::operator!=(const rclcpp::Time&) const\xe2\x80\x99\n'}
+[3.071293] (template_drone_control) StderrLine: {'line': b'  112 |   operator!=(const rclcpp::Time & rhs) const;\n'}
+[3.071342] (template_drone_control) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[3.071390] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/time.hpp:112:35: note:   no known conversion for argument 1 from \xe2\x80\x98builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type\xe2\x80\x99 {aka \xe2\x80\x98int\xe2\x80\x99} to \xe2\x80\x98const rclcpp::Time&\xe2\x80\x99\n'}
+[3.071439] (template_drone_control) StderrLine: {'line': b'  112 |   operator!=(const rclcpp::Time & rhs) const;\n'}
+[3.071486] (template_drone_control) StderrLine: {'line': b'      |              ~~~~~~~~~~~~~~~~~~~~~^~~\n'}
+[3.071534] (template_drone_control) StderrLine: {'line': b'In file included from /opt/ros/foxy/include/rclcpp/node_interfaces/node_graph_interface.hpp:31,\n'}
+[3.071581] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/client.hpp:34,\n'}
+[3.071628] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,\n'}
+[3.071675] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,\n'}
+[3.071722] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,\n'}
+[3.071770] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,\n'}
+[3.071818] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,\n'}
+[3.071865] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,\n'}
+[3.071913] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,\n'}
+[3.071961] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,\n'}
+[3.072009] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,\n'}
+[3.072057] (template_drone_control) StderrLine: {'line': b'                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:\n'}
+[3.072159] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/qos.hpp:163:6: note: candidate: \xe2\x80\x98bool rclcpp::operator!=(const rclcpp::QoS&, const rclcpp::QoS&)\xe2\x80\x99\n'}
+[3.072280] (template_drone_control) StderrLine: {'line': b'  163 | bool operator!=(const QoS & left, const QoS & right);\n'}
+[3.072333] (template_drone_control) StderrLine: {'line': b'      |      ^~~~~~~~\n'}
+[3.072383] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/qos.hpp:163:29: note:   no known conversion for argument 1 from \xe2\x80\x98rclcpp::Time\xe2\x80\x99 to \xe2\x80\x98const rclcpp::QoS&\xe2\x80\x99\n'}
+[3.072432] (template_drone_control) StderrLine: {'line': b'  163 | bool operator!=(const QoS & left, const QoS & right);\n'}
+[3.072481] (template_drone_control) StderrLine: {'line': b'      |                 ~~~~~~~~~~~~^~~~\n'}
+[3.072530] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:295:37: error: no match for \xe2\x80\x98operator!=\xe2\x80\x99 (operand types are \xe2\x80\x98rclcpp::Time\xe2\x80\x99 and \xe2\x80\x98builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type\xe2\x80\x99 {aka \xe2\x80\x98int\xe2\x80\x99})\n'}
+[3.072636] (template_drone_control) StderrLine: {'line': b'  295 |                 lastTimestampDrone2 != posDrone2.header.stamp.sec &&\n'}
+[3.072687] (template_drone_control) StderrLine: {'line': b'      |                 ~~~~~~~~~~~~~~~~~~~ ^~ ~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[3.072832] (template_drone_control) StderrLine: {'line': b'      |                 |                                             |\n'}
+[3.072882] (template_drone_control) StderrLine: {'line': b'      |                 rclcpp::Time                                  builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type {aka int}\n'}
+[3.072931] (template_drone_control) StderrLine: {'line': b'In file included from /opt/ros/foxy/include/rclcpp/clock.hpp:23,\n'}
+[3.072980] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/timer.hpp:27,\n'}
+[3.073028] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:27,\n'}
+[3.073077] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,\n'}
+[3.073125] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,\n'}
+[3.073173] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,\n'}
+[3.073222] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,\n'}
+[3.073270] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,\n'}
+[3.073319] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,\n'}
+[3.073369] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,\n'}
+[3.073417] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,\n'}
+[3.073471] (template_drone_control) StderrLine: {'line': b'                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:\n'}
+[3.073629] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/time.hpp:112:3: note: candidate: \xe2\x80\x98bool rclcpp::Time::operator!=(const rclcpp::Time&) const\xe2\x80\x99\n'}
+[3.073679] (template_drone_control) StderrLine: {'line': b'  112 |   operator!=(const rclcpp::Time & rhs) const;\n'}
+[3.073728] (template_drone_control) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[3.073780] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/time.hpp:112:35: note:   no known conversion for argument 1 from \xe2\x80\x98builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type\xe2\x80\x99 {aka \xe2\x80\x98int\xe2\x80\x99} to \xe2\x80\x98const rclcpp::Time&\xe2\x80\x99\n'}
+[3.073829] (template_drone_control) StderrLine: {'line': b'  112 |   operator!=(const rclcpp::Time & rhs) const;\n'}
+[3.073877] (template_drone_control) StderrLine: {'line': b'      |              ~~~~~~~~~~~~~~~~~~~~~^~~\n'}
+[3.073925] (template_drone_control) StderrLine: {'line': b'In file included from /opt/ros/foxy/include/rclcpp/node_interfaces/node_graph_interface.hpp:31,\n'}
+[3.073973] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/client.hpp:34,\n'}
+[3.074021] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,\n'}
+[3.074069] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,\n'}
+[3.074117] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,\n'}
+[3.074165] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,\n'}
+[3.074213] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,\n'}
+[3.074261] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,\n'}
+[3.074308] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,\n'}
+[3.074356] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,\n'}
+[3.074403] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,\n'}
+[3.074450] (template_drone_control) StderrLine: {'line': b'                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:\n'}
+[3.074499] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/qos.hpp:163:6: note: candidate: \xe2\x80\x98bool rclcpp::operator!=(const rclcpp::QoS&, const rclcpp::QoS&)\xe2\x80\x99\n'}
+[3.074547] (template_drone_control) StderrLine: {'line': b'  163 | bool operator!=(const QoS & left, const QoS & right);\n'}
+[3.074594] (template_drone_control) StderrLine: {'line': b'      |      ^~~~~~~~\n'}
+[3.074667] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/qos.hpp:163:29: note:   no known conversion for argument 1 from \xe2\x80\x98rclcpp::Time\xe2\x80\x99 to \xe2\x80\x98const rclcpp::QoS&\xe2\x80\x99\n'}
+[3.074718] (template_drone_control) StderrLine: {'line': b'  163 | bool operator!=(const QoS & left, const QoS & right);\n'}
+[3.074769] (template_drone_control) StderrLine: {'line': b'      |                 ~~~~~~~~~~~~^~~~\n'}
+[3.074817] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:296:37: error: no match for \xe2\x80\x98operator!=\xe2\x80\x99 (operand types are \xe2\x80\x98rclcpp::Time\xe2\x80\x99 and \xe2\x80\x98builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type\xe2\x80\x99 {aka \xe2\x80\x98int\xe2\x80\x99})\n'}
+[3.074869] (template_drone_control) StderrLine: {'line': b'  296 |                 lastTimestampDrone3 != posDrone3.header.stamp.sec) {\n'}
+[3.074917] (template_drone_control) StderrLine: {'line': b'      |                 ~~~~~~~~~~~~~~~~~~~ ^~ ~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[3.074965] (template_drone_control) StderrLine: {'line': b'      |                 |                                             |\n'}
+[3.075014] (template_drone_control) StderrLine: {'line': b'      |                 rclcpp::Time                                  builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type {aka int}\n'}
+[3.075207] (template_drone_control) StderrLine: {'line': b'In file included from /opt/ros/foxy/include/rclcpp/clock.hpp:23,\n'}
+[3.075257] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/timer.hpp:27,\n'}
+[3.075309] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:27,\n'}
+[3.075357] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,\n'}
+[3.075404] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,\n'}
+[3.076266] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,\n'}
+[3.076369] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,\n'}
+[3.076416] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,\n'}
+[3.076463] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,\n'}
+[3.076513] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,\n'}
+[3.076562] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,\n'}
+[3.076610] (template_drone_control) StderrLine: {'line': b'                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:\n'}
+[3.076661] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/time.hpp:112:3: note: candidate: \xe2\x80\x98bool rclcpp::Time::operator!=(const rclcpp::Time&) const\xe2\x80\x99\n'}
+[3.076712] (template_drone_control) StderrLine: {'line': b'  112 |   operator!=(const rclcpp::Time & rhs) const;\n'}
+[3.076761] (template_drone_control) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[3.076812] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/time.hpp:112:35: note:   no known conversion for argument 1 from \xe2\x80\x98builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type\xe2\x80\x99 {aka \xe2\x80\x98int\xe2\x80\x99} to \xe2\x80\x98const rclcpp::Time&\xe2\x80\x99\n'}
+[3.076865] (template_drone_control) StderrLine: {'line': b'  112 |   operator!=(const rclcpp::Time & rhs) const;\n'}
+[3.076913] (template_drone_control) StderrLine: {'line': b'      |              ~~~~~~~~~~~~~~~~~~~~~^~~\n'}
+[3.076963] (template_drone_control) StderrLine: {'line': b'In file included from /opt/ros/foxy/include/rclcpp/node_interfaces/node_graph_interface.hpp:31,\n'}
+[3.077013] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/client.hpp:34,\n'}
+[3.077061] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,\n'}
+[3.077109] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,\n'}
+[3.077157] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,\n'}
+[3.077205] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,\n'}
+[3.077252] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,\n'}
+[3.077300] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,\n'}
+[3.077347] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,\n'}
+[3.077395] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,\n'}
+[3.077446] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,\n'}
+[3.077846] (template_drone_control) StderrLine: {'line': b'                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:\n'}
+[3.078147] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/qos.hpp:163:6: note: candidate: \xe2\x80\x98bool rclcpp::operator!=(const rclcpp::QoS&, const rclcpp::QoS&)\xe2\x80\x99\n'}
+[3.078206] (template_drone_control) StderrLine: {'line': b'  163 | bool operator!=(const QoS & left, const QoS & right);\n'}
+[3.078261] (template_drone_control) StderrLine: {'line': b'      |      ^~~~~~~~\n'}
+[3.078316] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/qos.hpp:163:29: note:   no known conversion for argument 1 from \xe2\x80\x98rclcpp::Time\xe2\x80\x99 to \xe2\x80\x98const rclcpp::QoS&\xe2\x80\x99\n'}
+[3.078374] (template_drone_control) StderrLine: {'line': b'  163 | bool operator!=(const QoS & left, const QoS & right);\n'}
+[3.078433] (template_drone_control) StderrLine: {'line': b'      |                 ~~~~~~~~~~~~^~~~\n'}
+[3.078487] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:307:58: error: no match for \xe2\x80\x98operator=\xe2\x80\x99 (operand types are \xe2\x80\x98rclcpp::Time\xe2\x80\x99 and \xe2\x80\x98builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type\xe2\x80\x99 {aka \xe2\x80\x98int\xe2\x80\x99})\n'}
+[3.078546] (template_drone_control) StderrLine: {'line': b'  307 |             lastTimestampDrone1 = posDrone1.header.stamp.sec;\n'}
+[3.078600] (template_drone_control) StderrLine: {'line': b'      |                                                          ^~~\n'}
+[3.078654] (template_drone_control) StderrLine: {'line': b'In file included from /opt/ros/foxy/include/rclcpp/clock.hpp:23,\n'}
+[3.078709] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/timer.hpp:27,\n'}
+[3.078763] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:27,\n'}
+[3.078817] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,\n'}
+[3.078871] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,\n'}
+[3.078925] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,\n'}
+[3.078979] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,\n'}
+[3.079033] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,\n'}
+[3.079087] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,\n'}
+[3.079140] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,\n'}
+[3.079194] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,\n'}
+[3.079248] (template_drone_control) StderrLine: {'line': b'                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:\n'}
+[3.079305] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/time.hpp:91:3: note: candidate: \xe2\x80\x98rclcpp::Time& rclcpp::Time::operator=(const rclcpp::Time&)\xe2\x80\x99\n'}
+[3.079359] (template_drone_control) StderrLine: {'line': b'   91 |   operator=(const Time & rhs);\n'}
+[3.079413] (template_drone_control) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[3.079470] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/time.hpp:91:26: note:   no known conversion for argument 1 from \xe2\x80\x98builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type\xe2\x80\x99 {aka \xe2\x80\x98int\xe2\x80\x99} to \xe2\x80\x98const rclcpp::Time&\xe2\x80\x99\n'}
+[3.079533] (template_drone_control) StderrLine: {'line': b'   91 |   operator=(const Time & rhs);\n'}
+[3.079588] (template_drone_control) StderrLine: {'line': b'      |             ~~~~~~~~~~~~~^~~\n'}
+[3.079642] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/time.hpp:101:3: note: candidate: \xe2\x80\x98rclcpp::Time& rclcpp::Time::operator=(const Time&)\xe2\x80\x99\n'}
+[3.079696] (template_drone_control) StderrLine: {'line': b'  101 |   operator=(const builtin_interfaces::msg::Time & time_msg);\n'}
+[3.079750] (template_drone_control) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[3.079805] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/time.hpp:101:51: note:   no known conversion for argument 1 from \xe2\x80\x98builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type\xe2\x80\x99 {aka \xe2\x80\x98int\xe2\x80\x99} to \xe2\x80\x98const Time&\xe2\x80\x99 {aka \xe2\x80\x98const builtin_interfaces::msg::Time_<std::allocator<void> >&\xe2\x80\x99}\n'}
+[3.079866] (template_drone_control) StderrLine: {'line': b'  101 |   operator=(const builtin_interfaces::msg::Time & time_msg);\n'}
+[3.079922] (template_drone_control) StderrLine: {'line': b'      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~\n'}
+[3.079976] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:308:58: error: no match for \xe2\x80\x98operator=\xe2\x80\x99 (operand types are \xe2\x80\x98rclcpp::Time\xe2\x80\x99 and \xe2\x80\x98builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type\xe2\x80\x99 {aka \xe2\x80\x98int\xe2\x80\x99})\n'}
+[3.080032] (template_drone_control) StderrLine: {'line': b'  308 |             lastTimestampDrone2 = posDrone2.header.stamp.sec;\n'}
+[3.080086] (template_drone_control) StderrLine: {'line': b'      |                                                          ^~~\n'}
+[3.080141] (template_drone_control) StderrLine: {'line': b'In file included from /opt/ros/foxy/include/rclcpp/clock.hpp:23,\n'}
+[3.080195] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/timer.hpp:27,\n'}
+[3.080250] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:27,\n'}
+[3.080303] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,\n'}
+[3.080358] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,\n'}
+[3.080412] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,\n'}
+[3.080465] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,\n'}
+[3.080519] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,\n'}
+[3.080573] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,\n'}
+[3.080627] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,\n'}
+[3.080680] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,\n'}
+[3.080737] (template_drone_control) StderrLine: {'line': b'                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:\n'}
+[3.080792] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/time.hpp:91:3: note: candidate: \xe2\x80\x98rclcpp::Time& rclcpp::Time::operator=(const rclcpp::Time&)\xe2\x80\x99\n'}
+[3.080849] (template_drone_control) StderrLine: {'line': b'   91 |   operator=(const Time & rhs);\n'}
+[3.080903] (template_drone_control) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[3.080957] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/time.hpp:91:26: note:   no known conversion for argument 1 from \xe2\x80\x98builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type\xe2\x80\x99 {aka \xe2\x80\x98int\xe2\x80\x99} to \xe2\x80\x98const rclcpp::Time&\xe2\x80\x99\n'}
+[3.081013] (template_drone_control) StderrLine: {'line': b'   91 |   operator=(const Time & rhs);\n'}
+[3.081068] (template_drone_control) StderrLine: {'line': b'      |             ~~~~~~~~~~~~~^~~\n'}
+[3.081123] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/time.hpp:101:3: note: candidate: \xe2\x80\x98rclcpp::Time& rclcpp::Time::operator=(const Time&)\xe2\x80\x99\n'}
+[3.081179] (template_drone_control) StderrLine: {'line': b'  101 |   operator=(const builtin_interfaces::msg::Time & time_msg);\n'}
+[3.081233] (template_drone_control) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[3.081290] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/time.hpp:101:51: note:   no known conversion for argument 1 from \xe2\x80\x98builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type\xe2\x80\x99 {aka \xe2\x80\x98int\xe2\x80\x99} to \xe2\x80\x98const Time&\xe2\x80\x99 {aka \xe2\x80\x98const builtin_interfaces::msg::Time_<std::allocator<void> >&\xe2\x80\x99}\n'}
+[3.081349] (template_drone_control) StderrLine: {'line': b'  101 |   operator=(const builtin_interfaces::msg::Time & time_msg);\n'}
+[3.081404] (template_drone_control) StderrLine: {'line': b'      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~\n'}
+[3.081463] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:309:58: error: no match for \xe2\x80\x98operator=\xe2\x80\x99 (operand types are \xe2\x80\x98rclcpp::Time\xe2\x80\x99 and \xe2\x80\x98builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type\xe2\x80\x99 {aka \xe2\x80\x98int\xe2\x80\x99})\n'}
+[3.081523] (template_drone_control) StderrLine: {'line': b'  309 |             lastTimestampDrone3 = posDrone3.header.stamp.sec;\n'}
+[3.081577] (template_drone_control) StderrLine: {'line': b'      |                                                          ^~~\n'}
+[3.081631] (template_drone_control) StderrLine: {'line': b'In file included from /opt/ros/foxy/include/rclcpp/clock.hpp:23,\n'}
+[3.081685] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/timer.hpp:27,\n'}
+[3.081739] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/callback_group.hpp:27,\n'}
+[3.081798] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,\n'}
+[3.081852] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,\n'}
+[3.081911] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,\n'}
+[3.081966] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,\n'}
+[3.082021] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executor.hpp:33,\n'}
+[3.082076] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,\n'}
+[3.082129] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/executors.hpp:21,\n'}
+[3.082183] (template_drone_control) StderrLine: {'line': b'                 from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,\n'}
+[3.082237] (template_drone_control) StderrLine: {'line': b'                 from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:\n'}
+[3.082294] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/time.hpp:91:3: note: candidate: \xe2\x80\x98rclcpp::Time& rclcpp::Time::operator=(const rclcpp::Time&)\xe2\x80\x99\n'}
+[3.082349] (template_drone_control) StderrLine: {'line': b'   91 |   operator=(const Time & rhs);\n'}
+[3.082402] (template_drone_control) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[3.082456] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/time.hpp:91:26: note:   no known conversion for argument 1 from \xe2\x80\x98builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type\xe2\x80\x99 {aka \xe2\x80\x98int\xe2\x80\x99} to \xe2\x80\x98const rclcpp::Time&\xe2\x80\x99\n'}
+[3.082511] (template_drone_control) StderrLine: {'line': b'   91 |   operator=(const Time & rhs);\n'}
+[3.082565] (template_drone_control) StderrLine: {'line': b'      |             ~~~~~~~~~~~~~^~~\n'}
+[3.082619] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/time.hpp:101:3: note: candidate: \xe2\x80\x98rclcpp::Time& rclcpp::Time::operator=(const Time&)\xe2\x80\x99\n'}
+[3.082674] (template_drone_control) StderrLine: {'line': b'  101 |   operator=(const builtin_interfaces::msg::Time & time_msg);\n'}
+[3.082728] (template_drone_control) StderrLine: {'line': b'      |   ^~~~~~~~\n'}
+[3.082783] (template_drone_control) StderrLine: {'line': b'/opt/ros/foxy/include/rclcpp/time.hpp:101:51: note:   no known conversion for argument 1 from \xe2\x80\x98builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type\xe2\x80\x99 {aka \xe2\x80\x98int\xe2\x80\x99} to \xe2\x80\x98const Time&\xe2\x80\x99 {aka \xe2\x80\x98const builtin_interfaces::msg::Time_<std::allocator<void> >&\xe2\x80\x99}\n'}
+[3.082840] (template_drone_control) StderrLine: {'line': b'  101 |   operator=(const builtin_interfaces::msg::Time & time_msg);\n'}
+[3.082895] (template_drone_control) StderrLine: {'line': b'      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~\n'}
+[3.082949] (template_drone_control) StderrLine: {'line': b'/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:321:5: warning: control reaches end of non-void function [-Wreturn-type]\n'}
+[3.083007] (template_drone_control) StderrLine: {'line': b'  321 |     }\n'}
+[3.083063] (template_drone_control) StderrLine: {'line': b'      |     ^\n'}
+[3.083117] (template_drone_control) StderrLine: {'line': b'make[2]: *** [CMakeFiles/swaarm_control.dir/build.make:63: CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o] Error 1\n'}
+[3.083171] (template_drone_control) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/swaarm_control.dir/all] Error 2\n'}
+[3.083225] (template_drone_control) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[3.083282] (template_drone_control) CommandEnded: {'returncode': 2}
+[3.110176] (-) TimerEvent: {}
+[3.110608] (template_drone_control) JobEnded: {'identifier': 'template_drone_control', 'rc': 2}
+[3.120991] (-) EventReactorShutdown: {}

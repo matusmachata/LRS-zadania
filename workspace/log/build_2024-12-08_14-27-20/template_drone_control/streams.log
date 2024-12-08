@@ -1,0 +1,216 @@
+[0.008s] Invoking command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16
+[0.038s] [35m[1mScanning dependencies of target swaarm_control[0m
+[0.052s] [ 50%] Built target template_drone_control_node
+[0.070s] [ 75%] [32mBuilding CXX object CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o[0m
+[3.069s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In member function ‘bool MultiDroneControl::move_drones(MultiDroneControl::Coords)’:
+[3.070s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:294:37: error: no match for ‘operator!=’ (operand types are ‘rclcpp::Time’ and ‘builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type’ {aka ‘int’})
+[3.070s]   294 |             if (lastTimestampDrone1 != posDrone1.header.stamp.sec &&
+[3.070s]       |                 ~~~~~~~~~~~~~~~~~~~ ^~ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+[3.070s]       |                 |                                             |
+[3.070s]       |                 rclcpp::Time                                  builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type {aka int}
+[3.070s] In file included from /opt/ros/foxy/include/rclcpp/clock.hpp:23,
+[3.070s]                  from /opt/ros/foxy/include/rclcpp/timer.hpp:27,
+[3.070s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:27,
+[3.070s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[3.071s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[3.071s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[3.071s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[3.071s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[3.071s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.071s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.071s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.071s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:
+[3.071s] /opt/ros/foxy/include/rclcpp/time.hpp:112:3: note: candidate: ‘bool rclcpp::Time::operator!=(const rclcpp::Time&) const’
+[3.071s]   112 |   operator!=(const rclcpp::Time & rhs) const;
+[3.071s]       |   ^~~~~~~~
+[3.071s] /opt/ros/foxy/include/rclcpp/time.hpp:112:35: note:   no known conversion for argument 1 from ‘builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type’ {aka ‘int’} to ‘const rclcpp::Time&’
+[3.071s]   112 |   operator!=(const rclcpp::Time & rhs) const;
+[3.071s]       |              ~~~~~~~~~~~~~~~~~~~~~^~~
+[3.071s] In file included from /opt/ros/foxy/include/rclcpp/node_interfaces/node_graph_interface.hpp:31,
+[3.071s]                  from /opt/ros/foxy/include/rclcpp/client.hpp:34,
+[3.071s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+[3.071s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[3.071s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[3.071s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[3.072s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[3.072s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[3.072s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.072s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.072s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.072s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:
+[3.072s] /opt/ros/foxy/include/rclcpp/qos.hpp:163:6: note: candidate: ‘bool rclcpp::operator!=(const rclcpp::QoS&, const rclcpp::QoS&)’
+[3.072s]   163 | bool operator!=(const QoS & left, const QoS & right);
+[3.072s]       |      ^~~~~~~~
+[3.072s] /opt/ros/foxy/include/rclcpp/qos.hpp:163:29: note:   no known conversion for argument 1 from ‘rclcpp::Time’ to ‘const rclcpp::QoS&’
+[3.072s]   163 | bool operator!=(const QoS & left, const QoS & right);
+[3.072s]       |                 ~~~~~~~~~~~~^~~~
+[3.072s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:295:37: error: no match for ‘operator!=’ (operand types are ‘rclcpp::Time’ and ‘builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type’ {aka ‘int’})
+[3.072s]   295 |                 lastTimestampDrone2 != posDrone2.header.stamp.sec &&
+[3.072s]       |                 ~~~~~~~~~~~~~~~~~~~ ^~ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+[3.073s]       |                 |                                             |
+[3.073s]       |                 rclcpp::Time                                  builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type {aka int}
+[3.073s] In file included from /opt/ros/foxy/include/rclcpp/clock.hpp:23,
+[3.073s]                  from /opt/ros/foxy/include/rclcpp/timer.hpp:27,
+[3.073s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:27,
+[3.073s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[3.073s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[3.073s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[3.073s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[3.073s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[3.073s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.073s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.073s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.073s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:
+[3.073s] /opt/ros/foxy/include/rclcpp/time.hpp:112:3: note: candidate: ‘bool rclcpp::Time::operator!=(const rclcpp::Time&) const’
+[3.073s]   112 |   operator!=(const rclcpp::Time & rhs) const;
+[3.073s]       |   ^~~~~~~~
+[3.073s] /opt/ros/foxy/include/rclcpp/time.hpp:112:35: note:   no known conversion for argument 1 from ‘builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type’ {aka ‘int’} to ‘const rclcpp::Time&’
+[3.074s]   112 |   operator!=(const rclcpp::Time & rhs) const;
+[3.074s]       |              ~~~~~~~~~~~~~~~~~~~~~^~~
+[3.074s] In file included from /opt/ros/foxy/include/rclcpp/node_interfaces/node_graph_interface.hpp:31,
+[3.074s]                  from /opt/ros/foxy/include/rclcpp/client.hpp:34,
+[3.074s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+[3.074s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[3.074s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[3.074s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[3.074s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[3.074s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[3.074s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.074s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.074s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.074s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:
+[3.074s] /opt/ros/foxy/include/rclcpp/qos.hpp:163:6: note: candidate: ‘bool rclcpp::operator!=(const rclcpp::QoS&, const rclcpp::QoS&)’
+[3.074s]   163 | bool operator!=(const QoS & left, const QoS & right);
+[3.074s]       |      ^~~~~~~~
+[3.074s] /opt/ros/foxy/include/rclcpp/qos.hpp:163:29: note:   no known conversion for argument 1 from ‘rclcpp::Time’ to ‘const rclcpp::QoS&’
+[3.074s]   163 | bool operator!=(const QoS & left, const QoS & right);
+[3.074s]       |                 ~~~~~~~~~~~~^~~~
+[3.075s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:296:37: error: no match for ‘operator!=’ (operand types are ‘rclcpp::Time’ and ‘builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type’ {aka ‘int’})
+[3.075s]   296 |                 lastTimestampDrone3 != posDrone3.header.stamp.sec) {
+[3.075s]       |                 ~~~~~~~~~~~~~~~~~~~ ^~ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+[3.075s]       |                 |                                             |
+[3.075s]       |                 rclcpp::Time                                  builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type {aka int}
+[3.075s] In file included from /opt/ros/foxy/include/rclcpp/clock.hpp:23,
+[3.075s]                  from /opt/ros/foxy/include/rclcpp/timer.hpp:27,
+[3.075s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:27,
+[3.075s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[3.076s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[3.076s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[3.076s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[3.076s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[3.076s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.076s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.076s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.076s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:
+[3.076s] /opt/ros/foxy/include/rclcpp/time.hpp:112:3: note: candidate: ‘bool rclcpp::Time::operator!=(const rclcpp::Time&) const’
+[3.076s]   112 |   operator!=(const rclcpp::Time & rhs) const;
+[3.076s]       |   ^~~~~~~~
+[3.077s] /opt/ros/foxy/include/rclcpp/time.hpp:112:35: note:   no known conversion for argument 1 from ‘builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type’ {aka ‘int’} to ‘const rclcpp::Time&’
+[3.077s]   112 |   operator!=(const rclcpp::Time & rhs) const;
+[3.077s]       |              ~~~~~~~~~~~~~~~~~~~~~^~~
+[3.077s] In file included from /opt/ros/foxy/include/rclcpp/node_interfaces/node_graph_interface.hpp:31,
+[3.077s]                  from /opt/ros/foxy/include/rclcpp/client.hpp:34,
+[3.077s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+[3.077s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[3.077s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[3.077s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[3.077s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[3.077s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[3.077s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.077s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.077s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.078s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:
+[3.078s] /opt/ros/foxy/include/rclcpp/qos.hpp:163:6: note: candidate: ‘bool rclcpp::operator!=(const rclcpp::QoS&, const rclcpp::QoS&)’
+[3.078s]   163 | bool operator!=(const QoS & left, const QoS & right);
+[3.078s]       |      ^~~~~~~~
+[3.078s] /opt/ros/foxy/include/rclcpp/qos.hpp:163:29: note:   no known conversion for argument 1 from ‘rclcpp::Time’ to ‘const rclcpp::QoS&’
+[3.078s]   163 | bool operator!=(const QoS & left, const QoS & right);
+[3.078s]       |                 ~~~~~~~~~~~~^~~~
+[3.078s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:307:58: error: no match for ‘operator=’ (operand types are ‘rclcpp::Time’ and ‘builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type’ {aka ‘int’})
+[3.078s]   307 |             lastTimestampDrone1 = posDrone1.header.stamp.sec;
+[3.078s]       |                                                          ^~~
+[3.078s] In file included from /opt/ros/foxy/include/rclcpp/clock.hpp:23,
+[3.078s]                  from /opt/ros/foxy/include/rclcpp/timer.hpp:27,
+[3.078s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:27,
+[3.079s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[3.079s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[3.079s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[3.079s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[3.079s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[3.079s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.079s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.079s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.079s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:
+[3.079s] /opt/ros/foxy/include/rclcpp/time.hpp:91:3: note: candidate: ‘rclcpp::Time& rclcpp::Time::operator=(const rclcpp::Time&)’
+[3.079s]    91 |   operator=(const Time & rhs);
+[3.079s]       |   ^~~~~~~~
+[3.079s] /opt/ros/foxy/include/rclcpp/time.hpp:91:26: note:   no known conversion for argument 1 from ‘builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type’ {aka ‘int’} to ‘const rclcpp::Time&’
+[3.079s]    91 |   operator=(const Time & rhs);
+[3.079s]       |             ~~~~~~~~~~~~~^~~
+[3.079s] /opt/ros/foxy/include/rclcpp/time.hpp:101:3: note: candidate: ‘rclcpp::Time& rclcpp::Time::operator=(const Time&)’
+[3.079s]   101 |   operator=(const builtin_interfaces::msg::Time & time_msg);
+[3.079s]       |   ^~~~~~~~
+[3.079s] /opt/ros/foxy/include/rclcpp/time.hpp:101:51: note:   no known conversion for argument 1 from ‘builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type’ {aka ‘int’} to ‘const Time&’ {aka ‘const builtin_interfaces::msg::Time_<std::allocator<void> >&’}
+[3.080s]   101 |   operator=(const builtin_interfaces::msg::Time & time_msg);
+[3.080s]       |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+[3.080s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:308:58: error: no match for ‘operator=’ (operand types are ‘rclcpp::Time’ and ‘builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type’ {aka ‘int’})
+[3.080s]   308 |             lastTimestampDrone2 = posDrone2.header.stamp.sec;
+[3.080s]       |                                                          ^~~
+[3.080s] In file included from /opt/ros/foxy/include/rclcpp/clock.hpp:23,
+[3.080s]                  from /opt/ros/foxy/include/rclcpp/timer.hpp:27,
+[3.080s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:27,
+[3.080s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[3.080s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[3.080s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[3.080s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[3.080s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[3.080s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.080s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.080s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.080s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:
+[3.080s] /opt/ros/foxy/include/rclcpp/time.hpp:91:3: note: candidate: ‘rclcpp::Time& rclcpp::Time::operator=(const rclcpp::Time&)’
+[3.081s]    91 |   operator=(const Time & rhs);
+[3.081s]       |   ^~~~~~~~
+[3.081s] /opt/ros/foxy/include/rclcpp/time.hpp:91:26: note:   no known conversion for argument 1 from ‘builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type’ {aka ‘int’} to ‘const rclcpp::Time&’
+[3.081s]    91 |   operator=(const Time & rhs);
+[3.081s]       |             ~~~~~~~~~~~~~^~~
+[3.081s] /opt/ros/foxy/include/rclcpp/time.hpp:101:3: note: candidate: ‘rclcpp::Time& rclcpp::Time::operator=(const Time&)’
+[3.081s]   101 |   operator=(const builtin_interfaces::msg::Time & time_msg);
+[3.081s]       |   ^~~~~~~~
+[3.081s] /opt/ros/foxy/include/rclcpp/time.hpp:101:51: note:   no known conversion for argument 1 from ‘builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type’ {aka ‘int’} to ‘const Time&’ {aka ‘const builtin_interfaces::msg::Time_<std::allocator<void> >&’}
+[3.081s]   101 |   operator=(const builtin_interfaces::msg::Time & time_msg);
+[3.081s]       |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+[3.081s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:309:58: error: no match for ‘operator=’ (operand types are ‘rclcpp::Time’ and ‘builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type’ {aka ‘int’})
+[3.081s]   309 |             lastTimestampDrone3 = posDrone3.header.stamp.sec;
+[3.081s]       |                                                          ^~~
+[3.081s] In file included from /opt/ros/foxy/include/rclcpp/clock.hpp:23,
+[3.081s]                  from /opt/ros/foxy/include/rclcpp/timer.hpp:27,
+[3.081s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:27,
+[3.081s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[3.082s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[3.082s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[3.082s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[3.082s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[3.082s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.082s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.082s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.082s]                  from /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:1:
+[3.082s] /opt/ros/foxy/include/rclcpp/time.hpp:91:3: note: candidate: ‘rclcpp::Time& rclcpp::Time::operator=(const rclcpp::Time&)’
+[3.082s]    91 |   operator=(const Time & rhs);
+[3.082s]       |   ^~~~~~~~
+[3.082s] /opt/ros/foxy/include/rclcpp/time.hpp:91:26: note:   no known conversion for argument 1 from ‘builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type’ {aka ‘int’} to ‘const rclcpp::Time&’
+[3.082s]    91 |   operator=(const Time & rhs);
+[3.082s]       |             ~~~~~~~~~~~~~^~~
+[3.082s] /opt/ros/foxy/include/rclcpp/time.hpp:101:3: note: candidate: ‘rclcpp::Time& rclcpp::Time::operator=(const Time&)’
+[3.082s]   101 |   operator=(const builtin_interfaces::msg::Time & time_msg);
+[3.082s]       |   ^~~~~~~~
+[3.082s] /opt/ros/foxy/include/rclcpp/time.hpp:101:51: note:   no known conversion for argument 1 from ‘builtin_interfaces::msg::Time_<std::allocator<void> >::_sec_type’ {aka ‘int’} to ‘const Time&’ {aka ‘const builtin_interfaces::msg::Time_<std::allocator<void> >&’}
+[3.083s]   101 |   operator=(const builtin_interfaces::msg::Time & time_msg);
+[3.083s]       |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+[3.083s] /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:321:5: warning: control reaches end of non-void function [-Wreturn-type]
+[3.083s]   321 |     }
+[3.083s]       |     ^
+[3.083s] make[2]: *** [CMakeFiles/swaarm_control.dir/build.make:63: CMakeFiles/swaarm_control.dir/src/swaarm_control.cpp.o] Error 1
+[3.083s] make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/swaarm_control.dir/all] Error 2
+[3.083s] make: *** [Makefile:141: all] Error 2
+[3.083s] Invoked command in '/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/build/template_drone_control -- -j16 -l16
