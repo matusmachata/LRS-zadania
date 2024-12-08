@@ -26,65 +26,6 @@ public:
     };
 
 
-// void move_drones(Coords coordsLeadingDrone)
-//     {
-//         // Access the position of the leading drone (drone1)
-//         const auto &drone1 = drone_namespaces_[0];
-//         const auto &drone2 = drone_namespaces_[1];
-//         const auto &drone3 = drone_namespaces_[2];
-//         geometry_msgs::msg::PoseStamped posDrone1;
-//         geometry_msgs::msg::PoseStamped posDrone2;
-//         geometry_msgs::msg::PoseStamped posDrone3;
-//         double tolerance = 0.1;
-
-
-
-//         // posDrone1 = current_positions_[drone1];
-
-//         // RCLCPP_INFO(this->get_logger(), "Current position for %s: x=%.2f, y=%.2f, z=%.2f", 
-//         //             drone1.c_str(), posDrone1.pose.position.x, posDrone1.pose.position.y, posDrone1.pose.position.z);
-
-//         // Move the leading drone
-//         move_drone(drone1, coordsLeadingDrone);
-
-//         // Calculate follower positions based on the leading drone's position
-//         Coords coordsDrone2, coordsDrone3;
-//         std::tie(coordsDrone2, coordsDrone3) = calculateFollowerPositions(coordsLeadingDrone);
-
-//         // Move follower drones
-//         move_drone(drone_namespaces_[1], coordsDrone2);
-//         move_drone(drone_namespaces_[2], coordsDrone3);
-//         RCLCPP_INFO(this->get_logger(), "This 1");
-//         rclcpp::Rate rate(5.0);
-//         while(rclcpp::ok())
-//         {
-//         RCLCPP_INFO(this->get_logger(), "This 2");
-//             rclcpp::spin_some(this->get_node_base_interface());
-//             rate.sleep();
-//         RCLCPP_INFO(this->get_logger(), "This 3");
-//             posDrone1 = current_positions_[drone1];
-//         RCLCPP_INFO(this->get_logger(), "This 4");
-//             RCLCPP_INFO(this->get_logger(), "Position of leading drone : x=%.2f, y=%.2f, z=%.2f", 
-//                         posDrone1.pose.position.x, posDrone1.pose.position.y, posDrone1.pose.position.z);
-//         RCLCPP_INFO(this->get_logger(), "This 5");
-//             // Calculate distance to target
-//             double dx = posDrone1.pose.position.x - coordsLeadingDrone.x;
-//             double dy = posDrone1.pose.position.y - coordsLeadingDrone.y;                   
-//             double distance = std::sqrt(dx * dx + dy * dy);
-//         RCLCPP_INFO(this->get_logger(), "This 6");
-
-            
-//             if (distance <= tolerance) {
-//                 break;
-//             }
-//         }
-
-
-
-//         // std::this_thread::sleep_for(2s); // Allow time for movement
-//     }
-
-
     MultiDroneControl() : Node("multi_drone_control_node")
     {
         // Define namespaces for the drones
