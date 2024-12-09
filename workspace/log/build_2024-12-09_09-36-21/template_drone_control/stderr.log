@@ -1,0 +1,13 @@
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp: In member function ‘bool MultiDroneControl::move_drones(MultiDroneControl::Coords)’:
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:298:37: warning: comparison of integer expressions of different signedness: ‘int’ and ‘builtin_interfaces::msg::Time_<std::allocator<void> >::_nanosec_type’ {aka ‘unsigned int’} [-Wsign-compare]
+  298 |             if (lastTimestampDrone1 != posDrone1.header.stamp.nanosec &&
+      |                 ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:299:37: warning: comparison of integer expressions of different signedness: ‘int’ and ‘builtin_interfaces::msg::Time_<std::allocator<void> >::_nanosec_type’ {aka ‘unsigned int’} [-Wsign-compare]
+  299 |                 lastTimestampDrone2 != posDrone2.header.stamp.nanosec &&
+      |                 ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:300:37: warning: comparison of integer expressions of different signedness: ‘int’ and ‘builtin_interfaces::msg::Time_<std::allocator<void> >::_nanosec_type’ {aka ‘unsigned int’} [-Wsign-compare]
+  300 |                 lastTimestampDrone3 != posDrone3.header.stamp.nanosec) {
+      |                 ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/lrs-ubuntu/Documents/GitHub/LRS-zadania/workspace/src/template_drone_control/src/swaarm_control.cpp:330:5: warning: control reaches end of non-void function [-Wreturn-type]
+  330 |     }
+      |     ^
